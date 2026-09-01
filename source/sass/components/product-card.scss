@@ -170,16 +170,22 @@
 	}
 
 	@include vp-768 {
-		padding: 0.4rem 1.2rem 1.2rem;
+		// по макету (328px) отступы и высота медиа на мобильных не уменьшаются
+		padding: 0.4rem 1.6rem 1.6rem;
+
+		// на тач-устройствах ховера нет — рамка и тень видны сразу
+		border-color: var(--color-endeavour);
+		box-shadow: 0 0 1.6rem rgba(0, 131, 202, 0.07);
 
 		&__media {
-			min-height: 14rem;
+			min-height: 21.3rem;
 			padding: 2.4rem 0;
 		}
 
+		// на мобильных цена крупнее — это главный акцент карточки
 		&__price {
-			font-size: 2rem;
-			line-height: 2.8rem;
+			font-size: 3.2rem;
+			line-height: 4rem;
 		}
 
 		// Ряд остаётся горизонтальным: основная кнопка тянется,
