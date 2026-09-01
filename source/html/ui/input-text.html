@@ -1,0 +1,24 @@
+<div class="form-group input @@if (context.containerclass) {@@containerclass}" data-form-group>
+	<input
+		class="form-control @@if (context.class) {@@class}"
+		@@if (context.placeholder) {placeholder="@@placeholder" }
+		@@if (context.required) {required}
+		@@if (context.id) {id="@@id" }
+		@@if (context.name) {name="@@name" }
+		@@if (context.value) {value="@@value" }
+		@@if (context.minlength) {minlength="@@minlength" }
+		@@if (context.maxlength) {maxlength="@@maxlength" }
+		@@if(context.type){
+    data-type="@@type"
+    }
+    @@if(!context.type){
+    data-type="text"
+    type="text"
+    }
+		@@if (context.readonly) {readonly}
+		@@if (context.disabled) {disabled}
+		@@if (context.put) {data-put-input}
+		autocomplete="off"
+		data-required-message="Обязательное поле"
+	>
+</div>

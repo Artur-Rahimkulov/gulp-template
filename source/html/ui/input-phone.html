@@ -1,0 +1,18 @@
+<div class="form-group input @@if (context.containerclass) {@@containerclass}" data-form-group>
+	<input class="form-control input-tel @@if (context.class) {@@class}"
+         type="text"
+         data-type="phone"
+         @@if (context.name)
+         {name="@@name" }
+         @@if (context.placeholder) {placeholder="@@placeholder" }
+         @@if (context.required) {required}
+         @@if (context.id) {id="@@id" }
+         @@if (context.value) {value="@@value" }
+         @@if (context.readonly) {readonly}
+         @@if (context.disabled) {disabled}
+         autocomplete="off"
+         data-required-message="Обязательное поле"
+         data-error-message="Некорректный телефон">
+
+
+</div>

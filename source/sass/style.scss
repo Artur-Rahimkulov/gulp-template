@@ -1,0 +1,36 @@
+// Vendor
+// ---------------------------------
+@import 'vendor/normalize';
+@import './node_modules/swiper/swiper-bundle';
+
+// Global
+// ---------------------------------
+@import 'variables';
+@import 'breakpoints';
+@import 'mixins';
+@import 'global/fonts';
+@import 'global/reboot';
+@import 'global/utils';
+@import 'global/container';
+
+// Components
+// ---------------------------------
+
+@import 'components/modal';
+@import 'components/accordion';
+@import 'components/example';
+@import 'components/header';
+@import 'components/footer';
+
+// Ui
+// ---------------------------------
+
+@import 'ui/btn';
+@import 'ui/select';
+@import 'ui/checkbox';
+@import 'ui/input';
+
+
+// ---------------------------------
+
+// адаптив пишем внутри каждого класса (смотрим container.scss)

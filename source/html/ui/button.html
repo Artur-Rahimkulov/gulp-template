@@ -1,0 +1,12 @@
+<button
+  class="btn @@class"
+  @@if(context.type){type="@@type"}
+  @@if(context.dataAttrString){@@dataAttrString}
+  @@if(context.disabled){disabled="disabled"}
+  @@if(context.id){id="@@id"}
+>
+  @@if(context.icon){
+  <span>@@icon</span>
+  }
+  <span>@@name</span>
+</button>

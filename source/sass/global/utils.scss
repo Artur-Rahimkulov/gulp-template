@@ -1,0 +1,45 @@
+.wrapper {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	/* stylelint-disable-next-line */
+	min-height: calc(100 * var(--vh, 1vh));
+
+	.header,
+	.footer {
+		flex-shrink: 0;
+	}
+
+	main {
+		flex-grow: 1;
+	}
+}
+
+.scroll-lock-ios {
+	position: fixed;
+	overflow: hidden;
+}
+
+.scroll-lock {
+	overflow: hidden;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.no-transition {
+	/* stylelint-disable-next-line */
+	transition: none !important;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+	outline: none;
+}

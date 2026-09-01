@@ -1,0 +1,32 @@
+<div
+  class="select @@if(context.class){@@class}"
+  @@if(context.id){id="@@id" }
+  data-select="select"
+  @@if(context.paramsSearch){data-params-search="@@paramsSearch" }
+  data-form-group
+>
+	@@if(context.label){
+	<label class="select__label">@@label</label>
+	}
+	<div class="select__wrapper">
+		<div class="select__button" data-select="button">
+			<div class="select__title">
+				<span>@@button</span>
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M12 12.6L16.6 8L18 9.4L12 15.4L6 9.4L7.4 8L12 12.6Z" fill="#1D1B20" />
+				</svg>
+
+			</div>
+			<input class="form-control" type="text" @@if(context.name){name="@@name" } @@if(context.value){value="@@value" } @@if(context.required) {required}>
+		</div>
+		<div class="select__options" data-select="options">
+			<ul class="select__list" @@if(context.onclick){onclick="@@onclick" }>
+				@@if (context.selected) {
+				<li class="select__option _selected" data-value="@@value" data-select="option"><span>@@button</span></li>
+				}
+				@@for(let i = 0; i < selectOptions.length; i++) { <li class="select__option" data-value="`+selectOptions[i].value+`" data-select="option"><span>`+selectOptions[i].text+`</span></li>
+				}
+			</ul>
+		</div>
+	</div>
+</div>

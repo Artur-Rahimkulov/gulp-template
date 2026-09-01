@@ -1,0 +1,21 @@
+:root {
+    // Colors
+    // ---------------------------------
+    // Default
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-transparent: rgba(255, 255, 255, 0);
+    --color-overlay: rgba(0, 0, 0, 0.5);
+
+    // Project palette
+    // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+    --color-neon-blue: #2c39f2;
+    --color-torch-red: #ff1553;
+    --color-zirkon: #DBE8EA;
+
+    // Gradient
+    --black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+
+    // Transition
+    --default-transition: 0.3s ease;
+}

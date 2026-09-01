@@ -1,0 +1,44 @@
+.input{
+  position: relative;
+  input{
+    font-size: 1.4rem;
+    padding: 1.7rem 1.6rem;
+    background-color: white;
+    border-radius: 1rem;
+    color: black;
+    outline: none;
+    transition: var(--default-transition);
+    width: 100%;
+    border: .1rem solid gray;
+    &::placeholder{
+      color: black;
+      opacity: 40%;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus{
+      background-color: white;
+    }
+  }
+
+  .pristine-error{
+    font-size: 12px;
+    color: red;
+    margin-top: 2px;
+  }
+  &.has-danger{
+    input{
+      border: .1rem solid red;
+    }
+    .error-message{
+      margin-top: 2px;
+      font-size: 14px;
+      color: red;
+    }
+    .input-tooltip-btn{
+      opacity: 100%;
+      pointer-events: auto;
+    }
+  }
+}

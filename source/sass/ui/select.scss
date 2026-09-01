@@ -1,0 +1,139 @@
+.select {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+
+	&._disabled {
+		pointer-events: none;
+	}
+
+	&.is-open {
+		.select__title {
+			& > svg {
+				transform: scaleY(-1);
+			}
+		}
+
+		.select__options {
+			max-height: fit-content;
+			pointer-events: auto;
+			box-shadow: 0 0.3rem 1.4rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.8rem 1rem 0.1rem rgba(0, 0, 0, 0.14), 0 0.5rem 0.5rem -0.3rem rgba(0, 0, 0, 0.2);
+			height: auto;
+		}
+	}
+
+	&.error {
+		.select__button {
+			border-color: var(--color-torch-red);
+		}
+		.select__title {
+			& > svg {
+				path {
+					stroke: var(--color-torch-red);
+				}
+			}
+		}
+		.select__label {
+			color: var(--color-torch-red);
+		}
+	}
+}
+
+.select__wrapper {
+	position: relative;
+}
+
+.select__button {
+	cursor: pointer;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	font-size: 1.8rem;
+	padding: 1.2rem;
+	border: 0.1rem solid rgba(0, 0, 0, 0.3);
+	background-color: var(--color-transparent);
+	border-radius: 0.4rem;
+	color: rgba(0, 0, 0, 0.3);
+	height: 5rem;
+
+	& > input {
+		display: none;
+	}
+}
+
+.select__title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.2rem;
+	width: 100%;
+	pointer-events: none;
+
+	& > span {
+		@include RubberSize(font-size, 18, 14);
+		color: rgba(0, 0, 0, 0.3);
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+		transition: color var(--default-transition);
+	}
+
+	& > svg {
+		transition: all var(--default-transition);
+		path {
+			stroke: var(--color-white);
+			transition: stroke var(--default-transition);
+		}
+	}
+}
+
+.select__options {
+	border-radius: 0.8rem;
+	position: absolute;
+	top: 100%;
+	height: 0;
+	z-index: 100;
+	pointer-events: none;
+	overflow: hidden;
+	transition: var(--default-transition);
+	width: 100%;
+}
+
+.select__list {
+	background-color: var(--color-white);
+	border-radius: 0.4rem;
+	box-shadow: 0 0.1rem 0.1rem 0 rgba(16, 24, 40, 0.09);
+	padding: 0 1.2rem;
+	overflow-y: auto;
+}
+
+.select__option {
+	cursor: pointer;
+	list-style: none;
+	padding: 1.2rem 0;
+
+	&:hover {
+		& > span {
+			opacity: 0.7;
+		}
+	}
+
+	& > span {
+		font-size: 1.8rem;
+		color: var(--color-black);
+		transition: var(--default-transition);
+	}
+}
+
+.select__label {
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 1.2rem;
+	background-color: var(--color-white);
+	position: absolute;
+	padding: 0 0.8rem;
+	left: 1.2rem;
+	top: -0.8rem;
+	z-index: 20;
+}

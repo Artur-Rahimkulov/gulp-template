@@ -1,0 +1,50 @@
+// Viewports
+// ---------------------------------
+$vp-320:                            320px;
+$vp-360:                            360px;
+$vp-375:                            375px;
+$vp-575:                            575px;
+$vp-768:                            768px;
+$vp-991:                            991px;
+$vp-1024:                           1024px;
+$vp-1140:                           1140px;
+$vp-1280:                           1280px;
+$vp-1366:                           1366px;
+$vp-1440:                           1440px;
+$vp-1600:                           1600px;
+$vp-1920:                           1920px;
+
+
+// Desktop first
+
+@mixin vp-1440 {
+	@media (max-width: ($vp-1440)) {
+	  @content;
+	}
+}
+
+@mixin vp-1024 {
+	@media (max-width: ($vp-1024)) {
+	  @content;
+	}
+}
+
+@mixin vp-768 {
+	@media (max-width: ($vp-768)) {
+	  @content;
+	}
+}
+
+// Mobile first
+
+// @mixin vp-375 {
+//   @media (min-width: $vp-375) {
+//     @content;
+//   }
+// }
+
+// @mixin vp-768 {
+//   @media (min-width: $vp-768) {
+//     @content;
+//   }
+// }
