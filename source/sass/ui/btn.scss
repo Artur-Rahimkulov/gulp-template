@@ -1,23 +1,107 @@
 .btn {
 	display: inline-flex;
-	padding: 1rem 2rem;
+	align-items: center;
+	justify-content: center;
+	gap: 0.8rem;
+	padding: 1.2rem 2rem;
+	border: 1px solid transparent;
+	border-radius: var(--radius-sm);
 	outline: none;
-	color: var(--color-white);
-	background-color: var(--color-neon-blue);
+
+	font-family: var(--font-primary);
+	font-size: 1.4rem;
+	font-weight: 500;
+	line-height: 2rem;
+	text-align: center;
+	white-space: nowrap;
 
 	cursor: pointer;
-	transition: opacity var(--default-transition);
+	transition: background-color var(--default-transition), border-color var(--default-transition), color var(--default-transition);
 
-	&--red {
-		background-color: var(--color-torch-red);
+	// Sizes
+	// ---------------------------------
+
+	&--large {
+		padding: 1.6rem 2.4rem;
+
+		font-size: 1.6rem;
 	}
 
-	&:disabled {
-		opacity: 0.5;
+	&--block {
+		width: 100%;
+	}
+
+	// Types
+	// ---------------------------------
+
+	&--primary {
+		color: var(--color-white);
+		background-color: var(--color-endeavour);
+
+		@include hover-focus {
+			background-color: var(--color-congress-blue);
+		}
+	}
+
+	&--secondary {
+		color: var(--color-endeavour);
+		background-color: var(--color-pattens-blue);
+
+		@include hover-focus {
+			background-color: var(--color-tropical-blue);
+		}
+	}
+
+	&--outlined {
+		color: var(--color-pale-sky);
+		background-color: var(--color-transparent);
+		border-color: var(--color-loblolly);
+
+		@include hover-focus {
+			color: var(--color-endeavour);
+			border-color: var(--color-endeavour);
+		}
+	}
+
+	&--accent {
+		color: var(--color-white);
+		background-color: var(--color-alizarin);
+
+		@include hover-focus {
+			background-color: #d31f20;
+		}
+	}
+
+	&--ghost {
+		color: var(--color-pale-sky);
+		background-color: var(--color-transparent);
+
+		@include hover-focus {
+			background-color: var(--color-pattens-blue);
+		}
+	}
+
+	&--icon {
+		width: 5.2rem;
+		height: 5.2rem;
+		flex-shrink: 0;
+		padding: 0;
+	}
+
+	// States
+	// ---------------------------------
+
+	&.is-active {
+		color: var(--color-endeavour);
+		background-color: var(--color-pattens-blue);
+		border-color: var(--color-transparent);
+	}
+
+	&:disabled,
+	&.is-disabled {
+		color: var(--color-oslo-gray);
+		background-color: var(--color-mystic);
+		border-color: var(--color-transparent);
 		pointer-events: none;
-	}
-
-	@include hover-focus {
-		opacity: 0.8;
 	}
 }

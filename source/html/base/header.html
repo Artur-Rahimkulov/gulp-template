@@ -1,3 +1,77 @@
 <header class="header">
-    <div class="container">header</div>
+	<div class="container">
+		<div class="header__inner">
+			<div class="header__top">
+				<a class="header__logo" href="/" aria-label="ITELON — на главную">
+					<img src="assets/svg/logo.svg" width="146" height="36" alt="ITELON">
+				</a>
+
+				<div class="header__contacts">
+					<div class="header__contacts-item">
+						<img class="header__contacts-icon" src="assets/svg/mail.svg" width="20" height="20" alt="" aria-hidden="true">
+						<a class="header__link" href="mailto:mail@itelon.ru">mail@itelon.ru</a>
+					</div>
+					<span class="header__divider" aria-hidden="true"></span>
+					<a class="header__phone" href="tel:88005055110">8 (800) 505-51-10</a>
+					<span class="header__divider" aria-hidden="true"></span>
+					<a class="header__phone" href="tel:74955103335">7 (495) 510-33-35</a>
+				</div>
+
+				<div class="header__actions">
+					<div class="header__chat">
+						<div class="header__chat-text">
+							<span class="header__chat-title">Есть вопросы?</span>
+							<span class="header__chat-subtitle">Пишите, мы онлайн</span>
+						</div>
+						<div class="header__socials">
+							<a class="header__social" href="#" aria-label="Telegram">
+								<img src="assets/svg/telegram.svg" width="30" height="30" alt="">
+							</a>
+							<a class="header__social" href="#" aria-label="WhatsApp">
+								<img src="assets/svg/whatsapp.svg" width="30" height="30" alt="">
+							</a>
+							<a class="header__social" href="#" aria-label="ВКонтакте">
+								<img src="assets/svg/vk.svg" width="30" height="30" alt="">
+							</a>
+						</div>
+					</div>
+
+					<button class="btn btn--primary btn--medium header__btn" type="button" data-modal-open="callback">Заказать звонок</button>
+					<button class="btn btn--accent btn--medium header__btn" type="button" data-modal-open="offer">Получить КП</button>
+
+					<a class="header__cart" href="#" aria-label="Корзина">
+						<img src="assets/svg/cart.svg" width="24" height="24" alt="">
+					</a>
+				</div>
+
+				<button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-burger>
+					<span class="header__burger-line"></span>
+					<span class="header__burger-line"></span>
+					<span class="header__burger-line"></span>
+				</button>
+			</div>
+
+			<div class="header__bottom">
+				<nav class="header__nav" aria-label="Основная навигация">
+					<ul class="header__nav-list">
+						<li><a class="header__nav-link" href="#">Компания</a></li>
+						<li><a class="header__nav-link" href="#">Каталог</a></li>
+						<li><a class="header__nav-link" href="#">Конфигуратор</a></li>
+						<li><a class="header__nav-link" href="#">ИТ-решения</a></li>
+						<li><a class="header__nav-link" href="#">Кейсы</a></li>
+						<li><a class="header__nav-link" href="#">Поддержка</a></li>
+						<li><a class="header__nav-link" href="#">Контакты</a></li>
+					</ul>
+				</nav>
+
+				<form class="header__search" role="search">
+					<label class="visually-hidden" for="header-search">Поиск по каталогу</label>
+					<input class="header__search-input" id="header-search" type="search" placeholder="Поиск" autocomplete="off">
+					<button class="header__search-btn" type="submit" aria-label="Найти">
+						<img src="assets/svg/search.svg" width="24" height="24" alt="">
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </header>

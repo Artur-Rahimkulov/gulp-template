@@ -5,7 +5,7 @@ const copySvg = () =>
     .pipe(gulp.dest('build'));
 
 const copyImages = () =>
-  gulp.src('source/assets/img/**/*.webp', { base: 'source' })
+  gulp.src('source/assets/img/**/*.{webp,png,jpg,jpeg}', { base: 'source' })
     .pipe(gulp.dest('build'));
 
 const copy = () =>
