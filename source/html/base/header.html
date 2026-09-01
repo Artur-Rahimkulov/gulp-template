@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="header__inner">
 			<div class="header__top">
-				<button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-burger>
+				<button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" data-burger>
 					<span class="header__burger-line"></span>
 					<span class="header__burger-line"></span>
 					<span class="header__burger-line"></span>
@@ -66,13 +66,19 @@
 			<div class="header__bottom">
 				<nav class="header__nav" aria-label="Основная навигация">
 					<ul class="header__nav-list">
-						<li><a class="header__nav-link" href="#">Компания</a></li>
-						<li><a class="header__nav-link" href="#">Каталог</a></li>
-						<li><a class="header__nav-link" href="#">Конфигуратор</a></li>
-						<li><a class="header__nav-link" href="#">ИТ-решения</a></li>
-						<li><a class="header__nav-link" href="#">Кейсы</a></li>
-						<li><a class="header__nav-link" href="#">Поддержка</a></li>
-						<li><a class="header__nav-link" href="#">Контакты</a></li>
+						<li class="header__nav-item" data-dropdown>
+							<a class="header__nav-link" href="#" aria-expanded="false" aria-controls="dropdown-company" data-dropdown-trigger>Компания</a>
+							@@include("source/html/components/menu-company.html")
+						</li>
+						<li class="header__nav-item" data-dropdown>
+							<a class="header__nav-link" href="#" aria-expanded="false" aria-controls="dropdown-catalog" data-dropdown-trigger>Каталог</a>
+							@@include("source/html/components/menu-catalog.html")
+						</li>
+						<li class="header__nav-item"><a class="header__nav-link" href="#">Конфигуратор</a></li>
+						<li class="header__nav-item"><a class="header__nav-link" href="#">ИТ-решения</a></li>
+						<li class="header__nav-item"><a class="header__nav-link" href="#">Кейсы</a></li>
+						<li class="header__nav-item"><a class="header__nav-link" href="#">Поддержка</a></li>
+						<li class="header__nav-item"><a class="header__nav-link" href="#">Контакты</a></li>
 					</ul>
 				</nav>
 
@@ -110,3 +116,5 @@
 		</div>
 	</div>
 </header>
+
+@@include("source/html/base/mobile-menu.html")

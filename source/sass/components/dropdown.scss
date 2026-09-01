@@ -1,0 +1,355 @@
+// Десктопные выпадающие меню шапки (ховер / фокус).
+// Панель позиционируется от .header__inner, поэтому её ширина = ширине контента.
+
+.dropdown {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+	z-index: 10;
+
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(-0.8rem);
+
+	background-color: var(--color-white);
+	border-radius: var(--radius-lg);
+	box-shadow: 0 0 1.6rem rgba(0, 131, 202, 0.07);
+
+	transition: opacity var(--default-transition), transform var(--default-transition), visibility var(--default-transition);
+
+	// открытым состоянием управляет JS: и ховер, и фокус с клавиатуры
+	.header__nav-item.is-open & {
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	&__inner {
+		display: flex;
+		gap: 1.6rem;
+		padding: 4rem;
+	}
+
+	&__cols {
+		display: flex;
+		flex-grow: 1;
+		gap: 6rem;
+	}
+
+	&__col {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 40.2rem;
+		gap: 2rem;
+	}
+
+	// на планшетах панель не нужна — там мобильное меню
+	@include vp-1024 {
+		display: none;
+	}
+}
+
+.dropdown-card {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.8rem;
+
+	&__icon {
+		width: 2.4rem;
+		height: 2.4rem;
+		flex-shrink: 0;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	&__title {
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 2.4rem;
+		color: var(--color-shark);
+
+		transition: color var(--default-transition);
+	}
+
+	&__text {
+		font-size: 1.2rem;
+		line-height: 1.6rem;
+		color: var(--color-pale-sky);
+	}
+
+	@include hover-focus {
+		.dropdown-card__title {
+			color: var(--color-cerulean);
+		}
+	}
+}
+
+.dropdown-promo {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 32.8rem;
+	flex-shrink: 0;
+	padding: 2rem;
+
+	background-image: var(--promo-gradient);
+	border-radius: var(--radius-md);
+
+	&__head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1.2rem;
+	}
+
+	&__title {
+		font-family: var(--font-display);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 2.8rem;
+		color: var(--color-white);
+	}
+
+	&__arrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.2rem;
+		height: 3.2rem;
+		flex-shrink: 0;
+
+		background-color: var(--color-cerulean);
+		border-radius: var(--radius-sm);
+
+		transition: background-color var(--default-transition);
+
+		img {
+			width: 2rem;
+			height: 2rem;
+		}
+	}
+
+	&__img {
+		width: 100%;
+		height: 19.2rem;
+
+		object-fit: cover;
+		border-radius: 1.2rem;
+	}
+
+	@include hover-focus {
+		.dropdown-promo__arrow {
+			background-color: var(--color-white);
+		}
+	}
+}
+
+// ---------------------------------
+// Мега-меню «Каталог»
+// ---------------------------------
+.mega {
+	display: flex;
+
+	&__aside {
+		display: flex;
+		flex-direction: column;
+		width: 34.2rem;
+		flex-shrink: 0;
+		padding: 4rem;
+
+		background-color: var(--color-alice-blue);
+		border-radius: 0 0 0 var(--radius-lg);
+	}
+
+	&__tabs {
+		display: flex;
+		flex-direction: column;
+		gap: 2.8rem;
+	}
+
+	&__tab {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.2rem;
+		width: 100%;
+		padding: 0;
+
+		font-family: var(--font-primary);
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 2rem;
+		text-align: left;
+		color: var(--color-shark);
+
+		background-color: var(--color-transparent);
+		border: none;
+		cursor: pointer;
+
+		transition: color var(--default-transition);
+
+		&.is-active {
+			color: var(--color-congress-blue);
+		}
+
+		@include hover-focus {
+			color: var(--color-cerulean);
+		}
+	}
+
+	// шеврон из ассетов один — вниз, поэтому разворачиваем его вправо
+	&__tab-chevron {
+		width: 1.6rem;
+		height: 1.6rem;
+		flex-shrink: 0;
+
+		transform: rotate(-90deg);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		gap: 4rem;
+		min-width: 0;
+		padding: 4rem;
+	}
+
+	&__pane {
+		display: none;
+		flex-direction: column;
+		gap: 2.8rem;
+
+		&.is-active {
+			display: flex;
+		}
+	}
+
+	&__head {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+	}
+
+	&__title {
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 2.4rem;
+		color: var(--color-shark);
+	}
+
+	&__more {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2rem;
+		height: 2rem;
+		flex-shrink: 0;
+
+		background-color: var(--color-pattens-blue);
+		border-radius: 0.4rem;
+
+		transition: background-color var(--default-transition);
+
+		img {
+			width: 1.6rem;
+			height: 1.6rem;
+		}
+
+		@include hover-focus {
+			background-color: var(--color-cerulean);
+		}
+	}
+
+	&__lists {
+		display: flex;
+		gap: 2rem;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 0;
+		gap: 1.6rem;
+		min-width: 0;
+	}
+
+	&__link {
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+		color: var(--color-shark);
+
+		transition: color var(--default-transition);
+
+		@include hover-focus {
+			color: var(--color-cerulean);
+		}
+	}
+
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.2rem;
+	}
+
+	&__tag {
+		display: block;
+		padding: 0.8rem 1.2rem;
+
+		font-size: 1.4rem;
+		line-height: 2rem;
+		color: var(--color-pale-sky);
+
+		border: 1px solid var(--color-loblolly);
+		border-radius: var(--radius-sm);
+
+		transition: border-color var(--default-transition), color var(--default-transition);
+
+		@include hover-focus {
+			color: var(--color-endeavour);
+			border-color: var(--color-cerulean);
+		}
+	}
+
+	// баннеры общие для всех разделов, поэтому прижаты к низу колонки
+	&__banners {
+		display: flex;
+		gap: 1.6rem;
+		margin-top: auto;
+	}
+
+	&__banner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.2rem;
+		flex: 1 1 0;
+		padding: 1.6rem 2rem;
+
+		font-family: var(--font-display);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 2.8rem;
+		color: var(--color-shark);
+
+		background-color: var(--color-pattens-blue);
+		border-radius: var(--radius-sm);
+
+		transition: background-color var(--default-transition);
+
+		img {
+			width: 2rem;
+			height: 2rem;
+			flex-shrink: 0;
+		}
+
+		@include hover-focus {
+			background-color: var(--color-tropical-blue);
+		}
+	}
+}
