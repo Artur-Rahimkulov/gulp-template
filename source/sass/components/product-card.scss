@@ -1,0 +1,245 @@
+.product-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	padding: 0.4rem 1.6rem 1.6rem;
+
+	border: 1px solid transparent;
+	border-radius: var(--radius-md);
+	background-color: var(--color-white);
+
+	transition: border-color var(--default-transition), box-shadow var(--default-transition);
+
+	&:hover {
+		border-color: var(--color-endeavour);
+		box-shadow: 0 0 1.6rem rgba(0, 131, 202, 0.07);
+	}
+
+	&__media {
+		position: relative;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 21.3rem;
+		padding: 3.2rem 0;
+	}
+
+	&__corner {
+		position: absolute;
+
+		width: 6.4rem;
+		height: 8rem;
+
+		pointer-events: none;
+
+		&::before,
+		&::after {
+			position: absolute;
+			background-color: var(--color-tropical-blue);
+			content: '';
+		}
+
+		// вертикальная линия
+		&::before {
+			width: 1px;
+			height: 100%;
+		}
+
+		// горизонтальная линия
+		&::after {
+			width: 100%;
+			height: 1px;
+		}
+
+		&--start {
+			top: 0;
+			left: 0;
+
+			&::before {
+				top: 0;
+				left: 3rem;
+			}
+
+			&::after {
+				top: 4.6rem;
+				left: 0;
+			}
+		}
+
+		&--end {
+			right: 0;
+			bottom: 0;
+
+			&::before {
+				bottom: 0;
+				right: 3rem;
+			}
+
+			&::after {
+				bottom: 4.6rem;
+				right: 0;
+			}
+		}
+	}
+
+	&__badges {
+		position: absolute;
+		z-index: 1;
+		top: 0.4rem;
+		left: 0;
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	&__image {
+		width: 100%;
+		max-width: 24rem;
+		height: auto;
+
+		object-fit: contain;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+	}
+
+	&__price {
+		font-family: var(--font-display);
+		font-size: 2.4rem;
+		font-weight: 500;
+		line-height: 3.2rem;
+		color: var(--color-congress-blue);
+	}
+
+	&__summary {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	&__title {
+		font-family: var(--font-primary);
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 2rem;
+		color: var(--color-shark);
+	}
+
+	&__link {
+		transition: color var(--default-transition);
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-endeavour);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		margin-top: auto;
+	}
+
+	&__actions-row {
+		display: flex;
+		gap: 0.8rem;
+	}
+
+	@include vp-1024 {
+		&__media {
+			min-height: 17.6rem;
+		}
+
+		&__body {
+			gap: 2rem;
+		}
+	}
+
+	@include vp-768 {
+		padding: 0.4rem 1.2rem 1.2rem;
+
+		&__media {
+			min-height: 14rem;
+			padding: 2.4rem 0;
+		}
+
+		&__price {
+			font-size: 2rem;
+			line-height: 2.8rem;
+		}
+
+		&__actions-row {
+			flex-direction: column;
+		}
+	}
+}
+
+.spec-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	&__item {
+		position: relative;
+
+		padding-left: 1.6rem;
+
+		font-size: 1.4rem;
+		font-weight: 400;
+		line-height: 2rem;
+		color: var(--color-pale-sky);
+
+		&::before {
+			position: absolute;
+			top: 0.95rem;
+			left: 0;
+
+			width: 0.6rem;
+			height: 1px;
+
+			border-radius: 2px;
+			background-color: var(--color-cadet-blue);
+
+			content: '';
+		}
+	}
+}
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.4rem 0.8rem;
+
+	border-radius: 0.6rem;
+
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: 1.6rem;
+
+	&--part {
+		background-color: var(--color-alice-blue);
+		color: var(--color-cerulean);
+	}
+
+	&--stock {
+		background-color: var(--color-cosmic-latte);
+		color: var(--color-observatory);
+	}
+}

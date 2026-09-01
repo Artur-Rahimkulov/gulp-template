@@ -1,0 +1,144 @@
+<div class="catalog-list">
+	<div class="catalog-list__toolbar">
+		<div class="catalog-list__stats">
+			<p class="catalog-list__stat">Найдено: 87</p>
+			<p class="catalog-list__stat">Минимальная цена: 226 062 ₽</p>
+		</div>
+
+		<div class="catalog-list__toolbar-actions">
+			<button class="btn btn--outlined btn--md catalog-list__filters-btn" type="button" data-filters-open>
+				<img src="assets/svg/sliders.svg" width="16" height="24" alt="" aria-hidden="true">
+				Фильтр
+			</button>
+
+			<div class="select catalog-list__sort" data-select="select">
+				<div class="select__wrapper">
+					<div class="select__button" data-select="button">
+						<div class="select__title">
+							<span>По возрастанию</span>
+							<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.08 13.08C6.59 12.58 7.41 12.58 7.92 13.08L16 21.16L24.08 13.08C24.59 12.58 25.41 12.58 25.92 13.08C26.43 13.59 26.43 14.41 25.92 14.92L16.92 23.92C16.41 24.43 15.59 24.43 15.08 23.92L6.08 14.92C5.57 14.41 5.57 13.59 6.08 13.08Z" fill="currentColor"/></svg>
+						</div>
+						<input type="text" name="sort" value="asc" aria-label="Сортировка">
+					</div>
+					<div class="select__options" data-select="options">
+						<ul class="select__list">
+							<li class="select__option is-selected" data-value="asc" data-select="option"><span>По возрастанию</span></li>
+							<li class="select__option" data-value="desc" data-select="option"><span>По убыванию</span></li>
+							<li class="select__option" data-value="popular" data-select="option"><span>По популярности</span></li>
+							<li class="select__option" data-value="new" data-select="option"><span>Сначала новые</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="catalog-list__grid">
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: 868703-B21",
+			"image": "server-dell.jpg",
+			"price": "от 226 062 ₽",
+			"title": "Сервер HP ProLiant DL380 Gen10 (2U)",
+			"spec1": "Rack 2U",
+			"spec2": "2 х Intel Xeon 2Gen",
+			"spec3": "До 3 Тб DDR4 ECC",
+			"spec4": "До 30 дисков SFF"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: R650-4310",
+			"image": "server-dell.jpg",
+			"price": "от 312 480 ₽",
+			"title": "Сервер Dell PowerEdge R650 (1U)",
+			"spec1": "Rack 1U",
+			"spec2": "2 х Intel Xeon 3Gen",
+			"spec3": "До 2 Тб DDR4 ECC",
+			"spec4": "До 10 дисков SFF"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: SR650-V3",
+			"image": "server-dell.jpg",
+			"price": "от 289 900 ₽",
+			"title": "Сервер Lenovo ThinkSystem SR650 V3 (2U)",
+			"spec1": "Rack 2U",
+			"spec2": "2 х Intel Xeon 4Gen",
+			"spec3": "До 4 Тб DDR5 ECC",
+			"spec4": "До 20 дисков SFF"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: 878712-B21",
+			"image": "server-dell.jpg",
+			"price": "от 198 340 ₽",
+			"title": "Сервер HPE ProLiant DL360 Gen10 (1U)",
+			"spec1": "Rack 1U",
+			"spec2": "2 х Intel Xeon 2Gen",
+			"spec3": "До 1,5 Тб DDR4 ECC",
+			"spec4": "До 10 дисков SFF"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: R760-6430",
+			"image": "server-dell.jpg",
+			"price": "от 476 100 ₽",
+			"title": "Сервер Dell PowerEdge R760 (2U)",
+			"spec1": "Rack 2U",
+			"spec2": "2 х Intel Xeon 4Gen",
+			"spec3": "До 8 Тб DDR5 ECC",
+			"spec4": "До 24 дисков SFF"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: SYS-121H-TNR",
+			"image": "server-dell.jpg",
+			"price": "от 254 700 ₽",
+			"title": "Сервер Supermicro SYS-121H-TNR (1U)",
+			"spec1": "Rack 1U",
+			"spec2": "2 х Intel Xeon 4Gen",
+			"spec3": "До 4 Тб DDR5 ECC",
+			"spec4": "До 12 дисков NVMe"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: ML350-GEN11",
+			"image": "server-dell.jpg",
+			"price": "от 341 220 ₽",
+			"title": "Сервер HPE ProLiant ML350 Gen11 (Tower)",
+			"spec1": "Tower 4U",
+			"spec2": "2 х Intel Xeon 4Gen",
+			"spec3": "До 2 Тб DDR5 ECC",
+			"spec4": "До 24 дисков SFF"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: R750XS-5318",
+			"image": "server-dell.jpg",
+			"price": "от 368 950 ₽",
+			"title": "Сервер Dell PowerEdge R750xs (2U)",
+			"spec1": "Rack 2U",
+			"spec2": "2 х Intel Xeon 3Gen",
+			"spec3": "До 2 Тб DDR4 ECC",
+			"spec4": "До 16 дисков SFF"
+		})
+		@@include("source/html/components/product-card.html", {
+			"part": "P/N: SR630-V3",
+			"image": "server-dell.jpg",
+			"price": "от 273 400 ₽",
+			"title": "Сервер Lenovo ThinkSystem SR630 V3 (1U)",
+			"spec1": "Rack 1U",
+			"spec2": "2 х Intel Xeon 4Gen",
+			"spec3": "До 4 Тб DDR5 ECC",
+			"spec4": "До 10 дисков SFF"
+		})
+	</div>
+
+	<div class="catalog-list__footer">
+		<button class="btn btn--outlined btn--md btn--block" type="button">Показать еще</button>
+
+		<nav class="pagination" aria-label="Пагинация каталога">
+			<a class="pagination__nav" href="#">В начало</a>
+			<ul class="pagination__list">
+				<li><a class="pagination__page" href="#">1</a></li>
+				<li><a class="pagination__page is-active" href="#" aria-current="page">2</a></li>
+				<li><a class="pagination__page" href="#">3</a></li>
+				<li><a class="pagination__page" href="#">4</a></li>
+				<li><a class="pagination__page" href="#">5</a></li>
+			</ul>
+			<a class="pagination__nav" href="#">Дальше</a>
+		</nav>
+	</div>
+</div>

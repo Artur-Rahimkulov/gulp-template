@@ -1,0 +1,54 @@
+<article class="product-card">
+	<div class="product-card__media">
+		<span class="product-card__corner product-card__corner--start" aria-hidden="true"></span>
+		<span class="product-card__corner product-card__corner--end" aria-hidden="true"></span>
+
+		<div class="product-card__badges">
+			<span class="badge badge--part">@@part</span>
+			<span class="badge badge--stock">Склад</span>
+		</div>
+
+		<img class="product-card__image" src="assets/img/@@image" width="240" height="120" alt="@@title" loading="lazy">
+	</div>
+
+	<div class="product-card__body">
+		<div class="product-card__info">
+			<p class="product-card__price">@@price</p>
+
+			<div class="product-card__summary">
+				<h3 class="product-card__title">
+					<a class="product-card__link" href="#">@@title</a>
+				</h3>
+
+				<ul class="product-card__specs spec-list">
+					<li class="spec-list__item">@@spec1</li>
+					<li class="spec-list__item">@@spec2</li>
+					<li class="spec-list__item">@@spec3</li>
+					<li class="spec-list__item">@@spec4</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="product-card__actions">
+			<div class="product-card__actions-row">
+				<button class="btn btn--soft btn--lg btn--icon-left" type="button">
+					<span class="btn__icon">
+						<svg width="24" height="24" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M30 22L28 40M38 22L30 8M4 22H44M7 22L10.2 36.8C10.39 37.72 10.89 38.54 11.62 39.12C12.35 39.71 13.26 40.02 14.2 40H33.8C34.74 40.02 35.65 39.71 36.38 39.12C37.11 38.54 37.61 37.72 37.8 36.8L41.2 22M9 31H39M10 22L18 8M18 22L20 40" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</span>
+					<span class="btn__label">Купить в 1 клик</span>
+				</button>
+
+				<button class="btn btn--outlined btn--square" type="button" aria-label="Добавить в корзину">
+					<svg width="24" height="24" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M4 6L4.53 6.18C7.17 7.06 8.49 7.5 9.24 8.54C10 9.59 10 10.98 10 13.77V19C10 24.66 10 27.49 11.76 29.24C13.51 31 16.34 31 22 31H38" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M15 36C16.66 36 18 37.34 18 39C18 40.66 16.66 42 15 42C13.34 42 12 40.66 12 39C12 37.34 13.34 36 15 36Z" stroke="currentColor" stroke-width="1.6"/><path d="M33 36C34.66 36 36 37.34 36 39C36 40.66 34.66 42 33 42C31.34 42 30 40.66 30 39C30 37.34 31.34 36 33 36Z" stroke="currentColor" stroke-width="1.6"/><path d="M10 12H32.9C37.01 12 39.07 12 39.96 13.35C40.84 14.7 40.03 16.59 38.42 20.36L37.56 22.36C36.8 24.13 36.42 25.01 35.67 25.5C34.92 26 33.96 26 32.04 26H10" stroke="currentColor" stroke-width="3.2"/></svg>
+				</button>
+			</div>
+
+			<button class="btn btn--primary btn--lg btn--icon-left" type="button">
+				<span class="btn__icon">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</span>
+				<span class="btn__label">Сконфигурировать</span>
+			</button>
+		</div>
+	</div>
+</article>

@@ -4,6 +4,7 @@
 	justify-content: center;
 	gap: 0.8rem;
 	padding: 1.2rem 2rem;
+
 	border: 1px solid transparent;
 	border-radius: var(--radius-sm);
 	outline: none;
@@ -13,16 +14,43 @@
 	font-weight: 500;
 	line-height: 2rem;
 	text-align: center;
-	white-space: nowrap;
 
 	cursor: pointer;
 	transition: background-color var(--default-transition), border-color var(--default-transition), color var(--default-transition);
 
+	&__icon {
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		width: 3.2rem;
+		height: 3.2rem;
+
+		border-radius: 0.6rem;
+
+		svg {
+			width: 2.4rem;
+			height: 2.4rem;
+		}
+	}
+
+	&__label {
+		flex-grow: 1;
+	}
+
 	// Sizes
 	// ---------------------------------
 
-	&--large {
-		padding: 1.6rem 2.4rem;
+	&--md {
+		min-height: 4.4rem;
+		padding: 1.2rem 2rem;
+
+		font-size: 1.4rem;
+	}
+
+	&--lg {
+		min-height: 5.2rem;
+		padding: 1rem;
 
 		font-size: 1.6rem;
 	}
@@ -31,21 +59,52 @@
 		width: 100%;
 	}
 
+	&--square {
+		width: 5.2rem;
+		height: 5.2rem;
+		flex-shrink: 0;
+		padding: 0;
+
+		svg {
+			width: 2.4rem;
+			height: 2.4rem;
+		}
+	}
+
+	// Икон-кнопка с плиткой слева (лейбл центрируется по остатку строки)
+	&--icon-left {
+		justify-content: space-between;
+		gap: 0;
+
+		.btn__label {
+			padding: 0 2.4rem 0 1.4rem;
+		}
+	}
+
 	// Types
 	// ---------------------------------
 
 	&--primary {
-		color: var(--color-white);
 		background-color: var(--color-endeavour);
+		color: var(--color-white);
+
+		.btn__icon {
+			background-color: var(--color-cerulean);
+		}
 
 		@include hover-focus {
 			background-color: var(--color-congress-blue);
 		}
 	}
 
-	&--secondary {
-		color: var(--color-endeavour);
+	&--soft {
 		background-color: var(--color-pattens-blue);
+		color: var(--color-endeavour);
+
+		.btn__icon {
+			background-color: var(--color-white);
+			color: var(--color-cerulean);
+		}
 
 		@include hover-focus {
 			background-color: var(--color-tropical-blue);
@@ -53,19 +112,19 @@
 	}
 
 	&--outlined {
-		color: var(--color-pale-sky);
-		background-color: var(--color-transparent);
 		border-color: var(--color-loblolly);
+		background-color: var(--color-transparent);
+		color: var(--color-cerulean);
 
 		@include hover-focus {
-			color: var(--color-endeavour);
 			border-color: var(--color-endeavour);
+			color: var(--color-endeavour);
 		}
 	}
 
 	&--accent {
-		color: var(--color-white);
 		background-color: var(--color-alizarin);
+		color: var(--color-white);
 
 		@include hover-focus {
 			background-color: #d31f20;
@@ -73,35 +132,42 @@
 	}
 
 	&--ghost {
-		color: var(--color-pale-sky);
 		background-color: var(--color-transparent);
+		color: var(--color-pale-sky);
+
+		@include hover-focus {
+			background-color: var(--color-pattens-blue);
+			color: var(--color-endeavour);
+		}
+	}
+
+	&--light {
+		background-color: var(--color-white);
+		color: var(--color-endeavour);
 
 		@include hover-focus {
 			background-color: var(--color-pattens-blue);
 		}
 	}
 
-	&--icon {
-		width: 5.2rem;
-		height: 5.2rem;
-		flex-shrink: 0;
-		padding: 0;
-	}
-
 	// States
 	// ---------------------------------
 
 	&.is-active {
-		color: var(--color-endeavour);
-		background-color: var(--color-pattens-blue);
 		border-color: var(--color-transparent);
+		background-color: var(--color-pattens-blue);
+		color: var(--color-endeavour);
 	}
 
 	&:disabled,
 	&.is-disabled {
-		color: var(--color-oslo-gray);
-		background-color: var(--color-mystic);
 		border-color: var(--color-transparent);
+		background-color: var(--color-mystic);
+		color: var(--color-oslo-gray);
 		pointer-events: none;
+
+		.btn__icon {
+			background-color: var(--color-transparent);
+		}
 	}
 }
