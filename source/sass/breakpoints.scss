@@ -35,6 +35,12 @@ $vp-1920:                           1920px;
 	}
 }
 
+@mixin vp-575 {
+	@media (max-width: ($vp-575)) {
+	  @content;
+	}
+}
+
 // Mobile first
 
 // @mixin vp-375 {

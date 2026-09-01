@@ -1,6 +1,9 @@
 .header {
-	position: relative;
-	z-index: 20;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 100;
 
 	background-color: var(--color-white);
 
@@ -30,6 +33,10 @@
 		display: flex;
 		align-items: center;
 		gap: 1.2rem;
+	}
+
+	&__contacts--tablet {
+		display: none;
 	}
 
 	&__contacts-item {
@@ -63,6 +70,7 @@
 	&__divider {
 		width: 1px;
 		height: 2rem;
+		flex-shrink: 0;
 
 		background-color: var(--color-pattens-blue);
 	}
@@ -109,6 +117,11 @@
 		gap: 0.4rem;
 	}
 
+	&__socials--tablet {
+		gap: 0.8rem;
+		margin-left: 0.8rem;
+	}
+
 	&__social {
 		display: block;
 
@@ -151,23 +164,66 @@
 		}
 	}
 
-	&__burger {
+	&__mobile-icons {
 		display: none;
-		flex-direction: column;
+		align-items: center;
+		gap: 0.8rem;
+	}
+
+	&__icon-btn {
+		display: flex;
+		align-items: center;
 		justify-content: center;
-		gap: 0.5rem;
 		width: 4.4rem;
 		height: 4.4rem;
 		flex-shrink: 0;
 		padding: 0;
+
+		background-color: var(--color-alice-blue);
+		border: none;
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+
+		transition: background-color var(--default-transition);
+
+		img {
+			width: 2.4rem;
+			height: 2.4rem;
+		}
+
+		@include hover-focus {
+			background-color: var(--color-pattens-blue);
+		}
+	}
+
+	&__burger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.3rem;
+		width: 4.4rem;
+		height: 4.4rem;
+		flex-shrink: 0;
+		padding: 0;
+
+		background-color: var(--color-transparent);
+		border: 1px solid var(--color-loblolly);
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+
+		transition: border-color var(--default-transition);
+
+		@include hover-focus {
+			border-color: var(--color-cerulean);
+		}
 	}
 
 	&__burger-line {
-		width: 2.4rem;
+		width: 1.8rem;
 		height: 2px;
 		margin: 0 auto;
 
-		background-color: var(--color-shark);
+		background-color: var(--color-pale-sky);
 		border-radius: 2px;
 	}
 
@@ -242,7 +298,7 @@
 	}
 
 	@include vp-1440 {
-		&__contacts {
+		&__contacts--desktop {
 			display: none;
 		}
 
@@ -255,48 +311,151 @@
 		}
 	}
 
+	// Tablet big — 1024
+	// Row 1: burger | logo | Заказать звонок + Получить КП
+	// Row 2: contacts + socials | search
 	@include vp-1024 {
 		&__inner {
-			gap: 1.6rem;
-			padding: 1.6rem 0;
+			gap: 2.8rem;
+			padding: 2.4rem 0;
 		}
 
-		&__chat,
-		&__btn {
-			display: none;
+		&__top {
+			justify-content: space-between;
+			gap: 1.6rem;
 		}
 
 		&__burger {
 			display: flex;
+			order: -1;
 		}
 
-		&__actions {
-			gap: 0.8rem;
-		}
-
-		&__bottom {
-			gap: 1.6rem;
-		}
-
+		&__chat,
+		&__cart,
 		&__nav {
 			display: none;
 		}
 
+		&__actions {
+			gap: 1.2rem;
+			margin-left: 0;
+		}
+
+		&__btn {
+			min-width: 0;
+		}
+
+		&__bottom {
+			align-items: center;
+			gap: 2.4rem;
+		}
+
+		&__contacts--tablet {
+			order: 1;
+
+			display: flex;
+			flex-wrap: wrap;
+			flex-grow: 1;
+			row-gap: 0.8rem;
+		}
+
 		&__search {
-			width: 100%;
+			order: 2;
+
+			width: auto;
+			flex: 0 1 38.4rem;
+			min-width: 24rem;
 		}
 	}
 
+	// Tablet — 768
+	// Row 1: burger | logo | buttons
+	// Row 2: search (full width)
+	// Row 3: contacts, centered, no socials
 	@include vp-768 {
+		&__inner {
+			gap: 2.4rem;
+		}
+
 		&__logo img {
 			width: 11rem;
 			height: 2.7rem;
 		}
 
-		&__cart,
-		&__burger {
-			width: 4rem;
-			height: 4rem;
+		&__bottom {
+			flex-wrap: wrap;
+			gap: 2.4rem;
+		}
+
+		&__search {
+			order: 1;
+			flex: 1 1 100%;
+			min-width: 0;
+		}
+
+		&__contacts--tablet {
+			order: 2;
+			flex: 1 1 100%;
+			justify-content: center;
+		}
+
+		&__socials--tablet {
+			display: none;
+		}
+
+		&__btn {
+			padding: 1.2rem 1.6rem;
+		}
+	}
+
+	// Mobile — 360
+	// Single row: burger | logo | search + phone + cart icons
+	@include vp-575 {
+		&__inner {
+			gap: 0;
+			padding: 1.6rem 0;
+		}
+
+		&__top {
+			gap: 0.8rem;
+		}
+
+		&__logo img {
+			width: 9rem;
+			height: 2.2rem;
+		}
+
+		&__btn,
+		&__bottom {
+			display: none;
+		}
+
+		&__mobile-icons {
+			display: flex;
+		}
+
+		&__burger,
+		&__icon-btn {
+			width: 4.4rem;
+			height: 4.4rem;
+		}
+
+		// строка поиска раскрывается по тапу на иконку лупы
+		&.is-search-open &__inner {
+			gap: 1.6rem;
+		}
+
+		&.is-search-open &__bottom {
+			display: flex;
+		}
+
+		&.is-search-open &__search {
+			display: flex;
+			flex: 1 1 100%;
+		}
+
+		&.is-search-open &__contacts--tablet {
+			display: none;
 		}
 	}
 }
