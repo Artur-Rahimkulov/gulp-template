@@ -36,6 +36,15 @@ body {
 	padding-top: var(--header-height, 13.6rem);
 	background-color: var(--color-alice-blue);
 	font-size: 1.4rem;
+
+	// блокировка прокрутки при открытом мобильном меню
+	// (top выставляется из js, чтобы сохранить позицию)
+	&.is-menu-open {
+		position: fixed;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+	}
 }
 
 h1,
