@@ -23,7 +23,24 @@
 
 	transition: opacity var(--default-transition), transform var(--default-transition), visibility var(--default-transition);
 
-	// открытым состоянием управляет JS: и ховер, и фокус с клавиатуры
+	// невидимый мостик от ссылки до панели: без него курсор проходит
+	// через зазор, ховер срывается и меню закрывается на полпути
+	&::before {
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+
+		width: 100%;
+		height: 2rem;
+
+		content: '';
+	}
+
+	// основной сценарий по макету — раскрытие наведением, на чистом CSS,
+	// поэтому меню работает и без js. :focus-within даёт доступ с клавиатуры,
+	// .is-open добавляет js (клик по триггеру, закрытие по Escape).
+	.header__nav-item:hover &,
+	.header__nav-item:focus-within &,
 	.header__nav-item.is-open & {
 		visibility: visible;
 		opacity: 1;

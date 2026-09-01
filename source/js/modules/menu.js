@@ -118,15 +118,30 @@ const initDropdowns = () => {
 			return;
 		}
 
+		// Раскрытие наведением полностью на CSS (:hover / :focus-within),
+		// поэтому меню работает и без js. Здесь только синхронизируем
+		// aria-expanded для скринридеров.
+		dropdown.addEventListener('mouseenter', () => {
+			if (window.innerWidth > 1024) {
+				trigger.setAttribute('aria-expanded', 'true');
+			}
+		});
+
+		dropdown.addEventListener('mouseleave', () => {
+			dropdown.classList.remove('is-open');
+			trigger.setAttribute('aria-expanded', 'false');
+		});
+
 		trigger.addEventListener('click', (evt) => {
-			// на десктопе раскрываем по клику, не переходя по ссылке-заглушке
+			// на планшетах и мобильных вместо дропдаунов работает бургер-меню
 			if (window.innerWidth <= 1024) {
 				return;
 			}
 
+			// ссылка-заглушка не должна перезагружать страницу
 			evt.preventDefault();
 
-			const isOpen = dropdown.classList.contains('is-open');
+			const isOpen = trigger.getAttribute('aria-expanded') === 'true';
 
 			closeAll();
 
