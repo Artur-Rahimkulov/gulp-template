@@ -5,6 +5,7 @@ import { select } from './modules/select';
 import {validateForms} from "./modules/validateForms.js";
 import {inputPhone} from "./modules/input-phone.js";
 import {pagination} from "./modules/pagination.js";
+import {filters} from "./modules/filters.js";
 import {DynamicAdapt} from "./modules/dynamicAdapt.js";
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
@@ -27,6 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		select();
         validateForms();
         pagination();
+        filters();
 
 	});
 });

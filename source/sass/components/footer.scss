@@ -1,5 +1,250 @@
 .footer {
-    padding: 3.6rem 0;
-    margin-top: 3.6rem;
-    background-color: var(--color-zirkon);
+	background-color: var(--color-alice-blue);
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+		padding: 6rem 0;
+
+		@include vp-1024 {
+			gap: 4rem;
+			padding: 4rem 0;
+		}
+
+		@include vp-768 {
+			gap: 3.2rem;
+			padding: 3.2rem 0;
+		}
+	}
+
+	// Верхний блок: логотип + слоган
+	// ---------------------------------
+	&__top {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 4rem;
+
+		@include vp-1024 {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2rem;
+		}
+	}
+
+	&__logo {
+		flex-shrink: 0;
+
+		img {
+			display: block;
+			width: 14.6rem;
+			height: auto;
+		}
+	}
+
+	&__slogan {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: 2.4rem;
+		font-weight: 500;
+		line-height: 3.2rem;
+		color: var(--color-shark);
+
+		@include vp-768 {
+			font-size: 1.8rem;
+			line-height: 2.4rem;
+		}
+	}
+
+	// Логотипы вендоров
+	// ---------------------------------
+	&__brands {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 2rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		@include vp-1024 {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.6rem;
+		}
+
+		@include vp-768 {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.2rem;
+		}
+	}
+
+	&__brand {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 12rem;
+		padding: 2rem;
+		background-color: var(--color-white);
+		border-radius: var(--radius-sm);
+
+		img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			object-fit: contain;
+		}
+
+		@include vp-768 {
+			min-height: 9rem;
+			padding: 1.6rem;
+		}
+	}
+
+	&__brand-hpe {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+
+		img {
+			&:first-child {
+				width: 3.7rem;
+			}
+
+			&:last-child {
+				width: 11.9rem;
+			}
+		}
+	}
+
+	// Навигация по разделам
+	// ---------------------------------
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+		gap: 8rem;
+
+		@include vp-1440 {
+			gap: 4rem;
+		}
+
+		@include vp-1024 {
+			flex-wrap: wrap;
+			gap: 3.2rem 4rem;
+		}
+
+		@include vp-768 {
+			flex-direction: column;
+			gap: 2.4rem;
+		}
+	}
+
+	&__col {
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+
+		@include vp-1024 {
+			flex-basis: calc(50% - 2rem);
+		}
+
+		@include vp-768 {
+			flex-basis: auto;
+		}
+	}
+
+	&__col-title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 2.4rem;
+		color: var(--color-shark);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__link {
+		font-size: 1.4rem;
+		line-height: 2rem;
+		color: var(--color-pale-sky);
+		text-decoration: none;
+		transition: color var(--default-transition);
+
+		@include hover-focus {
+			color: var(--color-cerulean);
+		}
+	}
+
+	// Нижний блок: правовая информация + соцсети
+	// ---------------------------------
+	&__bottom {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 4rem;
+
+		@include vp-1024 {
+			flex-direction: column;
+			gap: 2.4rem;
+		}
+	}
+
+	&__bottom-text {
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+	}
+
+	&__legal {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.2rem 6rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		@include vp-768 {
+			flex-direction: column;
+			gap: 1.2rem;
+		}
+	}
+
+	&__note {
+		margin: 0;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		color: var(--color-pale-sky);
+	}
+
+	&__socials {
+		display: flex;
+		gap: 1.2rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__social {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: opacity var(--default-transition);
+
+		img {
+			display: block;
+			width: 4rem;
+			height: 4rem;
+		}
+
+		@include hover-focus {
+			opacity: 0.75;
+		}
+	}
 }
