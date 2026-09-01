@@ -1,23 +1,173 @@
 .btn {
 	display: inline-flex;
-	padding: 1rem 2rem;
+	align-items: center;
+	justify-content: center;
+	gap: 0.8rem;
+	padding: 1.2rem 2rem;
+
+	border: 1px solid transparent;
+	border-radius: var(--radius-sm);
 	outline: none;
-	color: var(--color-white);
-	background-color: var(--color-neon-blue);
+
+	font-family: var(--font-primary);
+	font-size: 1.4rem;
+	font-weight: 500;
+	line-height: 2rem;
+	text-align: center;
 
 	cursor: pointer;
-	transition: opacity var(--default-transition);
+	transition: background-color var(--default-transition), border-color var(--default-transition), color var(--default-transition);
 
-	&--red {
-		background-color: var(--color-torch-red);
+	&__icon {
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		width: 3.2rem;
+		height: 3.2rem;
+
+		border-radius: 0.6rem;
+
+		svg {
+			width: 2.4rem;
+			height: 2.4rem;
+		}
 	}
 
-	&:disabled {
-		opacity: 0.5;
+	&__label {
+		flex-grow: 1;
+	}
+
+	// Sizes
+	// ---------------------------------
+
+	&--md {
+		min-height: 4.4rem;
+		padding: 1.2rem 2rem;
+
+		font-size: 1.4rem;
+	}
+
+	&--lg {
+		min-height: 5.2rem;
+		padding: 1rem;
+
+		font-size: 1.6rem;
+	}
+
+	&--block {
+		width: 100%;
+	}
+
+	&--square {
+		width: 5.2rem;
+		height: 5.2rem;
+		flex-shrink: 0;
+		padding: 0;
+
+		svg {
+			width: 2.4rem;
+			height: 2.4rem;
+		}
+	}
+
+	// Икон-кнопка с плиткой слева (лейбл центрируется по остатку строки)
+	&--icon-left {
+		justify-content: space-between;
+		gap: 0;
+
+		.btn__label {
+			padding: 0 2.4rem 0 1.4rem;
+		}
+	}
+
+	// Types
+	// ---------------------------------
+
+	&--primary {
+		background-color: var(--color-endeavour);
+		color: var(--color-white);
+
+		.btn__icon {
+			background-color: var(--color-cerulean);
+		}
+
+		@include hover-focus {
+			background-color: var(--color-congress-blue);
+		}
+	}
+
+	&--soft {
+		background-color: var(--color-pattens-blue);
+		color: var(--color-endeavour);
+
+		.btn__icon {
+			background-color: var(--color-white);
+			color: var(--color-cerulean);
+		}
+
+		@include hover-focus {
+			background-color: var(--color-tropical-blue);
+		}
+	}
+
+	&--outlined {
+		border-color: var(--color-loblolly);
+		background-color: var(--color-transparent);
+		color: var(--color-cerulean);
+
+		@include hover-focus {
+			border-color: var(--color-endeavour);
+			color: var(--color-endeavour);
+		}
+	}
+
+	&--accent {
+		background-color: var(--color-alizarin);
+		color: var(--color-white);
+
+		@include hover-focus {
+			background-color: #d31f20;
+		}
+	}
+
+	&--ghost {
+		background-color: var(--color-transparent);
+		color: var(--color-pale-sky);
+
+		@include hover-focus {
+			background-color: var(--color-pattens-blue);
+			color: var(--color-endeavour);
+		}
+	}
+
+	&--light {
+		background-color: var(--color-white);
+		color: var(--color-endeavour);
+
+		@include hover-focus {
+			background-color: var(--color-pattens-blue);
+		}
+	}
+
+	// States
+	// ---------------------------------
+
+	&.is-active {
+		border-color: var(--color-transparent);
+		background-color: var(--color-pattens-blue);
+		color: var(--color-endeavour);
+	}
+
+	&:disabled,
+	&.is-disabled {
+		border-color: var(--color-transparent);
+		background-color: var(--color-mystic);
+		color: var(--color-oslo-gray);
 		pointer-events: none;
-	}
 
-	@include hover-focus {
-		opacity: 0.8;
+		.btn__icon {
+			background-color: var(--color-transparent);
+		}
 	}
 }

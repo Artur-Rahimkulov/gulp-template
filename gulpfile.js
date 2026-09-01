@@ -41,7 +41,7 @@ const syncServer = () => {
 };
 
 
-const build = gulp.series(clean, svgo, copy, styles, js, html, webpImages);
+const build = gulp.series(clean, svgo, copy, copyImages, styles, js, html, webpImages);
 const start = gulp.series(build, syncServer);
 
 export { optimizeImages as imagemin, createWebp as webp, build, start };

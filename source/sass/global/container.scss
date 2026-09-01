@@ -1,8 +1,8 @@
 .container {
 	width: 100%;
-	max-width: 192rem;
+	max-width: calc(var(--content-width) + 8rem);
 	margin: 0 auto;
-	padding: 0 40px;
+	padding: 0 4rem;
 
 	@include vp-1440 {
 		padding: 0 3.2rem;

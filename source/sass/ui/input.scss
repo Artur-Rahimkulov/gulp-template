@@ -1,44 +1,69 @@
-.input{
-  position: relative;
-  input{
-    font-size: 1.4rem;
-    padding: 1.7rem 1.6rem;
-    background-color: white;
-    border-radius: 1rem;
-    color: black;
-    outline: none;
-    transition: var(--default-transition);
-    width: 100%;
-    border: .1rem solid gray;
-    &::placeholder{
-      color: black;
-      opacity: 40%;
-    }
+.input {
+	position: relative;
 
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus{
-      background-color: white;
-    }
-  }
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
 
-  .pristine-error{
-    font-size: 12px;
-    color: red;
-    margin-top: 2px;
-  }
-  &.has-danger{
-    input{
-      border: .1rem solid red;
-    }
-    .error-message{
-      margin-top: 2px;
-      font-size: 14px;
-      color: red;
-    }
-    .input-tooltip-btn{
-      opacity: 100%;
-      pointer-events: auto;
-    }
-  }
+	&__label {
+		font-size: 1.2rem;
+		font-weight: 400;
+		line-height: 1.6rem;
+		color: var(--color-pale-sky);
+	}
+
+	input {
+		width: 100%;
+		min-height: 5.2rem;
+		padding: 1.6rem;
+
+		border: 1px solid transparent;
+		border-radius: var(--radius-sm);
+		outline: none;
+		background-color: var(--color-alice-blue);
+
+		font-family: var(--font-primary);
+		font-size: 1.6rem;
+		font-weight: 400;
+		line-height: 2rem;
+		color: var(--color-shark);
+
+		transition: border-color var(--default-transition);
+
+		&::placeholder {
+			color: var(--color-pale-sky);
+		}
+
+		&:hover {
+			border-color: var(--color-loblolly);
+		}
+
+		&:focus {
+			border-color: var(--color-cerulean);
+		}
+
+		&:disabled {
+			background-color: var(--color-mystic);
+			color: var(--color-oslo-gray);
+		}
+
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus {
+			-webkit-box-shadow: 0 0 0 100rem var(--color-alice-blue) inset;
+		}
+	}
+
+	.pristine-error,
+	.error-message {
+		font-size: 1.2rem;
+		line-height: 1.6rem;
+		color: var(--color-alizarin);
+	}
+
+	&.has-danger {
+		input {
+			border-color: var(--color-alizarin);
+		}
+	}
 }

@@ -1,0 +1,134 @@
+.cta {
+	position: relative;
+
+	overflow: hidden;
+	border-radius: var(--radius-lg);
+	background-color: var(--color-tangaroa);
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		object-fit: cover;
+	}
+
+	&__content {
+		position: relative;
+		z-index: 1;
+
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+		padding: 6rem;
+
+		background: var(--cta-overlay);
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+		max-width: 68rem;
+	}
+
+	&__title {
+		font-family: var(--font-display);
+		font-size: 4.8rem;
+		font-weight: 500;
+		line-height: 5.2rem;
+		color: var(--color-white);
+		text-wrap: balance;
+	}
+
+	&__subtitle {
+		font-size: 2rem;
+		font-weight: 400;
+		line-height: 3.2rem;
+		color: var(--color-white);
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+	}
+
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.2rem;
+	}
+
+	&__field {
+		width: 32.8rem;
+	}
+
+	&__submit {
+		width: 20rem;
+		justify-content: center;
+	}
+
+	&__agree {
+		font-size: 1.4rem;
+		font-weight: 400;
+		line-height: 2rem;
+		color: var(--color-white);
+	}
+
+	&__agree-link {
+		border-bottom: 1px solid var(--color-cerulean);
+		color: var(--color-white);
+
+		transition: border-color var(--default-transition);
+
+		@include hover-focus {
+			border-color: var(--color-white);
+		}
+	}
+
+	@include vp-1024 {
+		&__content {
+			gap: 4rem;
+			padding: 4rem;
+		}
+
+		&__title {
+			font-size: 3.6rem;
+			line-height: 4rem;
+		}
+
+		&__field {
+			width: 28rem;
+		}
+	}
+
+	@include vp-768 {
+		&__content {
+			gap: 3.2rem;
+			padding: 2.4rem;
+		}
+
+		&__title {
+			font-size: 2.8rem;
+			line-height: 3.2rem;
+		}
+
+		&__subtitle {
+			font-size: 1.6rem;
+			line-height: 2.4rem;
+		}
+
+		&__row {
+			flex-direction: column;
+		}
+
+		&__field,
+		&__submit {
+			width: 100%;
+		}
+	}
+}

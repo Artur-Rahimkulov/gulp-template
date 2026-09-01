@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Серверы — каталог" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html")
+			<main>
+				@@include("source/html/components/catalog-hero.html")
+
+				<section class="catalog">
+					<div class="container">
+						<div class="catalog__layout">
+							<div class="catalog__aside" data-filters-panel>
+								@@include("source/html/components/catalog-filters.html")
+								@@include("source/html/components/catalog-promo.html")
+							</div>
+
+							<div class="catalog__content">
+								@@include("source/html/components/catalog-list.html")
+							</div>
+
+							<div class="catalog__overlay" data-filters-overlay></div>
+						</div>
+					</div>
+				</section>
+
+				@@include("source/html/components/seo-text.html")
+				@@include("source/html/components/cta-info.html")
+			</main>
+			@@include("source/html/base/footer.html")
+		</div>
+		@@include("source/html/base/scripts.html")
+		@@include("source/html/components/modal-1.html")
+		@@include("source/html/components/modal-2.html")
+	</body>
+</html>
