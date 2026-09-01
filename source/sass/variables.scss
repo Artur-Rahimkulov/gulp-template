@@ -9,12 +9,40 @@
 
     // Project palette
     // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
-    --color-neon-blue: #2c39f2;
-    --color-torch-red: #ff1553;
-    --color-zirkon: #DBE8EA;
+    --color-alice-blue: #f4f8fb; // фон страницы / инпутов
+    --color-pattens-blue: #daf0fb; // светлый акцент
+    --color-mystic: #d9e4ec; // disabled / активная страница пагинации
+    --color-tropical-blue: #c8e1f3; // декоративные линии карточки
+    --color-loblolly: #cfd4d8; // бордеры
+    --color-shark: #191c1e; // основной текст
+    --color-pale-sky: #58616a; // второстепенный текст
+    --color-oslo-gray: #79838b; // текст disabled
+    --color-cadet-blue: #9fabb2; // хлебные крошки / буллеты
+    --color-endeavour: #005aa3; // основной синий
+    --color-congress-blue: #004b88; // цена
+    --color-cerulean: #0083ca; // ссылки / иконки
+    --color-alizarin: #ed2c2d; // акцент (красный)
+    --color-cosmic-latte: #e6fef7; // фон бейджа «Склад»
+    --color-observatory: #048b65; // текст бейджа «Склад»
+    --color-tangaroa: #101e41; // фон CTA
 
     // Gradient
     --black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+    --promo-gradient: linear-gradient(180deg, #002754 0%, #0b77c4 100%);
+    --banner-overlay: linear-gradient(90deg, rgba(229, 239, 248, 0.65) 0%, rgba(220, 235, 246, 0.59) 51%, rgba(212, 230, 245, 0) 100%);
+    --cta-overlay: linear-gradient(90deg, #101e41 1%, rgba(16, 30, 65, 0.87) 56%, rgba(29, 51, 106, 0.43) 76%, rgba(33, 86, 217, 0.19) 100%);
+
+    // Fonts
+    // ---------------------------------
+    --font-primary: 'Inter', 'Arial', sans-serif;
+    --font-display: 'Onest', 'Inter', 'Arial', sans-serif;
+
+    // Layout
+    // ---------------------------------
+    --content-width: 137.2rem;
+    --radius-sm: 0.8rem;
+    --radius-md: 1.6rem;
+    --radius-lg: 2rem;
 
     // Transition
     --default-transition: 0.3s ease;
