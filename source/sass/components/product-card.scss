@@ -104,12 +104,14 @@
 
 	&__body {
 		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
 		gap: 2.4rem;
 	}
 
 	&__info {
 		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
 		gap: 1.6rem;
 	}
