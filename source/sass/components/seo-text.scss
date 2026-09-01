@@ -1,7 +1,11 @@
 .seo-text {
-	display: flex;
-	flex-direction: column;
-	gap: 2.8rem;
+	padding-bottom: 8rem;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: 2.8rem;
+	}
 
 	&__title {
 		font-family: var(--font-display);
@@ -41,7 +45,11 @@
 	}
 
 	@include vp-768 {
-		gap: 2rem;
+		padding-bottom: 4.8rem;
+
+		.container {
+			gap: 2rem;
+		}
 
 		&__title {
 			font-size: 2.8rem;

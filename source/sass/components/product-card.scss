@@ -182,8 +182,13 @@
 			line-height: 2.8rem;
 		}
 
+		// Ряд остаётся горизонтальным: основная кнопка тянется,
+		// иконка корзины держит квадратный размер
 		&__actions-row {
-			flex-direction: column;
+			.btn:not(.btn--square) {
+				flex: 1 1 auto;
+				min-width: 0;
+			}
 		}
 	}
 }
