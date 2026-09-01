@@ -1,12 +1,18 @@
-<header class="header">
+<header class="header" data-header>
 	<div class="container">
 		<div class="header__inner">
 			<div class="header__top">
+				<button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-burger>
+					<span class="header__burger-line"></span>
+					<span class="header__burger-line"></span>
+					<span class="header__burger-line"></span>
+				</button>
+
 				<a class="header__logo" href="/" aria-label="ITELON — на главную">
 					<img src="assets/svg/logo.svg" width="146" height="36" alt="ITELON">
 				</a>
 
-				<div class="header__contacts">
+				<div class="header__contacts header__contacts--desktop">
 					<div class="header__contacts-item">
 						<img class="header__contacts-icon" src="assets/svg/mail.svg" width="20" height="20" alt="" aria-hidden="true">
 						<a class="header__link" href="mailto:mail@itelon.ru">mail@itelon.ru</a>
@@ -42,13 +48,19 @@
 					<a class="header__cart" href="#" aria-label="Корзина">
 						<img src="assets/svg/cart.svg" width="24" height="24" alt="">
 					</a>
-				</div>
 
-				<button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-burger>
-					<span class="header__burger-line"></span>
-					<span class="header__burger-line"></span>
-					<span class="header__burger-line"></span>
-				</button>
+					<div class="header__mobile-icons">
+						<button class="header__icon-btn" type="button" aria-label="Поиск" data-search-toggle>
+							<img src="assets/svg/search.svg" width="24" height="24" alt="">
+						</button>
+						<a class="header__icon-btn" href="tel:88005055110" aria-label="Позвонить">
+							<img src="assets/svg/phone.svg" width="24" height="24" alt="">
+						</a>
+						<a class="header__icon-btn" href="#" aria-label="Корзина">
+							<img src="assets/svg/cart.svg" width="24" height="24" alt="">
+						</a>
+					</div>
+				</div>
 			</div>
 
 			<div class="header__bottom">
@@ -71,6 +83,29 @@
 						<img src="assets/svg/search.svg" width="24" height="24" alt="">
 					</button>
 				</form>
+
+				<div class="header__contacts header__contacts--tablet">
+					<div class="header__contacts-item">
+						<img class="header__contacts-icon" src="assets/svg/mail.svg" width="20" height="20" alt="" aria-hidden="true">
+						<a class="header__link" href="mailto:mail@itelon.ru">mail@itelon.ru</a>
+					</div>
+					<span class="header__divider" aria-hidden="true"></span>
+					<a class="header__phone" href="tel:88005055110">8 (800) 505-51-10</a>
+					<span class="header__divider" aria-hidden="true"></span>
+					<a class="header__phone" href="tel:74955103335">7 (495) 510-33-35</a>
+
+					<div class="header__socials header__socials--tablet">
+						<a class="header__social" href="#" aria-label="Telegram">
+							<img src="assets/svg/telegram.svg" width="30" height="30" alt="">
+						</a>
+						<a class="header__social" href="#" aria-label="WhatsApp">
+							<img src="assets/svg/whatsapp.svg" width="30" height="30" alt="">
+						</a>
+						<a class="header__social" href="#" aria-label="ВКонтакте">
+							<img src="assets/svg/vk.svg" width="30" height="30" alt="">
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

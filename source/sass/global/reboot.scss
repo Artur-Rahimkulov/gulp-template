@@ -24,11 +24,16 @@ html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	// оптимизация выравнивания шрифта относительно центра строки
+
+	// шапка зафиксирована, поэтому учитываем её высоту при переходах по анкорам
+	scroll-padding-top: var(--header-height, 13.6rem);
 }
 
 body {
 	width: 100%;
 	height: 100%;
+	// отступ под фиксированную шапку (реальная высота выставляется из js)
+	padding-top: var(--header-height, 13.6rem);
 	background-color: var(--color-alice-blue);
 	font-size: 1.4rem;
 }
