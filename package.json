@@ -12,6 +12,7 @@
     "test": "npm run editorconfig & npm run stylelint & eslint source/js/",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && cross-env NODE_ENV=production gulp build & gulp imagemin",
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && cross-env NODE_ENV=development gulp start",
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && cross-env NODE_ENV=development gulp start",
     "imagemin": "gulp imagemin",
     "webp": "gulp webp"
   },
