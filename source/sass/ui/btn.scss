@@ -84,7 +84,7 @@
 		}
 	}
 
-	// Types
+	// Types (Default / Hover — .is-hover для витрины UI-kit)
 	// ---------------------------------
 
 	&--primary {
@@ -96,6 +96,10 @@
 		}
 
 		@include hover-focus {
+			background-color: var(--color-congress-blue);
+		}
+
+		&.is-hover {
 			background-color: var(--color-congress-blue);
 		}
 	}
@@ -110,7 +114,11 @@
 		}
 
 		@include hover-focus {
-			background-color: var(--color-tropical-blue);
+			background-color: var(--color-onahau);
+		}
+
+		&.is-hover {
+			background-color: var(--color-onahau);
 		}
 	}
 
@@ -123,6 +131,11 @@
 			border-color: var(--color-endeavour);
 			color: var(--color-endeavour);
 		}
+
+		&.is-hover {
+			border-color: var(--color-endeavour);
+			color: var(--color-endeavour);
+		}
 	}
 
 	&--accent {
@@ -130,7 +143,11 @@
 		color: var(--color-white);
 
 		@include hover-focus {
-			background-color: #d31f20;
+			background-color: var(--color-crimson);
+		}
+
+		&.is-hover {
+			background-color: var(--color-crimson);
 		}
 	}
 
@@ -139,6 +156,11 @@
 		color: var(--color-pale-sky);
 
 		@include hover-focus {
+			background-color: var(--color-pattens-blue);
+			color: var(--color-endeavour);
+		}
+
+		&.is-hover {
 			background-color: var(--color-pattens-blue);
 			color: var(--color-endeavour);
 		}
@@ -151,10 +173,22 @@
 		@include hover-focus {
 			background-color: var(--color-pattens-blue);
 		}
+
+		&.is-hover {
+			background-color: var(--color-pattens-blue);
+		}
 	}
 
 	// States
 	// ---------------------------------
+
+	// Focus — синее кольцо поверх любого типа (.is-focus для витрины)
+	&:focus-visible,
+	&.focus-visible:focus,
+	&.is-focus {
+		outline: 2px solid var(--color-cerulean);
+		outline-offset: 2px;
+	}
 
 	&.is-active {
 		border-color: var(--color-transparent);
@@ -164,7 +198,7 @@
 
 	&:disabled,
 	&.is-disabled {
-		border-color: var(--color-transparent);
+		border-color: var(--color-loblolly);
 		background-color: var(--color-mystic);
 		color: var(--color-oslo-gray);
 		pointer-events: none;

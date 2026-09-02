@@ -1,134 +1,173 @@
+// Чекбокс — дизайн-система Itelon (Form elements / Checkbox)
+// Состояния: Default / Checked / Disable / Error
+// ---------------------------------
 .checkbox-wrapper {
+	position: relative;
+
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 12px;
+	min-height: 24px;
+	padding-left: 36px;
+
 	cursor: pointer;
-	position: relative;
-	padding-left: 30px;
-	min-height: 20px;
 	user-select: none;
 
-  &:has(.checkbox-error:not([style*="display: none"])) {
-    margin-bottom: 15px;
-  }
+	&:has(.checkbox-error:not([style*="display: none"])) {
+		margin-bottom: 15px;
+	}
 
-	&.label-white{
-		.checkbox-custom{
-			border: 1px solid #FFFFFFCC;
-		}
-		.checkbox-text{
-			color: white;
+	// на тёмном фоне
+	&.label-white {
+		.checkbox-text {
+			color: var(--color-white);
 
-			a{
-				color: white;
-        transition: .15s;
-        &:hover{
-          color: orange;
-        }
+			a {
+				color: var(--color-white);
 			}
 		}
-		.checkbox-input:checked~.checkbox-custom{
-			border-color: orange !important;
+
+		.checkbox-custom {
+			border-color: rgba(255, 255, 255, 0.6);
+			background-color: transparent;
 		}
-		.checkbox-input:checked~.checkbox-custom, .checkbox-wrapper:hover .checkbox-input:checked~.checkbox-custom,
-		.checkbox-wrapper:hover input.checkbox-input:checked~.checkbox-custom{
-			border-color: orange !important;
+
+		.checkbox-input:checked ~ .checkbox-custom {
+			background-color: var(--color-white);
+			border-color: var(--color-white);
 		}
 	}
-  &.size-sm{
-    .checkbox-custom{
-      width: 16px;
-      height: 16px;
-    }
-    .checkbox-input:checked~.checkbox-custom svg{
-      transform: scale(.8);
-    }
-  }
+
+	&.size-sm {
+		padding-left: 32px;
+
+		.checkbox-custom {
+			width: 20px;
+			height: 20px;
+		}
+	}
 }
 
 .checkbox-input {
 	position: absolute;
-	opacity: 0;
-	cursor: pointer;
-	height: 0;
 	width: 0;
+	height: 0;
+	opacity: 0;
+
+	cursor: pointer;
 }
 
 .checkbox-custom {
 	position: absolute;
-	left: 0;
 	top: 50%;
-  transform: translateY(-50%);
-	width: 20px;
-	height: 20px;
-	border: 1px solid #868686;
-	border-radius: 4px;
-	background-color: transparent;
-	transition: all 0.2s ease;
+	left: 0;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
+	width: 24px;
+	height: 24px;
 
-.checkbox-input:checked~.checkbox-custom {
-	background-color: orange;
-	border-color: orange;
-}
+	border: 1px solid var(--color-mystic);
+	border-radius: 4px;
+	background-color: var(--color-alice-blue);
 
-.checkbox-input:disabled~.checkbox-custom {
-	background-color: rgba(255, 255, 255, 0.2);
-	border-color: rgba(255, 255, 255, 0.5);
-	cursor: not-allowed;
+	transform: translateY(-50%);
+	transition: border-color var(--default-transition), background-color var(--default-transition);
 }
 
 .checkbox-custom svg {
+	width: 16px;
+	height: 16px;
+
 	opacity: 0;
 	transform: scale(0.8);
-	transition: all 0.2s ease;
-	stroke: white;
+	transition: opacity var(--default-transition), transform var(--default-transition);
 }
 
-.checkbox-input:checked~.checkbox-custom svg {
-	opacity: 1;
-	transform: scale(1);
-	stroke: white;
+.checkbox-custom svg path {
+	stroke: var(--color-cerulean);
+}
+
+// State=Checked
+.checkbox-input:checked ~ .checkbox-custom {
+	border-color: var(--color-cerulean);
+	background-color: var(--color-white);
+
+	svg {
+		opacity: 1;
+		transform: scale(1);
+
+		animation: checkmark 0.3s ease;
+	}
+}
+
+// State=Disable
+.checkbox-input:disabled ~ .checkbox-custom {
+	border-color: var(--color-loblolly);
+	background-color: var(--color-mystic);
+
+	cursor: not-allowed;
+}
+
+.checkbox-input:disabled ~ .checkbox-text {
+	color: var(--color-oslo-gray);
+}
+
+// Hover
+.checkbox-wrapper:hover .checkbox-input:not(:disabled):not(:checked) ~ .checkbox-custom {
+	border-color: var(--color-cadet-blue);
+}
+
+// State=Error
+.checkbox-wrapper.has-danger .checkbox-custom {
+	border-color: var(--color-alizarin);
 }
 
 .checkbox-text {
-	font-size: 14px;
-	line-height: 125%;
-	color: black;
-  word-break: break-word;
-  @include vp-768 {
-		font-size: 14px;
-		line-height: 18px;
+	font-family: var(--font-primary);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	color: var(--color-shark);
+
+	word-break: break-word;
+
+	a {
+		color: var(--color-cerulean);
+		text-decoration: underline;
+
+		transition: color var(--default-transition);
+
+		@include hover-focus {
+			color: var(--color-endeavour);
+		}
 	}
-  a{
-    text-decoration: underline;
-    transition: .15s;
-    &:hover{
-      color: orange;
-    }
-  }
+
+	@include vp-768 {
+		font-size: 14px;
+		line-height: 20px;
+	}
 }
 
-.checkbox-wrapper.has-danger .checkbox-custom {
-	border-color: #ff4444;
-	box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.3);
-}
+.checkbox-error {
+	position: absolute;
+	top: 100%;
+	left: 0;
 
-//.checkbox-input.error~.checkbox-text {
-//	color: #ffbbbb;
-//}
-//
-//.checkbox-input.error~.checkbox-text .checkbox-link {
-//	color: #ffbbbb;
-//}
+	display: none;
+	width: 100%;
+	margin-top: 4px;
+
+	font-size: 12px;
+	line-height: 16px;
+	color: var(--color-alizarin);
+	text-align: start;
+}
 
 @keyframes checkmark {
 	0% {
 		transform: scale(0);
-		opacity: 0;
 	}
 
 	50% {
@@ -137,32 +176,5 @@
 
 	100% {
 		transform: scale(1);
-		opacity: 1;
 	}
-}
-
-.checkbox-input:checked~.checkbox-custom svg {
-	animation: checkmark 0.3s ease;
-}
-
-.checkbox-wrapper:hover .checkbox-custom {
-	background-color: rgba(255, 255, 255, 0.1);
-	//border-color: rgba(255, 255, 255, 0.8);
-}
-
-.checkbox-wrapper:hover .checkbox-input:checked~.checkbox-custom {
-  background-color: orange;
-	//border-color: white;
-}
-
-.checkbox-error {
-	color: #ff4444;
-	font-size: 10px;
-	margin-top: 5px;
-	display: none;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	top: calc(100%);
-	text-align: start;
 }

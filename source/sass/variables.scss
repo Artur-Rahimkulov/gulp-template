@@ -21,10 +21,14 @@
     --color-endeavour: #005aa3; // основной синий
     --color-congress-blue: #004b88; // цена
     --color-cerulean: #0083ca; // ссылки / иконки
-    --color-alizarin: #ed2c2d; // акцент (красный)
-    --color-cosmic-latte: #e6fef7; // фон бейджа «Склад»
-    --color-observatory: #048b65; // текст бейджа «Склад»
+    --color-alizarin: #ed2c2d; // акцент (красный) / ошибка (бордер)
+    --color-cosmic-latte: #e6fef7; // фон бейджа «Склад» / success
+    --color-observatory: #048b65; // текст бейджа «Склад» / success
     --color-tangaroa: #101e41; // фон CTA
+    --color-crimson: #cd0e10; // accent hover
+    --color-onahau: #bae2f7; // secondary / outlined hover
+    --color-shamrock: #4db99a; // success (бордер инпута)
+    --color-rose-white: #fef1f1; // error (фон инпута)
 
     // Gradient
     --black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);

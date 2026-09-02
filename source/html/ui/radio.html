@@ -1,0 +1,14 @@
+<label class="radio @@if (context.containerClass) { @@containerClass}">
+	<input
+		type="radio"
+		class="radio__input @@if (context.class) { @@class}"
+		@@if (context.name) {name="@@name"}
+		@@if (context.value) {value="@@value"}
+		@@if (context.checked) {checked}
+		@@if (context.disabled) {disabled}
+	>
+	<span class="radio__mark" aria-hidden="true"></span>
+	@@if (context.label && context.label !== "undefined") {
+		<span class="radio__label">@@label</span>
+	}
+</label>

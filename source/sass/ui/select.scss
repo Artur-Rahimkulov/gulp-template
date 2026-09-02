@@ -149,10 +149,27 @@
 
 		.select__button {
 			background-color: var(--color-mystic);
+			border-color: var(--color-loblolly);
 		}
 
 		.select__title > span {
 			color: var(--color-oslo-gray);
+		}
+	}
+
+	// State=Error
+	&.error,
+	&.has-danger,
+	&.is-error {
+		.select__button {
+			border-color: var(--color-alizarin);
+		}
+	}
+
+	// State=Success
+	&.is-success {
+		.select__button {
+			border-color: var(--color-shamrock);
 		}
 	}
 }

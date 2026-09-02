@@ -1,234 +1,259 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include("source/html/base/head.html", { "title": "Разводящая страница" })
+@@include("source/html/base/head.html", { "title": "UI Kit — компоненты" })
 <body>
 <div class="wrapper">
-  @@include("source/html/base/header.html")
-  <main>
-    <section class="intro">
-      <div class="container">
-        <h2>1. Модалки</h2>
-        <div class="example" style="margin-top: 20px;">
-          <!-- для работы модалкок, нужно связать кнопку и модалку с помощью значения дата атрибута data-modal-button для кнокпи и data-modal для модалки
-          пример: data-modal-button="my-super-modal" для кнопки и data-modal="my-super-modal" для модалки
-          ниже живые примеры -->
-          <button type="button" class="btn" data-modal-button="modal-one">первая модалка</button>
-          <button type="button" class="btn" data-modal-button="modal-two">вторая модалка</button>
-        </div>
+	@@include("source/html/base/header.html")
+	<main>
+		<section class="uikit">
+			<div class="container">
 
-        <h2>2. Аккордионы</h2>
-        <!-- если нужен аккордион с одним раскрытым блоком, используйте для дата атрибута data-accordion, значение "single-expand".
-        если нужно раскрывать все блоки аккордиона не зависимо друг от друга, то оставьте пустым значение дата атрибут data-accordion
-        примеры ниже -->
-        <div class="example">
-          <h3>Пример аккордиона с одним раскрытым блоком</h3>
-          <ul class="accordion" style="margin-top: 20px;" data-accordion="single-expand">
-            <li class="accordion_item active" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 1
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <img src="assets/img/jeans.webp" alt="jeans" style="width: auto; height: 400px;">
-                </div>
-              </div>
-            </li>
-            <li class="accordion_item" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 2
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <p>accordion content</p>
-                  <p>accordion content</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <h3>Пример аккордиона без ограничений на раскрытые блоки</h3>
-          <!-- аккордион без ограничений на раскрытые блоки -->
-          <ul class="accordion" style="margin-top: 20px;" data-accordion>
-            <li class="accordion_item" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 1
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <img src="assets/img/jeans.jpg" alt="jeans" style="width: auto; height: 300px;">
-                </div>
-              </div>
-            </li>
-            <li class="accordion_item" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 2
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <p>accordion content</p>
-                  <p>accordion content</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <h2 style="margin-top: 40px;">3. Селект</h2>
-        <div class="example" style="margin-top: 20px;">
-          @@include("source/html/ui/select.html", {
-          button: 'Выберите',
-          value: '',
-          label: 'Область применения',
-          name: '',
-          required: 'false',
-          selectOptions: [
-          {value: 'Menu item', text: 'Menu item 1'},
-          {value: 'Menu item', text: 'Menu item 2'},
-          {value: 'Menu item', text: 'Menu item 3'}
-          ]
-          })
+				<!-- ================= BUTTONS ================= -->
+				<div class="uikit__section">
+					<h2 class="uikit__title">Кнопки</h2>
 
-          @@include("source/html/ui/select.html", {
-          button: 'Выберите',
-          value: '',
-          label: 'Область применения',
-          name: '',
-          required: 'false',
-          class: 'error',
-          selectOptions: [
-          {value: 'Menu item', text: 'Menu item 1'}
-          ]
-          })
-        </div>
-        <h2 style="margin-top: 40px;">4. Чекбокс</h2>
-        <div class="example" style="margin-top: 20px;">
-          @@include("source/html/ui/checkbox.html",{
-          label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-          required: 'true'
-          })
-          <div style="background-color: black; padding: 16px">
-            @@include("source/html/ui/checkbox.html",{
-            label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-            required: 'true',
-            containerClass: 'label-white'
-            })
-          </div>
-          @@include("source/html/ui/checkbox.html",{
-          label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-          required: 'true',
-          containerClass: 'has-danger'
-          })
-        </div>
+					<p class="uikit__subtitle">Large (52px) — состояния: Default / Hover / Focus / Disabled</p>
+					<div class="uikit__grid">
+						<span class="uikit__grid-head">Тип</span>
+						<span class="uikit__grid-head">Default</span>
+						<span class="uikit__grid-head">Hover</span>
+						<span class="uikit__grid-head">Focus</span>
+						<span class="uikit__grid-head">Disabled</span>
 
-        <h2 style="margin-top: 40px;">5. Валидация</h2>
-        <div class="example" style="margin-top: 20px;">
-          <!--  novalidate обязателен -->
-          <form novalidate>
-            <div style="margin: 15px 0">
-              @@include("source/html/ui/input-text.html", {
-              placeholder: 'Имя*',
-              required: 'true',
-              type: 'name'
-              })
-            </div>
-            <div style="margin: 15px 0">
-              @@include("source/html/ui/input-phone.html", {
-              placeholder: 'Телефон*',
-              required: 'true',
-              name: 'phone',
-              })
-            </div>
-            <div style="margin: 15px 0">
-              @@include("source/html/ui/input-email.html", {
-              placeholder: 'Email*',
-              required: 'true',
-              })
+						<span class="uikit__state">Primary</span>
+						<button class="btn btn--primary btn--lg" type="button">Сконфигурировать</button>
+						<button class="btn btn--primary btn--lg is-hover" type="button">Сконфигурировать</button>
+						<button class="btn btn--primary btn--lg is-focus" type="button">Сконфигурировать</button>
+						<button class="btn btn--primary btn--lg" type="button" disabled>Сконфигурировать</button>
 
-            </div>
-            @@include("source/html/ui/checkbox.html",{
-            label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-            required: 'true'
-            })
+						<span class="uikit__state">Accent</span>
+						<button class="btn btn--accent btn--lg" type="button">Отправить</button>
+						<button class="btn btn--accent btn--lg is-hover" type="button">Отправить</button>
+						<button class="btn btn--accent btn--lg is-focus" type="button">Отправить</button>
+						<button class="btn btn--accent btn--lg" type="button" disabled>Отправить</button>
 
-            <div style="margin-top: 15px;">
-              @@include("source/html/ui/button.html",{
-              class: 'btn--orange',
-              type: 'submit',
-              name: 'Отправить'
-              })
-            </div>
-          </form>
-        </div>
+						<span class="uikit__state">Secondary</span>
+						<button class="btn btn--soft btn--lg" type="button">Сконфигурировать</button>
+						<button class="btn btn--soft btn--lg is-hover" type="button">Сконфигурировать</button>
+						<button class="btn btn--soft btn--lg is-focus" type="button">Сконфигурировать</button>
+						<button class="btn btn--soft btn--lg" type="button" disabled>Сконфигурировать</button>
 
-        <h2 style="margin-top: 40px;">6. Пагинация/фильтрация JS</h2>
-        <!-- data-pagination-wrapper общая обертка-->
-        <div data-pagination-wrapper="">
-          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-            <!--
-            выпадающие списки для фильтрации, сохраняют выбранные значения к квери параметры
-            синхронизируются относительно url
-            -->
-            <div style="width: 300px;">
-              @@include("source/html/ui/select.html", {
-              button: 'Выберите',
-              value: '',
-              label: 'Область 1',
-              name: '',
-              required: 'false',
-              paramsSearch: 'query1',
-              selectOptions: [
-              {value: 'Все', text: 'Все'},
-              {value: 'Menu item', text: 'Menu item 1'}
-              ]
+						<span class="uikit__state">Outlined</span>
+						<button class="btn btn--outlined btn--lg" type="button">Сконфигурировать</button>
+						<button class="btn btn--outlined btn--lg is-hover" type="button">Сконфигурировать</button>
+						<button class="btn btn--outlined btn--lg is-focus" type="button">Сконфигурировать</button>
+						<button class="btn btn--outlined btn--lg" type="button" disabled>Сконфигурировать</button>
 
-              })
-            </div>
-            <div style="width: 300px;">
-              @@include("source/html/ui/select.html", {
-              button: 'Выберите',
-              value: '',
-              label: 'Область 2',
-              name: '',
-              required: 'false',
-              paramsSearch: 'query2',
-              selectOptions: [
-              {value: 'Menu item 2', text: 'Menu item 2'},
-              {value: 'Menu item 3', text: 'Menu item 3'}
-              ]
-              })
-            </div>
-          </div>
-          <!--data-list-items="" вешаем на список элементов-->
-          <div data-list-items="" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px">
-            <div style="background-color: red; height: 100px;"></div>
-            <div style="background-color: rebeccapurple; height: 100px;"></div>
-            <div style="background-color: yellow; height: 100px;"></div>
-            <div style="background-color: red; height: 100px;"></div>
-            <div style="background-color: rebeccapurple; height: 100px;"></div>
-            <div style="background-color: yellow; height: 100px;"></div>
-          </div>
-          <!-- data-show-more-button="" кнопка показать еще, скрывается, если с запроса она не придет
+						<span class="uikit__state">Ghost</span>
+						<button class="btn btn--ghost btn--lg" type="button">Сконфигурировать</button>
+						<button class="btn btn--ghost btn--lg is-hover" type="button">Сконфигурировать</button>
+						<button class="btn btn--ghost btn--lg is-focus" type="button">Сконфигурировать</button>
+						<button class="btn btn--ghost btn--lg" type="button" disabled>Сконфигурировать</button>
+					</div>
 
-           -->
-          <button data-show-more-button=""
-                  style="background-color: black; color: white;cursor: pointer; padding: 10px; margin: 10px auto; width: 100%;">
-            Показать еще
-          </button>
+					<p class="uikit__subtitle">Medium (44px)</p>
+					<div class="uikit__grid">
+						<span class="uikit__grid-head">Тип</span>
+						<span class="uikit__grid-head">Default</span>
+						<span class="uikit__grid-head">Hover</span>
+						<span class="uikit__grid-head">Focus</span>
+						<span class="uikit__grid-head">Disabled</span>
 
-          <!--
-          data-pagination="" ссылки вешаются на беке, наша задача отправить запрос и обновить страницы
-          is-active приходит с бека, онбволять нам не нужно
-          -->
-          <div data-pagination="" style="display: flex; justify-content: center">
-            <a href="#" style="padding: 10px; background-color: lightblue" class="is-active">1</a>
-            <a href="#" style="padding: 10px">2</a>
-            <a href="#" style="padding: 10px">3</a>
-            <span href="#" style="padding: 10px">...</span>
-            <a href="#" style="padding: 10px">10</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  @@include("source/html/base/footer.html")
+						<span class="uikit__state">Primary</span>
+						<button class="btn btn--primary btn--md" type="button">Кнопка</button>
+						<button class="btn btn--primary btn--md is-hover" type="button">Кнопка</button>
+						<button class="btn btn--primary btn--md is-focus" type="button">Кнопка</button>
+						<button class="btn btn--primary btn--md" type="button" disabled>Кнопка</button>
+
+						<span class="uikit__state">Accent</span>
+						<button class="btn btn--accent btn--md" type="button">Кнопка</button>
+						<button class="btn btn--accent btn--md is-hover" type="button">Кнопка</button>
+						<button class="btn btn--accent btn--md is-focus" type="button">Кнопка</button>
+						<button class="btn btn--accent btn--md" type="button" disabled>Кнопка</button>
+
+						<span class="uikit__state">Secondary</span>
+						<button class="btn btn--soft btn--md" type="button">Кнопка</button>
+						<button class="btn btn--soft btn--md is-hover" type="button">Кнопка</button>
+						<button class="btn btn--soft btn--md is-focus" type="button">Кнопка</button>
+						<button class="btn btn--soft btn--md" type="button" disabled>Кнопка</button>
+
+						<span class="uikit__state">Outlined</span>
+						<button class="btn btn--outlined btn--md" type="button">Кнопка</button>
+						<button class="btn btn--outlined btn--md is-hover" type="button">Кнопка</button>
+						<button class="btn btn--outlined btn--md is-focus" type="button">Кнопка</button>
+						<button class="btn btn--outlined btn--md" type="button" disabled>Кнопка</button>
+
+						<span class="uikit__state">Ghost</span>
+						<button class="btn btn--ghost btn--md" type="button">Кнопка</button>
+						<button class="btn btn--ghost btn--md is-hover" type="button">Кнопка</button>
+						<button class="btn btn--ghost btn--md is-focus" type="button">Кнопка</button>
+						<button class="btn btn--ghost btn--md" type="button" disabled>Кнопка</button>
+					</div>
+
+					<p class="uikit__subtitle">С иконкой (плитка слева) и квадратная</p>
+					<div class="uikit__row">
+						<button class="btn btn--primary btn--lg btn--icon-left" type="button">
+							<span class="btn__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.6"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" stroke="currentColor" stroke-width="1.6"/></svg></span>
+							<span class="btn__label">Сконфигурировать</span>
+						</button>
+						<button class="btn btn--soft btn--lg btn--icon-left" type="button">
+							<span class="btn__icon"><svg width="24" height="24" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M4 6L4.53 6.18C7.17 7.06 8.49 7.5 9.24 8.54C10 9.59 10 10.98 10 13.77V19C10 24.66 10 27.49 11.76 29.24C13.51 31 16.34 31 22 31H38" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M10 12H32.9C37.01 12 39.07 12 39.96 13.35C40.84 14.7 40.03 16.59 38.42 20.36L37.56 22.36C36.8 24.13 36.42 25.01 35.67 25.5C34.92 26 33.96 26 32.04 26H10" stroke="currentColor" stroke-width="3.2"/></svg></span>
+							<span class="btn__label">Купить в 1 клик</span>
+						</button>
+						<button class="btn btn--outlined btn--square" type="button" aria-label="В корзину">
+							<svg width="24" height="24" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M4 6L4.53 6.18C7.17 7.06 8.49 7.5 9.24 8.54C10 9.59 10 10.98 10 13.77V19C10 24.66 10 27.49 11.76 29.24C13.51 31 16.34 31 22 31H38" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
+						</button>
+						<button class="btn btn--primary btn--lg btn--block" type="button" style="max-width: 328px">Блок на всю ширину</button>
+					</div>
+				</div>
+
+				<!-- ================= INPUTS ================= -->
+				<div class="uikit__section">
+					<h2 class="uikit__title">Текстовое поле</h2>
+					<div class="uikit__row">
+						<div class="input uikit__cell">
+							<span class="uikit__cell-label">Default</span>
+							<input type="text" placeholder="Placeholder*">
+						</div>
+						<div class="input uikit__cell">
+							<span class="uikit__cell-label">Focus</span>
+							<label class="input__label" for="uk-focus">Label</label>
+							<input id="uk-focus" type="text" value="Placeholder" autofocus>
+						</div>
+						<div class="input is-error uikit__cell">
+							<span class="uikit__cell-label">Error</span>
+							<label class="input__label">Label</label>
+							<input type="text" value="Placeholder">
+							<span class="error-message">Некорректное значение</span>
+						</div>
+						<div class="input is-success uikit__cell">
+							<span class="uikit__cell-label">Success</span>
+							<label class="input__label">Label</label>
+							<input type="text" value="Placeholder">
+							<span class="success-message">Всё верно</span>
+						</div>
+						<div class="input uikit__cell">
+							<span class="uikit__cell-label">Disabled</span>
+							<input type="text" placeholder="Placeholder" disabled>
+						</div>
+					</div>
+				</div>
+
+				<!-- ================= SELECT ================= -->
+				<div class="uikit__section">
+					<h2 class="uikit__title">Селект</h2>
+					<div class="uikit__row" style="align-items: flex-start">
+						<div class="uikit__cell">
+							<span class="uikit__cell-label">Default</span>
+							@@include("source/html/ui/select.html", { button: 'Выберите', label: 'Область применения', selectOptions: [ {value: 'a', text: 'Menu item 1'}, {value: 'b', text: 'Menu item 2'}, {value: 'c', text: 'Menu item 3'} ] })
+						</div>
+						<div class="uikit__cell">
+							<span class="uikit__cell-label">Error</span>
+							@@include("source/html/ui/select.html", { button: 'Выберите', label: 'Область применения', class: 'error', selectOptions: [ {value: 'a', text: 'Menu item 1'} ] })
+						</div>
+						<div class="uikit__cell">
+							<span class="uikit__cell-label">Success</span>
+							@@include("source/html/ui/select.html", { button: 'Выберите', label: 'Область применения', class: 'is-success', selectOptions: [ {value: 'a', text: 'Menu item 1'} ] })
+						</div>
+						<div class="uikit__cell">
+							<span class="uikit__cell-label">Disabled</span>
+							@@include("source/html/ui/select.html", { button: 'Выберите', label: 'Область применения', class: 'is-disabled', selectOptions: [ {value: 'a', text: 'Menu item 1'} ] })
+						</div>
+					</div>
+				</div>
+
+				<!-- ================= CHECKBOX ================= -->
+				<div class="uikit__section">
+					<h2 class="uikit__title">Чекбокс</h2>
+					<div class="uikit__row" style="flex-direction: column; align-items: flex-start">
+						@@include("source/html/ui/checkbox.html", { label: 'Default — я&nbsp;принимаю условия <a href="#" target="_blank" rel="noopener">Политики конфиденциальности</a>' })
+						@@include("source/html/ui/checkbox.html", { label: 'Checked', checked: 'true' })
+						@@include("source/html/ui/checkbox.html", { label: 'Disabled', disabled: 'true' })
+						@@include("source/html/ui/checkbox.html", { label: 'Error', containerClass: 'has-danger', required: 'true' })
+					</div>
+					<div class="uikit__row uikit--on-dark">
+						@@include("source/html/ui/checkbox.html", { label: 'На тёмном фоне', containerClass: 'label-white', checked: 'true' })
+					</div>
+				</div>
+
+				<!-- ================= RADIO ================= -->
+				<div class="uikit__section">
+					<h2 class="uikit__title">Радио</h2>
+					<div class="uikit__row" style="flex-direction: column; align-items: flex-start">
+						@@include("source/html/ui/radio.html", { name: 'uk-radio', label: 'Default' })
+						@@include("source/html/ui/radio.html", { name: 'uk-radio', label: 'Choosen', checked: 'true' })
+						@@include("source/html/ui/radio.html", { name: 'uk-radio-d', label: 'Disabled', disabled: 'true' })
+					</div>
+					<p class="uikit__subtitle">Тип Button</p>
+					<div class="uikit__row">
+						@@include("source/html/ui/radio.html", { name: 'uk-radio-b', label: 'Default', containerClass: 'radio--button' })
+						@@include("source/html/ui/radio.html", { name: 'uk-radio-b', label: 'Choosen', checked: 'true', containerClass: 'radio--button' })
+						@@include("source/html/ui/radio.html", { name: 'uk-radio-bd', label: 'Disabled', disabled: 'true', containerClass: 'radio--button' })
+					</div>
+				</div>
+
+				<!-- ================= LINKS ================= -->
+				<div class="uikit__section">
+					<h2 class="uikit__title">Ссылки</h2>
+					<div class="uikit__row">
+						<a class="header__link" href="#">Bordered link — Default</a>
+						<a class="header__link" href="#" style="color: var(--color-cerulean)">Bordered link — Hover</a>
+					</div>
+				</div>
+
+				<!-- ================= JS-компоненты ================= -->
+				<div class="uikit__section">
+					<h2 class="uikit__title">JS-компоненты</h2>
+
+					<p class="uikit__subtitle">Модалки</p>
+					<div class="uikit__row">
+						<button type="button" class="btn btn--outlined btn--md" data-modal-button="modal-one">Первая модалка</button>
+						<button type="button" class="btn btn--outlined btn--md" data-modal-button="modal-two">Вторая модалка</button>
+					</div>
+
+					<p class="uikit__subtitle">Аккордион</p>
+					<ul class="accordion" data-accordion="single-expand">
+						<li class="accordion_item active" data-accordion-item>
+							<button class="accordion_button" data-accordion-button>Кнопка аккордиона 1</button>
+							<div class="accordion_content"><div class="accordion_hidden-wrap"><p>Контент аккордиона</p></div></div>
+						</li>
+						<li class="accordion_item" data-accordion-item>
+							<button class="accordion_button" data-accordion-button>Кнопка аккордиона 2</button>
+							<div class="accordion_content"><div class="accordion_hidden-wrap"><p>Контент аккордиона</p></div></div>
+						</li>
+					</ul>
+
+					<p class="uikit__subtitle">Валидация формы (телефон / email / чекбокс)</p>
+					<form class="uikit__cell" style="width: 360px; gap: 12px" data-validate novalidate>
+						@@include("source/html/ui/input-text.html", { placeholder: 'Имя*', required: 'true', type: 'name' })
+						@@include("source/html/ui/input-phone.html", { placeholder: 'Телефон*', required: 'true', name: 'phone' })
+						@@include("source/html/ui/input-email.html", { placeholder: 'Email*', required: 'true' })
+						@@include("source/html/ui/checkbox.html", { label: 'Я&nbsp;принимаю условия <a href="#" target="_blank" rel="noopener">Политики</a>', required: 'true' })
+						<button class="btn btn--accent btn--lg" type="submit">Отправить</button>
+						<p class="cta__success" data-form-success hidden style="color: var(--color-observatory)">Форма успешно отправлена</p>
+					</form>
+
+					<p class="uikit__subtitle">Пагинация / фильтрация</p>
+					<div data-pagination-wrapper>
+						<div data-list-items style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px">
+							<div style="background: var(--color-pattens-blue); height: 80px; border-radius: 8px"></div>
+							<div style="background: var(--color-pattens-blue); height: 80px; border-radius: 8px"></div>
+							<div style="background: var(--color-pattens-blue); height: 80px; border-radius: 8px"></div>
+						</div>
+						<nav class="pagination" style="margin-top: 16px">
+							<ul class="pagination__list">
+								<li><a class="pagination__page is-active" href="#" aria-current="page">1</a></li>
+								<li><a class="pagination__page" href="#">2</a></li>
+								<li><a class="pagination__page" href="#">3</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+	@@include("source/html/base/footer.html")
 </div>
 @@include("source/html/components/modal-1.html")
 @@include("source/html/components/modal-2.html")

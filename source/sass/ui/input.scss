@@ -61,9 +61,24 @@
 		color: var(--color-alizarin);
 	}
 
-	&.has-danger {
+	.success-message {
+		font-size: 12px;
+		line-height: 16px;
+		color: var(--color-observatory);
+	}
+
+	// State=Error
+	&.has-danger,
+	&.is-error {
 		input {
 			border-color: var(--color-alizarin);
+		}
+	}
+
+	// State=Success
+	&.is-success {
+		input {
+			border-color: var(--color-shamrock);
 		}
 	}
 }
