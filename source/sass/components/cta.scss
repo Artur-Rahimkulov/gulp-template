@@ -1,6 +1,7 @@
 .cta {
 	position: relative;
-
+	max-width: var(--content-width);
+	margin: 0 auto;
 	overflow: hidden;
 	border-radius: var(--radius-lg);
 	background-color: var(--color-tangaroa);
@@ -12,7 +13,7 @@
 
 		width: 100%;
 		height: 100%;
-
+		
 		object-fit: cover;
 	}
 
@@ -24,8 +25,8 @@
 		flex-direction: column;
 		gap: 60px;
 		padding: 60px;
-
-		background: var(--cta-overlay);
+		border-radius: var(--Border-radius-border-radius-large, 20px);
+background: linear-gradient(96deg, #101E41 -0.42%, rgba(16, 30, 65, 0.87) 41.48%, rgba(29, 51, 106, 0.43) 57.19%, rgba(33, 86, 217, 0.19) 75.67%), url('/assets/img/cta-bg.png') lightgray -255.369px -537.128px / 127.226% 252.406% no-repeat;
 	}
 
 	&__text {

@@ -7,7 +7,12 @@
 	border: 1px solid transparent;
 	border-radius: var(--radius-md);
 	background-color: var(--color-white);
+	border-radius: 16px;
+	border-top: 4px solid #005AA3;
+	background: #FFF;
 
+	/* card */
+	box-shadow: 0 0 16px 0 rgba(0, 131, 202, 0.07);
 	transition: border-color var(--default-transition), box-shadow var(--default-transition);
 
 	&:hover {
