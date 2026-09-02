@@ -9,50 +9,27 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 24px;
-		padding: 16px 16px 16px 24px;
-
-		border-radius: var(--radius-md);
+		min-height: 80px;
+		padding: 14px 16px 14px 24px;
+		border-radius: 16px;
 		background-color: var(--color-white);
 	}
 
-	&__stats {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 8px 24px;
-	}
-
-	&__stat {
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 20px;
-		color: var(--color-pale-sky);
-	}
-
-	&__toolbar-actions {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-	}
-
-	&__filters-btn {
-		display: none;
-		gap: 8px;
-
-		img {
-			width: 12px;
-			height: 18px;
-		}
-	}
-
-	&__sort {
-		width: 328px;
-	}
+	&__stats { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+	&__stat { font-size: 14px; line-height: 20px; color: var(--color-pale-sky); }
+	&__toolbar-actions { display: flex; align-items: center; gap: 12px; }
+	&__filters-btn { display: none; gap: 8px; }
+	&__filters-btn img { width: 12px; height: 18px; }
+	&__sort { width: 328px; }
 
 	&__grid {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-columns: repeat(3, 328px);
 		gap: 20px;
+	}
+
+	&__grid-promo {
+		display: none;
 	}
 
 	&__footer {
@@ -63,41 +40,66 @@
 		margin-top: 20px;
 	}
 
-	@include vp-1440 {
-		&__sort {
-			width: 260px;
-		}
-	}
-
-	@include vp-1024 {
-		&__grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+	@media (max-width: 1024px) {
+		position: relative;
+		padding-top: 100px;
 
 		&__filters-btn {
+			position: absolute;
+			top: 0;
+			left: 0;
 			display: inline-flex;
+			justify-content: flex-start;
+			width: 100%;
+			height: 80px;
+			padding: 0 24px;
+			background-color: var(--color-white);
 		}
+
+		&__sort { width: 300px; }
+		&__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	}
 
-	@include vp-768 {
+	@media (max-width: 768px) {
+		&__sort { width: 328px; }
+		&__grid { grid-template-columns: repeat(2, 328px); gap: 20px; }
+		&__grid-promo {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			width: 328px;
+			height: 628px;
+		}
+		&__grid-promo .promo:first-child { height: 354px; }
+		&__grid-promo .promo:last-child { height: 254px; }
+	}
+
+	@media (max-width: 480px) {
+		gap: 40px;
+
 		&__toolbar {
 			flex-direction: column;
 			align-items: stretch;
 			gap: 16px;
+			height: 152px;
 			padding: 16px;
 		}
 
-		&__toolbar-actions {
-			flex-direction: column;
-			align-items: stretch;
-		}
-
-		&__sort {
-			width: 100%;
-		}
+		&__stats { gap: 4px 16px; }
+		&__toolbar-actions { flex-direction: column; align-items: stretch; gap: 8px; }
+		&__filters-btn { width: 328px; height: 80px; }
+		&__sort { width: 100%; }
 
 		&__grid {
-			grid-template-columns: minmax(0, 1fr);
+			grid-template-columns: repeat(2, 176px);
+			gap: 8px;
+			margin-right: -16px;
+			margin-left: -16px;
+		}
+
+		&__grid-promo {
+			grid-column: 1 / -1;
+			margin-left: 16px;
 		}
 	}
 }
@@ -109,60 +111,25 @@
 	justify-content: center;
 	gap: 4px;
 
-	&__list {
-		display: flex;
-		align-items: center;
-		gap: 4px;
-		margin: 0;
-		padding: 0;
-
-		list-style: none;
-	}
-
+	&__list { display: flex; align-items: center; gap: 4px; }
 	&__nav,
 	&__page {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		min-height: 44px;
-
-		border-radius: var(--radius-sm);
-
+		border-radius: 8px;
 		font-weight: 500;
 		color: var(--color-pale-sky);
-
 		transition: background-color var(--default-transition), color var(--default-transition);
-
-		@include hover-focus {
-			background-color: var(--color-alice-blue);
-			color: var(--color-endeavour);
-		}
+		@include hover-focus { background-color: var(--color-alice-blue); color: var(--color-endeavour); }
 	}
+	&__nav { min-width: 173px; padding: 12px 20px; font-size: 14px; line-height: 20px; }
+	&__page { width: 44px; font-size: 16px; line-height: 20px; }
+	&__page.is-active { background-color: var(--color-mystic); pointer-events: none; }
 
-	&__nav {
-		min-width: 173px;
-		padding: 12px 20px;
-
-		font-size: 14px;
-		line-height: 20px;
-	}
-
-	&__page {
-		width: 44px;
-
-		font-size: 16px;
-		line-height: 20px;
-
-		&.is-active {
-			background-color: var(--color-mystic);
-			pointer-events: none;
-		}
-	}
-
-	@include vp-768 {
-		&__nav {
-			min-width: 0;
-			padding: 12px;
-		}
+	@media (max-width: 480px) {
+		&__nav { min-width: 0; padding: 12px 8px; }
+		&__page { width: 40px; }
 	}
 }
