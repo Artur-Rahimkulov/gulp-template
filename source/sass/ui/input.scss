@@ -3,19 +3,19 @@
 
 	display: flex;
 	flex-direction: column;
-	gap: 0.4rem;
+	gap: 4px;
 
 	&__label {
-		font-size: 1.2rem;
+		font-size: 12px;
 		font-weight: 400;
-		line-height: 1.6rem;
+		line-height: 16px;
 		color: var(--color-pale-sky);
 	}
 
 	input {
 		width: 100%;
-		min-height: 5.2rem;
-		padding: 1.6rem;
+		min-height: 52px;
+		padding: 16px;
 
 		border: 1px solid transparent;
 		border-radius: var(--radius-sm);
@@ -23,9 +23,9 @@
 		background-color: var(--color-alice-blue);
 
 		font-family: var(--font-primary);
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 400;
-		line-height: 2rem;
+		line-height: 20px;
 		color: var(--color-shark);
 
 		transition: border-color var(--default-transition);
@@ -50,14 +50,14 @@
 		&:-webkit-autofill,
 		&:-webkit-autofill:hover,
 		&:-webkit-autofill:focus {
-			-webkit-box-shadow: 0 0 0 100rem var(--color-alice-blue) inset;
+			-webkit-box-shadow: 0 0 0 1000px var(--color-alice-blue) inset;
 		}
 	}
 
 	.pristine-error,
 	.error-message {
-		font-size: 1.2rem;
-		line-height: 1.6rem;
+		font-size: 12px;
+		line-height: 16px;
 		color: var(--color-alizarin);
 	}
 

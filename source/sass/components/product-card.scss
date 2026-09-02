@@ -1,8 +1,8 @@
 .product-card {
 	display: flex;
 	flex-direction: column;
-	gap: 0.4rem;
-	padding: 0.4rem 1.6rem 1.6rem;
+	gap: 4px;
+	padding: 4px 16px 16px;
 
 	border: 1px solid transparent;
 	border-radius: var(--radius-md);
@@ -12,7 +12,7 @@
 
 	&:hover {
 		border-color: var(--color-endeavour);
-		box-shadow: 0 0 1.6rem rgba(0, 131, 202, 0.07);
+		box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
 	}
 
 	&__media {
@@ -21,15 +21,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 21.3rem;
-		padding: 3.2rem 0;
+		min-height: 213px;
+		padding: 32px 0;
 	}
 
 	&__corner {
 		position: absolute;
 
-		width: 6.4rem;
-		height: 8rem;
+		width: 64px;
+		height: 80px;
 
 		pointer-events: none;
 
@@ -58,11 +58,11 @@
 
 			&::before {
 				top: 0;
-				left: 3rem;
+				left: 30px;
 			}
 
 			&::after {
-				top: 4.6rem;
+				top: 46px;
 				left: 0;
 			}
 		}
@@ -73,11 +73,11 @@
 
 			&::before {
 				bottom: 0;
-				right: 3rem;
+				right: 30px;
 			}
 
 			&::after {
-				bottom: 4.6rem;
+				bottom: 46px;
 				right: 0;
 			}
 		}
@@ -86,17 +86,17 @@
 	&__badges {
 		position: absolute;
 		z-index: 1;
-		top: 0.4rem;
+		top: 4px;
 		left: 0;
 
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.4rem;
+		gap: 4px;
 	}
 
 	&__image {
 		width: 100%;
-		max-width: 24rem;
+		max-width: 240px;
 		height: auto;
 
 		object-fit: contain;
@@ -106,35 +106,35 @@
 		display: flex;
 		flex: 1 1 auto;
 		flex-direction: column;
-		gap: 2.4rem;
+		gap: 24px;
 	}
 
 	&__info {
 		display: flex;
 		flex: 1 1 auto;
 		flex-direction: column;
-		gap: 1.6rem;
+		gap: 16px;
 	}
 
 	&__price {
 		font-family: var(--font-display);
-		font-size: 2.4rem;
+		font-size: 24px;
 		font-weight: 500;
-		line-height: 3.2rem;
+		line-height: 32px;
 		color: var(--color-congress-blue);
 	}
 
 	&__summary {
 		display: flex;
 		flex-direction: column;
-		gap: 0.4rem;
+		gap: 4px;
 	}
 
 	&__title {
 		font-family: var(--font-primary);
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 600;
-		line-height: 2rem;
+		line-height: 20px;
 		color: var(--color-shark);
 	}
 
@@ -150,42 +150,42 @@
 	&__actions {
 		display: flex;
 		flex-direction: column;
-		gap: 0.8rem;
+		gap: 8px;
 		margin-top: auto;
 	}
 
 	&__actions-row {
 		display: flex;
-		gap: 0.8rem;
+		gap: 8px;
 	}
 
 	@include vp-1024 {
 		&__media {
-			min-height: 17.6rem;
+			min-height: 176px;
 		}
 
 		&__body {
-			gap: 2rem;
+			gap: 20px;
 		}
 	}
 
 	@include vp-768 {
 		// по макету (328px) отступы и высота медиа на мобильных не уменьшаются
-		padding: 0.4rem 1.6rem 1.6rem;
+		padding: 4px 16px 16px;
 
 		// на тач-устройствах ховера нет — рамка и тень видны сразу
 		border-color: var(--color-endeavour);
-		box-shadow: 0 0 1.6rem rgba(0, 131, 202, 0.07);
+		box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
 
 		&__media {
-			min-height: 21.3rem;
-			padding: 2.4rem 0;
+			min-height: 213px;
+			padding: 24px 0;
 		}
 
 		// на мобильных цена крупнее — это главный акцент карточки
 		&__price {
-			font-size: 3.2rem;
-			line-height: 4rem;
+			font-size: 32px;
+			line-height: 40px;
 		}
 
 		// Ряд остаётся горизонтальным: основная кнопка тянется,
@@ -202,7 +202,7 @@
 .spec-list {
 	display: flex;
 	flex-direction: column;
-	gap: 0.8rem;
+	gap: 8px;
 	margin: 0;
 	padding: 0;
 
@@ -211,19 +211,19 @@
 	&__item {
 		position: relative;
 
-		padding-left: 1.6rem;
+		padding-left: 16px;
 
-		font-size: 1.4rem;
+		font-size: 14px;
 		font-weight: 400;
-		line-height: 2rem;
+		line-height: 20px;
 		color: var(--color-pale-sky);
 
 		&::before {
 			position: absolute;
-			top: 0.95rem;
+			top: 9.5px;
 			left: 0;
 
-			width: 0.6rem;
+			width: 6px;
 			height: 1px;
 
 			border-radius: 2px;
@@ -238,13 +238,13 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.4rem 0.8rem;
+	padding: 4px 8px;
 
-	border-radius: 0.6rem;
+	border-radius: 6px;
 
-	font-size: 1.2rem;
+	font-size: 12px;
 	font-weight: 500;
-	line-height: 1.6rem;
+	line-height: 16px;
 
 	&--part {
 		background-color: var(--color-alice-blue);
