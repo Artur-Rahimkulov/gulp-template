@@ -10,7 +10,7 @@
 	background-color: var(--color-white);
 
 	// card
-	box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
+	box-shadow: 0 0 8px rgba(0, 131, 202, 0.07);
 	transition: border-color var(--default-transition), box-shadow var(--default-transition);
 
 	&:hover {
@@ -23,8 +23,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 213px;
-		padding: 32px 0;
+		height: 213px;
+
+		background-color: var(--color-white);
 	}
 
 	&__corner {
@@ -85,11 +86,12 @@
 		}
 	}
 
+	// «Склад» — в нижнем левом углу медиа-области (по макету top ≈ 177 из 213)
 	&__badges {
 		position: absolute;
 		z-index: 1;
-		top: 4px;
-		left: 0;
+		bottom: 12px;
+		left: 16px;
 
 		display: flex;
 		flex-wrap: wrap;
@@ -149,11 +151,30 @@
 		}
 	}
 
+	// Партнометр + кнопки
 	&__actions {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: 16px;
 		margin-top: auto;
+	}
+
+	&__partnometer {
+		font-size: 14px;
+		line-height: 20px;
+		color: var(--color-pale-sky);
+		text-align: center;
+
+		span {
+			font-weight: 600;
+			color: var(--color-shark);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
 	}
 
 	&__actions-row {
@@ -161,37 +182,12 @@
 		gap: 8px;
 	}
 
-	@include vp-1024 {
-		&__media {
-			min-height: 176px;
-		}
-
-		&__body {
-			gap: 20px;
-		}
-	}
-
+	// Планшет: раскладка карточки та же, что на десктопе (по макетам 1024 и 756)
 	@include vp-768 {
-		// по макету (328px) отступы и высота медиа на мобильных не уменьшаются
-		padding: 4px 16px 16px;
-
-		// на тач-устройствах ховера нет — рамка и тень видны сразу
+		// на тач-устройствах ховера нет — рамка видна сразу
 		border-color: var(--color-endeavour);
-		box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
 
-		&__media {
-			min-height: 213px;
-			padding: 24px 0;
-		}
-
-		// на мобильных цена крупнее — это главный акцент карточки
-		&__price {
-			font-size: 32px;
-			line-height: 40px;
-		}
-
-		// Ряд остаётся горизонтальным: основная кнопка тянется,
-		// иконка корзины держит квадратный размер
+		// основная кнопка тянется, иконка корзины держит квадрат
 		&__actions-row {
 			.btn:not(.btn--square) {
 				flex: 1 1 auto;
@@ -208,9 +204,7 @@
 		border-radius: var(--radius-md);
 
 		&__media {
-			min-height: 0;
 			height: 128px;
-			padding: 0;
 		}
 
 		&__image {
@@ -231,7 +225,6 @@
 		}
 
 		&__badges {
-			top: auto;
 			bottom: 8px;
 			left: 8px;
 		}
@@ -245,8 +238,11 @@
 			gap: 8px;
 		}
 
+		// на мобильном цена — Inter Semi Bold, не Onest
 		&__price {
+			font-family: var(--font-primary);
 			font-size: 16px;
+			font-weight: 600;
 			line-height: 20px;
 		}
 
@@ -256,12 +252,21 @@
 			font-weight: 500;
 		}
 
+		// партнометр в компактной карточке не показываем
+		&__partnometer {
+			display: none;
+		}
+
 		&__actions {
 			gap: 4px;
 		}
 
+		&__buttons {
+			gap: 4px;
+		}
+
 		// «Сконфигурировать» на мобильном — первым и в мягком стиле
-		&__actions > .btn--primary {
+		&__buttons > .btn--primary {
 			order: -1;
 
 			background-color: var(--color-pattens-blue);
@@ -301,7 +306,7 @@
 
 		&::before {
 			position: absolute;
-			top: 9.5px;
+			top: 10px;
 			left: 0;
 
 			width: 6px;
@@ -335,5 +340,94 @@
 	&--stock {
 		background-color: var(--color-cosmic-latte);
 		color: var(--color-observatory);
+	}
+}
+
+// Промо-карточка (каждый 5-й элемент сетки товаров) — com_2 в макете
+// ---------------------------------
+.product-promo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 4px;
+	overflow: hidden;
+	padding: 16px;
+
+	border-radius: var(--radius-lg);
+	background-image: var(--promo-gradient);
+
+	&__list {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		gap: 4px;
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		padding: 20px;
+
+		border-radius: var(--radius-md);
+		background-color: var(--color-white);
+	}
+
+	&__item-title {
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 20px;
+		color: var(--color-shark);
+	}
+
+	&__item-text {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 20px;
+		color: var(--color-pale-sky);
+
+		opacity: 0.7;
+	}
+
+	&__cta {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 28px;
+		padding: 28px;
+
+		border-radius: 12px;
+		background-color: var(--color-white);
+	}
+
+	&__cta-title {
+		font-family: var(--font-display);
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 24px;
+		color: var(--color-shark);
+		text-align: center;
+	}
+
+	&__cta-btn {
+		min-width: 173px;
+	}
+
+	// на мобильном промо-карточка занимает всю ширину сетки (2 колонки)
+	@include vp-575 {
+		grid-column: 1 / -1;
+
+		&__item {
+			padding: 16px;
+		}
+
+		&__cta {
+			gap: 20px;
+			padding: 20px;
+		}
 	}
 }

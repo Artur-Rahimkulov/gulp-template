@@ -69,16 +69,14 @@
 		}
 	}
 
+	// Планшет 1024: сетка остаётся 3-колоночной (по макету), появляется кнопка фильтра
 	@include vp-1024 {
-		&__grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
 		&__filters-btn {
 			display: inline-flex;
 		}
 	}
 
+	// Планшет 768: сетка становится 2-колоночной, тулбар в столбик
 	@include vp-768 {
 		&__toolbar {
 			flex-direction: column;
@@ -94,6 +92,10 @@
 
 		&__sort {
 			width: 100%;
+		}
+
+		&__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
