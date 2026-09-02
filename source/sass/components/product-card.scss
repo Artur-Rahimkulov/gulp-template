@@ -5,19 +5,16 @@
 	padding: 4px 16px 16px;
 
 	border: 1px solid transparent;
+	border-top: 4px solid var(--color-endeavour);
 	border-radius: var(--radius-md);
 	background-color: var(--color-white);
-	border-radius: 16px;
-	border-top: 4px solid #005AA3;
-	background: #FFF;
 
-	/* card */
-	box-shadow: 0 0 16px 0 rgba(0, 131, 202, 0.07);
+	// card
+	box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
 	transition: border-color var(--default-transition), box-shadow var(--default-transition);
 
 	&:hover {
 		border-color: var(--color-endeavour);
-		box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
 	}
 
 	&__media {
@@ -199,6 +196,85 @@
 			.btn:not(.btn--square) {
 				flex: 1 1 auto;
 				min-width: 0;
+			}
+		}
+	}
+
+	// Мобильный 360: компактная карточка ~176px в два столбца
+	@include vp-575 {
+		gap: 4px;
+		padding: 4px;
+
+		border-radius: var(--radius-md);
+
+		&__media {
+			min-height: 0;
+			height: 128px;
+			padding: 0;
+		}
+
+		&__image {
+			max-width: 124px;
+		}
+
+		&__corner {
+			width: 44px;
+			height: 60px;
+
+			&--start::after {
+				top: 29px;
+			}
+
+			&--end::after {
+				bottom: 29px;
+			}
+		}
+
+		&__badges {
+			top: auto;
+			bottom: 8px;
+			left: 8px;
+		}
+
+		&__body {
+			gap: 11px;
+			padding: 0 8px 4px;
+		}
+
+		&__info {
+			gap: 8px;
+		}
+
+		&__price {
+			font-size: 16px;
+			line-height: 20px;
+		}
+
+		&__title {
+			font-size: 14px;
+			line-height: 20px;
+			font-weight: 500;
+		}
+
+		&__actions {
+			gap: 4px;
+		}
+
+		// «Сконфигурировать» на мобильном — первым и в мягком стиле
+		&__actions > .btn--primary {
+			order: -1;
+
+			background-color: var(--color-pattens-blue);
+			color: var(--color-endeavour);
+		}
+
+		.spec-list__item {
+			font-size: 12px;
+			line-height: 16px;
+			padding-left: 12px;
+
+			&::before {
+				top: 8px;
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 <section class="cta">
+	<img class="cta__bg" src="assets/img/cta-bg.png" width="1372" height="364" alt="" aria-hidden="true">
 
 	<div class="cta__content">
 		<div class="cta__text">
@@ -8,23 +9,25 @@
 
 		<form class="cta__form" data-validate novalidate>
 			<div class="cta__row">
-				<div class="input cta__field">
+				<div class="form-group input cta__field" data-form-group>
 					<label class="visually-hidden" for="cta-name">Имя</label>
-					<input id="cta-name" type="text" name="name" placeholder="Имя*" required>
+					<input id="cta-name" class="form-control" type="text" name="name" placeholder="Имя*" data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя" required>
 				</div>
 
-				<div class="input cta__field">
+				<div class="form-group input cta__field" data-form-group>
 					<label class="visually-hidden" for="cta-phone">Телефон</label>
-					<input id="cta-phone" type="tel" name="phone" placeholder="+7 (000) 000-00-00*" data-phone required>
+					<input id="cta-phone" class="form-control" type="tel" name="phone" placeholder="+7 (000) 000-00-00*" data-type="phone" autocomplete="tel" data-required-message="Заполните поле" data-error-message="Некорректный телефон" required>
 				</div>
 
 				<button class="btn btn--accent btn--lg cta__submit" type="submit">Отправить</button>
 			</div>
 
 			<p class="cta__agree">
-				Нажимая на кнопку, вы даете согласие&nbsp; на обработку
-				<a class="cta__agree-link" href="#">личных данных</a>
+				Нажимая на кнопку, вы даете согласие&nbsp;на обработку
+				<a class="cta__agree-link" href="#" target="_blank" rel="noopener">личных данных</a>
 			</p>
+
+			<p class="cta__success" data-form-success hidden>Спасибо! Заявка отправлена — менеджер свяжется с вами в ближайшее время.</p>
 		</form>
 	</div>
 </section>

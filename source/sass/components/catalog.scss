@@ -1,12 +1,12 @@
 .catalog {
-	padding: 40px 0 60px;
+	padding: 40px 0 0;
 
 	@include vp-1024 {
-		padding: 32px 0 40px;
+		padding: 32px 0 0;
 	}
 
 	@include vp-768 {
-		padding: 24px 0 32px;
+		padding: 24px 0 0;
 	}
 
 	&__layout {
@@ -26,7 +26,7 @@
 		flex-direction: column;
 		gap: 20px;
 		flex-shrink: 0;
-		width: 324px;
+		width: 328px;
 
 		@include vp-1440 {
 			width: 280px;

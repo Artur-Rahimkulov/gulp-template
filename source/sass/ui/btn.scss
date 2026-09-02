@@ -1,28 +1,21 @@
 .btn {
 	display: inline-flex;
+	box-sizing: border-box;
 	align-items: center;
 	justify-content: center;
 	gap: 8px;
 	padding: 12px 20px;
-	box-sizing: border-box;
+
 	border: 1px solid transparent;
 	border-radius: var(--radius-sm);
 	outline: none;
-	color: var(--Button-Outlined-btn-outlined-dark-text, #58616A);
-text-align: center;
 
-/* Web/Button medium */
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px; /* 142.857% */
-		letter-spacing: 0em;
-		word-spacing: 0em;
-
+	// Web/Button medium
 	font-family: var(--font-primary);
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 20px;
+	color: var(--color-pale-sky);
 	text-align: center;
 
 	cursor: pointer;

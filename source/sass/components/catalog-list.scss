@@ -95,9 +95,17 @@
 		&__sort {
 			width: 100%;
 		}
+	}
 
+	// Мобильный 360: две компактные колонки с узким гэпом
+	@include vp-575 {
 		&__grid {
-			grid-template-columns: minmax(0, 1fr);
+			gap: 8px;
+		}
+
+		&__footer {
+			gap: 16px;
+			margin-top: 16px;
 		}
 	}
 }
