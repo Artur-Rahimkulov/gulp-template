@@ -2,56 +2,236 @@
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
-	min-width: 0;
 	padding: 4px 16px 16px;
+
 	border: 1px solid transparent;
-	border-radius: 16px;
+	border-radius: var(--radius-md);
 	background-color: var(--color-white);
+
 	transition: border-color var(--default-transition), box-shadow var(--default-transition);
 
-	&:hover { border-color: var(--color-endeavour); box-shadow: 0 0 16px rgba(0, 131, 202, 0.07); }
+	&:hover {
+		border-color: var(--color-endeavour);
+		box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
+	}
 
 	&__media {
 		position: relative;
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 213px;
+		min-height: 213px;
 		padding: 32px 0;
 	}
 
-	&__corner { position: absolute; width: 64px; height: 80px; pointer-events: none; }
-	&__corner::before, &__corner::after { position: absolute; background-color: var(--color-tropical-blue); content: ''; }
-	&__corner::before { width: 1px; height: 100%; }
-	&__corner::after { width: 100%; height: 1px; }
-	&__corner--start { top: 0; left: 0; }
-	&__corner--start::before { top: 0; left: 30px; }
-	&__corner--start::after { top: 46px; left: 0; }
-	&__corner--end { right: 0; bottom: 0; }
-	&__corner--end::before { right: 30px; bottom: 0; }
-	&__corner--end::after { right: 0; bottom: 46px; }
+	&__corner {
+		position: absolute;
 
-	&__badges { position: absolute; z-index: 1; top: 4px; left: 0; display: flex; flex-wrap: wrap; gap: 4px; }
-	&__image { width: 100%; max-width: 240px; max-height: 120px; object-fit: contain; }
-	&__body { display: flex; flex: 1 1 auto; flex-direction: column; gap: 24px; }
-	&__info { display: flex; flex: 1 1 auto; flex-direction: column; gap: 16px; }
-	&__price { font-family: var(--font-display); font-size: 24px; font-weight: 500; line-height: 32px; color: var(--color-congress-blue); }
-	&__summary { display: flex; flex-direction: column; gap: 4px; }
-	&__title { font-size: 16px; font-weight: 600; line-height: 20px; color: var(--color-shark); }
-	&__link { transition: color var(--default-transition); }
-	&__link:hover, &__link:focus-visible { color: var(--color-endeavour); }
-	&__actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-	&__actions-row { display: flex; gap: 8px; }
+		width: 64px;
+		height: 80px;
+
+		pointer-events: none;
+
+		&::before,
+		&::after {
+			position: absolute;
+			background-color: var(--color-tropical-blue);
+			content: '';
+		}
+
+		// вертикальная линия
+		&::before {
+			width: 1px;
+			height: 100%;
+		}
+
+		// горизонтальная линия
+		&::after {
+			width: 100%;
+			height: 1px;
+		}
+
+		&--start {
+			top: 0;
+			left: 0;
+
+			&::before {
+				top: 0;
+				left: 30px;
+			}
+
+			&::after {
+				top: 46px;
+				left: 0;
+			}
+		}
+
+		&--end {
+			right: 0;
+			bottom: 0;
+
+			&::before {
+				bottom: 0;
+				right: 30px;
+			}
+
+			&::after {
+				bottom: 46px;
+				right: 0;
+			}
+		}
+	}
+
+	&__badges {
+		position: absolute;
+		z-index: 1;
+		top: 4px;
+		left: 0;
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px;
+	}
+
+	&__image {
+		width: 100%;
+		max-width: 240px;
+		height: auto;
+
+		object-fit: contain;
+	}
+
+	&__body {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	&__info {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__price {
+		font-family: var(--font-display);
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 32px;
+		color: var(--color-congress-blue);
+	}
+
+	&__summary {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	&__title {
+		font-family: var(--font-primary);
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 20px;
+		color: var(--color-shark);
+	}
+
+	&__link {
+		transition: color var(--default-transition);
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-endeavour);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-top: auto;
+	}
+
+	&__actions-row {
+		display: flex;
+		gap: 8px;
+	}
+
+	@include vp-1024 {
+		&__media {
+			min-height: 176px;
+		}
+
+		&__body {
+			gap: 20px;
+		}
+	}
+
+	@include vp-768 {
+		// по макету (328px) отступы и высота медиа на мобильных не уменьшаются
+		padding: 4px 16px 16px;
+
+		// на тач-устройствах ховера нет — рамка и тень видны сразу
+		border-color: var(--color-endeavour);
+		box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
+
+		&__media {
+			min-height: 213px;
+			padding: 24px 0;
+		}
+
+		// на мобильных цена крупнее — это главный акцент карточки
+		&__price {
+			font-size: 32px;
+			line-height: 40px;
+		}
+
+		// Ряд остаётся горизонтальным: основная кнопка тянется,
+		// иконка корзины держит квадратный размер
+		&__actions-row {
+			.btn:not(.btn--square) {
+				flex: 1 1 auto;
+				min-width: 0;
+			}
+		}
+	}
 }
 
 .spec-list {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	margin: 0;
+	padding: 0;
+
 	list-style: none;
 
-	&__item { position: relative; padding-left: 16px; font-size: 14px; line-height: 20px; color: var(--color-pale-sky); }
-	&__item::before { position: absolute; top: 9px; left: 0; width: 6px; height: 1px; border-radius: 2px; background-color: var(--color-cadet-blue); content: ''; }
+	&__item {
+		position: relative;
+
+		padding-left: 16px;
+
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 20px;
+		color: var(--color-pale-sky);
+
+		&::before {
+			position: absolute;
+			top: 9.5px;
+			left: 0;
+
+			width: 6px;
+			height: 1px;
+
+			border-radius: 2px;
+			background-color: var(--color-cadet-blue);
+
+			content: '';
+		}
+	}
 }
 
 .badge {
@@ -59,49 +239,20 @@
 	align-items: center;
 	justify-content: center;
 	padding: 4px 8px;
+
 	border-radius: 6px;
+
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 16px;
-	&--part { background-color: var(--color-alice-blue); color: var(--color-cerulean); }
-	&--stock { background-color: var(--color-cosmic-latte); color: var(--color-observatory); }
-}
 
-@media (max-width: 1024px) and (min-width: 769px) {
-	.product-card { padding-right: 14px; padding-left: 14px; }
-	.product-card__media { height: 196px; }
-}
-
-@media (max-width: 480px) {
-	.product-card {
-		height: 391px;
-		padding: 4px 8px 8px;
-		border-color: var(--color-endeavour);
-		border-radius: 12px;
-		box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
+	&--part {
+		background-color: var(--color-alice-blue);
+		color: var(--color-cerulean);
 	}
 
-	.product-card__media { height: 128px; padding: 24px 0 12px; }
-	.product-card__image { max-width: 144px; max-height: 72px; }
-	.product-card__corner { width: 42px; height: 54px; }
-	.product-card__corner--start::before { left: 20px; }
-	.product-card__corner--start::after { top: 31px; }
-	.product-card__corner--end::before { right: 20px; }
-	.product-card__corner--end::after { bottom: 31px; }
-	.product-card__badges { top: 0; gap: 2px; }
-	.badge { padding: 2px 4px; border-radius: 4px; font-size: 9px; line-height: 12px; }
-	.product-card__body { gap: 12px; }
-	.product-card__info { gap: 8px; }
-	.product-card__price { font-size: 16px; line-height: 20px; }
-	.product-card__title { display: -webkit-box; overflow: hidden; font-size: 12px; line-height: 16px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-	.spec-list { gap: 2px; }
-	.spec-list__item { padding-left: 10px; font-size: 10px; line-height: 14px; }
-	.spec-list__item::before { top: 7px; width: 4px; }
-	.product-card__actions { gap: 4px; }
-	.product-card__actions-row { gap: 4px; }
-	.product-card .btn { min-height: 36px; padding: 8px; font-size: 10px; line-height: 12px; }
-	.product-card .btn--square { width: 36px; min-width: 36px; }
-	.product-card .btn__icon, .product-card .btn__icon svg { width: 16px; height: 16px; }
-	.product-card .btn__label { white-space: nowrap; }
-	.product-card__actions-row .btn:not(.btn--square) { flex: 1 1 auto; min-width: 0; }
+	&--stock {
+		background-color: var(--color-cosmic-latte);
+		color: var(--color-observatory);
+	}
 }
