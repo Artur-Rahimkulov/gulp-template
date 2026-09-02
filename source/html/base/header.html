@@ -86,7 +86,10 @@
 							<a class="header__nav-link" href="#" aria-expanded="false" aria-controls="dropdown-cases" data-dropdown-trigger>Кейсы</a>
 							@@include("source/html/components/menu-cases.html")
 						</li>
-						<li class="header__nav-item"><a class="header__nav-link" href="#">Поддержка</a></li>
+						<li class="header__nav-item" data-dropdown>
+							<a class="header__nav-link" href="#" aria-expanded="false" aria-controls="dropdown-support" data-dropdown-trigger>Поддержка</a>
+							@@include("source/html/components/menu-support.html")
+						</li>
 						<li class="header__nav-item"><a class="header__nav-link" href="#">Контакты</a></li>
 					</ul>
 				</nav>
