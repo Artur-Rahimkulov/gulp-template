@@ -14,8 +14,8 @@ body {
 html {
 	font-style: normal;
 	font-weight: 400;
-	// font-size: 16px;
-	font-size: 62.5%; // 1rem = 10px
+	// размеры в проекте заданы в px, поэтому хак font-size: 62.5% не нужен
+	font-size: 16px;
 	line-height: 1.2;
 	font-family: var(--font-primary);
 	color: var(--color-shark);
@@ -26,16 +26,16 @@ html {
 	// оптимизация выравнивания шрифта относительно центра строки
 
 	// шапка зафиксирована, поэтому учитываем её высоту при переходах по анкорам
-	scroll-padding-top: var(--header-height, 13.6rem);
+	scroll-padding-top: var(--header-height, 136px);
 }
 
 body {
 	width: 100%;
 	height: 100%;
 	// отступ под фиксированную шапку (реальная высота выставляется из js)
-	padding-top: var(--header-height, 13.6rem);
+	padding-top: var(--header-height, 136px);
 	background-color: var(--color-alice-blue);
-	font-size: 1.4rem;
+	font-size: 14px;
 
 	// блокировка прокрутки при открытом мобильном меню
 	// (top выставляется из js, чтобы сохранить позицию)
@@ -95,7 +95,7 @@ textarea {
 // если в стилях уже используется box-shadow есть другое решение -
 // задать к списку транзишенов `background-color 10000000s ease-out`
 input:-webkit-autofill {
-	box-shadow: inset 0 0 0 100rem var(--color-white);
+	box-shadow: inset 0 0 0 1000px var(--color-white);
 	-webkit-text-fill-color: var(--color-black);
 }
 

@@ -15,11 +15,11 @@
 
 	visibility: hidden;
 	opacity: 0;
-	transform: translateY(-0.8rem);
+	transform: translateY(-8px);
 
 	background-color: var(--color-white);
 	border-radius: var(--radius-lg);
-	box-shadow: 0 0 1.6rem rgba(0, 131, 202, 0.07);
+	box-shadow: 0 0 16px rgba(0, 131, 202, 0.07);
 
 	transition: opacity var(--default-transition), transform var(--default-transition), visibility var(--default-transition);
 
@@ -31,7 +31,7 @@
 		left: 0;
 
 		width: 100%;
-		height: 2rem;
+		height: 20px;
 
 		content: '';
 	}
@@ -49,8 +49,8 @@
 
 	&__inner {
 		display: flex;
-		gap: 1.6rem;
-		padding: 4rem;
+		gap: 16px;
+		padding: 40px;
 	}
 
 	// мега-меню само управляет отступами: сайдбар прилегает к краю панели,
@@ -62,14 +62,14 @@
 	&__cols {
 		display: flex;
 		flex-grow: 1;
-		gap: 6rem;
+		gap: 60px;
 	}
 
 	&__col {
 		display: flex;
 		flex-direction: column;
-		flex: 1 1 40.2rem;
-		gap: 2rem;
+		flex: 1 1 402px;
+		gap: 20px;
 	}
 
 	// на планшетах панель не нужна — там мобильное меню
@@ -81,32 +81,32 @@
 .dropdown-card {
 	display: flex;
 	align-items: flex-start;
-	gap: 0.8rem;
+	gap: 8px;
 
 	&__icon {
-		width: 2.4rem;
-		height: 2.4rem;
+		width: 24px;
+		height: 24px;
 		flex-shrink: 0;
 	}
 
 	&__body {
 		display: flex;
 		flex-direction: column;
-		gap: 0.4rem;
+		gap: 4px;
 	}
 
 	&__title {
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 600;
-		line-height: 2.4rem;
+		line-height: 24px;
 		color: var(--color-shark);
 
 		transition: color var(--default-transition);
 	}
 
 	&__text {
-		font-size: 1.2rem;
-		line-height: 1.6rem;
+		font-size: 12px;
+		line-height: 16px;
 		color: var(--color-pale-sky);
 	}
 
@@ -120,10 +120,10 @@
 .dropdown-promo {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
-	width: 32.8rem;
+	gap: 20px;
+	width: 328px;
 	flex-shrink: 0;
-	padding: 2rem;
+	padding: 20px;
 
 	background-image: var(--promo-gradient);
 	border-radius: var(--radius-md);
@@ -132,14 +132,14 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		gap: 1.2rem;
+		gap: 12px;
 	}
 
 	&__title {
 		font-family: var(--font-display);
-		font-size: 2rem;
+		font-size: 20px;
 		font-weight: 500;
-		line-height: 2.8rem;
+		line-height: 28px;
 		color: var(--color-white);
 	}
 
@@ -147,8 +147,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 3.2rem;
-		height: 3.2rem;
+		width: 32px;
+		height: 32px;
 		flex-shrink: 0;
 
 		background-color: var(--color-cerulean);
@@ -157,17 +157,17 @@
 		transition: background-color var(--default-transition);
 
 		img {
-			width: 2rem;
-			height: 2rem;
+			width: 20px;
+			height: 20px;
 		}
 	}
 
 	&__img {
 		width: 100%;
-		height: 19.2rem;
+		height: 192px;
 
 		object-fit: cover;
-		border-radius: 1.2rem;
+		border-radius: 12px;
 	}
 
 	@include hover-focus {
@@ -186,9 +186,9 @@
 	&__aside {
 		display: flex;
 		flex-direction: column;
-		width: 34.2rem;
+		width: 342px;
 		flex-shrink: 0;
-		padding: 4rem;
+		padding: 40px;
 
 		background-color: var(--color-alice-blue);
 		border-radius: 0 0 0 var(--radius-lg);
@@ -197,21 +197,21 @@
 	&__tabs {
 		display: flex;
 		flex-direction: column;
-		gap: 2.8rem;
+		gap: 28px;
 	}
 
 	&__tab {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.2rem;
+		gap: 12px;
 		width: 100%;
 		padding: 0;
 
 		font-family: var(--font-primary);
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 600;
-		line-height: 2rem;
+		line-height: 20px;
 		text-align: left;
 		color: var(--color-shark);
 
@@ -232,8 +232,8 @@
 
 	// шеврон из ассетов один — вниз, поэтому разворачиваем его вправо
 	&__tab-chevron {
-		width: 1.6rem;
-		height: 1.6rem;
+		width: 16px;
+		height: 16px;
 		flex-shrink: 0;
 
 		transform: rotate(-90deg);
@@ -243,15 +243,15 @@
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-		gap: 4rem;
+		gap: 40px;
 		min-width: 0;
-		padding: 4rem;
+		padding: 40px;
 	}
 
 	&__pane {
 		display: none;
 		flex-direction: column;
-		gap: 2.8rem;
+		gap: 28px;
 
 		&.is-active {
 			display: flex;
@@ -261,13 +261,13 @@
 	&__head {
 		display: flex;
 		align-items: center;
-		gap: 0.8rem;
+		gap: 8px;
 	}
 
 	&__title {
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 600;
-		line-height: 2.4rem;
+		line-height: 24px;
 		color: var(--color-shark);
 	}
 
@@ -275,18 +275,18 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 2rem;
-		height: 2rem;
+		width: 20px;
+		height: 20px;
 		flex-shrink: 0;
 
 		background-color: var(--color-pattens-blue);
-		border-radius: 0.4rem;
+		border-radius: 4px;
 
 		transition: background-color var(--default-transition);
 
 		img {
-			width: 1.6rem;
-			height: 1.6rem;
+			width: 16px;
+			height: 16px;
 		}
 
 		@include hover-focus {
@@ -296,20 +296,20 @@
 
 	&__lists {
 		display: flex;
-		gap: 2rem;
+		gap: 20px;
 	}
 
 	&__list {
 		display: flex;
 		flex-direction: column;
 		flex: 1 1 0;
-		gap: 1.6rem;
+		gap: 16px;
 		min-width: 0;
 	}
 
 	&__link {
-		font-size: 1.6rem;
-		line-height: 2.4rem;
+		font-size: 16px;
+		line-height: 24px;
 		color: var(--color-shark);
 
 		transition: color var(--default-transition);
@@ -322,15 +322,15 @@
 	&__tags {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1.2rem;
+		gap: 12px;
 	}
 
 	&__tag {
 		display: block;
-		padding: 0.8rem 1.2rem;
+		padding: 8px 12px;
 
-		font-size: 1.4rem;
-		line-height: 2rem;
+		font-size: 14px;
+		line-height: 20px;
 		color: var(--color-pale-sky);
 
 		border: 1px solid var(--color-loblolly);
@@ -347,7 +347,7 @@
 	// баннеры общие для всех разделов, поэтому прижаты к низу колонки
 	&__banners {
 		display: flex;
-		gap: 1.6rem;
+		gap: 16px;
 		margin-top: auto;
 	}
 
@@ -355,14 +355,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.2rem;
+		gap: 12px;
 		flex: 1 1 0;
-		padding: 1.6rem 2rem;
+		padding: 16px 20px;
 
 		font-family: var(--font-display);
-		font-size: 2rem;
+		font-size: 20px;
 		font-weight: 500;
-		line-height: 2.8rem;
+		line-height: 28px;
 		color: var(--color-shark);
 
 		background-color: var(--color-pattens-blue);
@@ -371,8 +371,8 @@
 		transition: background-color var(--default-transition);
 
 		img {
-			width: 2rem;
-			height: 2rem;
+			width: 20px;
+			height: 20px;
 			flex-shrink: 0;
 		}
 

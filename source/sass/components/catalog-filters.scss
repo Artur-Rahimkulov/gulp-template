@@ -1,8 +1,8 @@
 .filters {
 	display: flex;
 	flex-direction: column;
-	gap: 2.4rem;
-	padding: 2.8rem 2.4rem;
+	gap: 24px;
+	padding: 28px 24px;
 
 	background-color: var(--color-white);
 	border-radius: var(--radius-md);
@@ -11,12 +11,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.6rem;
+		gap: 16px;
 	}
 
 	&__title {
-		font-size: 2.4rem;
-		line-height: 3.2rem;
+		font-size: 24px;
+		line-height: 32px;
 		color: var(--color-shark);
 	}
 
@@ -25,22 +25,22 @@
 		padding: 0;
 
 		img {
-			width: 2rem;
-			height: 2rem;
+			width: 20px;
+			height: 20px;
 		}
 	}
 
 	&__group {
 		display: flex;
 		flex-direction: column;
-		gap: 1.6rem;
+		gap: 16px;
 	}
 
 	&__group-btn {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.2rem;
+		gap: 12px;
 		width: 100%;
 		padding: 0;
 
@@ -48,15 +48,15 @@
 	}
 
 	&__group-name {
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 600;
-		line-height: 2rem;
+		line-height: 20px;
 		color: var(--color-shark);
 	}
 
 	&__group-icon {
-		width: 1.6rem;
-		height: 1.6rem;
+		width: 16px;
+		height: 16px;
 		flex-shrink: 0;
 
 		transition: transform var(--default-transition);
@@ -65,7 +65,7 @@
 	&__group-body {
 		display: none;
 		flex-direction: column;
-		gap: 1.6rem;
+		gap: 16px;
 	}
 
 	&__group.active {
@@ -81,16 +81,16 @@
 	&__tags {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1.2rem;
+		gap: 12px;
 	}
 
 	&__more {
 		padding: 0;
 
 		font-family: var(--font-primary);
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 600;
-		line-height: 2.4rem;
+		line-height: 24px;
 		color: var(--color-shark);
 		text-align: left;
 
@@ -102,11 +102,11 @@
 	}
 
 	@include vp-1024 {
-		gap: 2rem;
-		padding: 2.4rem;
+		gap: 20px;
+		padding: 24px;
 
 		&__head {
-			padding-bottom: 0.4rem;
+			padding-bottom: 4px;
 		}
 
 		&__close {
@@ -114,7 +114,7 @@
 		}
 
 		&__tags {
-			gap: 0.8rem;
+			gap: 8px;
 		}
 	}
 }

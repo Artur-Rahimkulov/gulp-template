@@ -1,17 +1,17 @@
 .seo-text {
-	padding-bottom: 8rem;
+	padding-bottom: 80px;
 
 	.container {
 		display: flex;
 		flex-direction: column;
-		gap: 2.8rem;
+		gap: 28px;
 	}
 
 	&__title {
 		font-family: var(--font-display);
-		font-size: 4.8rem;
+		font-size: 48px;
 		font-weight: 500;
-		line-height: 5.2rem;
+		line-height: 52px;
 		color: var(--color-shark);
 		text-wrap: balance;
 	}
@@ -19,24 +19,24 @@
 	&__body {
 		display: flex;
 		flex-direction: column;
-		gap: 1.6rem;
+		gap: 16px;
 	}
 
 	&__lead {
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: 400;
-		line-height: 2.4rem;
+		line-height: 24px;
 		color: var(--color-pale-sky);
 	}
 
 	&__list {
-		gap: 1.6rem;
+		gap: 16px;
 	}
 
 	@include vp-1024 {
 		&__title {
-			font-size: 3.6rem;
-			line-height: 4rem;
+			font-size: 36px;
+			line-height: 40px;
 
 			br {
 				display: none;
@@ -45,15 +45,15 @@
 	}
 
 	@include vp-768 {
-		padding-bottom: 4.8rem;
+		padding-bottom: 48px;
 
 		.container {
-			gap: 2rem;
+			gap: 20px;
 		}
 
 		&__title {
-			font-size: 2.8rem;
-			line-height: 3.2rem;
+			font-size: 28px;
+			line-height: 32px;
 		}
 	}
 }
@@ -61,11 +61,11 @@
 // модификатор для крупных списков (16/24 вместо 14/20)
 .spec-list--md {
 	.spec-list__item {
-		font-size: 1.6rem;
-		line-height: 2.4rem;
+		font-size: 16px;
+		line-height: 24px;
 
 		&::before {
-			top: 1.15rem;
+			top: 11.5px;
 		}
 	}
 }

@@ -14,7 +14,7 @@
 
 	&.label-white{
 		.checkbox-custom{
-			border: .1rem solid #FFFFFFCC;
+			border: 1px solid #FFFFFFCC;
 		}
 		.checkbox-text{
 			color: white;
@@ -37,8 +37,8 @@
 	}
   &.size-sm{
     .checkbox-custom{
-      width: 1.6rem;
-      height: 1.6rem;
+      width: 16px;
+      height: 16px;
     }
     .checkbox-input:checked~.checkbox-custom svg{
       transform: scale(.8);
@@ -61,7 +61,7 @@
   transform: translateY(-50%);
 	width: 20px;
 	height: 20px;
-	border: .1rem solid #868686;
+	border: 1px solid #868686;
 	border-radius: 4px;
 	background-color: transparent;
 	transition: all 0.2s ease;
