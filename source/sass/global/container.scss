@@ -13,6 +13,10 @@
 	}
 
 	@include vp-756 {
+		padding: 0 40px;
+	}
+
+	@include vp-360 {
 		padding: 0 16px;
 	}
 }

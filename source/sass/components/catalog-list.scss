@@ -74,12 +74,19 @@
 		}
 	}
 
-	// Планшет 768: сетка становится 2-колоночной, тулбар в столбик
+	// Планшет 756: сетка 2-колоночная; тулбар остаётся в строку (макет «… / Планшет», 756)
 	@include vp-756 {
+		&__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	// Мобильный 360: тулбар в столбик, сетка товаров во всю ширину экрана (макет «Серверы / Планшет», 360)
+	@include vp-360 {
 		&__toolbar {
 			flex-direction: column;
 			align-items: stretch;
-			gap: 16px;
+			gap: 28px;
 			padding: 16px;
 		}
 
@@ -93,14 +100,9 @@
 		}
 
 		&__grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-
-	// Мобильный 360: две компактные колонки с узким гэпом
-	@include vp-360 {
-		&__grid {
 			gap: 8px;
+			margin-right: -16px;
+			margin-left: -16px;
 		}
 
 		&__footer {
@@ -172,6 +174,13 @@
 		&__nav {
 			min-width: 0;
 			padding: 12px;
+		}
+	}
+
+	// Мобильный 360: только номера страниц, ссылки «В начало / Дальше» скрыты (макет «Серверы / Планшет», 360)
+	@include vp-360 {
+		&__nav {
+			display: none;
 		}
 	}
 }

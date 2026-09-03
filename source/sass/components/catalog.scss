@@ -1,13 +1,6 @@
 .catalog {
+	// отступ от ряда тегов до триггера «Фильтр» — 40 на всех брейкпоинтах (макеты 1024 / 756)
 	padding: 40px 0 0;
-
-	@include vp-1024 {
-		padding: 32px 0 0;
-	}
-
-	@include vp-756 {
-		padding: 24px 0 0;
-	}
 
 	&__layout {
 		display: flex;

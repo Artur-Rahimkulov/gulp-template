@@ -135,9 +135,12 @@
 					182.312% no-repeat;
 		}
 	}
+	// Мобильный 360: крупный заголовок и подзаголовок как в макете «Серверы / Планшет», 360
 	@include vp-360 {
 		padding:0px 16px;
 		&__content {
+			gap: 28px;
+			padding: 20px 24px;
 			background: linear-gradient(
 					96deg,
 					#101e41 -0.42%,
@@ -146,6 +149,16 @@
 					rgba(33, 86, 217, 0.19) 75.67%
 				),
 				url("/assets/img/cta-bg.png") lightgray -418.088px 0px / 279.775% 100% no-repeat;
+		}
+
+		&__title {
+			font-size: 36px;
+			line-height: 40px;
+		}
+
+		&__subtitle {
+			font-size: 20px;
+			line-height: 32px;
 		}
 	}
 }
