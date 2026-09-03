@@ -38,14 +38,14 @@
 	}
 
 	// ≤768: заголовок — Mobile/Heading 2 (36/40), перенос строки сохраняется
-	@include vp-768 {
+	@include vp-756 {
 		&__title {
 			font-size: 36px;
 			line-height: 40px;
 		}
 	}
 
-	@include vp-575 {
+	@include vp-360 {
 		padding: 48px 0;
 
 		.container {

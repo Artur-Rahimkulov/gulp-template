@@ -156,7 +156,8 @@
 
 		transition: background-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 20px;
 			height: 20px;
 		}
@@ -284,7 +285,8 @@
 
 		transition: background-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 16px;
 			height: 16px;
 		}
@@ -397,7 +399,8 @@
 
 		transition: background-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 20px;
 			height: 20px;
 			flex-shrink: 0;

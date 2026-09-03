@@ -126,7 +126,8 @@
 
 		transition: opacity var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 30px;
 			height: 30px;
 		}
@@ -150,10 +151,12 @@
 
 		background-color: var(--color-alice-blue);
 		border-radius: var(--radius-sm);
+		color: var(--color-cerulean);
 
 		transition: background-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 24px;
 			height: 24px;
 		}
@@ -181,11 +184,13 @@
 		background-color: var(--color-alice-blue);
 		border: none;
 		border-radius: var(--radius-sm);
+		color: var(--color-cerulean);
 		cursor: pointer;
 
 		transition: background-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 24px;
 			height: 24px;
 		}
@@ -290,7 +295,8 @@
 		flex-shrink: 0;
 		padding: 0;
 
-		img {
+		img,
+		svg {
 			width: 24px;
 			height: 24px;
 		}
@@ -371,7 +377,7 @@
 	// Row 1: burger | logo | buttons
 	// Row 2: search (full width)
 	// Row 3: contacts, centered, no socials
-	@include vp-768 {
+	@include vp-756 {
 		&__inner {
 			gap: 24px;
 		}
@@ -409,7 +415,7 @@
 
 	// Mobile — 360
 	// Single row: burger | logo | search + phone + cart icons
-	@include vp-575 {
+	@include vp-360 {
 		&__inner {
 			gap: 0;
 			padding: 16px 0;

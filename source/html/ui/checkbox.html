@@ -9,10 +9,7 @@
 		@@if (context.disabled) {disabled}
 	 >
 	<span class="checkbox-custom">
-		<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M12.5085 1.37006L5.17513 8.70339L1.8418 5.37006" stroke="#ffffff" stroke-width="2"
-				stroke-linecap="round" stroke-linejoin="round"></path>
-		</svg>
+		<svg class="icon" width="14" height="10" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-check"></use></svg>
 	</span>
 	@@if (context.label && context.label !== "undefined") {
 		<span class="checkbox-text">

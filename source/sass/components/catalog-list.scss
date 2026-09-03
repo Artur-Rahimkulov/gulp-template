@@ -56,6 +56,9 @@
 		align-items: center;
 		gap: 20px;
 		margin-top: 20px;
+		.btn--outlined {
+			color: var(--color-pale-sky);
+		}
 	}
 
 	@include vp-1440 {
@@ -65,7 +68,7 @@
 	}
 
 	// Планшет 768: сетка становится 2-колоночной, тулбар в столбик
-	@include vp-768 {
+	@include vp-756 {
 		&__toolbar {
 			flex-direction: column;
 			align-items: stretch;
@@ -88,7 +91,7 @@
 	}
 
 	// Мобильный 360: две компактные колонки с узким гэпом
-	@include vp-575 {
+	@include vp-360 {
 		&__grid {
 			gap: 8px;
 		}
@@ -129,7 +132,8 @@
 		font-weight: 500;
 		color: var(--color-pale-sky);
 
-		transition: background-color var(--default-transition), color var(--default-transition);
+		transition: background-color var(--default-transition),
+			color var(--default-transition);
 
 		@include hover-focus {
 			background-color: var(--color-alice-blue);
@@ -157,7 +161,7 @@
 		}
 	}
 
-	@include vp-768 {
+	@include vp-756 {
 		&__nav {
 			min-width: 0;
 			padding: 12px;

@@ -94,7 +94,7 @@
 		background-color: var(--color-tangaroa);
 	}
 
-	@include vp-768 {
+	@include vp-756 {
 		&__grid {
 			grid-template-columns: 88px 1fr;
 		}

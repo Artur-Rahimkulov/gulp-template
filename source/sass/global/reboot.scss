@@ -84,6 +84,17 @@ video {
 	height: auto;
 }
 
+// Иконка из SVG-спрайта: <svg class="icon"><use href="assets/svg/sprite.svg#icon-name"></use></svg>
+// fill: none — иконки в спрайте рисуются обводкой (stroke) либо имеют собственный fill;
+// без этого svgstore теряет корневой fill="none" и контурные иконки заливаются сплошным цветом.
+.icon {
+	display: inline-block;
+	flex-shrink: 0;
+
+	vertical-align: middle;
+	fill: none;
+}
+
 textarea {
 	resize: none;
 }

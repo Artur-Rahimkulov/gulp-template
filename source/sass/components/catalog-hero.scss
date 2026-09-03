@@ -99,7 +99,7 @@
 		.btn {
 			outline-color: var(--color-loblolly);
 			color: var(--color-pale-sky);
-
+			white-space: nowrap;
 			@include hover-focus {
 				outline-color: var(--color-endeavour);
 				color: var(--color-endeavour);
@@ -149,7 +149,7 @@
 	}
 
 	// Планшет 768: баннер ниже, теги уходят за край экрана и скроллятся свайпом
-	@include vp-768 {
+	@include vp-756 {
 		padding-right: 16px;
 		padding-left: 16px;
 
@@ -190,7 +190,7 @@
 	}
 
 	// Мобильный 360: заголовок над баннером, плитки скроллятся по горизонтали
-	@include vp-575 {
+	@include vp-360 {
 		padding-top: 40px;
 
 		&__intro {

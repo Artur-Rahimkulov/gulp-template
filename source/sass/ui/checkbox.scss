@@ -80,13 +80,11 @@
 	width: 16px;
 	height: 16px;
 
+	color: var(--color-cerulean);
+
 	opacity: 0;
 	transform: scale(0.8);
 	transition: opacity var(--default-transition), transform var(--default-transition);
-}
-
-.checkbox-custom svg path {
-	stroke: var(--color-cerulean);
 }
 
 // State=Checked
@@ -144,7 +142,7 @@
 		}
 	}
 
-	@include vp-768 {
+	@include vp-756 {
 		font-size: 14px;
 		line-height: 20px;
 	}

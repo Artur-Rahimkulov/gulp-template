@@ -2,10 +2,11 @@ import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import del from 'del';
 import styles from './gulp/compileStyles.mjs';
-import { copy, copyImages, copySvg } from './gulp/copyAssets.mjs';
+import { copy, copyImages } from './gulp/copyAssets.mjs';
 import js from './gulp/compileScripts.mjs';
 import { svgo, webpImages, createWebp, optimizeImages } from './gulp/optimizeImages.mjs';
 import html from './gulp/compileHtml.mjs';
+import sprite from './gulp/sprite.mjs';
 
 const server = browserSync.create();
 const streamStyles = () => styles().pipe(server.stream());
@@ -31,7 +32,7 @@ const syncServer = () => {
   gulp.watch('source/js/**/*.{js,json}', gulp.series(js, refresh));
   gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
   gulp.watch('source/assets/**/*.*', gulp.series(copy, refresh));
-  gulp.watch('source/assets/svg/**/*.svg', gulp.series(copySvg, html, refresh));
+  gulp.watch('source/assets/svg/**/*.svg', gulp.series(sprite, copy, html, refresh));
   gulp.watch('source/assets/img/**/*.{png,jpg,jpeg,webp}', gulp.series(copyImages, webpImages, html, refresh));
 
   gulp.watch('source/fonts/**', gulp.series(copy, refresh));
@@ -41,7 +42,7 @@ const syncServer = () => {
 };
 
 
-const build = gulp.series(clean, svgo, copy, copyImages, styles, js, html, webpImages);
+const build = gulp.series(clean, svgo, sprite, copy, copyImages, styles, js, html, webpImages);
 const start = gulp.series(build, syncServer);
 
 export { optimizeImages as imagemin, createWebp as webp, build, start };

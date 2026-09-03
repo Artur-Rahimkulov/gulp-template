@@ -71,7 +71,8 @@
 
 		transition: border-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 24px;
 			height: 24px;
 		}
@@ -97,7 +98,8 @@
 
 		transition: background-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 24px;
 			height: 24px;
 		}
@@ -220,7 +222,8 @@
 		align-items: center;
 		gap: 2px;
 
-		img {
+		img,
+		svg {
 			width: 20px;
 			height: 20px;
 		}
@@ -269,7 +272,8 @@
 
 		transition: border-color var(--default-transition);
 
-		img {
+		img,
+		svg {
 			width: 30px;
 			height: 30px;
 		}
@@ -279,7 +283,7 @@
 		}
 	}
 
-	@include vp-768 {
+	@include vp-756 {
 		&__inner {
 			gap: 32px;
 			padding: 24px 16px 40px;
@@ -303,7 +307,7 @@
 		}
 	}
 
-	@include vp-575 {
+	@include vp-360 {
 		&__actions {
 			flex-direction: column;
 		}

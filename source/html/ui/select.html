@@ -12,10 +12,7 @@
 		<div class="select__button" data-select="button">
 			<div class="select__title">
 				<span>@@button</span>
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M12 12.6L16.6 8L18 9.4L12 15.4L6 9.4L7.4 8L12 12.6Z" fill="#1D1B20" />
-				</svg>
-
+				<svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 			</div>
 			<input class="form-control" type="text" @@if(context.name){name="@@name" } @@if(context.value){value="@@value" } @@if(context.required) {required}>
 		</div>
