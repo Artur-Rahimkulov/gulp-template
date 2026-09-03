@@ -23,20 +23,16 @@
 		min-height: 52px;
 		padding: 16px;
 
-		border: 1px solid transparent;
+		outline: 1px solid transparent;
 		border-radius: var(--radius-sm);
 		background-color: var(--color-alice-blue);
 
 		cursor: pointer;
 		user-select: none;
-		transition: border-color var(--default-transition);
+		transition: outline-color var(--default-transition), background-color var(--default-transition);
 
 		& > input {
 			display: none;
-		}
-
-		@include hover-focus {
-			border-color: var(--color-loblolly);
 		}
 	}
 
@@ -52,7 +48,7 @@
 		& > span {
 			overflow: hidden;
 
-			font-size: 14px;
+			font-size: 16px;
 			font-weight: 400;
 			line-height: 20px;
 			color: var(--color-pale-sky);
@@ -64,8 +60,8 @@
 
 		& > svg {
 			flex-shrink: 0;
-			width: 24px;
-			height: 24px;
+			width: 20px;
+			height: 20px;
 
 			color: var(--color-cadet-blue);
 
@@ -90,6 +86,9 @@
 	}
 
 	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
 		overflow-y: auto;
 		max-height: 240px;
 		margin: 0;
@@ -102,26 +101,52 @@
 	}
 
 	&__option {
-		padding: 10px 8px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		min-height: 52px;
+		padding: 16px;
 
-		border-radius: 6px;
+		border-radius: var(--radius-sm);
 
 		cursor: pointer;
 		transition: background-color var(--default-transition);
 
 		& > span {
-			font-size: 14px;
+			flex: 1 1 auto;
+			overflow: hidden;
+
+			font-size: 16px;
 			font-weight: 400;
 			line-height: 20px;
-			color: var(--color-shark);
+			color: var(--color-pale-sky);
+
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
 		}
 
-		&:hover,
-		&.is-selected {
+		&:hover {
 			background-color: var(--color-alice-blue);
+		}
 
-			& > span {
-				color: var(--color-endeavour);
+		// Выбранный пункт — зелёная подложка + галочка (по макету)
+		&.is-selected,
+		&._selected {
+			background-color: var(--color-cosmic-latte);
+
+			&::after {
+				content: '';
+
+				flex-shrink: 0;
+				width: 7px;
+				height: 12px;
+				margin-bottom: 2px;
+
+				border: solid var(--color-observatory);
+				border-width: 0 2px 2px 0;
+
+				transform: rotate(45deg);
 			}
 		}
 	}
@@ -138,7 +163,7 @@
 			height: auto;
 			max-height: fit-content;
 
-			box-shadow: 0 8px 24px rgba(16, 30, 65, 0.12);
+			box-shadow: 0 0 8px rgba(0, 58, 112, 0.07);
 			pointer-events: auto;
 		}
 	}
@@ -148,8 +173,8 @@
 		pointer-events: none;
 
 		.select__button {
+			outline-color: var(--color-transparent);
 			background-color: var(--color-mystic);
-			border-color: var(--color-loblolly);
 		}
 
 		.select__title > span {
@@ -162,14 +187,16 @@
 	&.has-danger,
 	&.is-error {
 		.select__button {
-			border-color: var(--color-alizarin);
+			outline-color: var(--color-alizarin);
+			background-color: var(--color-rose-white);
 		}
 	}
 
 	// State=Success
 	&.is-success {
 		.select__button {
-			border-color: var(--color-shamrock);
+			outline-color: var(--color-transparent);
+			background-color: var(--color-cosmic-latte);
 		}
 	}
 }

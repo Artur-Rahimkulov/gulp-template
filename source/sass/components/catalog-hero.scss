@@ -97,11 +97,11 @@
 		margin-top: 40px;
 
 		.btn {
-			border-color: var(--color-loblolly);
+			outline-color: var(--color-loblolly);
 			color: var(--color-pale-sky);
 
 			@include hover-focus {
-				border-color: var(--color-endeavour);
+				outline-color: var(--color-endeavour);
 				color: var(--color-endeavour);
 			}
 		}
@@ -121,8 +121,11 @@
 
 	// Планшет 1024: вводный блок в одну колонку
 	@include vp-1024 {
+		padding-right: 24px;
+		padding-left: 24px;
+
 		&__banner {
-			padding: 0 60px 52px;
+			padding: 0 36px 52px;
 		}
 
 		&__title {
@@ -145,11 +148,14 @@
 		}
 	}
 
-	// Планшет 768: баннер ниже
+	// Планшет 768: баннер ниже, теги уходят за край экрана и скроллятся свайпом
 	@include vp-768 {
+		padding-right: 16px;
+		padding-left: 16px;
+
 		&__banner {
 			min-height: 340px;
-			padding: 0 40px 36px;
+			padding: 0 24px 36px;
 		}
 
 		&__title {
@@ -160,6 +166,26 @@
 		&__intro-title {
 			font-size: 24px;
 			line-height: 32px;
+		}
+
+		// Ряд тегов: не переносится, выходит за границы экрана, горизонтальный скролл свайпом
+		&__tags {
+			flex-wrap: nowrap;
+			margin-right: -16px;
+			margin-left: -16px;
+			padding: 0 16px;
+			overflow-x: auto;
+			overscroll-behavior-x: contain;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			.btn {
+				flex-shrink: 0;
+			}
 		}
 	}
 
@@ -219,23 +245,6 @@
 		&__intro-text {
 			font-size: 14px;
 			line-height: 22px;
-		}
-
-		&__tags {
-			flex-wrap: nowrap;
-			gap: 8px;
-			margin: 0 -16px;
-			padding: 0 16px;
-			overflow-x: auto;
-			scrollbar-width: none;
-
-			&::-webkit-scrollbar {
-				display: none;
-			}
-
-			.btn {
-				flex-shrink: 0;
-			}
 		}
 	}
 }

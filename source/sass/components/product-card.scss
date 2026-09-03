@@ -20,69 +20,40 @@
 	&__media {
 		position: relative;
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		width: 100%;
 		height: 213px;
+		overflow: hidden;
 
 		background-color: var(--color-white);
 	}
 
+	// Декоративный «прицел» в углах медиа-области — 4 линии на угол (по макету)
+	// вертикали: 80px у самого края + 46px со сдвигом 13px
+	// горизонтали: 64px на отступе 16px + 30px на отступе 29px
 	&__corner {
 		position: absolute;
-
-		width: 64px;
-		height: 80px;
+		inset: 0;
 
 		pointer-events: none;
 
-		&::before,
-		&::after {
-			position: absolute;
-			background-color: var(--color-tropical-blue);
-			content: '';
-		}
-
-		// вертикальная линия
-		&::before {
-			width: 1px;
-			height: 100%;
-		}
-
-		// горизонтальная линия
-		&::after {
-			width: 100%;
-			height: 1px;
-		}
+		background-repeat: no-repeat;
+		background-image:
+			linear-gradient(var(--color-tropical-blue), var(--color-tropical-blue)),
+			linear-gradient(var(--color-tropical-blue), var(--color-tropical-blue)),
+			linear-gradient(var(--color-tropical-blue), var(--color-tropical-blue)),
+			linear-gradient(var(--color-tropical-blue), var(--color-tropical-blue));
+		background-size: 1px 80px, 1px 46px, 64px 1px, 30px 1px;
 
 		&--start {
-			top: 0;
-			left: 0;
-
-			&::before {
-				top: 0;
-				left: 30px;
-			}
-
-			&::after {
-				top: 46px;
-				left: 0;
-			}
+			background-position: 0 0, 13px 0, 0 16px, 0 29px;
 		}
 
 		&--end {
-			right: 0;
-			bottom: 0;
-
-			&::before {
-				bottom: 0;
-				right: 30px;
-			}
-
-			&::after {
-				bottom: 46px;
-				right: 0;
-			}
+			background-position:
+				100% 100%,
+				calc(100% - 13px) 100%,
+				100% calc(100% - 16px),
+				100% calc(100% - 29px);
 		}
 	}
 
@@ -98,12 +69,18 @@
 		gap: 4px;
 	}
 
+	// картинка товара: 240×45, по центру области, смещена вниз на 16px (по макету)
 	&__image {
-		width: 100%;
-		max-width: 240px;
-		height: auto;
+		position: absolute;
+		top: calc(50% + 16px);
+		left: 50%;
 
-		object-fit: contain;
+		width: 240px;
+		height: 45px;
+
+		transform: translate(-50%, -50%);
+		object-fit: cover;
+		pointer-events: none;
 	}
 
 	&__body {
@@ -115,7 +92,6 @@
 
 	&__info {
 		display: flex;
-		flex: 1 1 auto;
 		flex-direction: column;
 		gap: 16px;
 	}
@@ -151,7 +127,16 @@
 		}
 	}
 
-	// Партнометр + кнопки
+	&__specs {
+		gap: 8px;
+
+		// «2 PSU» и «До 5 лет гарантии» — только на ≤1024 (по макетам 1024 / 756)
+		.spec-list__item--extra {
+			display: none;
+		}
+	}
+
+	// Партнометр + кнопки — прижаты к низу карточки
 	&__actions {
 		display: flex;
 		flex-direction: column;
@@ -159,6 +144,7 @@
 		margin-top: auto;
 	}
 
+	// Партнометр — только на десктопе (≥1024), по центру
 	&__partnometer {
 		font-size: 14px;
 		line-height: 20px;
@@ -177,23 +163,40 @@
 		gap: 8px;
 	}
 
+	// Ряд «Купить в 1 клик» + квадратная кнопка «в корзину» (десктоп)
 	&__actions-row {
 		display: flex;
 		gap: 8px;
 	}
 
-	// Планшет: раскладка карточки та же, что на десктопе (по макетам 1024 и 756)
-	@include vp-768 {
-		// на тач-устройствах ховера нет — рамка видна сразу
-		border-color: var(--color-endeavour);
+	&__buy {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
 
-		// основная кнопка тянется, иконка корзины держит квадрат
-		&__actions-row {
-			.btn:not(.btn--square) {
-				flex: 1 1 auto;
-				min-width: 0;
-			}
+	// Планшет ≤1024: партнометр и квадратная кнопка скрыты, показываем 7 характеристик,
+	// «Купить в 1 клик» растягивается на всю ширину (макеты 1024 / 756)
+	@include vp-1024 {
+		&__badges {
+			left: 0;
 		}
+
+		&__specs .spec-list__item--extra {
+			display: flex;
+		}
+
+		&__partnometer {
+			display: none;
+		}
+
+		&__cart {
+			display: none;
+		}
+	}
+
+	// Планшет ≤768: на тач-устройствах ховера нет — рамка видна сразу
+	@include vp-768 {
+		border-color: var(--color-endeavour);
 	}
 
 	// Мобильный 360: компактная карточка ~176px в два столбца
@@ -201,41 +204,31 @@
 		gap: 4px;
 		padding: 4px;
 
-		border-radius: var(--radius-md);
+		border-radius: 12px;
 
 		&__media {
 			height: 128px;
 		}
 
 		&__image {
-			max-width: 124px;
-		}
+			top: calc(50% + 15.5px);
 
-		&__corner {
-			width: 44px;
-			height: 60px;
-
-			&--start::after {
-				top: 29px;
-			}
-
-			&--end::after {
-				bottom: 29px;
-			}
+			width: 124px;
+			height: 23px;
 		}
 
 		&__badges {
-			bottom: 8px;
+			bottom: 0;
 			left: 8px;
 		}
 
 		&__body {
 			gap: 11px;
-			padding: 0 8px 4px;
 		}
 
 		&__info {
 			gap: 8px;
+			padding: 0 8px;
 		}
 
 		// на мобильном цена — Inter Semi Bold, не Onest
@@ -248,35 +241,48 @@
 
 		&__title {
 			font-size: 14px;
-			line-height: 20px;
 			font-weight: 500;
+			line-height: 20px;
 		}
 
-		// партнометр в компактной карточке не показываем
-		&__partnometer {
-			display: none;
-		}
-
-		&__actions {
+		&__specs {
 			gap: 4px;
+
+			// на мобильном показываем только 4 характеристики (1, 2, 6, 7 по макету)
+			.spec-list__item:nth-child(n+3):nth-child(-n+5) {
+				display: none;
+			}
 		}
 
 		&__buttons {
 			gap: 4px;
-		}
 
-		// «Сконфигурировать» на мобильном — первым и в мягком стиле
-		&__buttons > .btn--primary {
-			order: -1;
+			// на мобильном кнопки без иконок, лейбл по центру
+			.btn {
+				gap: 0;
+				min-height: 44px;
+				padding: 12px;
 
-			background-color: var(--color-pattens-blue);
-			color: var(--color-endeavour);
+				justify-content: center;
+
+				font-size: 14px;
+			}
+
+			.btn__icon {
+				display: none;
+			}
+
+			.btn__label {
+				flex-grow: 0;
+				padding: 0;
+			}
 		}
 
 		.spec-list__item {
+			padding-left: 12px;
+
 			font-size: 12px;
 			line-height: 16px;
-			padding-left: 12px;
 
 			&::before {
 				top: 8px;
@@ -318,6 +324,40 @@
 			content: '';
 		}
 	}
+
+	// строка с подсказкой («До 5 лет гарантии» + «?»)
+	&__item--hint {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	&__hint {
+		display: inline-flex;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		width: 16px;
+		height: 16px;
+		padding: 0;
+
+		border: 0;
+		border-radius: 50%;
+		background-color: var(--color-pattens-blue);
+
+		font-family: var(--font-primary);
+		font-size: 10px;
+		font-weight: 600;
+		line-height: 1;
+		color: var(--color-shark);
+
+		cursor: help;
+
+		&:focus-visible {
+			outline: 2px solid var(--color-cerulean);
+			outline-offset: 2px;
+		}
+	}
 }
 
 .badge {
@@ -349,7 +389,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: 4px;
+	gap: 16px;
 	overflow: hidden;
 	padding: 16px;
 
@@ -420,14 +460,5 @@
 	// на мобильном промо-карточка занимает всю ширину сетки (2 колонки)
 	@include vp-575 {
 		grid-column: 1 / -1;
-
-		&__item {
-			padding: 16px;
-		}
-
-		&__cta {
-			gap: 20px;
-			padding: 20px;
-		}
 	}
 }

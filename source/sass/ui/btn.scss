@@ -6,9 +6,8 @@
 	gap: 8px;
 	padding: 12px 20px;
 
-	border: 1px solid transparent;
+	outline: 1px solid transparent;
 	border-radius: var(--radius-sm);
-	outline: none;
 
 	// Web/Button medium
 	font-family: var(--font-primary);
@@ -19,7 +18,7 @@
 	text-align: center;
 
 	cursor: pointer;
-	transition: background-color var(--default-transition), border-color var(--default-transition), color var(--default-transition);
+	transition: background-color var(--default-transition), outline-color var(--default-transition), color var(--default-transition);
 
 	&__icon {
 		display: flex;
@@ -123,17 +122,17 @@
 	}
 
 	&--outlined {
-		border-color: var(--color-loblolly);
+		outline-color: var(--color-loblolly);
 		background-color: var(--color-transparent);
 		color: var(--color-cerulean);
 
 		@include hover-focus {
-			border-color: var(--color-endeavour);
+			outline-color: var(--color-endeavour);
 			color: var(--color-endeavour);
 		}
 
 		&.is-hover {
-			border-color: var(--color-endeavour);
+			outline-color: var(--color-endeavour);
 			color: var(--color-endeavour);
 		}
 	}
@@ -191,14 +190,14 @@
 	}
 
 	&.is-active {
-		border-color: var(--color-transparent);
+		outline-color: var(--color-transparent);
 		background-color: var(--color-pattens-blue);
 		color: var(--color-endeavour);
 	}
 
 	&:disabled,
 	&.is-disabled {
-		border-color: var(--color-loblolly);
+		outline-color: var(--color-loblolly);
 		background-color: var(--color-mystic);
 		color: var(--color-oslo-gray);
 		pointer-events: none;

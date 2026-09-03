@@ -1,6 +1,6 @@
 .cta {
 	position: relative;
-
+	padding: 0px 42px;
 	max-width: var(--content-width);
 	margin: 0 auto;
 	overflow: hidden;
@@ -101,40 +101,6 @@
 		}
 	}
 
-	// Сообщение об успешной отправке формы
-	&__success {
-		display: flex;
-		align-items: flex-start;
-		gap: 12px;
-		padding: 16px 20px;
-
-		&[hidden] {
-			display: none;
-		}
-
-		border-radius: var(--radius-sm);
-		background-color: var(--color-cosmic-latte);
-
-		font-size: 16px;
-		line-height: 24px;
-		color: var(--color-observatory);
-
-		// галочка, нарисованная бордером — без внешнего ассета
-		&::before {
-			flex-shrink: 0;
-			width: 8px;
-			height: 14px;
-			margin: 4px 4px 0 2px;
-
-			border: solid var(--color-observatory);
-			border-width: 0 2px 2px 0;
-
-			transform: rotate(45deg);
-
-			content: '';
-		}
-	}
-
 	@include vp-1024 {
 		&__content {
 			gap: 40px;
@@ -174,25 +140,6 @@
 		&__field,
 		&__submit {
 			width: 100%;
-		}
-	}
-
-	@include vp-575 {
-		border-radius: var(--radius-md);
-
-		&__content {
-			gap: 28px;
-			padding: 20px 16px;
-		}
-
-		&__title {
-			font-size: 24px;
-			line-height: 32px;
-		}
-
-		&__success {
-			font-size: 14px;
-			line-height: 20px;
 		}
 	}
 }

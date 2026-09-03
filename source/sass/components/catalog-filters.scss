@@ -1,3 +1,40 @@
+// Триггер «Фильтр» — открывает модалку фильтров на ≤1024 (по макету Frame 910)
+// ---------------------------------
+.filters-trigger {
+	display: none;
+
+	&__title {
+		font-family: var(--font-display);
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 32px;
+		color: var(--color-shark);
+	}
+
+	&__icon {
+		width: 20px;
+		height: 20px;
+		flex-shrink: 0;
+	}
+
+	@include vp-1024 {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		width: 100%;
+		margin-bottom: 20px;
+		padding: 24px;
+
+		border-radius: var(--radius-md);
+		background-color: var(--color-white);
+
+		text-align: left;
+	}
+}
+
+// Блок фильтров: на десктопе — сайдбар (Filtr block), на ≤1024 — полноэкранная модалка
+// ---------------------------------
 .filters {
 	display: flex;
 	flex-direction: column;
@@ -7,27 +44,30 @@
 	background-color: var(--color-white);
 	border-radius: var(--radius-md);
 
-	&__head {
+	// Шапка и футер — только в модальном режиме
+	&__bar,
+	&__actions {
+		display: none;
+	}
+
+	&__scroll {
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 16px;
+		flex-direction: column;
+		gap: 24px;
 	}
 
 	&__title {
+		font-family: var(--font-display);
 		font-size: 24px;
+		font-weight: 500;
 		line-height: 32px;
 		color: var(--color-shark);
 	}
 
-	&__close {
-		display: none;
-		padding: 0;
-
-		img {
-			width: 20px;
-			height: 20px;
-		}
+	&__groups {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
 	}
 
 	&__group {
@@ -82,6 +122,21 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 12px;
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		// Тег фильтра — outlined-кнопка с серым текстом (не синим, как базовый .btn--outlined).
+		// Селектор из двух классов, чтобы перебить .btn--outlined (импортируется позже).
+		.btn {
+			color: var(--color-pale-sky);
+
+			&:disabled,
+			&.is-disabled {
+				border-color: var(--color-transparent);
+			}
+		}
 	}
 
 	&__more {
@@ -101,20 +156,141 @@
 		}
 	}
 
+	// ≤1024: полноэкранная модалка (по макету «Серверы Фильтр / Планшет»)
 	@include vp-1024 {
-		gap: 20px;
-		padding: 24px;
+		gap: 0;
+		height: 100%;
+		padding: 0;
 
-		&__head {
-			padding-bottom: 4px;
+		background-color: var(--color-transparent);
+		border-radius: 0;
+
+		&__bar {
+			display: flex;
+			flex-shrink: 0;
+			align-items: center;
+			gap: 24px;
+			min-height: 92px;
+			padding: 16px 40px;
+
+			background-color: var(--color-white);
 		}
 
-		&__close {
-			display: block;
+		&__bar-btn {
+			display: inline-flex;
+			flex-shrink: 0;
+			align-items: center;
+			justify-content: center;
+			width: 44px;
+			height: 44px;
+			padding: 0;
+
+			border: 1px solid var(--color-loblolly);
+			border-radius: var(--radius-sm);
+			background-color: var(--color-transparent);
+			color: var(--color-pale-sky);
+
+			transition: border-color var(--default-transition), color var(--default-transition);
+
+			@include hover-focus {
+				border-color: var(--color-endeavour);
+				color: var(--color-endeavour);
+			}
+
+			svg {
+				width: 24px;
+				height: 24px;
+			}
 		}
 
-		&__tags {
+		&__bar-title {
+			flex: 1 1 auto;
+
+			font-family: var(--font-display);
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 32px;
+			color: var(--color-shark);
+			text-align: center;
+		}
+
+		&__scroll {
+			flex: 1 1 auto;
+			min-height: 0;
+			gap: 20px;
+			padding: 20px 40px;
+
+			overflow-y: auto;
+		}
+
+		&__title {
+			display: none;
+		}
+
+		&__groups {
+			gap: 24px;
+			padding: 24px;
+
+			background-color: var(--color-mystic);
+			border-radius: var(--radius-md);
+		}
+
+		&__group {
+			gap: 24px;
+			padding: 24px;
+
+			background-color: var(--color-white);
+			border-radius: var(--radius-md);
+		}
+
+		&__group-name {
+			font-family: var(--font-display);
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 32px;
+		}
+
+		&__group-icon {
+			width: 20px;
+			height: 20px;
+		}
+
+		&__actions {
+			display: flex;
+			flex-shrink: 0;
 			gap: 8px;
+			padding: 16px 40px;
+
+			background-color: var(--color-white);
+			box-shadow: 0 -2px 4px rgba(0, 131, 202, 0.16);
+
+			.btn {
+				flex: 1 1 0;
+				min-width: 0;
+			}
+		}
+	}
+
+	@include vp-575 {
+		&__bar {
+			min-height: 64px;
+			padding: 12px 16px;
+		}
+
+		&__scroll {
+			padding: 16px;
+		}
+
+		&__groups {
+			padding: 16px;
+		}
+
+		&__group {
+			padding: 16px;
+		}
+
+		&__actions {
+			padding: 12px 16px;
 		}
 	}
 }

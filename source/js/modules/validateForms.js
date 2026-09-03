@@ -9,12 +9,7 @@ export const validateForms = () => {
     field.parentNode;
 
   forms.forEach((form) => {
-    const submitBtn = form.querySelector('[type="submit"]');
     const successBox = form.querySelector("[data-form-success]");
-    const requiredFields = () =>
-      Array.from(form.querySelectorAll("input, textarea, select")).filter((f) =>
-        f.hasAttribute("required")
-      );
 
     // =========================
     // CLEAR ERROR
@@ -27,31 +22,16 @@ export const validateForms = () => {
     }
 
     // =========================
-    // Блокировка кнопки, пока не заполнены обязательные поля
-    // =========================
-    function refreshSubmitState() {
-      if (!submitBtn) return;
-      const ready = requiredFields().every((f) =>
-        f.type === "checkbox" ? f.checked : f.value.trim() !== ""
-      );
-      submitBtn.disabled = !ready;
-      submitBtn.classList.toggle("is-disabled", !ready);
-    }
-
-    // =========================
     // LIVE EVENTS
     // =========================
     form.querySelectorAll("input, textarea, select").forEach((field) => {
       const onChange = () => {
         clearError(field);
-        refreshSubmitState();
         if (successBox && !successBox.hidden) successBox.hidden = true;
       };
       field.addEventListener("input", onChange);
       field.addEventListener("change", onChange);
     });
-
-    refreshSubmitState();
 
     // =========================
     // SUBMIT
@@ -162,7 +142,6 @@ export const validateForms = () => {
         if (input._imask) input._imask.value = "";
       });
       form.reset();
-      refreshSubmitState();
 
       if (successBox) {
         successBox.hidden = false;
