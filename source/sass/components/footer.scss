@@ -242,10 +242,10 @@
 		word-wrap: break-word;
 		color: var(--color-pale-sky);
 		@include vp-1024 {
-			width:670px;
+			max-width: 670px;
 		}
 		@include vp-360 {
-			width:328px;
+			max-width: 328px;
 		}
 	}
 

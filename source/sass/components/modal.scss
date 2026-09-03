@@ -24,6 +24,7 @@
 	z-index: 20;
 	padding: 40px;
 	width: 700px;
+	max-width: calc(100% - 32px);
 	background-color: var(--color-white);
 }
 
