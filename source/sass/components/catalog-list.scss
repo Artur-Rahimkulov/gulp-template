@@ -1,191 +1,193 @@
 .catalog-list {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
 
-	&__toolbar {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 24px;
-		padding: 16px 16px 16px 24px;
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 16px 16px 24px;
 
-		border-radius: var(--radius-md);
-		background-color: var(--color-white);
-	}
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+  }
 
-	&__stats {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 8px 24px;
-	}
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 24px;
+  }
 
-	&__stat {
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 20px;
-		color: var(--color-cadet-blue);
+  &__stat {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--color-cadet-blue);
 
-		b {
-			font-weight: 600;
-			color: var(--color-shark);
-		}
-	}
+    b {
+      font-weight: 600;
+      color: var(--color-shark);
+    }
+  }
 
-	&__toolbar-actions {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-	}
+  &__toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-	&__sort {
-		width: 328px;
-	}
+  &__sort {
+    width: 328px;
+  }
 
-	&__grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 20px;
-	}
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
 
-	&__footer {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 20px;
-		margin-top: 20px;
-		.btn--outlined {
-			color: var(--color-pale-sky);
-		}
-	}
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 
-	// Планшет 1024: селект сортировки — 328px (макет «… / Планшет»)
-	@include vp-1024 {
-		&__sort {
-			width: 328px;
-		}
-		&__stats {
-			display: flex;
-			flex-direction: column;
-			gap: 0px;
-			justify-content: start;
-			align-items: start;
-		}
-	}
+    .btn--outlined {
+      color: var(--color-pale-sky);
+    }
+  }
 
-	// Планшет 756: сетка 2-колоночная; тулбар остаётся в строку (макет «… / Планшет», 756)
-	@include vp-756 {
-		&__grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
+  // Планшет 1024: селект сортировки — 328px (макет «… / Планшет»)
+  @include vp-1024 {
+    &__sort {
+      width: 328px;
+    }
 
-	// Мобильный 360: тулбар в столбик, сетка товаров во всю ширину экрана (макет «Серверы / Планшет», 360)
-	@include vp-360 {
-		gap:40px;
-		&__toolbar {
-			display: grid;
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			align-items: center;
-			margin-right: -16px;
-			margin-left: -16px;
-			gap: 28px;
-			padding: 16px;
-		}
+    &__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      justify-content: start;
+      align-items: start;
+    }
+  }
 
-		&__toolbar-actions {
-			flex-direction: column;
-			align-items: stretch;
-		}
+  // Планшет 756: сетка 2-колоночная; тулбар остаётся в строку (макет «… / Планшет», 756)
+  @include vp-756 {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
 
-		&__sort {
-			width: 100%;
-		}
+  // Мобильный 360: тулбар в столбик, сетка товаров во всю ширину экрана (макет «Серверы / Планшет», 360)
+  @include vp-360 {
+    gap: 40px;
 
-		&__grid {
-			gap: 8px;
-			margin-right: -16px;
-			margin-left: -16px;
-		}
+    &__toolbar {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      align-items: center;
+      margin-right: -16px;
+      margin-left: -16px;
+      gap: 28px;
+      padding: 16px;
+    }
 
-		&__footer {
-			margin-top: 0px;
-		}
-	}
+    &__toolbar-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__sort {
+      width: 100%;
+    }
+
+    &__grid {
+      gap: 8px;
+      margin-right: -16px;
+      margin-left: -16px;
+    }
+
+    &__footer {
+      margin-top: 0;
+    }
+  }
 }
 
 .pagination {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-	gap: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 
-	&__list {
-		display: flex;
-		align-items: center;
-		gap: 4px;
-		margin: 0;
-		padding: 0;
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
 
-		list-style: none;
-	}
+    list-style: none;
+  }
 
-	&__nav,
-	&__page {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 44px;
+  &__nav,
+  &__page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
 
-		border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm);
 
-		font-weight: 500;
-		color: var(--color-pale-sky);
+    font-weight: 500;
+    color: var(--color-pale-sky);
 
-		transition: background-color var(--default-transition),
-			color var(--default-transition);
+    transition: background-color var(--default-transition),
+      color var(--default-transition);
 
-		@include hover-focus {
-			background-color: var(--color-alice-blue);
-			color: var(--color-endeavour);
-		}
-	}
+    @include hover-focus {
+      background-color: var(--color-alice-blue);
+      color: var(--color-endeavour);
+    }
+  }
 
-	&__nav {
-		min-width: 173px;
-		padding: 12px 20px;
+  &__nav {
+    min-width: 173px;
+    padding: 12px 20px;
 
-		font-size: 14px;
-		line-height: 20px;
-	}
+    font-size: 14px;
+    line-height: 20px;
+  }
 
-	&__page {
-		width: 44px;
+  &__page {
+    width: 44px;
 
-		font-size: 16px;
-		line-height: 20px;
+    font-size: 16px;
+    line-height: 20px;
 
-		&.is-active {
-			background-color: var(--color-mystic);
-			pointer-events: none;
-		}
-	}
+    &.is-active {
+      background-color: var(--color-mystic);
+      pointer-events: none;
+    }
+  }
 
-	@include vp-756 {
-		&__nav {
-			min-width: 0;
-			padding: 12px 55px;
-		}
-	}
+  @include vp-756 {
+    &__nav {
+      min-width: 0;
+      padding: 12px 55px;
+    }
+  }
 
-	// Мобильный 360: только номера страниц, ссылки «В начало / Дальше» скрыты (макет «Серверы / Планшет», 360)
-	@include vp-360 {
-
-		&__nav {
-			display: none;
-		}
-	}
+  // Мобильный 360: только номера страниц, ссылки «В начало / Дальше» скрыты (макет «Серверы / Планшет», 360)
+  @include vp-360 {
+    &__nav {
+      display: none;
+    }
+  }
 }

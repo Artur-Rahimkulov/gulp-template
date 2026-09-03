@@ -1,324 +1,324 @@
 // Мобильное меню (бургер). Показывается на 1024 и ниже — там, где скрыта основная навигация.
 
 .mobile-menu {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 110;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 110;
 
-	display: none;
-	overflow-y: auto;
-	overscroll-behavior: contain;
+  display: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
-	background-color: var(--color-white);
+  background-color: var(--color-white);
 
-	&.is-open {
-		display: block;
-	}
+  &.is-open {
+    display: block;
+  }
 
-	// на десктопе бургера нет, но страхуемся от «залипшего» состояния
-	// при ресайзе окна из мобильной ширины
-	@media (min-width: ($vp-1024 + 1px)) {
-		&.is-open {
-			display: none;
-		}
-	}
+  // на десктопе бургера нет, но страхуемся от «залипшего» состояния
+  // при ресайзе окна из мобильной ширины
+  @media (min-width: ($vp-1024 + 1px)) {
+    &.is-open {
+      display: none;
+    }
+  }
 
-	&__inner {
-		display: flex;
-		flex-direction: column;
-		gap: 40px;
-		min-height: 100%;
-		padding: 24px 40px 60px;
-	}
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 100%;
+    padding: 24px 40px 60px;
+  }
 
-	&__top {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 
-	&__logo {
-		margin: 0 auto;
+  &__logo {
+    margin: 0 auto;
 
-		img {
-			width: 146px;
-			height: 36px;
-		}
-	}
+    img {
+      width: 146px;
+      height: 36px;
+    }
+  }
 
-	&__top-icons {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-	}
+  &__top-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-	&__close {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 44px;
-		height: 44px;
-		flex-shrink: 0;
-		padding: 0;
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    padding: 0;
 
-		background-color: var(--color-transparent);
-		border: 1px solid var(--color-loblolly);
-		border-radius: var(--radius-sm);
-		cursor: pointer;
+    background-color: var(--color-transparent);
+    border: 1px solid var(--color-loblolly);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
 
-		transition: border-color var(--default-transition);
+    transition: border-color var(--default-transition);
 
-		img,
-		svg {
-			width: 24px;
-			height: 24px;
-		}
+    img,
+    svg {
+      width: 24px;
+      height: 24px;
+    }
 
-		@include hover-focus {
-			border-color: var(--color-cerulean);
-		}
-	}
+    @include hover-focus {
+      border-color: var(--color-cerulean);
+    }
+  }
 
-	&__icon-btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 44px;
-		height: 44px;
-		flex-shrink: 0;
-		padding: 0;
+  &__icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    padding: 0;
 
-		background-color: var(--color-alice-blue);
-		border: none;
-		border-radius: var(--radius-sm);
-		cursor: pointer;
+    background-color: var(--color-alice-blue);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
 
-		transition: background-color var(--default-transition);
+    transition: background-color var(--default-transition);
 
-		img,
-		svg {
-			width: 24px;
-			height: 24px;
-		}
+    img,
+    svg {
+      width: 24px;
+      height: 24px;
+    }
 
-		@include hover-focus {
-			background-color: var(--color-pattens-blue);
-		}
-	}
+    @include hover-focus {
+      background-color: var(--color-pattens-blue);
+    }
+  }
 
-	// ---------------------------------
-	// Аккордеон навигации
-	// ---------------------------------
-	&__list {
-		border-top: 1px solid var(--color-mystic);
-	}
+  // ---------------------------------
+  // Аккордеон навигации
+  // ---------------------------------
+  &__list {
+    border-top: 1px solid var(--color-mystic);
+  }
 
-	&__item {
-		border-bottom: 1px solid var(--color-mystic);
-	}
+  &__item {
+    border-bottom: 1px solid var(--color-mystic);
+  }
 
-	&__toggle,
-	&__link {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 16px;
-		width: 100%;
-		padding: 16px 0;
+  &__toggle,
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 0;
 
-		font-family: var(--font-primary);
-		font-size: 20px;
-		line-height: 28px;
-		text-align: left;
-		color: var(--color-shark);
+    font-family: var(--font-primary);
+    font-size: 20px;
+    line-height: 28px;
+    text-align: left;
+    color: var(--color-shark);
 
-		background-color: var(--color-transparent);
-		border: none;
-		cursor: pointer;
+    background-color: var(--color-transparent);
+    border: none;
+    cursor: pointer;
 
-		transition: color var(--default-transition);
+    transition: color var(--default-transition);
 
-		@include hover-focus {
-			color: var(--color-cerulean);
-		}
-	}
+    @include hover-focus {
+      color: var(--color-cerulean);
+    }
+  }
 
-	&__chevron {
-		width: 16px;
-		height: 16px;
-		flex-shrink: 0;
+  &__chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
 
-		transition: transform var(--default-transition);
-	}
+    transition: transform var(--default-transition);
+  }
 
-	&__toggle[aria-expanded='true'] &__chevron,
-	&__toggle[aria-expanded='true'] .mobile-menu__chevron {
-		transform: rotate(180deg);
-	}
+  &__toggle[aria-expanded="true"] &__chevron,
+  &__toggle[aria-expanded="true"] .mobile-menu__chevron {
+    transform: rotate(180deg);
+  }
 
-	// анимация раскрытия через max-height считается в JS
-	&__panel {
-		overflow: hidden;
-		max-height: 0;
+  // анимация раскрытия через max-height считается в JS
+  &__panel {
+    overflow: hidden;
+    max-height: 0;
 
-		transition: max-height var(--default-transition);
-	}
+    transition: max-height var(--default-transition);
+  }
 
-	&__sublist {
-		display: flex;
-		flex-direction: column;
-		border-top: 1px solid var(--color-mystic);
-	}
+  &__sublist {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-mystic);
+  }
 
-	&__sublink {
-		display: block;
-		padding: 12px 0;
+  &__sublink {
+    display: block;
+    padding: 12px 0;
 
-		font-size: 16px;
-		line-height: 24px;
-		color: var(--color-shark);
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-shark);
 
-		transition: color var(--default-transition);
+    transition: color var(--default-transition);
 
-		@include hover-focus {
-			color: var(--color-cerulean);
-		}
-	}
+    @include hover-focus {
+      color: var(--color-cerulean);
+    }
+  }
 
-	&__sublist li + li &__sublink,
-	&__sublist li + li .mobile-menu__sublink {
-		border-top: 1px solid var(--color-mystic);
-	}
+  &__sublist li + li &__sublink,
+  &__sublist li + li .mobile-menu__sublink {
+    border-top: 1px solid var(--color-mystic);
+  }
 
-	// ---------------------------------
-	// Кнопки и подвал
-	// ---------------------------------
-	&__actions {
-		display: flex;
-		justify-content: center;
-		gap: 12px;
-		margin-top: auto;
-	}
+  // ---------------------------------
+  // Кнопки и подвал
+  // ---------------------------------
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: auto;
+  }
 
-	&__footer {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 24px;
-	}
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
 
-	&__contacts {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 12px;
-	}
+  &__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
 
-	&__contacts-item {
-		display: flex;
-		align-items: center;
-		gap: 2px;
+  &__contacts-item {
+    display: flex;
+    align-items: center;
+    gap: 2px;
 
-		img,
-		svg {
-			width: 20px;
-			height: 20px;
-		}
-	}
+    img,
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 
-	&__mail,
-	&__phone {
-		font-size: 14px;
-		line-height: 20px;
-		color: var(--color-shark);
+  &__mail,
+  &__phone {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-shark);
 
-		transition: color var(--default-transition);
+    transition: color var(--default-transition);
 
-		@include hover-focus {
-			color: var(--color-cerulean);
-		}
-	}
+    @include hover-focus {
+      color: var(--color-cerulean);
+    }
+  }
 
-	&__mail {
-		border-bottom: 1px solid var(--color-cerulean);
-	}
+  &__mail {
+    border-bottom: 1px solid var(--color-cerulean);
+  }
 
-	&__divider {
-		width: 1px;
-		height: 20px;
-		flex-shrink: 0;
+  &__divider {
+    width: 1px;
+    height: 20px;
+    flex-shrink: 0;
 
-		background-color: var(--color-pattens-blue);
-	}
+    background-color: var(--color-pattens-blue);
+  }
 
-	&__socials {
-		display: flex;
-		gap: 8px;
-	}
+  &__socials {
+    display: flex;
+    gap: 8px;
+  }
 
-	&__social {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 44px;
-		height: 44px;
-		flex-shrink: 0;
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
 
-		border: 1px solid var(--color-loblolly);
-		border-radius: var(--radius-sm);
+    border: 1px solid var(--color-loblolly);
+    border-radius: var(--radius-sm);
 
-		transition: border-color var(--default-transition);
+    transition: border-color var(--default-transition);
 
-		img,
-		svg {
-			width: 30px;
-			height: 30px;
-		}
+    img,
+    svg {
+      width: 30px;
+      height: 30px;
+    }
 
-		@include hover-focus {
-			border-color: var(--color-cerulean);
-		}
-	}
+    @include hover-focus {
+      border-color: var(--color-cerulean);
+    }
+  }
 
-	@include vp-756 {
-		&__inner {
-			gap: 32px;
-			padding: 24px 16px 40px;
-		}
+  @include vp-756 {
+    &__inner {
+      gap: 32px;
+      padding: 24px 16px 40px;
+    }
 
-		&__logo img {
-			width: 110px;
-			height: 27px;
-		}
+    &__logo img {
+      width: 110px;
+      height: 27px;
+    }
 
-		&__toggle,
-		&__link {
-			font-size: 18px;
-			line-height: 26px;
-		}
+    &__toggle,
+    &__link {
+      font-size: 18px;
+      line-height: 26px;
+    }
 
-		&__footer {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 16px;
-		}
-	}
+    &__footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
 
-	@include vp-360 {
-		&__actions {
-			flex-direction: column;
-		}
+  @include vp-360 {
+    &__actions {
+      flex-direction: column;
+    }
 
-		&__contacts {
-			row-gap: 8px;
-		}
-	}
+    &__contacts {
+      row-gap: 8px;
+    }
+  }
 }
 
 // блокировка прокрутки страницы, пока меню открыто
 .menu-open {
-	overflow: hidden;
+  overflow: hidden;
 }

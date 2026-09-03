@@ -1,270 +1,273 @@
 .catalog-hero {
-	display: flex;
-	flex-direction: column;
-	max-width: var(--content-width);
-	margin: 0 auto;
-	padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-top: 60px;
 
-	// Баннер: фото с полупрозрачной подложкой, заголовок прижат к низу слева
-	// ---------------------------------
-	&__banner {
-		position: relative;
+  // Баннер: фото с полупрозрачной подложкой, заголовок прижат к низу слева
+  // ---------------------------------
+  &__banner {
+    position: relative;
 
-		display: flex;
-		align-items: flex-end;
-		overflow: hidden;
-		min-height: 456px;
-		padding: 0 60px 48px;
-		border-radius: var(--radius-lg);
-	}
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    min-height: 456px;
+    padding: 0 60px 48px;
+    border-radius: var(--radius-lg);
+  }
 
-	&__banner-img {
-		position: absolute;
-		top: 0;
-		left: 0;
+  &__banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-		width: 100%;
-		height: 100%;
+    width: 100%;
+    height: 100%;
 
-		object-fit: cover;
-	}
+    object-fit: cover;
+  }
 
-	// Светлая подложка слева, чтобы заголовок читался на фото
-	&__banner::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		z-index: 1;
+  // Светлая подложка слева, чтобы заголовок читался на фото
+  &__banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 
-		background-image: var(--banner-overlay);
-	}
+    background-image: var(--banner-overlay);
+  }
 
-	&__banner-content {
-		position: relative;
-		z-index: 2;
+  &__banner-content {
+    position: relative;
+    z-index: 2;
 
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-		width: 617px;
-		max-width: 100%;
-	}
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 617px;
+    max-width: 100%;
+  }
 
-	&__title {
-		font-size: 48px;
-		line-height: 52px;
-		color: var(--color-shark);
-		text-wrap: balance;
-	}
+  &__title {
+    font-size: 48px;
+    line-height: 52px;
+    color: var(--color-shark);
+    text-wrap: balance;
+  }
 
-	// Вводный блок: слева заголовок H3, справа два абзаца
-	// вертикальный ритм задаём отступами (баннер → интро 60, интро → теги 40)
-	// ---------------------------------
-	&__intro {
-		display: flex;
-		gap: 20px;
-		margin-top: 60px;
-	}
+  // Вводный блок: слева заголовок H3, справа два абзаца
+  // вертикальный ритм задаём отступами (баннер → интро 60, интро → теги 40)
+  // ---------------------------------
+  &__intro {
+    display: flex;
+    gap: 20px;
+    margin-top: 60px;
+  }
 
-	&__intro-title {
-		flex: 1 1 0;
-		min-width: 0;
+  &__intro-title {
+    flex: 1 1 0;
+    min-width: 0;
 
-		font-size: 36px;
-		line-height: 40px;
-		color: var(--color-shark);
-		text-wrap: pretty;
-	}
+    font-size: 36px;
+    line-height: 40px;
+    color: var(--color-shark);
+    text-wrap: pretty;
+  }
 
-	&__intro-text {
-		display: flex;
-		flex: 1 1 0;
-		flex-direction: column;
-		gap: 16px;
-		min-width: 0;
+  &__intro-text {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
 
-		font-size: 16px;
-		line-height: 24px;
-		color: var(--color-pale-sky);
-	}
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-pale-sky);
+  }
 
-	// Ряд категорийных тегов
-	// ---------------------------------
-	&__tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 12px;
-		margin-top: 40px;
+  // Ряд категорийных тегов
+  // ---------------------------------
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
 
-		.btn {
-			outline-color: var(--color-loblolly);
-			color: var(--color-pale-sky);
-			white-space: nowrap;
-			@include hover-focus {
-				outline-color: var(--color-endeavour);
-				color: var(--color-endeavour);
-			}
-		}
-	}
+    .btn {
+      outline-color: var(--color-loblolly);
+      color: var(--color-pale-sky);
+      white-space: nowrap;
 
-	@include vp-1440 {
-		&__title {
-			font-size: 40px;
-			line-height: 44px;
-		}
+      @include hover-focus {
+        outline-color: var(--color-endeavour);
+        color: var(--color-endeavour);
+      }
+    }
+  }
 
-		&__intro-title {
-			font-size: 32px;
-			line-height: 36px;
-		}
-	}
+  @include vp-1440 {
+    &__title {
+      font-size: 40px;
+      line-height: 44px;
+    }
 
-	// Планшет 1024: вводный блок в одну колонку (макет «… / Планшет», 1024)
-	@include vp-1024 {
-		padding-right: 40px;
-		padding-left: 40px;
+    &__intro-title {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
 
-		&__banner {
-			padding: 0 60px 52px;
-		}
+  // Планшет 1024: вводный блок в одну колонку (макет «… / Планшет», 1024)
+  @include vp-1024 {
+    padding-right: 40px;
+    padding-left: 40px;
 
-		&__banner-content {
-			width: 480px;
-		}
+    &__banner {
+      padding: 0 60px 52px;
+    }
 
-		&__title {
-			font-size: 36px;
-			line-height: 40px;
-		}
+    &__banner-content {
+      width: 480px;
+    }
 
-		&__intro {
-			flex-direction: column;
-			gap: 28px;
-		}
+    &__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
 
-		&__intro-title {
-			font-size: 36px;
-			line-height: 40px;
-		}
+    &__intro {
+      flex-direction: column;
+      gap: 28px;
+    }
 
-		&__tags {
-			margin-top: 60px;
-		}
-	}
+    &__intro-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
 
-	// Планшет 756: поля 40, баннер ниже (340), теги скроллятся свайпом (макет «… / Планшет», 756)
-	@include vp-756 {
-		padding-right: 40px;
-		padding-left: 40px;
+    &__tags {
+      margin-top: 60px;
+    }
+  }
 
-		&__banner {
-			min-height: 340px;
-			padding: 0 40px 36px;
-		}
+  // Планшет 756: поля 40, баннер ниже (340), теги скроллятся свайпом (макет «… / Планшет», 756)
+  @include vp-756 {
+    padding-right: 40px;
+    padding-left: 40px;
 
-		&__banner-content {
-			width: 404px;
-		}
+    &__banner {
+      min-height: 340px;
+      padding: 0 40px 36px;
+    }
 
-		// Ряд тегов: не переносится, выходит за границы экрана, горизонтальный скролл свайпом
-		&__tags {
-			flex-wrap: nowrap;
-			margin-right: -40px;
-			margin-left: -40px;
-			padding: 0 40px;
-			overflow-x: auto;
-			overscroll-behavior-x: contain;
-			-webkit-overflow-scrolling: touch;
-			scrollbar-width: none;
+    &__banner-content {
+      width: 404px;
+    }
 
-			&::-webkit-scrollbar {
-				display: none;
-			}
+    // Ряд тегов: не переносится, выходит за границы экрана, горизонтальный скролл свайпом
+    &__tags {
+      flex-wrap: nowrap;
+      margin-right: -40px;
+      margin-left: -40px;
+      padding: 0 40px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
 
-			.btn {
-				flex-shrink: 0;
-			}
-		}
-	}
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
-	// Мобильный 360: заголовок над баннером, плитки скроллятся по горизонтали
-	// Мобильный 360: поля 16, заголовок над баннером, теги скроллятся свайпом (макет «Серверы / Планшет», 360)
-	@include vp-360 {
-		padding-right: 16px;
-		padding-left: 16px;
-		padding-top: 40px;
+      .btn {
+        flex-shrink: 0;
+      }
+    }
+  }
 
-		&__intro {
-			margin-top: 40px;
-			gap: 28px;
-		}
+  // Мобильный 360: заголовок над баннером, плитки скроллятся по горизонтали
+  // Мобильный 360: поля 16, заголовок над баннером, теги скроллятся свайпом (макет «Серверы / Планшет», 360)
+  @include vp-360 {
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 40px;
 
-		&__tags {
-			margin-top: 40px;
-			margin-right: -16px;
-			margin-left: -16px;
-			padding: 0 16px;
-		}
+    &__intro {
+      margin-top: 40px;
+      gap: 28px;
+    }
 
-		&__banner {
-			flex-direction: column;
-			gap: 20px;
-			min-height: 0;
-			padding: 0;
-			border-radius: 0;
-			overflow: visible;
-		}
+    &__tags {
+      margin-top: 40px;
+      margin-right: -16px;
+      margin-left: -16px;
+      padding: 0 16px;
+    }
 
-		&__banner::before {
-			content: none;
-		}
+    &__banner {
+      flex-direction: column;
+      gap: 20px;
+      min-height: 0;
+      padding: 0;
+      border-radius: 0;
+      overflow: visible;
+    }
 
-		&__banner-img {
-			position: static;
+    &__banner::before {
+      content: none;
+    }
 
-			width: 100%;
-			height: 160px;
+    &__banner-img {
+      position: static;
 
-			border-radius: var(--radius-lg);
-		}
+      width: 100%;
+      height: 160px;
 
-		&__banner-content {
-			order: -1;
-			width: 100%;
-		}
-	}
+      border-radius: var(--radius-lg);
+    }
+
+    &__banner-content {
+      order: -1;
+      width: 100%;
+    }
+  }
 }
 
 .breadcrumbs {
-	&__list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 4px;
-		padding-left: 2px;
-		@include vp-360 {
-			height: 40px;
-		}
-	}
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding-left: 2px;
 
-	&__item {
-		display: inline-flex;
-		font-size: 14px;
-		line-height: 20px;
-		color: var(--color-cadet-blue);
+    @include vp-360 {
+      height: 40px;
+    }
+  }
 
-		&:not(:last-child)::after {
-			content: " /";
-		}
-	}
+  &__item {
+    display: inline-flex;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-cadet-blue);
 
-	&__link {
-		transition: color var(--default-transition);
+    &:not(:last-child)::after {
+      content: " /";
+    }
+  }
 
-		@include hover-focus {
-			color: var(--color-cerulean);
-		}
-	}
-	@include vp-756 {
-		max-width: 100%;
-	}
+  &__link {
+    transition: color var(--default-transition);
+
+    @include hover-focus {
+      color: var(--color-cerulean);
+    }
+  }
+
+  @include vp-756 {
+    max-width: 100%;
+  }
 }

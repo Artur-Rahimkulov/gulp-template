@@ -1,59 +1,59 @@
 .wrapper {
-	position: relative;
+  position: relative;
 
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	/* stylelint-disable-next-line */
-	min-height: calc(100 * var(--vh, 1vh));
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* stylelint-disable-next-line */
+  min-height: calc(100 * var(--vh, 1vh));
 
-	.header,
-	.footer {
-		flex-shrink: 0;
-	}
+  .header,
+  .footer {
+    flex-shrink: 0;
+  }
 
-	main {
-		flex-grow: 1;
-	}
+  main {
+    flex-grow: 1;
+  }
 }
 
 .scroll-lock-ios {
-	position: fixed;
-	overflow: hidden;
+  position: fixed;
+  overflow: hidden;
 }
 
 .scroll-lock {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .no-scrollbar {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-	&::-webkit-scrollbar {
-		display: none;
-	}
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .no-transition {
-	/* stylelint-disable-next-line */
-	transition: none !important;
+  /* stylelint-disable-next-line */
+  transition: none !important;
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
-	outline: none;
+  outline: none;
 }
 
 .visually-hidden {
-	position: absolute;
+  position: absolute;
 
-	overflow: hidden;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	border: 0;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 
-	clip: rect(0 0 0 0);
-	white-space: nowrap;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

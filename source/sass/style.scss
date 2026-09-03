@@ -1,45 +1,45 @@
 // Vendor
 // ---------------------------------
-@import 'vendor/normalize';
-@import './node_modules/swiper/swiper-bundle';
+@import "vendor/normalize";
+@import "./node_modules/swiper/swiper-bundle";
 
 // Global
 // ---------------------------------
-@import 'variables';
-@import 'breakpoints';
-@import 'mixins';
-@import 'global/fonts';
-@import 'global/reboot';
-@import 'global/utils';
-@import 'global/container';
+@import "variables";
+@import "breakpoints";
+@import "mixins";
+@import "global/fonts";
+@import "global/reboot";
+@import "global/utils";
+@import "global/container";
 
 // Components
 // ---------------------------------
 
-@import 'components/modal';
-@import 'components/accordion';
-@import 'components/example';
-@import 'components/header';
-@import 'components/dropdown';
-@import 'components/mobile-menu';
-@import 'components/footer';
-@import 'components/catalog-hero';
-@import 'components/catalog';
-@import 'components/catalog-promo';
-@import 'components/catalog-filters';
-@import 'components/product-card';
-@import 'components/catalog-list';
-@import 'components/seo-text';
-@import 'components/cta';
+@import "components/modal";
+@import "components/accordion";
+@import "components/example";
+@import "components/header";
+@import "components/dropdown";
+@import "components/mobile-menu";
+@import "components/footer";
+@import "components/catalog-hero";
+@import "components/catalog";
+@import "components/catalog-promo";
+@import "components/catalog-filters";
+@import "components/product-card";
+@import "components/catalog-list";
+@import "components/seo-text";
+@import "components/cta";
 
 // Ui
 // ---------------------------------
 
-@import 'ui/btn';
-@import 'ui/select';
-@import 'ui/checkbox';
-@import 'ui/radio';
-@import 'ui/input';
+@import "ui/btn";
+@import "ui/select";
+@import "ui/checkbox";
+@import "ui/radio";
+@import "ui/input";
 
 
 // ---------------------------------

@@ -1,45 +1,45 @@
 @mixin retina {
-	@media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-		@content;
-	}
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
 }
 
 @mixin hover {
-	@media (hover: hover) {
-		&:hover:not(.focus-visible) {
-			@content;
-		}
-	}
+  @media (hover: hover) {
+    &:hover:not(.focus-visible) {
+      @content;
+    }
+  }
 }
 
 @mixin focus {
-	&.focus-visible:focus {
-		@content;
-	}
+  &.focus-visible:focus {
+    @content;
+  }
 }
 
 @mixin active {
-	&.focus-visible:active {
-		@content;
-	}
+  &.focus-visible:active {
+    @content;
+  }
 }
 
 @mixin hover-focus {
-	@media (hover: hover) {
-		&:hover:not(.focus-visible) {
-			@content;
-		}
-	}
+  @media (hover: hover) {
+    &:hover:not(.focus-visible) {
+      @content;
+    }
+  }
 
-	&.focus-visible:focus {
-		@content;
-	}
+  &.focus-visible:focus {
+    @content;
+  }
 }
 
 @mixin RubberSize($property, $pcSize, $mobSize) {
-	$addSize: $pcSize - $mobSize;
-	$maxWidth: 1920 - 360;
-	#{$property}: calc(
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: 1920 - 360;
+  #{$property}: calc(
 		#{$mobSize + px} + #{$addSize} * ((100vw - 360px) / #{$maxWidth})
 	);
 }

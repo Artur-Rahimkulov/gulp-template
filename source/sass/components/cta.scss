@@ -1,178 +1,183 @@
 .cta {
-	width: 100%;
-	padding: 0px 42px;
+  width: 100%;
+  padding: 0 42px;
 
-	&__content {
-		max-width: var(--content-width);
-		margin: 0 auto;
-		overflow: hidden;
+  &__content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    overflow: hidden;
 
-		border-radius: var(--radius-lg);
-		background: linear-gradient(
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
 				96deg,
 				#101e41 -0.42%,
 				rgba(16, 30, 65, 0.87) 41.48%,
 				rgba(29, 51, 106, 0.43) 57.19%,
 				rgba(33, 86, 217, 0.19) 75.67%
 			),
-			url("/assets/img/cta-bg.png") lightgray -255.369px -537.128px / 127.226%
-				252.406% no-repeat;
-		z-index: 2;
+      url("/assets/img/cta-bg.png") #d3d3d3 -255.37px -537.13px / 127.23%
+      252.41% no-repeat;
+    z-index: 2;
 
-		display: flex;
-		flex-direction: column;
-		gap: 60px;
-		padding: 60px;
-	}
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 60px;
+  }
 
-	&__text {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-		max-width: 680px;
-	}
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 680px;
+  }
 
-	&__title {
-		font-family: var(--font-display);
-		font-size: 48px;
-		font-weight: 500;
-		line-height: 52px;
-		color: var(--color-white);
-		text-wrap: balance;
-	}
+  &__title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 52px;
+    color: var(--color-white);
+    text-wrap: balance;
+  }
 
-	&__subtitle {
-		font-size: 20px;
-		font-weight: 400;
-		line-height: 32px;
-		color: var(--color-white);
-	}
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    color: var(--color-white);
+  }
 
-	&__form {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-	}
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-	&__row {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 12px;
-	}
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 
-	&__field {
-		width: 328px;
-	}
+  &__field {
+    width: 328px;
+  }
 
-	&__submit {
-		width: 200px;
-		justify-content: center;
-	}
+  &__submit {
+    width: 200px;
+    justify-content: center;
+  }
 
-	&__agree {
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 20px;
-		color: var(--color-white);
-	}
+  &__agree {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--color-white);
+  }
 
-	&__agree-link {
-		border-bottom: 1px solid var(--color-cerulean);
-		color: var(--color-white);
+  &__agree-link {
+    border-bottom: 1px solid var(--color-cerulean);
+    color: var(--color-white);
 
-		transition: border-color var(--default-transition);
+    transition: border-color var(--default-transition);
 
-		@include hover-focus {
-			border-color: var(--color-white);
-		}
-	}
+    @include hover-focus {
+      border-color: var(--color-white);
+    }
+  }
 
-	@include vp-1024 {
-		padding: 0px 42px;
+  @include vp-1024 {
+    padding: 0 42px;
 
-		&__content {
-			border-radius: var(--radius-lg);
-			background: linear-gradient(
+    &__content {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(
 					96deg,
 					#101e41 -0.42%,
 					rgba(16, 30, 65, 0.87) 41.48%,
 					rgba(29, 51, 106, 0.43) 57.19%,
 					rgba(33, 86, 217, 0.19) 75.67%
 				),
-				url("/assets/img/cta-bg.png") lightgray -146.304px -150.014px / 127.489%
-					152.382% no-repeat;
-			z-index: 2;
+        url("/assets/img/cta-bg.png") #d3d3d3 -146.3px -150.01px / 127.49%
+        152.38% no-repeat;
+      z-index: 2;
 
-			display: flex;
-			flex-direction: column;
-			gap: 40px;
-			padding: 40px;
-		}
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+    }
 
-		&__title {
-			color: #fff;
-			font-size: 36px;
-			line-height: 40px;
-		}
+    &__title {
+      color: #ffffff;
+      font-size: 36px;
+      line-height: 40px;
+    }
 
-		&__subtitle {
-			font-size: 20px;
-			line-height: 32px;
-		}
+    &__subtitle {
+      font-size: 20px;
+      line-height: 32px;
+    }
 
-		&__row {
-			flex-direction: column;
-			gap: 12px;
-		}
+    &__row {
+      flex-direction: column;
+      gap: 12px;
+    }
 
-		&__field,
-		&__submit {
-			width: 100%;
-		}
-	}
-	@include vp-756 {
-		padding: 0px 40px;
-		&__content {
-			background: linear-gradient(
+    &__field,
+    &__submit {
+      width: 100%;
+    }
+  }
+
+  @include vp-756 {
+    padding: 0 40px;
+
+    &__content {
+      background: linear-gradient(
 					96deg,
 					#101e41 -0.42%,
 					rgba(16, 30, 65, 0.87) 41.48%,
 					rgba(29, 51, 106, 0.43) 57.19%,
 					rgba(33, 86, 217, 0.19) 75.67%
 				),
-				url("/assets/img/cta-bg.png") lightgray -702.637px -328.519px / 227.201%
-					182.312% no-repeat;
-		}
-	}
-	// Мобильный 360: крупный заголовок и подзаголовок как в макете «Серверы / Планшет», 360
-	@include vp-360 {
-		padding: 0px 16px;
-		&__content {
-			gap: 28px;
-			padding: 20px 24px;
-			background: linear-gradient(
+        url("/assets/img/cta-bg.png") #d3d3d3 -702.64px -328.52px / 227.2%
+        182.31% no-repeat;
+    }
+  }
+  // Мобильный 360: крупный заголовок и подзаголовок как в макете «Серверы / Планшет», 360
+  @include vp-360 {
+    padding: 0 16px;
+
+    &__content {
+      gap: 28px;
+      padding: 20px 24px;
+      background: linear-gradient(
 					96deg,
 					#101e41 -0.42%,
 					rgba(16, 30, 65, 0.87) 41.48%,
 					rgba(29, 51, 106, 0.43) 57.19%,
 					rgba(33, 86, 217, 0.19) 75.67%
 				),
-				url("/assets/img/cta-bg.png") lightgray -418.088px 0px / 279.775% 100% no-repeat;
-		}
-		&__text {
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-		max-width: 680px;
-	}
-		&__title {
-			font-size: 36px;
-			line-height: 40px;
-		}
+        url("/assets/img/cta-bg.png") #d3d3d3 -418.09px 0 / 279.77% 100% no-repeat;
+    }
 
-		&__subtitle {
-			font-size: 20px;
-			line-height: 32px;
-		}
-	}
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 680px;
+    }
+
+    &__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    &__subtitle {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
 }

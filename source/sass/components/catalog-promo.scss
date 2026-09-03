@@ -1,22 +1,22 @@
 .promo {
-	position: relative;
+  position: relative;
 
-	display: block;
-	overflow: hidden;
+  display: block;
+  overflow: hidden;
 
-	border-radius: var(--radius-md);
+  border-radius: var(--radius-md);
 
-	&__img {
-		width: 100%;
-		height: 100%;
+  &__img {
+    width: 100%;
+    height: 100%;
 
-		object-fit: cover;
-		transition: transform var(--default-transition);
-	}
+    object-fit: cover;
+    transition: transform var(--default-transition);
+  }
 
-	@include hover-focus {
-		.promo__img {
-			transform: scale(1.03);
-		}
-	}
+  @include hover-focus {
+    .promo__img {
+      transform: scale(1.03);
+    }
+  }
 }

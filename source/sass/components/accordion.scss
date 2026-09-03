@@ -1,81 +1,80 @@
 .accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: auto;
 }
 
 .accordion_item {
-    transition: var(--default-transition);
-    padding: 0;
-    border: solid 1px var(--color-black);
+  transition: var(--default-transition);
+  padding: 0;
+  border: solid 1px var(--color-black);
 
-    &.active {
-        .accordion_content {
-            grid-template-rows: 1fr;
-            padding: 20px;
-        }
-
-        .accordion_icon {
-            transform: rotate(180deg);
-        }
-
-        .accordion_button {
-            border-bottom: 1px solid var(--color-overlay);
-        }
+  &.active {
+    .accordion_content {
+      grid-template-rows: 1fr;
+      padding: 20px;
     }
+
+    .accordion_icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion_button {
+      border-bottom: 1px solid var(--color-overlay);
+    }
+  }
 }
 
 .accordion_button {
-    display: flex;
-    padding: 20px;
-    width: 100%;
-    font-size: 20px;
-    font-weight: 900;
-    text-align: left;
-    transition: opacity var(--default-transition);
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: left;
+  transition: opacity var(--default-transition);
 
-    &:hover {
-        cursor: pointer;
-        opacity: 0.7;
-    }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 }
 
 .accordion_button-wrap {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.accordion_number  {
-    margin-left: -22px;
-    margin-right: 5px;
-}
-
-.accordion_title, 
 .accordion_number {
-    font-size: 20px;
-    font-weight: 900;
-    color: var(--color-white);
-    text-align: left;
+  margin-left: -22px;
+  margin-right: 5px;
+}
+
+.accordion_title,
+.accordion_number {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--color-white);
+  text-align: left;
 }
 
 .accordion_icon {
-    align-self: center;
-    margin-left: 10px;
-    transition: var(--default-transition);
-
+  align-self: center;
+  margin-left: 10px;
+  transition: var(--default-transition);
 }
 
 .accordion_content {
-    display: grid;
-    grid-template-rows: 0fr;
-    padding: 0 20px;
-    transition: var(--default-transition);
-    overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 20px;
+  transition: var(--default-transition);
+  overflow: hidden;
 }
 
 .accordion_hidden-wrap {
-    min-height: 0;
+  min-height: 0;
 }
 

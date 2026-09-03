@@ -1,53 +1,53 @@
 :root {
-    // Colors
-    // ---------------------------------
-    // Default
-    --color-black: #000000;
-    --color-white: #ffffff;
-    --color-transparent: rgba(255, 255, 255, 0);
-    --color-overlay: rgba(0, 0, 0, 0.5);
+  // Colors
+  // ---------------------------------
+  // Default
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-transparent: rgba(255, 255, 255, 0);
+  --color-overlay: rgba(0, 0, 0, 0.5);
 
-    // Project palette
-    // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
-    --color-alice-blue: #f4f8fb; // фон страницы / инпутов
-    --color-pattens-blue: #daf0fb; // светлый акцент
-    --color-mystic: #d9e4ec; // disabled / активная страница пагинации
-    --color-tropical-blue: #c8e1f3; // декоративные линии карточки
-    --color-loblolly: #cfd4d8; // бордеры
-    --color-shark: #191c1e; // основной текст
-    --color-pale-sky: #58616a; // второстепенный текст
-    --color-oslo-gray: #79838b; // текст disabled
-    --color-cadet-blue: #9fabb2; // хлебные крошки / буллеты
-    --color-endeavour: #005aa3; // основной синий
-    --color-congress-blue: #004b88; // цена
-    --color-cerulean: #0083ca; // ссылки / иконки
-    --color-alizarin: #ed2c2d; // акцент (красный) / ошибка (бордер)
-    --color-cosmic-latte: #e6fef7; // фон бейджа «Склад» / success
-    --color-observatory: #048b65; // текст бейджа «Склад» / success
-    --color-tangaroa: #101e41; // фон CTA
-    --color-crimson: #cd0e10; // accent hover
-    --color-onahau: #bae2f7; // secondary / outlined hover
-    --color-shamrock: #4db99a; // success (бордер инпута)
-    --color-rose-white: #fef1f1; // error (фон инпута)
+  // Project palette
+  // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+  --color-alice-blue: #f4f8fb; // фон страницы / инпутов
+  --color-pattens-blue: #daf0fb; // светлый акцент
+  --color-mystic: #d9e4ec; // disabled / активная страница пагинации
+  --color-tropical-blue: #c8e1f3; // декоративные линии карточки
+  --color-loblolly: #cfd4d8; // бордеры
+  --color-shark: #191c1e; // основной текст
+  --color-pale-sky: #58616a; // второстепенный текст
+  --color-oslo-gray: #79838b; // текст disabled
+  --color-cadet-blue: #9fabb2; // хлебные крошки / буллеты
+  --color-endeavour: #005aa3; // основной синий
+  --color-congress-blue: #004b88; // цена
+  --color-cerulean: #0083ca; // ссылки / иконки
+  --color-alizarin: #ed2c2d; // акцент (красный) / ошибка (бордер)
+  --color-cosmic-latte: #e6fef7; // фон бейджа «Склад» / success
+  --color-observatory: #048b65; // текст бейджа «Склад» / success
+  --color-tangaroa: #101e41; // фон CTA
+  --color-crimson: #cd0e10; // accent hover
+  --color-onahau: #bae2f7; // secondary / outlined hover
+  --color-shamrock: #4db99a; // success (бордер инпута)
+  --color-rose-white: #fef1f1; // error (фон инпута)
 
-    // Gradient
-    --black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
-    --promo-gradient: linear-gradient(180deg, #002754 0%, #0b77c4 100%);
-    --banner-overlay: linear-gradient(67deg, rgba(229, 239, 248, 0.65) 0%, rgba(220, 235, 246, 0.59) 27.56%, rgba(212, 230, 245, 0) 53.84%);
-    --cta-overlay: linear-gradient(110deg, #101e41 0.42%, rgba(16, 30, 65, 0.87) 41.48%, rgba(29, 51, 106, 0.43) 57.19%, rgba(33, 86, 217, 0.19) 75.67%);
+  // Gradient
+  --black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+  --promo-gradient: linear-gradient(180deg, #002754 0%, #0b77c4 100%);
+  --banner-overlay: linear-gradient(67deg, rgba(229, 239, 248, 0.65) 0%, rgba(220, 235, 246, 0.59) 27.56%, rgba(212, 230, 245, 0) 53.84%);
+  --cta-overlay: linear-gradient(110deg, #101e41 0.42%, rgba(16, 30, 65, 0.87) 41.48%, rgba(29, 51, 106, 0.43) 57.19%, rgba(33, 86, 217, 0.19) 75.67%);
 
-    // Fonts
-    // ---------------------------------
-    --font-primary: 'Inter', 'Arial', sans-serif;
-    --font-display: 'Onest', 'Inter', 'Arial', sans-serif;
+  // Fonts
+  // ---------------------------------
+  --font-primary: "Inter", "Arial", sans-serif;
+  --font-display: "Onest", "Inter", "Arial", sans-serif;
 
-    // Layout
-    // ---------------------------------
-    --content-width: 1372px;
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 20px;
+  // Layout
+  // ---------------------------------
+  --content-width: 1372px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
 
-    // Transition
-    --default-transition: 0.3s ease;
+  // Transition
+  --default-transition: 0.3s ease;
 }

@@ -2,116 +2,116 @@
 // Состояния: Default / Choosen / Disable  •  Тип: Default / Button
 // ---------------------------------
 .radio {
-	position: relative;
+  position: relative;
 
-	display: inline-flex;
-	align-items: center;
-	gap: 12px;
-	min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 24px;
 
-	cursor: pointer;
-	user-select: none;
+  cursor: pointer;
+  user-select: none;
 
-	&__input {
-		position: absolute;
-		width: 0;
-		height: 0;
-		opacity: 0;
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
 
-		cursor: pointer;
-	}
+    cursor: pointer;
+  }
 
-	&__mark {
-		position: relative;
+  &__mark {
+    position: relative;
 
-		flex-shrink: 0;
-		width: 24px;
-		height: 24px;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
 
-		border: 1.5px solid var(--color-loblolly);
-		border-radius: 50%;
-		background-color: var(--color-white);
+    border: 1.5px solid var(--color-loblolly);
+    border-radius: 50%;
+    background-color: var(--color-white);
 
-		transition: border-color var(--default-transition);
+    transition: border-color var(--default-transition);
 
-		&::after {
-			content: '';
+    &::after {
+      content: "";
 
-			position: absolute;
-			top: 50%;
-			left: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
 
-			width: 12px;
-			height: 12px;
+      width: 12px;
+      height: 12px;
 
-			border-radius: 50%;
-			background-color: var(--color-cerulean);
+      border-radius: 50%;
+      background-color: var(--color-cerulean);
 
-			transform: translate(-50%, -50%) scale(0);
-			transition: transform var(--default-transition);
-		}
-	}
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform var(--default-transition);
+    }
+  }
 
-	&__label {
-		font-family: var(--font-primary);
-		font-size: 16px;
-		font-weight: 400;
-		line-height: 24px;
-		color: var(--color-shark);
-	}
+  &__label {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--color-shark);
+  }
 
-	// Hover
-	&:hover .radio__input:not(:disabled):not(:checked) ~ .radio__mark {
-		border-color: var(--color-cadet-blue);
-	}
+  // Hover
+  &:hover .radio__input:not(:disabled):not(:checked) ~ .radio__mark {
+    border-color: var(--color-cadet-blue);
+  }
 
-	// State=Choosen
-	.radio__input:checked ~ .radio__mark {
-		border-color: var(--color-cerulean);
+  // State=Choosen
+  .radio__input:checked ~ .radio__mark {
+    border-color: var(--color-cerulean);
 
-		&::after {
-			transform: translate(-50%, -50%) scale(1);
-		}
-	}
+    &::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
 
-	// State=Disable
-	.radio__input:disabled ~ .radio__mark {
-		border-color: var(--color-loblolly);
-		background-color: var(--color-mystic);
+  // State=Disable
+  .radio__input:disabled ~ .radio__mark {
+    border-color: var(--color-loblolly);
+    background-color: var(--color-mystic);
 
-		&::after {
-			background-color: var(--color-oslo-gray);
-		}
-	}
+    &::after {
+      background-color: var(--color-oslo-gray);
+    }
+  }
 
-	.radio__input:disabled ~ .radio__label {
-		color: var(--color-oslo-gray);
-	}
+  .radio__input:disabled ~ .radio__label {
+    color: var(--color-oslo-gray);
+  }
 
-	// Тип Button — обёрнут в бордерную «таблетку»
-	&--button {
-		gap: 12px;
-		padding: 10px 20px;
+  // Тип Button — обёрнут в бордерную «таблетку»
+  &--button {
+    gap: 12px;
+    padding: 10px 20px;
 
-		border: 1px solid var(--color-loblolly);
-		border-radius: var(--radius-sm);
+    border: 1px solid var(--color-loblolly);
+    border-radius: var(--radius-sm);
 
-		transition: border-color var(--default-transition);
+    transition: border-color var(--default-transition);
 
-		.radio__label {
-			font-size: 14px;
-			font-weight: 500;
-			line-height: 20px;
-			color: var(--color-pale-sky);
-		}
+    .radio__label {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: var(--color-pale-sky);
+    }
 
-		&:has(.radio__input:checked) {
-			border-color: var(--color-endeavour);
-		}
+    &:has(.radio__input:checked) {
+      border-color: var(--color-endeavour);
+    }
 
-		&:has(.radio__input:disabled) {
-			border-color: var(--color-loblolly);
-			background-color: var(--color-mystic);
-		}
-	}
+    &:has(.radio__input:disabled) {
+      border-color: var(--color-loblolly);
+      background-color: var(--color-mystic);
+    }
+  }
 }

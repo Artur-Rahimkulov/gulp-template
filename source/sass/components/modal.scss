@@ -1,41 +1,41 @@
 .modal {
-	visibility: hidden;
-	position: fixed;
-	display: flex;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 100;
-	width: 100%;
-	background-color: var(--color-overlay);
-	transition: opacity, var(--default-transition);
-	opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--color-overlay);
+  transition: opacity, var(--default-transition);
+  opacity: 0;
 
-	&.active {
-		visibility: visible;
-		opacity: 1;
-	}
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .modal_wrapper {
-	position: relative;
-	margin: auto;
-	z-index: 20;
-	padding: 40px;
-	width: 700px;
-	max-width: calc(100% - 32px);
-	background-color: var(--color-white);
+  position: relative;
+  margin: auto;
+  z-index: 20;
+  padding: 40px;
+  width: 700px;
+  max-width: calc(100% - 32px);
+  background-color: var(--color-white);
 }
 
 .modal_close-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    border: none;
-    outline: none;
-    cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }

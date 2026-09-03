@@ -18,27 +18,27 @@ $vp-1920:                           1920px;
 // Desktop first
 
 @mixin vp-1440 {
-	@media (max-width: ($vp-1440)) {
-	  @content;
-	}
+  @media (max-width: ($vp-1440)) {
+    @content;
+  }
 }
 
 @mixin vp-1024 {
-	@media (max-width: ($vp-1024)) {
-	  @content;
-	}
+  @media (max-width: ($vp-1024)) {
+    @content;
+  }
 }
 
 @mixin vp-756 {
-	@media (max-width: ($vp-756)) {
-	  @content;
-	}
+  @media (max-width: ($vp-756)) {
+    @content;
+  }
 }
 
 @mixin vp-360 {
-	@media (max-width: ($vp-360)) {
-	  @content;
-	}
+  @media (max-width: ($vp-360)) {
+    @content;
+  }
 }
 
 // Mobile first

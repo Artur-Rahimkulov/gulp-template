@@ -1,74 +1,74 @@
 .seo-text {
-	padding: 120px 0;
+  padding: 120px 0;
 
-	.container {
-		display: flex;
-		flex-direction: column;
-		gap: 28px;
-	}
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
 
-	&__title {
-		font-family: var(--font-display);
-		font-size: 48px;
-		font-weight: 500;
-		line-height: 52px;
-		color: var(--color-shark);
-		text-wrap: balance;
-	}
+  &__title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 52px;
+    color: var(--color-shark);
+    text-wrap: balance;
+  }
 
-	&__body {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-	}
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-	&__lead {
-		font-size: 16px;
-		font-weight: 400;
-		line-height: 24px;
-		color: var(--color-pale-sky);
-	}
+  &__lead {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--color-pale-sky);
+  }
 
-	&__list {
-		gap: 16px;
-	}
+  &__list {
+    gap: 16px;
+  }
 
-	// ≤1024: заголовок — Mobile/Heading 2 (36/40), перенос строки сохраняется
-	@include vp-1024 {
-		padding: 104px 0px 60px 0px;
+  // ≤1024: заголовок — Mobile/Heading 2 (36/40), перенос строки сохраняется
+  @include vp-1024 {
+    padding: 104px 0 60px 0;
 
-		&__title {
-			font-size: 36px;
-			line-height: 40px;
-		}
-	}
-	
-	@include vp-756 {
-		padding: 60px 0px 60px 0px;
+    &__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
 
-		&__title {
-			font-size: 36px;
-			line-height: 40px;
-		}
-	}
+  @include vp-756 {
+    padding: 60px 0 60px 0;
 
-	@include vp-360 {
-		padding: 40px 0;
+    &__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
 
-		.container {
-			gap: 28px;
-		}
-	}
+  @include vp-360 {
+    padding: 40px 0;
+
+    .container {
+      gap: 28px;
+    }
+  }
 }
 
 // модификатор для крупных списков (16/24 вместо 14/20)
 .spec-list--md {
-	.spec-list__item {
-		font-size: 16px;
-		line-height: 24px;
+  .spec-list__item {
+    font-size: 16px;
+    line-height: 24px;
 
-		&::before {
-			top: 11px;
-		}
-	}
+    &::before {
+      top: 11px;
+    }
+  }
 }

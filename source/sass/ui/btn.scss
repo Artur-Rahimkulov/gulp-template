@@ -1,209 +1,209 @@
 .btn {
-	display: inline-flex;
-	box-sizing: border-box;
-	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	padding: 12px 20px;
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
 
-	outline: 1px solid transparent;
-	border-radius: var(--radius-sm);
+  outline: 1px solid transparent;
+  border-radius: var(--radius-sm);
 
-	// Web/Button medium
-	font-family: var(--font-primary);
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
-	color: var(--color-pale-sky);
-	text-align: center;
+  // Web/Button medium
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-pale-sky);
+  text-align: center;
 
-	cursor: pointer;
-	transition: background-color var(--default-transition), outline-color var(--default-transition), color var(--default-transition);
+  cursor: pointer;
+  transition: background-color var(--default-transition), outline-color var(--default-transition), color var(--default-transition);
 
-	&__icon {
-		display: flex;
-		flex-shrink: 0;
-		align-items: center;
-		justify-content: center;
-		width: 32px;
-		height: 32px;
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
 
-		border-radius: 6px;
+    border-radius: 6px;
 
-		svg {
-			width: 24px;
-			height: 24px;
-		}
-	}
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 
-	&__label {
-		flex-grow: 1;
-	}
+  &__label {
+    flex-grow: 1;
+  }
 
-	// Sizes
-	// ---------------------------------
+  // Sizes
+  // ---------------------------------
 
-	&--md {
-		min-height: 44px;
-		padding: 12px 20px;
+  &--md {
+    min-height: 44px;
+    padding: 12px 20px;
 
-		font-size: 14px;
-	}
+    font-size: 14px;
+  }
 
-	&--lg {
-		min-height: 52px;
-		padding: 10px;
+  &--lg {
+    min-height: 52px;
+    padding: 10px;
 
-		font-size: 16px;
-	}
+    font-size: 16px;
+  }
 
-	&--block {
-		width: 100%;
-	}
+  &--block {
+    width: 100%;
+  }
 
-	&--square {
-		width: 52px;
-		height: 52px;
-		flex-shrink: 0;
-		padding: 0;
+  &--square {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    padding: 0;
 
-		svg {
-			width: 24px;
-			height: 24px;
-		}
-	}
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 
-	// Икон-кнопка с плиткой слева (лейбл центрируется по остатку строки)
-	&--icon-left {
-		justify-content: space-between;
-		gap: 0;
+  // Икон-кнопка с плиткой слева (лейбл центрируется по остатку строки)
+  &--icon-left {
+    justify-content: space-between;
+    gap: 0;
 
-		.btn__label {
-			padding: 0 24px 0 14px;
-		}
-	}
+    .btn__label {
+      padding: 0 24px 0 14px;
+    }
+  }
 
-	// Types (Default / Hover — .is-hover для витрины UI-kit)
-	// ---------------------------------
+  // Types (Default / Hover — .is-hover для витрины UI-kit)
+  // ---------------------------------
 
-	&--primary {
-		background-color: var(--color-endeavour);
-		color: var(--color-white);
+  &--primary {
+    background-color: var(--color-endeavour);
+    color: var(--color-white);
 
-		.btn__icon {
-			background-color: var(--color-cerulean);
-		}
+    .btn__icon {
+      background-color: var(--color-cerulean);
+    }
 
-		@include hover-focus {
-			background-color: var(--color-congress-blue);
-		}
+    @include hover-focus {
+      background-color: var(--color-congress-blue);
+    }
 
-		&.is-hover {
-			background-color: var(--color-congress-blue);
-		}
-	}
+    &.is-hover {
+      background-color: var(--color-congress-blue);
+    }
+  }
 
-	&--soft {
-		background-color: var(--color-pattens-blue);
-		color: var(--color-endeavour);
+  &--soft {
+    background-color: var(--color-pattens-blue);
+    color: var(--color-endeavour);
 
-		.btn__icon {
-			background-color: var(--color-white);
-			color: var(--color-cerulean);
-		}
+    .btn__icon {
+      background-color: var(--color-white);
+      color: var(--color-cerulean);
+    }
 
-		@include hover-focus {
-			background-color: var(--color-onahau);
-		}
+    @include hover-focus {
+      background-color: var(--color-onahau);
+    }
 
-		&.is-hover {
-			background-color: var(--color-onahau);
-		}
-	}
+    &.is-hover {
+      background-color: var(--color-onahau);
+    }
+  }
 
-	&--outlined {
-		outline-color: var(--color-loblolly);
-		background-color: var(--color-transparent);
-		color: var(--color-cerulean);
+  &--outlined {
+    outline-color: var(--color-loblolly);
+    background-color: var(--color-transparent);
+    color: var(--color-cerulean);
 
-		@include hover-focus {
-			outline-color: var(--color-endeavour);
-			color: var(--color-endeavour);
-		}
+    @include hover-focus {
+      outline-color: var(--color-endeavour);
+      color: var(--color-endeavour);
+    }
 
-		&.is-hover {
-			outline-color: var(--color-endeavour);
-			color: var(--color-endeavour);
-		}
-	}
+    &.is-hover {
+      outline-color: var(--color-endeavour);
+      color: var(--color-endeavour);
+    }
+  }
 
-	&--accent {
-		background-color: var(--color-alizarin);
-		color: var(--color-white);
+  &--accent {
+    background-color: var(--color-alizarin);
+    color: var(--color-white);
 
-		@include hover-focus {
-			background-color: var(--color-crimson);
-		}
+    @include hover-focus {
+      background-color: var(--color-crimson);
+    }
 
-		&.is-hover {
-			background-color: var(--color-crimson);
-		}
-	}
+    &.is-hover {
+      background-color: var(--color-crimson);
+    }
+  }
 
-	&--ghost {
-		background-color: var(--color-transparent);
-		color: var(--color-pale-sky);
+  &--ghost {
+    background-color: var(--color-transparent);
+    color: var(--color-pale-sky);
 
-		@include hover-focus {
-			background-color: var(--color-pattens-blue);
-			color: var(--color-endeavour);
-		}
+    @include hover-focus {
+      background-color: var(--color-pattens-blue);
+      color: var(--color-endeavour);
+    }
 
-		&.is-hover {
-			background-color: var(--color-pattens-blue);
-			color: var(--color-endeavour);
-		}
-	}
+    &.is-hover {
+      background-color: var(--color-pattens-blue);
+      color: var(--color-endeavour);
+    }
+  }
 
-	&--light {
-		background-color: var(--color-white);
-		color: var(--color-endeavour);
+  &--light {
+    background-color: var(--color-white);
+    color: var(--color-endeavour);
 
-		@include hover-focus {
-			background-color: var(--color-pattens-blue);
-		}
+    @include hover-focus {
+      background-color: var(--color-pattens-blue);
+    }
 
-		&.is-hover {
-			background-color: var(--color-pattens-blue);
-		}
-	}
+    &.is-hover {
+      background-color: var(--color-pattens-blue);
+    }
+  }
 
-	// States
-	// ---------------------------------
+  // States
+  // ---------------------------------
 
-	// Focus — синее кольцо поверх любого типа (.is-focus для витрины)
-	&:focus-visible,
-	&.focus-visible:focus,
-	&.is-focus {
-		outline: 2px solid var(--color-cerulean);
-		outline-offset: 2px;
-	}
+  // Focus — синее кольцо поверх любого типа (.is-focus для витрины)
+  &:focus-visible,
+  &.focus-visible:focus,
+  &.is-focus {
+    outline: 2px solid var(--color-cerulean);
+    outline-offset: 2px;
+  }
 
-	&.is-active {
-		outline-color: var(--color-transparent);
-		background-color: var(--color-pattens-blue);
-		color: var(--color-endeavour);
-	}
+  &.is-active {
+    outline-color: var(--color-transparent);
+    background-color: var(--color-pattens-blue);
+    color: var(--color-endeavour);
+  }
 
-	&:disabled,
-	&.is-disabled {
-		outline-color: var(--color-loblolly);
-		background-color: var(--color-mystic);
-		color: var(--color-oslo-gray);
-		pointer-events: none;
+  &:disabled,
+  &.is-disabled {
+    outline-color: var(--color-loblolly);
+    background-color: var(--color-mystic);
+    color: var(--color-oslo-gray);
+    pointer-events: none;
 
-		.btn__icon {
-			background-color: var(--color-transparent);
-		}
-	}
+    .btn__icon {
+      background-color: var(--color-transparent);
+    }
+  }
 }

@@ -1,22 +1,22 @@
 .container {
-	width: 100%;
-	max-width: calc(var(--content-width) + 80px);
-	margin: 0 auto;
-	padding: 0 40px;
+  width: 100%;
+  max-width: calc(var(--content-width) + 80px);
+  margin: 0 auto;
+  padding: 0 40px;
 
-	@include vp-1440 {
-		padding: 0 32px;
-	}
+  @include vp-1440 {
+    padding: 0 32px;
+  }
 
-	@include vp-1024 {
-		padding: 0 40px;
-	}
+  @include vp-1024 {
+    padding: 0 40px;
+  }
 
-	@include vp-756 {
-		padding: 0 40px;
-	}
+  @include vp-756 {
+    padding: 0 40px;
+  }
 
-	@include vp-360 {
-		padding: 0 16px;
-	}
+  @include vp-360 {
+    padding: 0 16px;
+  }
 }

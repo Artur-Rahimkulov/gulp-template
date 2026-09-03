@@ -1,107 +1,107 @@
 .example {
-	display: grid;
-	gap: 24px;
-	margin-left: 24px;
+  display: grid;
+  gap: 24px;
+  margin-left: 24px;
 }
 
 // Витрина дизайн-системы (ui-kit.html)
 // ---------------------------------
 .uikit {
-	padding: 40px 0 80px;
+  padding: 40px 0 80px;
 
-	&__section {
-		margin-top: 56px;
+  &__section {
+    margin-top: 56px;
 
-		&:first-child {
-			margin-top: 0;
-		}
-	}
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 
-	&__title {
-		margin-bottom: 24px;
+  &__title {
+    margin-bottom: 24px;
 
-		font-family: var(--font-display);
-		font-size: 32px;
-		font-weight: 500;
-		line-height: 40px;
-		color: var(--color-shark);
-	}
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    color: var(--color-shark);
+  }
 
-	&__subtitle {
-		margin: 32px 0 16px;
+  &__subtitle {
+    margin: 32px 0 16px;
 
-		font-size: 16px;
-		font-weight: 600;
-		line-height: 20px;
-		color: var(--color-pale-sky);
-	}
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--color-pale-sky);
+  }
 
-	// сетка «состояние → образец»
-	&__grid {
-		display: grid;
-		grid-template-columns: 120px repeat(4, minmax(0, 1fr));
-		gap: 16px;
-		align-items: center;
-		max-width: 900px;
-		padding: 24px;
+  // сетка «состояние → образец»
+  &__grid {
+    display: grid;
+    grid-template-columns: 120px repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: center;
+    max-width: 900px;
+    padding: 24px;
 
-		border: 1px solid var(--color-loblolly);
-		border-radius: var(--radius-md);
-		background-color: var(--color-white);
-	}
+    border: 1px solid var(--color-loblolly);
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+  }
 
-	&__grid-head {
-		font-size: 12px;
-		font-weight: 600;
-		line-height: 16px;
-		color: var(--color-cadet-blue);
-		text-transform: uppercase;
-	}
+  &__grid-head {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    color: var(--color-cadet-blue);
+    text-transform: uppercase;
+  }
 
-	&__state {
-		font-size: 14px;
-		line-height: 20px;
-		color: var(--color-pale-sky);
-	}
+  &__state {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-pale-sky);
+  }
 
-	// свободный ряд образцов
-	&__row {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 16px;
-		align-items: center;
-		margin-bottom: 16px;
-	}
+  // свободный ряд образцов
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
 
-	&__cell {
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-		width: 328px;
-		max-width: 100%;
-	}
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 328px;
+    max-width: 100%;
+  }
 
-	&__cell-label {
-		font-size: 12px;
-		line-height: 16px;
-		color: var(--color-cadet-blue);
-	}
+  &__cell-label {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-cadet-blue);
+  }
 
-	&--on-dark {
-		padding: 20px;
+  &--on-dark {
+    padding: 20px;
 
-		border-radius: var(--radius-md);
-		background-color: var(--color-tangaroa);
-	}
+    border-radius: var(--radius-md);
+    background-color: var(--color-tangaroa);
+  }
 
-	@include vp-756 {
-		&__grid {
-			grid-template-columns: 88px 1fr;
-		}
+  @include vp-756 {
+    &__grid {
+      grid-template-columns: 88px 1fr;
+    }
 
-		&__title {
-			font-size: 24px;
-			line-height: 32px;
-		}
-	}
+    &__title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
 }
