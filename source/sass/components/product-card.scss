@@ -205,11 +205,12 @@
 	// Мобильный 360: компактная карточка ~176px в два столбца
 	@include vp-360 {
 		gap: 4px;
-		padding: 4px;
+		padding: 0px 4px 4px 4px;
 
 		border-radius: 12px;
 
 		&__media {
+			border-radius: 4px;
 			height: 128px;
 		}
 
@@ -464,7 +465,7 @@
 	// (сетка товаров на 360 уходит за край экрана отрицательными марджинами)
 	@include vp-360 {
 		grid-column: 1 / -1;
-		margin-right: 16px;
-		margin-left: 16px;
+		margin: 32px 16px;
+		gap: 16px;
 	}
 }

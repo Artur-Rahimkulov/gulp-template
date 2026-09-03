@@ -31,7 +31,7 @@
 
 	// Светлая подложка слева, чтобы заголовок читался на фото
 	&__banner::before {
-		content: '';
+		content: "";
 		position: absolute;
 		inset: 0;
 		z-index: 1;
@@ -241,15 +241,19 @@
 		flex-wrap: wrap;
 		gap: 4px;
 		padding-left: 2px;
+		@include vp-360 {
+			height: 40px;
+		}
 	}
 
 	&__item {
+		display: inline-flex;
 		font-size: 14px;
 		line-height: 20px;
 		color: var(--color-cadet-blue);
 
 		&:not(:last-child)::after {
-			content: ' /';
+			content: " /";
 		}
 	}
 
@@ -259,5 +263,8 @@
 		@include hover-focus {
 			color: var(--color-cerulean);
 		}
+	}
+	@include vp-756 {
+		width: 402px;
 	}
 }

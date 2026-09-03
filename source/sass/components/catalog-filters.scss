@@ -31,6 +31,9 @@
 
 		text-align: left;
 	}
+	@include vp-360 {
+		margin-bottom: 40px;
+	}
 }
 
 // Блок фильтров: на десктопе — сайдбар (Filtr block), на ≤1024 — полноэкранная модалка

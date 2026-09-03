@@ -61,16 +61,17 @@
 		}
 	}
 
-	@include vp-1440 {
-		&__sort {
-			width: 260px;
-		}
-	}
-
 	// Планшет 1024: селект сортировки — 328px (макет «… / Планшет»)
 	@include vp-1024 {
 		&__sort {
 			width: 328px;
+		}
+		&__stats {
+			display: flex;
+			flex-direction: column;
+			gap: 0px;
+			justify-content: start;
+			align-items: start;
 		}
 	}
 
@@ -83,9 +84,13 @@
 
 	// Мобильный 360: тулбар в столбик, сетка товаров во всю ширину экрана (макет «Серверы / Планшет», 360)
 	@include vp-360 {
+		gap:40px;
 		&__toolbar {
-			flex-direction: column;
-			align-items: stretch;
+			display: grid;
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+			align-items: center;
+			margin-right: -16px;
+			margin-left: -16px;
 			gap: 28px;
 			padding: 16px;
 		}
@@ -106,8 +111,7 @@
 		}
 
 		&__footer {
-			gap: 16px;
-			margin-top: 16px;
+			margin-top: 0px;
 		}
 	}
 }
@@ -173,12 +177,13 @@
 	@include vp-756 {
 		&__nav {
 			min-width: 0;
-			padding: 12px;
+			padding: 12px 55px;
 		}
 	}
 
 	// Мобильный 360: только номера страниц, ссылки «В начало / Дальше» скрыты (макет «Серверы / Планшет», 360)
 	@include vp-360 {
+
 		&__nav {
 			display: none;
 		}

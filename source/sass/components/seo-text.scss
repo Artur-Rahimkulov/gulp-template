@@ -35,7 +35,16 @@
 
 	// ≤1024: заголовок — Mobile/Heading 2 (36/40), перенос строки сохраняется
 	@include vp-1024 {
-		padding: 80px 0;
+		padding: 104px 0px 60px 0px;
+
+		&__title {
+			font-size: 36px;
+			line-height: 40px;
+		}
+	}
+	
+	@include vp-756 {
+		padding: 60px 0px 60px 0px;
 
 		&__title {
 			font-size: 36px;
@@ -44,10 +53,10 @@
 	}
 
 	@include vp-360 {
-		padding: 48px 0;
+		padding: 40px 0;
 
 		.container {
-			gap: 20px;
+			gap: 28px;
 		}
 	}
 }

@@ -9,15 +9,15 @@
 
 		@include vp-1024 {
 			gap: 40px;
-			padding: 80px 0;
+			padding: 120px 0;
 		}
 
 		@include vp-756 {
-			padding: 60px 0;
+			padding: 120px 0;
 		}
 
 		@include vp-360 {
-			padding: 40px 0;
+			padding: 80px 0;
 		}
 	}
 
@@ -28,7 +28,9 @@
 		align-items: flex-end;
 		justify-content: space-between;
 		gap: 40px;
-
+		@include vp-1024 {
+			align-items: start;
+		}
 		@include vp-360 {
 			flex-direction: column;
 			align-items: flex-start;
@@ -57,6 +59,9 @@
 		font-weight: 500;
 		line-height: 32px;
 		color: var(--color-shark);
+		@include vp-1024 {
+			max-width: 329px;
+		}
 	}
 
 	// Логотипы вендоров
@@ -123,14 +128,11 @@
 		justify-content: space-between;
 		gap: 80px;
 
-		@include vp-1440 {
-			gap: 40px;
-		}
 
 		@include vp-1024 {
 			flex-wrap: wrap;
 			justify-content: flex-start;
-			gap: 40px 20px;
+			gap: 30px 20px;
 		}
 
 		@include vp-360 {
@@ -148,13 +150,23 @@
 			min-width: 0;
 		}
 
+		// 756: первый ряд — 2 колонки, второй ряд — 3 колонки (по макету «… / Планшет», 756)
 		@include vp-756 {
 			flex-basis: calc((100% - 20px) / 2);
+
+			&:nth-child(n + 3) {
+				flex-basis: calc((100% - 40px) / 3);
+			}
 		}
 
 		@include vp-360 {
 			flex-grow: 1;
 			flex-basis: calc((100% - 16px) / 2);
+
+			// сброс 3-колоночного правила из 756 — на мобильном снова 2 колонки
+			&:nth-child(n + 3) {
+				flex-basis: calc((100% - 16px) / 2);
+			}
 		}
 	}
 
@@ -182,7 +194,7 @@
 		color: var(--color-pale-sky);
 		text-decoration: none;
 		transition: color var(--default-transition);
-
+		word-wrap: break-word;
 		@include hover-focus {
 			color: var(--color-cerulean);
 		}
@@ -199,7 +211,7 @@
 		// до 575 правовой блок и соцсети рядом; на мобильном — в столбик, соцсети сверху
 		@include vp-360 {
 			flex-direction: column;
-			gap: 24px;
+			gap: 16px;
 		}
 	}
 
@@ -227,12 +239,19 @@
 		margin: 0;
 		font-size: 14px;
 		line-height: 20px;
+		word-wrap: break-word;
 		color: var(--color-pale-sky);
+		@include vp-1024 {
+			width:670px;
+		}
+		@include vp-360 {
+			width:328px;
+		}
 	}
 
 	&__socials {
 		display: flex;
-		gap: 12px;
+		gap: 8px;
 		margin: 0;
 		padding: 0;
 		list-style: none;
