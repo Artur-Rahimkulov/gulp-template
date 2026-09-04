@@ -19,11 +19,8 @@
     flex-direction: column;
     gap: 20px;
     flex-shrink: 0;
-    width: 328px;
-
-    @include vp-1440 {
-      width: 280px;
-    }
+    // Резиновая ширина сайдбара вместо скачка 328 → 280
+    width: clamp(272px, 22vw, 328px);
 
     // На планшетах и мобильных сайдбар превращается в полноэкранную модалку фильтров
     @include vp-1024 {

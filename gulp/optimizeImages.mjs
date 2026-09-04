@@ -1,12 +1,12 @@
 import gulp from 'gulp';
-import rename from 'gulp-rename';
 import imagemin from 'gulp-imagemin';
 import webp from 'gulp-webp';
-import svgstore from 'gulp-svgstore';
 
+// Оптимизация исходных SVG (ручной таск).
+// В общую сборку не включён, чтобы не переписывать исходники на каждый build.
 const svgo = () =>
   gulp
-      .src('source/img/**/*.{svg}')
+      .src('source/img/**/*.svg')
       .pipe(
           imagemin([
             imagemin.svgo({
@@ -20,43 +20,32 @@ const svgo = () =>
       )
       .pipe(gulp.dest('source/img'));
 
-// const sprite = () =>
-//   gulp
-//       .src('source/img/sprite/*.svg')
-//       .pipe(svgstore({inlineSvg: true}))
-//       .pipe(rename('sprite_auto.svg'))
-//       .pipe(gulp.dest('build/img'));
-
 /*
   Optional tasks
   ---------------------------------
 
-  Используйте отличное от дефолтного значение root, если нужно обработать отдельную папку в img,
-  а не все изображения в img во всех папках.
-
-  root = '' - по дефолту webp добавляются и обновляются во всех папках в source/img/
-  root = 'content/' - webp добавляются и обновляются только в source/img/content/
+  createWebp — разово добавляет/обновляет .webp рядом с исходными растрами
+  в source/assets/img/. В обычной сборке webp генерируются через webpImages.
 */
-
-const createWebp = () => {
-  const root = '';
-  return gulp
-      .src(`source/img/${root}**/*.{png,jpg}`)
+const createWebp = () =>
+  gulp
+      .src('source/assets/img/**/*.{png,jpg,jpeg}')
       .pipe(webp({quality: 90}))
-      .pipe(gulp.dest(`source/img/${root}`));
-};
+      .pipe(gulp.dest('source/assets/img'));
 
+// Дожатие растровых картинок в build (ручной таск imagemin)
 const optimizeImages = () =>
   gulp
-      .src('build/img/**/*.{png,jpg}')
+      .src('build/assets/img/**/*.{png,jpg,jpeg}')
       .pipe(
           imagemin([
             imagemin.optipng({optimizationLevel: 3}),
             imagemin.mozjpeg({quality: 75, progressive: true})
           ])
       )
-      .pipe(gulp.dest('build/img'));
+      .pipe(gulp.dest('build/assets/img'));
 
+// Генерация webp в build из исходных растров (основной таск сборки)
 const webpImages = () =>
   gulp
       .src('source/assets/img/**/*.{png,jpg,jpeg}', { base: 'source' })

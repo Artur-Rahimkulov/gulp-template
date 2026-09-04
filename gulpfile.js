@@ -33,7 +33,7 @@ const syncServer = () => {
   gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
   gulp.watch('source/assets/**/*.*', gulp.series(copy, refresh));
   gulp.watch('source/assets/svg/**/*.svg', gulp.series(sprite, copy, html, refresh));
-  gulp.watch('source/assets/img/**/*.{png,jpg,jpeg,webp}', gulp.series(copyImages, webpImages, html, refresh));
+  gulp.watch('source/assets/img/**/*.{png,jpg,jpeg,webp}', gulp.series(webpImages, copyImages, html, refresh));
 
   gulp.watch('source/fonts/**', gulp.series(copy, refresh));
   gulp.watch('source/favicon/**', gulp.series(copy, refresh));
@@ -42,7 +42,7 @@ const syncServer = () => {
 };
 
 
-const build = gulp.series(clean, svgo, sprite, copy, copyImages, styles, js, html, webpImages);
+const build = gulp.series(clean, sprite, copy, webpImages, copyImages, styles, js, html);
 const start = gulp.series(build, syncServer);
 
-export { optimizeImages as imagemin, createWebp as webp, build, start };
+export { optimizeImages as imagemin, createWebp as webp, svgo, build, start };

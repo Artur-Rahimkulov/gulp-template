@@ -1,12 +1,12 @@
-<div class="catalog-list">
+<div class="catalog-list" data-pagination-wrapper data-catalog-mock>
 	<div class="catalog-list__toolbar">
 		<div class="catalog-list__stats">
-			<p class="catalog-list__stat"><span>Найдено:</span> <b>87</b></p>
-			<p class="catalog-list__stat"><span>Минимальная цена:</span> <b>226 062 ₽</b></p>
+			<p class="catalog-list__stat"><span>Найдено:</span> <b data-results-count="found">87</b></p>
+			<p class="catalog-list__stat"><span>Минимальная цена:</span> <b data-results-count="min-price">226 062 ₽</b></p>
 		</div>
 
 		<div class="catalog-list__toolbar-actions">
-			<div class="select catalog-list__sort" data-select="select">
+			<div class="select catalog-list__sort" data-select="select" data-params-search="sort">
 				<div class="select__wrapper">
 					<div class="select__button" data-select="button">
 						<div class="select__title">
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<div class="catalog-list__grid">
+	<div class="catalog-list__grid" data-list-items>
 		@@include("source/html/components/product-card.html")
 		@@include("source/html/components/product-card.html")
 		@@include("source/html/components/product-card.html")
@@ -48,18 +48,18 @@
 	</div>
 
 	<div class="catalog-list__footer">
-		<button class="btn btn--outlined btn--md btn--block" type="button">Показать еще</button>
+		<button class="btn btn--outlined btn--md btn--block" type="button" data-show-more-button data-href="?page=2">Показать еще</button>
 
-		<nav class="pagination" aria-label="Пагинация каталога">
-			<a class="pagination__nav" href="#">В начало</a>
+		<nav class="pagination" aria-label="Пагинация каталога" data-pagination>
+			<a class="pagination__nav" href="?page=1">В начало</a>
 			<ul class="pagination__list">
-				<li><a class="pagination__page" href="#">1</a></li>
-				<li><a class="pagination__page is-active" href="#" aria-current="page">2</a></li>
-				<li><a class="pagination__page" href="#">3</a></li>
-				<li><a class="pagination__page" href="#">4</a></li>
-				<li><a class="pagination__page" href="#">5</a></li>
+				<li><a class="pagination__page" href="?page=1">1</a></li>
+				<li><a class="pagination__page is-active" href="?page=2" aria-current="page">2</a></li>
+				<li><a class="pagination__page" href="?page=3">3</a></li>
+				<li><a class="pagination__page" href="?page=4">4</a></li>
+				<li><a class="pagination__page" href="?page=5">5</a></li>
 			</ul>
-			<a class="pagination__nav" href="#">Дальше</a>
+			<a class="pagination__nav" href="?page=3">Дальше</a>
 		</nav>
 	</div>
 </div>

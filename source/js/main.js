@@ -6,6 +6,7 @@ import {validateForms} from './modules/validateForms.js';
 import {inputPhone} from './modules/input-phone.js';
 import {pagination} from './modules/pagination.js';
 import {filters} from './modules/filters.js';
+import {initCatalogMock} from './modules/catalog-mock.js';
 import {DynamicAdapt} from './modules/dynamicAdapt.js';
 import {header} from './modules/header.js';
 import {menu} from './modules/menu.js';
@@ -24,6 +25,10 @@ window.addEventListener('DOMContentLoaded', () => {
   menu();
   DynamicAdapt.init();
   // ---------------------------------
+
+  // Заглушка каталога: патчит fetch до вызова pagination()/filters().
+  // Удалить вместе с модулем, когда появится бэкенд.
+  initCatalogMock();
 
   window.addEventListener('load', () => {
     modals();

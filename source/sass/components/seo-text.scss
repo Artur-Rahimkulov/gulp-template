@@ -16,24 +16,52 @@
     text-wrap: balance;
   }
 
+  // Контент из админ-панели: стилизуем по тегам, без классов
   &__body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
 
-  &__lead {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     color: var(--color-pale-sky);
+
+    p {
+      margin: 0;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+
+      padding-left: 16px;
+
+      &::before {
+        position: absolute;
+        top: 11px;
+        left: 0;
+
+        width: 6px;
+        height: 1px;
+
+        border-radius: 2px;
+        background-color: var(--color-cadet-blue);
+
+        content: "";
+      }
+    }
   }
 
-  &__list {
-    gap: 16px;
-  }
-
-  // ≤1024: заголовок — Mobile/Heading 2 (36/40), перенос строки сохраняется
   @include vp-1024 {
     padding: 104px 0 60px 0;
 
@@ -44,7 +72,7 @@
   }
 
   @include vp-756 {
-    padding: 60px 0 60px 0;
+    padding: 60px 0;
 
     &__title {
       font-size: 36px;
@@ -54,21 +82,5 @@
 
   @include vp-360 {
     padding: 40px 0;
-
-    .container {
-      gap: 28px;
-    }
-  }
-}
-
-// модификатор для крупных списков (16/24 вместо 14/20)
-.spec-list--md {
-  .spec-list__item {
-    font-size: 16px;
-    line-height: 24px;
-
-    &::before {
-      top: 11px;
-    }
   }
 }

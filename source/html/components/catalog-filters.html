@@ -13,122 +13,122 @@
 		<h2 class="filters__title">Фильтр</h2>
 
 		<div class="filters__groups">
-			<div class="filters__group active" data-accordion-item>
+			<div class="filters__group active" data-accordion-item data-filter-group="brand">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="true">
 					<span class="filters__group-name">Производитель</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">Hewlett Packard</button></li>
-						<li><button class="btn btn--outlined filters__tag is-active" type="button">Dell</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">Lenovo</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">Acer</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">AIC</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">ASUS</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">Cisco</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button" disabled>Nerpa</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Hewlett Packard">Hewlett Packard</button></li>
+						<li><button class="btn btn--outlined filters__tag is-active" type="button" data-filter-value="Dell" aria-pressed="true">Dell</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Lenovo">Lenovo</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Acer">Acer</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="AIC">AIC</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="ASUS">ASUS</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Cisco">Cisco</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Nerpa" disabled>Nerpa</button></li>
 					</ul>
 					<button class="filters__more" type="button">+ Показать еще</button>
 				</div>
 			</div>
 
-			<div class="filters__group active" data-accordion-item>
+			<div class="filters__group active" data-accordion-item data-filter-group="availability">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="true">
 					<span class="filters__group-name">Наличие</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">В наличии</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">Под заказ</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="В наличии">В наличии</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Под заказ">Под заказ</button></li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="filters__group active" data-accordion-item>
+			<div class="filters__group active" data-accordion-item data-filter-group="form-factor">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="true">
 					<span class="filters__group-name">Формфактор</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">1U</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">2U</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">3U</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">4U</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">12U</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">Mid Tower</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">Mini Tower</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">Tower</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="1U">1U</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="2U">2U</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="3U">3U</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="4U">4U</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="12U">12U</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Mid Tower">Mid Tower</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Mini Tower">Mini Tower</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Tower">Tower</button></li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="filters__group" data-accordion-item>
+			<div class="filters__group" data-accordion-item data-filter-group="model">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="false">
 					<span class="filters__group-name">Модель</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">PowerEdge R650</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">ProLiant DL380</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="PowerEdge R650">PowerEdge R650</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="ProLiant DL380">ProLiant DL380</button></li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="filters__group" data-accordion-item>
+			<div class="filters__group" data-accordion-item data-filter-group="cpu-type">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="false">
 					<span class="filters__group-name">Тип процессора</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">Intel Xeon</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">AMD EPYC</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="Intel Xeon">Intel Xeon</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="AMD EPYC">AMD EPYC</button></li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="filters__group" data-accordion-item>
+			<div class="filters__group" data-accordion-item data-filter-group="cpu-count">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="false">
 					<span class="filters__group-name">Кол-во процессоров</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">1</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">2</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">4</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="1">1</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="2">2</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="4">4</button></li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="filters__group" data-accordion-item>
+			<div class="filters__group" data-accordion-item data-filter-group="ram">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="false">
 					<span class="filters__group-name">Оперативная память</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">32 Gb</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">64 Gb</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">128 Gb</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="32 Gb">32 Gb</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="64 Gb">64 Gb</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="128 Gb">128 Gb</button></li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="filters__group" data-accordion-item>
+			<div class="filters__group" data-accordion-item data-filter-group="max-disks">
 				<button class="filters__group-btn" type="button" data-accordion-button aria-expanded="false">
 					<span class="filters__group-name">Max кол-во дисков</span>
 					<svg class="filters__group-icon icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="assets/svg/sprite.svg#icon-chevron-down"></use></svg>
 				</button>
 				<div class="filters__group-body">
 					<ul class="filters__tags">
-						<li><button class="btn btn--outlined filters__tag" type="button">8</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">12</button></li>
-						<li><button class="btn btn--outlined filters__tag" type="button">24</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="8">8</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="12">12</button></li>
+						<li><button class="btn btn--outlined filters__tag" type="button" data-filter-value="24">24</button></li>
 					</ul>
 				</div>
 			</div>
@@ -136,7 +136,7 @@
 	</div>
 
 	<div class="filters__actions">
-		<button class="btn btn--outlined btn--lg btn--block" type="button">Сбросить</button>
-		<button class="btn btn--soft btn--lg btn--block" type="button" data-filters-close>Показать</button>
+		<button class="btn btn--outlined btn--lg btn--block" type="button" data-filters-reset>Сбросить</button>
+		<button class="btn btn--soft btn--lg btn--block" type="button" data-filters-apply data-filters-close>Показать</button>
 	</div>
 </div>

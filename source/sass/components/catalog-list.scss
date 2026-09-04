@@ -4,15 +4,43 @@
   gap: 20px;
   min-width: 0;
 
+  @include vp-360 {
+    gap: 40px;
+  }
+
+  // Состояние загрузки при AJAX-фильтрации / пагинации
+  &.is-loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-pale-sky);
+  }
+
   &__toolbar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 16px 24px;
     padding: 16px 16px 16px 24px;
 
     border-radius: var(--radius-md);
     background-color: var(--color-white);
+
+    @include vp-575 {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 28px;
+      margin-right: -16px;
+      margin-left: -16px;
+      padding: 16px;
+    }
   }
 
   &__stats {
@@ -20,6 +48,13 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 8px 24px;
+
+    @include vp-1024 {
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      gap: 0;
+    }
   }
 
   &__stat {
@@ -38,16 +73,37 @@
     display: flex;
     align-items: center;
     gap: 12px;
+
+    @include vp-575 {
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
 
   &__sort {
     width: 328px;
+    max-width: 100%;
+
+    @include vp-575 {
+      width: 100%;
+    }
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
+
+    // Ниже 1280 карточки в 3 колонки становятся тесными — переходим на 2
+    @include vp-1280 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include vp-575 {
+      gap: 8px;
+      margin-right: -16px;
+      margin-left: -16px;
+    }
   }
 
   &__footer {
@@ -60,60 +116,8 @@
     .btn--outlined {
       color: var(--color-pale-sky);
     }
-  }
 
-  // Планшет 1024: селект сортировки — 328px (макет «… / Планшет»)
-  @include vp-1024 {
-    &__sort {
-      width: 328px;
-    }
-
-    &__stats {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      justify-content: start;
-      align-items: start;
-    }
-  }
-
-  // Планшет 756: сетка 2-колоночная; тулбар остаётся в строку (макет «… / Планшет», 756)
-  @include vp-756 {
-    &__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  // Мобильный 360: тулбар в столбик, сетка товаров во всю ширину экрана (макет «Серверы / Планшет», 360)
-  @include vp-360 {
-    gap: 40px;
-
-    &__toolbar {
-      display: grid;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      align-items: center;
-      margin-right: -16px;
-      margin-left: -16px;
-      gap: 28px;
-      padding: 16px;
-    }
-
-    &__toolbar-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    &__sort {
-      width: 100%;
-    }
-
-    &__grid {
-      gap: 8px;
-      margin-right: -16px;
-      margin-left: -16px;
-    }
-
-    &__footer {
+    @include vp-575 {
       margin-top: 0;
     }
   }
@@ -163,6 +167,15 @@
 
     font-size: 14px;
     line-height: 20px;
+
+    @include vp-756 {
+      min-width: 0;
+      padding: 12px 55px;
+    }
+
+    @include vp-575 {
+      display: none;
+    }
   }
 
   &__page {
@@ -174,20 +187,6 @@
     &.is-active {
       background-color: var(--color-mystic);
       pointer-events: none;
-    }
-  }
-
-  @include vp-756 {
-    &__nav {
-      min-width: 0;
-      padding: 12px 55px;
-    }
-  }
-
-  // Мобильный 360: только номера страниц, ссылки «В начало / Дальше» скрыты (макет «Серверы / Планшет», 360)
-  @include vp-360 {
-    &__nav {
-      display: none;
     }
   }
 }

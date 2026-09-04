@@ -1,11 +1,10 @@
 // Viewports
 // ---------------------------------
-$vp-320:                            320px;
 $vp-360:                            360px;
 $vp-375:                            375px;
-$vp-360:                            575px;
-$vp-756:                            768px;
-$vp-991:                            991px;
+$vp-575:                            575px;
+$vp-768:                            768px;
+$vp-992:                            992px;
 $vp-1024:                           1024px;
 $vp-1140:                           1140px;
 $vp-1280:                           1280px;
@@ -14,43 +13,61 @@ $vp-1440:                           1440px;
 $vp-1600:                           1600px;
 $vp-1920:                           1920px;
 
-
 // Desktop first
+// ---------------------------------
+
+// Универсальный миксин: @include vp(1280) { ... }
+@mixin vp($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
 
 @mixin vp-1440 {
-  @media (max-width: ($vp-1440)) {
+  @media (max-width: $vp-1440) {
+    @content;
+  }
+}
+
+@mixin vp-1280 {
+  @media (max-width: $vp-1280) {
+    @content;
+  }
+}
+
+@mixin vp-1140 {
+  @media (max-width: $vp-1140) {
     @content;
   }
 }
 
 @mixin vp-1024 {
-  @media (max-width: ($vp-1024)) {
+  @media (max-width: $vp-1024) {
     @content;
   }
 }
 
+@mixin vp-992 {
+  @media (max-width: $vp-992) {
+    @content;
+  }
+}
+
+// Историческое имя; медиа-запрос — 768px
 @mixin vp-756 {
-  @media (max-width: ($vp-756)) {
+  @media (max-width: $vp-768) {
+    @content;
+  }
+}
+
+@mixin vp-575 {
+  @media (max-width: $vp-575) {
     @content;
   }
 }
 
 @mixin vp-360 {
-  @media (max-width: ($vp-360)) {
+  @media (max-width: $vp-360) {
     @content;
   }
 }
-
-// Mobile first
-
-// @mixin vp-375 {
-//   @media (min-width: $vp-375) {
-//     @content;
-//   }
-// }
-
-// @mixin vp-756 {
-//   @media (min-width: $vp-756) {
-//     @content;
-//   }
-// }
