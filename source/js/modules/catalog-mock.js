@@ -7,6 +7,7 @@
  *
  * Как прикрутить бэкенд:
  *   1. Реализовать GET по текущему URL страницы каталога с query-параметрами:
+ *        category         — категорийные теги в hero (servers|storage|network|ups|software)
  *        brand, availability, form-factor, model, cpu-type, cpu-count,
  *        ram, max-disks   — мультизначные (?brand=Dell&brand=Lenovo)
  *        sort             — asc | desc | popular | new
@@ -30,6 +31,8 @@ const CPU_COUNTS = ['1', '2', '4'];
 const RAM = ['32 Gb', '64 Gb', '128 Gb'];
 const MAX_DISKS = ['8', '12', '24'];
 
+const CATEGORIES = ['servers', 'storage', 'network', 'ups', 'software'];
+
 const pick = (arr, i) => arr[i % arr.length];
 
 // Детерминированный набор «товаров»
@@ -47,6 +50,7 @@ const PRODUCTS = Array.from({length: 34}, (_, i) => {
     'price': 189000 + i * 7350,
     'partNumber': `P${22000 + i * 37}-${100 + i}`,
     brand,
+    'category': pick(CATEGORIES, i),
     'availability': pick(AVAILABILITY, i),
     'form-factor': formFactor,
     'model': pick(MODELS, i),
@@ -67,7 +71,7 @@ const PRODUCTS = Array.from({length: 34}, (_, i) => {
 });
 
 const FILTER_KEYS = [
-  'brand', 'availability', 'form-factor', 'model',
+  'category', 'brand', 'availability', 'form-factor', 'model',
   'cpu-type', 'cpu-count', 'ram', 'max-disks'
 ];
 
@@ -141,27 +145,22 @@ const renderCard = (product) => `
     </div>
   </article>`;
 
+const navLink = (label, targetPage, disabled) => (disabled
+  ? `<span class="pagination__nav is-disabled" aria-disabled="true">${label}</span>`
+  : `<a class="pagination__nav" href="?page=${targetPage}">${label}</a>`);
+
 const renderPagination = (page, totalPages) => {
-  if (totalPages <= 1) {
-    return '<nav class="pagination" aria-label="Пагинация каталога" data-pagination></nav>';
-  }
-
-  const pageLink = (num, label = num, extra = '') =>
-    `<a class="pagination__page${extra}" href="?page=${num}"${extra.includes('is-active') ? ' aria-current="page"' : ''}>${label}</a>`;
-
   const items = [];
   for (let num = 1; num <= totalPages; num += 1) {
-    items.push(`<li>${pageLink(num, num, num === page ? ' is-active' : '')}</li>`);
+    const active = num === page ? ' is-active' : '';
+    items.push(`<li><a class="pagination__page${active}" href="?page=${num}"${active ? ' aria-current="page"' : ''}>${num}</a></li>`);
   }
-
-  const prev = page > 1 ? '<a class="pagination__nav" href="?page=1">В начало</a>' : '';
-  const next = page < totalPages ? `<a class="pagination__nav" href="?page=${page + 1}">Дальше</a>` : '';
 
   return `
     <nav class="pagination" aria-label="Пагинация каталога" data-pagination>
-      ${prev}
+      ${navLink('В начало', 1, page <= 1)}
       <ul class="pagination__list">${items.join('')}</ul>
-      ${next}
+      ${navLink('Дальше', page + 1, page >= totalPages)}
     </nav>`;
 };
 

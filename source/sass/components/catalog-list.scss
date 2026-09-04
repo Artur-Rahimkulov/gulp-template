@@ -125,7 +125,8 @@
 
 .pagination {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   align-items: center;
   justify-content: center;
   gap: 4px;
@@ -133,7 +134,7 @@
   &__list {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: clamp(2px, 0.5vw, 4px);
     margin: 0;
     padding: 0;
 
@@ -146,7 +147,6 @@
     align-items: center;
     justify-content: center;
     min-height: 44px;
-
     border-radius: var(--radius-sm);
 
     font-weight: 500;
@@ -168,13 +168,15 @@
     font-size: 14px;
     line-height: 20px;
 
-    @include vp-756 {
-      min-width: 0;
-      padding: 12px 55px;
+    // На первой / последней странице — неактивная кнопка (не скрываем)
+    &.is-disabled {
+      color: var(--color-cadet-blue);
+      pointer-events: none;
     }
 
-    @include vp-575 {
-      display: none;
+    @include vp-756 {
+      min-width: 0;
+      padding: 12px 24px;
     }
   }
 

@@ -1,9 +1,10 @@
 .catalog-hero {
   display: flex;
   flex-direction: column;
-  max-width: var(--content-width);
+  max-width: calc(var(--content-width) + 80px);
   margin: 0 auto;
-  padding-top: 60px;
+  // Резиновые боковые поля, чтобы секция не прилипала к краям ниже 1440
+  padding: 60px clamp(16px, 3.2vw, 40px) 0;
 
   // Баннер: фото с полупрозрачной подложкой, заголовок прижат к низу слева
   // ---------------------------------
@@ -118,13 +119,29 @@
       font-size: 32px;
       line-height: 36px;
     }
+
+    &__tags {
+      flex-wrap: nowrap;
+      margin-right: -40px;
+      margin-left: -40px;
+      padding: 4px 40px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .btn {
+        flex-shrink: 0;
+      }
+    }
   }
 
   // Планшет 1024: вводный блок в одну колонку (макет «… / Планшет», 1024)
   @include vp-1024 {
-    padding-right: 40px;
-    padding-left: 40px;
-
     &__banner {
       padding: 0 60px 52px;
     }
@@ -167,12 +184,13 @@
       width: 404px;
     }
 
-    // Ряд тегов: не переносится, выходит за границы экрана, горизонтальный скролл свайпом
+    // Ряд тегов: не переносится, выходит за границы экрана, горизонтальный скролл свайпом.
+    // Вертикальный padding — чтобы 1px outline кнопок не обрезался скролл-контейнером.
     &__tags {
       flex-wrap: nowrap;
       margin-right: -40px;
       margin-left: -40px;
-      padding: 0 40px;
+      padding: 4px 40px;
       overflow-x: auto;
       overscroll-behavior-x: contain;
       -webkit-overflow-scrolling: touch;
@@ -204,7 +222,7 @@
       margin-top: 40px;
       margin-right: -16px;
       margin-left: -16px;
-      padding: 0 16px;
+      padding: 4px 16px;
     }
 
     &__banner {

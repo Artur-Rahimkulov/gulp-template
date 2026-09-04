@@ -50,13 +50,20 @@ export const filters = () => {
   // AJAX-фильтрация по data-атрибутам
   // ------------------------------------------------------------------
   const filtersRoot = document.querySelector('[data-filters]');
+  const heroTags = document.querySelector('[data-hero-tags]');
   const wrapper = document.querySelector('[data-pagination-wrapper]');
 
-  if (!filtersRoot || !wrapper) {
+  if (!wrapper || (!filtersRoot && !heroTags)) {
     return;
   }
 
   const {load} = createCatalogLoader(wrapper);
+
+  // Группы фильтров: боковая панель + категорийные теги в hero
+  const getGroups = () => [
+    ...(filtersRoot ? filtersRoot.querySelectorAll('[data-filter-group]') : []),
+    ...(heroTags ? [heroTags] : [])
+  ];
 
   const setTagState = (tag, active) => {
     tag.classList.toggle(ACTIVE_CLASS, active);
@@ -65,7 +72,7 @@ export const filters = () => {
 
   const buildUrl = () => {
     const url = new URL(window.location.href);
-    const groups = filtersRoot.querySelectorAll('[data-filter-group]');
+    const groups = getGroups();
 
     groups.forEach((group) => url.searchParams.delete(group.dataset.filterGroup));
     groups.forEach((group) => {
@@ -82,7 +89,7 @@ export const filters = () => {
   const applyFilters = () => load(buildUrl());
   const applyFiltersDebounced = debounce(applyFilters, 400);
 
-  filtersRoot.addEventListener('click', (evt) => {
+  filtersRoot?.addEventListener('click', (evt) => {
     const tag = evt.target.closest('[data-filter-value]');
     if (!tag || tag.disabled) {
       return;
@@ -92,20 +99,38 @@ export const filters = () => {
     applyFiltersDebounced();
   });
 
-  filtersRoot.querySelector('[data-filters-reset]')?.addEventListener('click', () => {
+  // Категорийные теги в hero — одиночный выбор, AJAX сразу
+  heroTags?.addEventListener('click', (evt) => {
+    const tag = evt.target.closest('[data-filter-value]');
+    if (!tag) {
+      return;
+    }
+
+    evt.preventDefault();
+    const makeActive = !tag.classList.contains(ACTIVE_CLASS);
+
+    heroTags
+        .querySelectorAll(`[data-filter-value].${ACTIVE_CLASS}`)
+        .forEach((other) => setTagState(other, false));
+    setTagState(tag, makeActive);
+
+    applyFilters();
+  });
+
+  filtersRoot?.querySelector('[data-filters-reset]')?.addEventListener('click', () => {
     filtersRoot
         .querySelectorAll(`[data-filter-value].${ACTIVE_CLASS}`)
         .forEach((tag) => setTagState(tag, false));
     applyFilters();
   });
 
-  filtersRoot.querySelector('[data-filters-apply]')?.addEventListener('click', applyFilters);
+  filtersRoot?.querySelector('[data-filters-apply]')?.addEventListener('click', applyFilters);
 
   // Восстановление состояния из адресной строки при загрузке
   const restoreFromUrl = () => {
     const url = new URL(window.location.href);
 
-    filtersRoot.querySelectorAll('[data-filter-group]').forEach((group) => {
+    getGroups().forEach((group) => {
       const values = url.searchParams.getAll(group.dataset.filterGroup);
       group
           .querySelectorAll('[data-filter-value]')

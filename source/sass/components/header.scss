@@ -264,7 +264,7 @@
     align-items: center;
     gap: 12px;
     width: 444px;
-    flex-shrink: 0;
+    flex-shrink: 1;
     padding: 0 16px;
 
     background-color: var(--color-alice-blue);
@@ -368,8 +368,16 @@
       order: 2;
 
       width: auto;
-      flex: 0 1 384px;
+      flex: 1 1 200px;
       min-width: 240px;
+    }
+  }
+
+  // Ниже 1007 нижний ряд (контакты + соцсети + поиск) не помещается и соцсети
+  // переносятся на новую строку — прячем их, контакты остаются
+  @include vp(1007) {
+    &__socials--tablet {
+      display: none;
     }
   }
 
