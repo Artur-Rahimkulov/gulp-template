@@ -15,25 +15,44 @@ export const createCatalogLoader = (wrapper) => {
   const list = wrapper.querySelector('[data-list-items]');
   const paginationEl = wrapper.querySelector('[data-pagination]');
 
-  // Запоминаем закреплённые элементы и их позицию в сетке
+  const productSelector = '[data-list-item]:not([data-list-pinned])';
+
+  // Запоминаем закреплённые элементы и число товарных карточек перед ними
+  // (а не индекс среди всех детей — иначе позиция «плывёт» при другом
+  // количестве закреплённых элементов на странице).
   const pinned = list
     ? [...list.querySelectorAll('[data-list-pinned]')].map((node) => ({
       node,
-      index: [...list.children].indexOf(node),
+      productsBefore: [...list.children]
+          .slice(0, [...list.children].indexOf(node))
+          .filter((n) => n.matches(productSelector)).length,
     }))
     : [];
 
-  const productSelector = '[data-list-item]:not([data-list-pinned])';
+  // Минимум товарных карточек между двумя закреплёнными блоками. Нужен,
+  // чтобы на короткой (отфильтрованной/отсортированной) выдаче закреплённые
+  // блоки не съезжались к концу списка и не оказывались рядом друг с другом
+  // — со стороны это выглядит как задублированный блок «Оставить заявку».
+  const MIN_PRODUCTS_BETWEEN_PINNED = 3;
 
   const reinsertPinned = () => {
+    const products = [...list.children].filter((n) => n.matches(productSelector));
+    let lastInsertedAt = -Infinity;
+
     [...pinned]
-        .sort((a, b) => a.index - b.index)
-        .forEach(({node, index}) => {
+        .sort((a, b) => a.productsBefore - b.productsBefore)
+        .forEach(({node, productsBefore}) => {
           if (node.isConnected) {
             return;
           }
-          const target = list.children[Math.min(index, list.children.length)] || null;
-          list.insertBefore(node, target);
+
+          const targetIndex = Math.min(productsBefore, products.length);
+          if (targetIndex - lastInsertedAt < MIN_PRODUCTS_BETWEEN_PINNED) {
+            return;
+          }
+
+          list.insertBefore(node, products[targetIndex] || null);
+          lastInsertedAt = targetIndex;
         });
   };
 

@@ -131,6 +131,12 @@
   justify-content: center;
   gap: 4px;
 
+  // На мобильном макете «В начало» / «Дальше» в макете нет — только номера
+  // страниц, с переносом. С прежним nowrap кнопки не помещались и ломали вёрстку.
+  @include vp-575 {
+    flex-wrap: wrap;
+  }
+
   &__list {
     display: flex;
     align-items: center;
@@ -177,6 +183,10 @@
     @include vp-756 {
       min-width: 0;
       padding: 12px 24px;
+    }
+
+    @include vp-575 {
+      display: none;
     }
   }
 

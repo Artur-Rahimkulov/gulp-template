@@ -117,7 +117,7 @@ export const validateForms = () => {
           }
 
           case 'name': {
-            const pattern = /^[a-zA-Zа-яА-ЯёЁ\s-]{2,}$/;
+            const pattern = /^[a-zA-Zа-яА-ЯёЁ\s-]{2,50}$/;
             if (!pattern.test(value)) {
               showError(
                   field.dataset.errorMessage || 'Введите корректное имя',

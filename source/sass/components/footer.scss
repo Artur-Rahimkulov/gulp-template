@@ -148,6 +148,29 @@
     flex-direction: column;
     gap: 16px;
 
+    // Фиксированная ширина колонок по макету (десктоп 1920): без неё
+    // justify-content: space-between в &__nav пересчитывает отступы
+    // от фактической ширины контента, и колонки «едут» относительно макета.
+    &:nth-child(1) {
+      width: 246px;
+    }
+
+    &:nth-child(2) {
+      width: 195px;
+    }
+
+    &:nth-child(3) {
+      width: 181px;
+    }
+
+    &:nth-child(4) {
+      width: 216px;
+    }
+
+    &:nth-child(5) {
+      width: 212px;
+    }
+
     @include vp-1024 {
       flex: 0 1 calc((100% - 40px) / 3);
       min-width: 0;

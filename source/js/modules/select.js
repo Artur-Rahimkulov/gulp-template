@@ -31,20 +31,24 @@ export const select = () => {
         selectEl.classList.add('is-open');
       }
 
-      const optionList = selectEl.querySelector('[data-select="options"]');
-      const optionItems = selectEl.querySelectorAll('[data-select="option"]');
+      if (!selectEl.dataset.selectBound) {
+        selectEl.dataset.selectBound = 'true';
 
-      optionItems.forEach((option) => {
-        option.addEventListener('click', () => {
-          const optionSelected = optionList.querySelector('.is-selected');
-          if (optionSelected && optionSelected !== option) {
-            optionSelected.classList.remove('is-selected');
-          }
+        const optionList = selectEl.querySelector('[data-select="options"]');
+        const optionItems = selectEl.querySelectorAll('[data-select="option"]');
 
-          selectClose(selectEl, option);
-          selectEl.querySelector('span').innerHTML = option.innerHTML;
+        optionItems.forEach((option) => {
+          option.addEventListener('click', () => {
+            const optionSelected = optionList.querySelector('.is-selected');
+            if (optionSelected && optionSelected !== option) {
+              optionSelected.classList.remove('is-selected');
+            }
+
+            selectClose(selectEl, option);
+            selectEl.querySelector('span').innerHTML = option.innerHTML;
+          });
         });
-      });
+      }
     }
   });
 };
