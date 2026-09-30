@@ -1,0 +1,225 @@
+// Страница «Вакансия детальная»
+
+// Полоса первого экрана: крошки, заголовок, вводные абзацы
+.vacancy-hero {
+	position: relative;
+	margin-bottom: 3rem;
+
+	.breadcrumbs__title {
+		max-width: 110rem;
+		margin-top: 2rem;
+	}
+
+	@include vp-mobile {
+		margin-bottom: 1rem;
+
+		.breadcrumbs__title {
+			margin-top: 1rem;
+		}
+	}
+}
+
+.vacancy-hero__text {
+	max-width: 100rem;
+	margin-top: 2rem;
+
+	p {
+		margin-bottom: 1.2rem;
+	}
+
+	@include vp-mobile {
+		margin-top: 4rem;
+		line-height: 2.7rem;
+
+		p {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+.vacancy-hero__slab {
+	position: absolute;
+	top: 20rem;
+	left: calc(50% + 69.8rem);
+	z-index: 2;
+	width: 49.6rem;
+	max-width: none;
+	pointer-events: none;
+
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+// Описание вакансии: обязанности, условия, отклик
+.vacancy-body {
+	padding: var(--space-section) 0;
+
+	@include vp-mobile {
+		padding-top: var(--space-section-top);
+	}
+
+	&__content {
+		max-width: 100rem;
+	}
+}
+
+// Текст из админки: подзаголовки h3 и маркированные списки
+.vacancy-text {
+	h3 {
+		margin: 4rem 0 2.2rem;
+		font-size: 2.2rem;
+		line-height: 3rem;
+
+		@include vp-mobile {
+			margin: 4rem 0 1.6rem;
+			font-size: 1.9rem;
+			line-height: 2.6rem;
+		}
+	}
+
+	ul {
+		gap: 1.3rem;
+		margin-bottom: 0;
+
+		@include vp-mobile {
+			gap: 1.1rem;
+		}
+	}
+
+	li {
+		line-height: 2.8rem;
+
+		@include vp-mobile {
+			padding-left: 2.4rem;
+			line-height: 2.6rem;
+		}
+	}
+
+	ul > li::before {
+		top: 1.05rem;
+
+		@include vp-mobile {
+			top: 0.95rem;
+		}
+	}
+}
+
+// Отклик: зона «Прикрепить резюме» + кнопка
+.vacancy-apply {
+	margin-top: 6rem;
+
+	@include vp-mobile {
+		margin-top: 4rem;
+	}
+
+	&__btn {
+		margin-top: 3rem;
+
+		@include vp-mobile {
+			--btn-width: 22rem;
+
+			margin-top: 2.4rem;
+		}
+	}
+}
+
+// Зона загрузки файла: выбор файла и перетаскивание, пунктирная рамка, подпись по центру
+.file-drop {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 15rem;
+	padding: 2rem;
+	text-align: center;
+	background-color: #fbfbfc;
+	border: 0.1rem dashed #c3c7cf;
+	cursor: pointer;
+	transition: border-color var(--default-transition), background-color var(--default-transition);
+
+	@include vp-mobile {
+		min-height: 12rem;
+	}
+
+	input {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&__label {
+		font-size: 1.6rem;
+		line-height: 2.2rem;
+		color: var(--color-text-muted);
+		transition: color var(--default-transition);
+	}
+
+	@include hover {
+		border-color: var(--color-brand);
+
+		.file-drop__label {
+			color: var(--color-brand);
+		}
+	}
+
+	&:focus-within {
+		border-color: var(--color-link);
+		box-shadow: 0 0 0 0.1rem var(--color-link);
+	}
+
+	// файл тянут над зоной
+	&.is-dragover {
+		background-color: var(--color-bg-icon);
+		border-color: var(--color-brand);
+	}
+
+	// файл выбран
+	&.is-filled {
+		border-style: solid;
+		border-color: var(--color-brand);
+
+		.file-drop__label {
+			color: var(--color-text);
+		}
+	}
+
+	&.has-danger {
+		border-color: var(--color-error);
+	}
+}
+
+// Другие вакансии
+.other-vacancies {
+	position: relative;
+	padding: var(--space-section-top) 0 var(--space-section);
+
+	&__grid {
+		row-gap: 3rem;
+
+		@include vp-mobile {
+			row-gap: 2.4rem;
+		}
+	}
+
+	&__ghost {
+		position: absolute;
+		top: 3.7rem;
+		left: calc(50% + 54rem);
+		z-index: 0;
+		width: 40.7rem;
+		max-width: none;
+		pointer-events: none;
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 1;
+	}
+}

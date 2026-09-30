@@ -125,6 +125,8 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Текст из админки — только теги (p, h2–h4, ul, ol, a, strong, blockquote, table, img, hr), без классов | `<div class="rich-text">` | `global/rich-text.scss` |
 | Текстовая страница (политика) | `html/policy.html` | `components/text-page.scss` |
 | Карьера: обращение директора, ценности, корпоративная жизнь, баланс, вакансии + форма (sticky на десктопе) | `html/career.html` | `components/career.scss` |
+| Вакансия детальная: вводный текст, обязанности/условия (`.rich-text.vacancy-text`: h3 + ul), отклик, «Другие вакансии» | `html/vacancy.html` | `components/vacancy.scss` |
+| Зона «Прикрепить резюме» — выбор файла и перетаскивание | `label.file-drop[data-file-drop]` | `components/vacancy.scss`, `js/modules/file-drop.js` |
 | Карточка «Корпоративная жизнь» (фото 16:9 + иконка) | `html/components/card-life.html` | `components/cards.scss` |
 | Карточка вакансии | `html/components/card-vacancy.html` | `components/cards.scss` |
 | Форма «Не нашли подходящую вакансию?» | `html/components/vacancy-form.html` | `components/career.scss` |

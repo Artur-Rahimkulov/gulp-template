@@ -3,6 +3,7 @@ import { sliders } from './modules/sliders.js';
 import { validateForms } from './modules/validateForms.js';
 import { inputPhone } from './modules/input-phone.js';
 import { pagination } from './modules/pagination.js';
+import { fileDrop } from './modules/file-drop.js';
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
 // в load следует добавить скрипты, не участвующие в работе первого экрана
@@ -17,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		sliders();
 		validateForms();
 		pagination();
+		fileDrop();
 	});
 });
 

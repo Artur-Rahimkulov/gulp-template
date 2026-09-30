@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Инженер-электрик (ведущий специалист)" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "career"})
+			<main>
+				<div class="breadcrumbs breadcrumbs--title vacancy-hero bg-grid">
+					<img class="vacancy-hero__slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+					<div class="container">
+						<nav aria-label="Хлебные крошки">
+							<ol class="breadcrumbs__list">
+								<li><a class="breadcrumbs__link" href="/career/">Карьера</a></li>
+								<li aria-current="page">Инженер-электрик (ведущий специалист)</li>
+							</ol>
+						</nav>
+						<h1 class="title-h1 breadcrumbs__title">Инженер-электрик (ведущий специалист)</h1>
+						<!-- Вводный текст из админки: внутри .rich-text только теги -->
+						<div class="rich-text vacancy-hero__text">
+							<p>Ведущий инженер-электрик отвечает за&nbsp;надёжную и&nbsp;безопасную работу электрооборудования и&nbsp;энергосистем компании.</p>
+							<p>В&nbsp;ваши обязанности войдёт не&nbsp;только техническое сопровождение, но&nbsp;и&nbsp;руководство небольшими рабочими группами, внедрение современных решений и&nbsp;оптимизация энергопотребления.</p>
+							<p>Вы&nbsp;станете ключевым звеном между техническими исполнителями и&nbsp;руководством по&nbsp;вопросам электрохозяйства.</p>
+						</div>
+					</div>
+				</div>
+				<div class="double-line"></div>
+
+				<section class="vacancy-body bg-grid">
+					<div class="container">
+						<div class="vacancy-body__content">
+							<!-- Описание из админки: h3 и списки ul без классов -->
+							<div class="rich-text vacancy-text">
+								<h3>Обязанности:</h3>
+								<ul>
+									<li>организация и&nbsp;контроль эксплуатации электроустановок, распределительных сетей, трансформаторных подстанций и&nbsp;другого электрооборудования;</li>
+									<li>планирование и&nbsp;проведение планово-предупредительных ремонтов (ППР) и&nbsp;технического обслуживания (ТО);</li>
+									<li>разработка и&nbsp;актуализация технической документации: схем, инструкций, регламентов, графиков ТО&nbsp;и&nbsp;ремонтов;</li>
+									<li>участие в&nbsp;проектировании новых и&nbsp;модернизации существующих электросистем (в&nbsp;т.&nbsp;ч. согласование проектной документации);</li>
+									<li>диагностика неисправностей, анализ причин аварий и&nbsp;отказов оборудования, разработка мер по&nbsp;их&nbsp;предотвращению;</li>
+									<li>контроль соблюдения норм электробезопасности и&nbsp;охраны труда на&nbsp;объектах;</li>
+									<li>учёт и&nbsp;оптимизация электропотребления, внедрение энергосберегающих технологий;</li>
+									<li>взаимодействие с&nbsp;подрядными организациями и&nbsp;энергоснабжающими компаниями;</li>
+									<li>руководство и&nbsp;наставничество для подчинённых электромонтёров и&nbsp;младших инженеров;</li>
+									<li>подготовка отчётов о&nbsp;работе электрохозяйства для руководства.</li>
+								</ul>
+								<h3>Мы предлагаем:</h3>
+								<ul>
+									<li>официальную зарплату на&nbsp;уровне рыночных стандартов и&nbsp;выше (обсуждается индивидуально по&nbsp;итогам собеседования);</li>
+									<li>полный соцпакет в&nbsp;соответствии с&nbsp;ТК&nbsp;РФ;</li>
+									<li>стабильную работу в&nbsp;крупной и&nbsp;надёжной компании;</li>
+									<li>возможности для профессионального и&nbsp;карьерного роста;</li>
+									<li>обучение и&nbsp;повышение квалификации за&nbsp;счёт компании (курсы, семинары, тренинги);</li>
+									<li>современное рабочее место и&nbsp;оснащение;</li>
+									<li>график работы 5/2;</li>
+								</ul>
+							</div>
+
+							<form class="vacancy-apply" action="#" method="post" enctype="multipart/form-data">
+								<label class="file-drop" data-file-drop>
+									<input type="file" name="resume" accept=".pdf,.doc,.docx,.rtf,.txt">
+									<span class="file-drop__label" data-file-drop-label>Прикрепить резюме</span>
+								</label>
+								@@include("source/html/ui/button.html", {"type": "submit", "name": "Откликнуться", "class": "btn--lg vacancy-apply__btn"})
+							</form>
+						</div>
+					</div>
+				</section>
+				<div class="double-line"></div>
+
+				<section class="other-vacancies bg-grid" data-pagination-wrapper>
+					<img class="other-vacancies__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<div class="container">
+						<h2 class="title-h2 section-title">Другие вакансии</h2>
+						<!-- data-list-items — список вакансий, заменяется ответом сервера -->
+						<div class="cards-grid cards-grid--2 other-vacancies__grid" data-list-items>
+							@@include("source/html/components/card-vacancy.html", {"title": "Инженер-электрик (ведущий специалист)", "dept": "Отдел электромонтажных работ", "text": "Ищем опытного инженера-электрика для руководства проектами электромонтажных работ на&nbsp;крупных промышленных объектах.", "href": "/career/vacancy/"})
+							@@include("source/html/components/card-vacancy.html", {"title": "Инженер-электрик (ведущий специалист)", "dept": "Отдел электромонтажных работ", "text": "Ищем опытного инженера-электрика для руководства проектами электромонтажных работ на&nbsp;крупных промышленных объектах.", "href": "/career/vacancy/"})
+							@@include("source/html/components/card-vacancy.html", {"title": "Инженер-электрик (ведущий специалист)", "dept": "Отдел электромонтажных работ", "text": "Ищем опытного инженера-электрика для руководства проектами электромонтажных работ на&nbsp;крупных промышленных объектах.", "href": "/career/vacancy/"})
+							@@include("source/html/components/card-vacancy.html", {"title": "Инженер-электрик (ведущий специалист)", "dept": "Отдел электромонтажных работ", "text": "Ищем опытного инженера-электрика для руководства проектами электромонтажных работ на&nbsp;крупных промышленных объектах.", "href": "/career/vacancy/"})
+						</div>
+						<div class="media-list__more">
+							<button class="btn-secondary" type="button" data-show-more-button data-href="?page=2">Показать ещё</button>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include("source/html/base/footer.html")
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>
