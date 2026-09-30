@@ -101,7 +101,7 @@
 
 	&__ghost {
 		position: absolute;
-		top: 3.7rem;
+		top: 4rem;
 		left: calc(50% + 54rem);
 		z-index: 0;
 		width: 40.7rem;
@@ -123,13 +123,15 @@
 .project-stats {
 	display: grid;
 	margin-bottom: 0;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: repeat(2, 30rem);
+	column-gap: 2rem;
 	row-gap: 6rem;
 	margin-top: -0.4rem; // двойная линия на уровне середины заголовка
 	padding-top: 4.1rem;
 	border-top: 0.3rem double var(--color-double-line);
 
 	@include vp-mobile {
+		grid-template-columns: repeat(2, 16.8rem);
 		column-gap: 1.6rem;
 		row-gap: 3rem;
 		margin-top: 1.3rem;
@@ -152,7 +154,8 @@
 
 	&__value {
 		display: flex;
-		align-items: baseline;
+		// в макете знак прижат к низу строки цифры, а не к базовой линии
+		align-items: flex-end;
 		gap: 0.6rem;
 		margin: 0;
 		font-size: 7.2rem;
@@ -231,7 +234,7 @@
 
 	&__slab {
 		position: absolute;
-		bottom: -31.4rem;
+		bottom: -31.9rem;
 		left: calc(50% - 126.7rem);
 		z-index: 2;
 		width: 49.7rem;
@@ -279,7 +282,7 @@
 
 	&__head {
 		display: flex;
-		align-items: baseline;
+		align-items: flex-start;
 		justify-content: space-between;
 		gap: 2rem;
 		margin-bottom: var(--space-title);
@@ -291,8 +294,15 @@
 
 	&__all {
 		flex-shrink: 0;
+		margin-top: 1.4rem;
 		font-size: 1.4rem;
 		line-height: 2rem;
+		// в макете без подчёркивания — оно появляется только при наведении
+		text-decoration-color: transparent;
+
+		@include hover-focus {
+			text-decoration-color: currentColor;
+		}
 
 		@include vp-mobile {
 			display: none;
@@ -301,7 +311,7 @@
 
 	&__ghost {
 		position: absolute;
-		top: 7rem;
+		top: 17.8rem;
 		left: calc(50% - 113rem);
 		z-index: 0;
 		width: 40.7rem;
@@ -325,6 +335,11 @@
 		@include vp-mobile {
 			display: none;
 		}
+	}
+
+	// в макете стрелки «Похожих проектов» на 31px от блока, у отзывов — на 30
+	&--similar .slider-arrows {
+		margin-top: 3.1rem;
 	}
 }
 
@@ -486,7 +501,7 @@
 	}
 }
 
-.slider-arrows--skew {
+.slider-arrows.slider-arrows--skew {
 	gap: 1.6rem;
 }
 
@@ -546,6 +561,7 @@
 	&__btn {
 		@include vp-mobile {
 			--btn-width: 22rem;
+			--btn-height: 6.1rem;
 		}
 	}
 
@@ -690,7 +706,7 @@
 
 		@include vp-mobile {
 			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 10rem);
 			gap: 0.6rem;
 			width: 100%;
 			margin-bottom: 0.4rem;
@@ -739,6 +755,12 @@
 				line-height: 2rem;
 				color: var(--color-text-muted);
 
+				// в макете единица на 4px выше базовой линии значения
+				@include vp-desktop {
+					position: relative;
+					top: -0.4rem;
+				}
+
 				@include vp-mobile {
 					font-size: 1.2rem;
 					line-height: 1.8rem;
@@ -752,6 +774,7 @@
 	&__btn {
 		@include vp-mobile {
 			--btn-width: 22rem;
+			--btn-height: 6.1rem;
 		}
 	}
 }
@@ -800,6 +823,7 @@
 	&__btn {
 		@include vp-mobile {
 			--btn-width: 22rem;
+			--btn-height: 6.1rem;
 		}
 	}
 }

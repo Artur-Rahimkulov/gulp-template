@@ -63,6 +63,11 @@
 }
 
 .welcome__text {
+	// в мобильном макете обращение крупнее обычного текста — 17px
+	@include vp-mobile {
+		font-size: 1.7rem;
+	}
+
 	p {
 		margin-bottom: 1.6rem;
 
@@ -93,6 +98,11 @@
 		height: 9.6rem;
 	}
 
+	// в макете блок имени на 1px выше центра аватара
+	div {
+		padding-bottom: 0.2rem;
+	}
+
 	@include vp-mobile {
 		display: none;
 	}
@@ -104,6 +114,10 @@
 	line-height: 2.4rem;
 	font-weight: 600;
 	color: var(--color-text);
+
+	@include vp-mobile {
+		margin-bottom: 0.4rem;
+	}
 }
 
 .welcome__post {
@@ -342,14 +356,14 @@
 
 	// синяя плашка на стыке «Добро пожаловать» и ценностей
 	&--slab {
-		top: 33.1rem;
+		top: 33.4rem;
 		left: calc(50% + 74.4rem);
 		z-index: 2;
 		width: 49.6rem;
 	}
 
 	&--ghost {
-		top: 3.7rem;
+		top: 4rem;
 		left: calc(50% + 54rem);
 		z-index: 0;
 		width: 40.7rem;
@@ -439,7 +453,7 @@
 
 	&__input {
 		width: 100%;
-		padding: 0 0 1.1rem;
+		padding: 0 0 1.2rem;
 		font-family: inherit;
 		font-size: 1.6rem;
 		line-height: 2.2rem;
@@ -450,6 +464,10 @@
 		border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
 		outline: none;
 		transition: border-color var(--default-transition);
+
+		@include vp-mobile {
+			padding-bottom: 1rem;
+		}
 
 		&::placeholder {
 			color: rgba(255, 255, 255, 0.7);
@@ -495,6 +513,7 @@
 	&__btn {
 		@include vp-mobile {
 			--btn-width: 22rem;
+			--btn-height: 6.1rem;
 		}
 	}
 }

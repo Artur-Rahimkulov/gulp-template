@@ -268,8 +268,12 @@
 	}
 
 	&__photo {
-		aspect-ratio: 16 / 9;
+		aspect-ratio: 683 / 384;
 		overflow: hidden;
+
+		@include vp-mobile {
+			aspect-ratio: 358 / 201;
+		}
 
 		img {
 			width: 100%;

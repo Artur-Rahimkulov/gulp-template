@@ -1,10 +1,11 @@
 // Страница 404
 .not-found {
 	position: relative;
-	padding: 11.4rem 0 var(--space-section);
+	// в макете от кнопки до подвала 107 на десктопе
+	padding: 11.4rem 0 10.7rem;
 
 	@include vp-mobile {
-		padding-top: 6.3rem;
+		padding: 6.3rem 0 var(--space-section);
 	}
 }
 
@@ -75,5 +76,6 @@
 .not-found__btn {
 	@include vp-mobile {
 		--btn-width: 22rem;
+		--btn-height: 6.1rem;
 	}
 }

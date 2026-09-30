@@ -3,12 +3,13 @@
 .footer {
 	position: relative;
 	padding-top: 9.6rem;
-	padding-bottom: 4rem;
+	// в макете высота подвала считается от логотипа: 40 под ним, строка «Разработка» заходит на 2px ниже
+	padding-bottom: 3.8rem;
 	background-color: var(--color-bg-footer);
 
 	@include vp-mobile {
 		padding-top: 4.8rem;
-		padding-bottom: 4rem;
+		padding-bottom: 4.3rem;
 	}
 }
 
@@ -18,6 +19,8 @@
 	z-index: 1;
 	max-width: none;
 	pointer-events: none;
+	// как в макете: картинка вписана в рамку слоя без искажения пропорций
+	object-fit: contain;
 
 	&--white {
 		top: -29rem;
@@ -57,24 +60,25 @@
 
 	&--1 {
 		top: -2rem;
-		left: calc(var(--container-padding) + 43.7rem);
+		// в метаданных Figma у скошенной фигуры x — это её верхний левый угол (654), а не рамка
+		left: calc(var(--container-padding) + 35.1rem);
 		width: 23rem;
-		height: 25rem;
+		height: 23.45rem;
 	}
 
 	&--2 {
 		top: 25rem;
-		left: calc(var(--container-padding) + 56.4rem);
+		left: calc(var(--container-padding) + 47.7rem);
 		width: 18.2rem;
-		height: 27rem;
+		height: 25.3rem;
 	}
 
 	@include vp-mobile {
 		&--1 {
 			top: -6rem;
-			left: 26rem;
+			left: 2.4rem;
 			width: 15rem;
-			height: 90rem;
+			height: 84.4rem;
 			background-color: rgba(218, 223, 231, 0.3);
 		}
 
@@ -148,13 +152,18 @@
 }
 
 .footer__email {
-	margin: 0.6rem 0 5.6rem -0.4rem;
+	margin: 0.6rem 0 6.4rem -0.4rem;
 	font-size: 1.74rem;
 	line-height: 2.4rem;
 
+	// на мобильной в макете под почтой отдельная линия на всю ширину колонки 300px
 	@include vp-mobile {
-		margin: 0 0 2.8rem;
+		width: 30rem;
+		margin: 0 0 2.9rem;
+		padding-bottom: 0.2rem;
 		font-size: 1.7rem;
+		text-decoration: none;
+		border-bottom: 0.1rem solid currentColor;
 	}
 }
 
@@ -179,7 +188,9 @@
 	}
 }
 
+// блочная ссылка: иначе пункт списка берёт высоту строки от body и шаг меню растёт
 .footer__link {
+	display: block;
 	font-size: 1.3rem;
 	line-height: 1.8rem;
 	font-weight: 600;
@@ -198,7 +209,7 @@
 
 .footer__services-list {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 23.1rem));
+	grid-template-columns: 23.1rem minmax(0, 1fr);
 	gap: 1.3rem 0;
 	margin-top: 2.1rem;
 
@@ -246,14 +257,14 @@
 
 .footer__bottom {
 	display: grid;
-	grid-template-columns: 711fr 689fr;
+	grid-template-columns: minmax(0, 711fr) minmax(0, 689fr);
 	align-items: start;
-	padding-top: 8rem;
+	padding-top: 7.9rem;
 
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
 		row-gap: 2rem;
-		padding-top: 3.6rem;
+		padding-top: 3.5rem;
 	}
 }
 
@@ -264,7 +275,7 @@
 	padding: 0 4.4rem 0 0.5rem;
 
 	@include vp-mobile {
-		padding: 0 3rem 0 0;
+		padding: 0 1.4rem 0 0;
 	}
 }
 
@@ -273,9 +284,15 @@
 	width: 30.5rem;
 	transition: opacity var(--default-transition);
 
+	// в макете логотип вписан в рамку 305×56 (на мобильной 200×38)
 	img {
 		width: 100%;
-		height: auto;
+		height: 5.6rem;
+		object-fit: contain;
+
+		@include vp-mobile {
+			height: 3.8rem;
+		}
 	}
 
 	@include hover-focus {
@@ -287,26 +304,29 @@
 	}
 }
 
+// в макете плитка вписана в рамку 136×49 (на мобильной 110×30) без обрезки
 .footer__tiles {
 	width: 13.6rem;
-	height: auto;
+	height: 4.9rem;
+	object-fit: contain;
 
 	@include vp-mobile {
 		width: 11rem;
+		height: 3rem;
 		margin-top: 0.4rem;
 	}
 }
 
+// копирайт в одну строку, политика — на 1458 (за правым краем контейнера, как в макете)
 .footer__legal {
-	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
-	gap: 2.4rem;
-	padding-top: 0.8rem;
+	display: grid;
+	grid-template-columns: 48.7rem auto;
+	align-items: start;
+	padding-top: 1rem;
 
 	@include vp-mobile {
-		flex-direction: column;
-		gap: 0.8rem;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.9rem;
 		padding-top: 0;
 	}
 }
@@ -323,7 +343,6 @@
 	}
 
 	@include vp-mobile {
-		gap: 0.8rem;
 		color: var(--color-text-body);
 	}
 }
@@ -338,12 +357,22 @@
 }
 
 .footer__policy {
-	flex-shrink: 0;
+	justify-self: start;
+	margin-top: -0.2rem;
+	white-space: nowrap;
 	font-size: 1.35rem;
 	line-height: 1.9rem;
 	text-underline-offset: 0.2rem;
 
 	@include vp-mobile {
+		margin-top: 0;
 		font-size: 1.3rem;
+	}
+}
+
+// на мобильной в макете между меню и услугами 42 вместо общих 40
+.footer__services {
+	@include vp-mobile {
+		margin-top: 0.2rem;
 	}
 }

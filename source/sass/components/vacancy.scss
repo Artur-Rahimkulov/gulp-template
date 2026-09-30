@@ -119,6 +119,7 @@
 
 		@include vp-mobile {
 			--btn-width: 22rem;
+			--btn-height: 6.1rem;
 
 			margin-top: 2.4rem;
 		}
@@ -152,10 +153,16 @@
 	}
 
 	&__label {
+		// в макете подпись чуть ниже центра зоны
+		padding-top: 0.4rem;
 		font-size: 1.6rem;
 		line-height: 2.2rem;
 		color: var(--color-text-muted);
 		transition: color var(--default-transition);
+
+		@include vp-mobile {
+			padding-top: 0.6rem;
+		}
 	}
 
 	@include hover {
@@ -207,7 +214,7 @@
 
 	&__ghost {
 		position: absolute;
-		top: 3.7rem;
+		top: 4rem;
 		left: calc(50% + 54rem);
 		z-index: 0;
 		width: 40.7rem;
