@@ -36,6 +36,7 @@
 		line-height: 2.9rem;
 
 		@include vp-mobile {
+			margin-bottom: 2rem;
 			font-size: 1.6rem;
 			line-height: 2.6rem;
 		}
@@ -94,10 +95,10 @@
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-		padding: 2.6rem 1.6rem 3.7rem 4.4rem;
+		padding: 2.6rem 1.6rem 3.9rem 4.4rem;
 
 		@include vp-mobile {
-			padding: 2.6rem 1.4rem 1.9rem 1.8rem;
+			padding: 2.6rem 1.4rem 2.1rem 1.8rem;
 		}
 	}
 

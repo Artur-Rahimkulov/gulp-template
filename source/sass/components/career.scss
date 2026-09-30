@@ -35,7 +35,7 @@
 // «Добро пожаловать»: обращение директора и фото
 .welcome {
 	position: relative;
-	padding: 10.3rem 0 var(--space-section);
+	padding: 10.6rem 0 var(--space-section);
 
 	@include vp-mobile {
 		padding-top: var(--space-section-top);
@@ -167,7 +167,11 @@
 // Ценности
 .values {
 	position: relative;
-	padding: var(--space-section-top) 0 var(--space-section);
+	padding: var(--space-section-top) 0 20.1rem;
+
+	@include vp-mobile {
+		padding-bottom: var(--space-section);
+	}
 
 	&__grid {
 		row-gap: 6.6rem;

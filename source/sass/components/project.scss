@@ -55,7 +55,7 @@
 // «О проекте»: текст + цифры
 .project-about {
 	position: relative;
-	padding: 10.7rem 0 14.4rem;
+	padding: var(--space-section) 0 14.4rem;
 
 	@include vp-mobile {
 		padding: var(--space-section-top) 0 var(--space-section);
@@ -122,6 +122,7 @@
 // Цифры проекта: сетка 2×2 под двойной линией
 .project-stats {
 	display: grid;
+	margin-bottom: 0;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	row-gap: 6rem;
 	margin-top: -0.4rem; // двойная линия на уровне середины заголовка
@@ -180,9 +181,24 @@
 	}
 }
 
+// На мобильной над синей полосой двойная линия (на десктопе её нет)
+.project-gallery-line {
+	display: none;
+
+	@include vp-mobile {
+		display: block;
+		margin-bottom: -0.1rem;
+	}
+}
+
 // Галерея на синей полосе
 .project-gallery {
 	position: relative;
+
+	@include vp-mobile {
+		margin-bottom: 2rem;
+	}
+
 	padding: 11rem 0;
 	background-image: linear-gradient(136.4deg, #1b4d9e 7.4%, #0e2a5e 81.5%);
 
@@ -241,6 +257,14 @@
 
 		@include vp-mobile {
 			row-gap: 2.4rem;
+		}
+	}
+
+	// «Отзывы» и «Похожие проекты» в макете на 108 от линии
+	&--reviews,
+	&--similar {
+		@include vp-desktop {
+			padding-top: 10.8rem;
 		}
 	}
 
@@ -321,15 +345,26 @@
 		box-shadow: 0 1.4rem 3rem 0 rgba(20, 40, 90, 0.09);
 	}
 
+	// высота шапки = высоте аватара, имя с должностью могут выходить ниже
 	&__head {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		gap: 1.4rem;
+		height: 4.8rem;
 		margin-bottom: 3.4rem;
+
+		> div {
+			padding-top: 0.6rem;
+		}
 
 		@include vp-mobile {
 			gap: 1.2rem;
+			height: 4.4rem;
 			margin-bottom: 3rem;
+
+			> div {
+				padding-top: 0.4rem;
+			}
 		}
 	}
 

@@ -1,7 +1,11 @@
 // Страница 404
 .not-found {
 	position: relative;
-	padding: var(--space-section) 0;
+	padding: 11.4rem 0 var(--space-section);
+
+	@include vp-mobile {
+		padding-top: 6.3rem;
+	}
 }
 
 .not-found__inner {

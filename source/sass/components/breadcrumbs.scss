@@ -34,6 +34,18 @@
 .breadcrumbs__list {
 	display: flex;
 	flex-wrap: wrap;
+
+	// на мобильной крошки в одну строку, длинное название обрезается многоточием
+	@include vp-mobile {
+		flex-wrap: nowrap;
+		white-space: nowrap;
+
+		li:last-child {
+			min-width: 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
 	font-size: 1.4rem;
 	line-height: 2rem;
 	color: var(--color-text-muted);

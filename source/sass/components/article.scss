@@ -2,8 +2,11 @@
 .article {
 	position: relative;
 
-	@include vp-mobile {
-		margin-bottom: 1.8rem;
+	// на мобильной от полосы до двойной линии 18, а не 22, как на «Медиа»
+	.breadcrumbs {
+		@include vp-mobile {
+			margin-bottom: 1.8rem;
+		}
 	}
 }
 
@@ -68,7 +71,7 @@
 	padding: var(--space-section) 0;
 
 	@include vp-mobile {
-		padding-top: 4rem;
+		padding-top: var(--space-section-top);
 	}
 
 	.slider-arrows {
