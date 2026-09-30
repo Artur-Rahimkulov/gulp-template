@@ -1,0 +1,506 @@
+// Страница «Карьера»
+
+// Полоса первого экрана: крошки, заголовок, подзаголовок
+.career-hero {
+	padding-bottom: 4.7rem;
+	margin-bottom: 0;
+
+	.breadcrumbs__title {
+		margin-top: 2rem;
+	}
+
+	@include vp-mobile {
+		padding-bottom: 2.8rem;
+
+		.breadcrumbs__title {
+			margin-top: 1rem;
+		}
+	}
+}
+
+.career-hero__text {
+	max-width: 76rem;
+	margin: 1.8rem 0 0;
+	font-size: 1.7rem;
+	line-height: 2.9rem;
+	color: var(--color-text-muted);
+
+	@include vp-mobile {
+		margin-top: 1.2rem;
+		font-size: 1.6rem;
+		line-height: 2.6rem;
+	}
+}
+
+// «Добро пожаловать»: обращение директора и фото
+.welcome {
+	position: relative;
+	padding: 10.3rem 0 var(--space-section);
+
+	@include vp-mobile {
+		padding-top: var(--space-section-top);
+	}
+}
+
+.welcome__inner {
+	display: grid;
+	grid-template-columns: minmax(0, 76fr) minmax(0, 56fr);
+	column-gap: 8rem;
+	align-items: start;
+
+	@include vp-mobile {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.welcome__title {
+	margin-bottom: var(--space-title);
+	line-height: 4.4rem;
+
+	@include vp-mobile {
+		line-height: 3rem;
+	}
+}
+
+.welcome__text {
+	p {
+		margin-bottom: 1.6rem;
+
+		@include vp-mobile {
+			margin-bottom: 1.4rem;
+		}
+	}
+
+	// призыв в конце обращения
+	p:last-child {
+		margin-top: 2.4rem;
+		font-weight: 600;
+		color: var(--color-text);
+	}
+}
+
+.welcome__signature {
+	display: flex;
+	align-items: center;
+	gap: 2.2rem;
+	margin-top: 11rem;
+	padding-top: 2.3rem;
+	border-top: 0.3rem double var(--color-double-line);
+
+	img {
+		flex-shrink: 0;
+		width: 9.6rem;
+		height: 9.6rem;
+	}
+
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+.welcome__name {
+	margin: 0 0 0.2rem;
+	font-size: 1.7rem;
+	line-height: 2.4rem;
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.welcome__post {
+	margin: 0;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	color: var(--color-text-muted);
+}
+
+// Фото директора выходит над градиентной подложкой на 120px
+.welcome__photo {
+	position: relative;
+	aspect-ratio: 560 / 710;
+	margin-top: -12rem;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 16.9% 0 0;
+		background-image: linear-gradient(108.4deg, #1b4d9e 7.4%, #0f2c63 81.5%);
+	}
+
+	img {
+		position: absolute;
+		top: 13.95%;
+		left: -26.32%;
+		width: 115.31%;
+		max-width: none;
+		height: auto;
+	}
+
+	@include vp-mobile {
+		order: 1;
+		aspect-ratio: 358 / 448;
+		margin-top: 2.4rem;
+
+		&::before {
+			inset: 0;
+		}
+
+		img {
+			top: 0;
+			left: -31.2%;
+			width: 125.07%;
+		}
+	}
+}
+
+// подпись под фото — только на мобильной
+.welcome__caption {
+	display: none;
+
+	@include vp-mobile {
+		order: 2;
+		display: block;
+		margin-top: 3rem;
+	}
+}
+
+// Ценности
+.values {
+	position: relative;
+	padding: var(--space-section-top) 0 var(--space-section);
+
+	&__grid {
+		row-gap: 6.6rem;
+
+		@include vp-mobile {
+			row-gap: 2.4rem;
+		}
+	}
+}
+
+// Корпоративная жизнь — синяя полоса
+.life {
+	position: relative;
+	padding: 8rem 0 6.8rem;
+	background-image: linear-gradient(116.9deg, #1b4d9e 7.4%, #0e2a5e 81.5%);
+
+	@include vp-mobile {
+		padding: 4.4rem 0 6.4rem;
+		background-image: linear-gradient(94.8deg, #1b4d9e 7.4%, #0e2a5e 81.5%);
+	}
+
+	&__title {
+		color: var(--color-white);
+		line-height: 4.4rem;
+
+		@include vp-mobile {
+			line-height: 3rem;
+		}
+	}
+
+	&__text {
+		max-width: 70rem;
+		margin: 1.6rem 0 4rem;
+		font-size: 1.7rem;
+		line-height: 2.9rem;
+		color: rgba(255, 255, 255, 0.72);
+
+		@include vp-mobile {
+			margin: 1rem 0 2.4rem;
+			font-size: 1.6rem;
+			line-height: 2.6rem;
+		}
+	}
+
+	&__grid {
+		column-gap: 3.4rem;
+		row-gap: 1.8rem;
+
+		@include vp-mobile {
+			row-gap: 3.6rem;
+		}
+	}
+}
+
+// Баланс работы и жизни
+.balance {
+	padding: 16rem 0 16.8rem;
+
+	@include vp-mobile {
+		padding: 6rem 0;
+	}
+
+	&__card {
+		padding: 6.6rem 2rem 6.3rem;
+		text-align: center;
+		background-color: var(--color-card);
+		box-shadow: 0 2rem 4rem 0 rgba(20, 40, 90, 0.09);
+
+		@include vp-mobile {
+			padding: 3.4rem 1.8rem 3.1rem;
+			box-shadow: 0 1.4rem 2.8rem 0 rgba(20, 40, 90, 0.09);
+		}
+	}
+
+	&__title {
+		line-height: 4.4rem;
+
+		@include vp-mobile {
+			line-height: 3rem;
+		}
+	}
+
+	&__text {
+		max-width: 68rem;
+		margin: 2rem auto 0;
+		font-size: 1.7rem;
+		line-height: 2.9rem;
+		color: var(--color-text-muted);
+
+		@include vp-mobile {
+			font-size: 1.6rem;
+			line-height: 2.7rem;
+		}
+	}
+}
+
+// Актуальные вакансии + форма
+.vacancies {
+	position: relative;
+	padding: var(--space-section-top) 0 15.5rem;
+
+	@include vp-mobile {
+		padding-bottom: 6rem;
+	}
+
+	&__title {
+		margin-bottom: 6rem;
+		line-height: 4.4rem;
+
+		@include vp-mobile {
+			margin-bottom: 2.4rem;
+			line-height: 3rem;
+		}
+	}
+
+	&__layout {
+		display: grid;
+		grid-template-columns: minmax(0, 92fr) minmax(0, 44fr);
+		column-gap: 4rem;
+		align-items: start;
+
+		@include vp-mobile {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+
+	&__list {
+		display: grid;
+		gap: 3rem;
+
+		@include vp-mobile {
+			gap: 2.4rem;
+		}
+	}
+
+	// на десктопе форма остаётся в поле зрения, пока листается список
+	&__aside {
+		position: sticky;
+		top: 2.4rem;
+		grid-row: 1;
+		grid-column: 2;
+
+		@include vp-mobile {
+			position: static;
+			grid-row: auto;
+			grid-column: auto;
+			margin-top: 4rem;
+		}
+	}
+
+	&__more {
+		display: flex;
+		justify-content: center;
+		grid-column: 1 / -1;
+		margin-top: var(--space-more);
+	}
+}
+
+// Декор
+.career-decor {
+	position: absolute;
+	max-width: none;
+	pointer-events: none;
+
+	@include vp-mobile {
+		display: none;
+	}
+
+	// синяя плашка на стыке «Добро пожаловать» и ценностей
+	&--slab {
+		top: 33.1rem;
+		left: calc(50% + 74.4rem);
+		z-index: 2;
+		width: 49.6rem;
+	}
+
+	&--ghost {
+		top: 3.7rem;
+		left: calc(50% + 54rem);
+		z-index: 0;
+		width: 40.7rem;
+	}
+
+	&--white {
+		top: 99.5rem;
+		left: calc(50% - 124.6rem);
+		z-index: 2;
+		width: 49.7rem;
+	}
+
+	// плитка на верхней границе полосы
+	&--tiles {
+		left: calc(50% - 71.1rem);
+		z-index: 2;
+		width: 16.8rem;
+	}
+
+	&--tiles-life {
+		top: -8.8rem;
+	}
+
+	&--tiles-vacancies {
+		top: -0.8rem;
+		left: calc(50% - 71.3rem);
+	}
+}
+
+// Форма «Не нашли подходящую вакансию?»
+.vacancy-form {
+	padding: 4.2rem 4.4rem;
+	color: var(--color-white);
+	background-image: linear-gradient(104.5deg, #1b4d9e 7.4%, #0f2c63 81.5%);
+
+	@include vp-mobile {
+		padding: 2.6rem 1.6rem;
+		background-image: linear-gradient(102.7deg, #1b4d9e 7.4%, #0f2c63 81.5%);
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 2.3rem;
+		line-height: 3rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			font-size: 2rem;
+			line-height: 2.6rem;
+		}
+	}
+
+	&__text {
+		margin: 1.4rem 0 0;
+		font-size: 1.5rem;
+		line-height: 2.4rem;
+		color: rgba(255, 255, 255, 0.72);
+
+		@include vp-mobile {
+			margin-top: 1.2rem;
+		}
+	}
+
+	&__fields {
+		display: grid;
+		gap: 3.7rem;
+		margin-top: 3rem;
+	}
+
+	&__field {
+		position: relative;
+
+		.error-message {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			margin-top: 0.4rem;
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+			color: #ffb4b4;
+		}
+
+		&.has-danger .vacancy-form__input {
+			border-bottom-color: #ffb4b4;
+		}
+	}
+
+	&__input {
+		width: 100%;
+		padding: 0 0 1.1rem;
+		font-family: inherit;
+		font-size: 1.6rem;
+		line-height: 2.2rem;
+		font-weight: 500;
+		color: var(--color-white);
+		background: none;
+		border: none;
+		border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
+		outline: none;
+		transition: border-color var(--default-transition);
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.7);
+		}
+
+		&:hover {
+			border-bottom-color: rgba(255, 255, 255, 0.6);
+		}
+
+		&:focus {
+			border-bottom-color: var(--color-white);
+		}
+
+		// автозаполнение не должно перекрашивать поле
+		&:-webkit-autofill {
+			box-shadow: inset 0 0 0 100rem #173f86;
+			-webkit-text-fill-color: var(--color-white);
+		}
+	}
+
+	&__consent {
+		margin: 5.1rem 0 2.4rem;
+		font-size: 1.2rem;
+		line-height: 1.9rem;
+		color: rgba(255, 255, 255, 0.7);
+
+		a {
+			color: inherit;
+			text-decoration: underline;
+			text-underline-offset: 0.2rem;
+			transition: color var(--default-transition);
+
+			@include hover-focus {
+				color: var(--color-white);
+			}
+		}
+
+		@include vp-mobile {
+			margin: 4.9rem 0 2rem;
+		}
+	}
+
+	&__btn {
+		@include vp-mobile {
+			--btn-width: 22rem;
+		}
+	}
+}
+
+// Заголовок раздела (h2) с отступом до контента
+.section-title {
+	margin-bottom: var(--space-title);
+	line-height: 4.4rem;
+
+	@include vp-mobile {
+		line-height: 3rem;
+	}
+}

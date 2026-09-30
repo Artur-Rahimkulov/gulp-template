@@ -124,6 +124,10 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Хлебные крошки + двойная линия (`title` — h1 на полосе) | `html/ui/breadcrumbs.html` | `components/breadcrumbs.scss` |
 | Текст из админки — только теги (p, h2–h4, ul, ol, a, strong, blockquote, table, img, hr), без классов | `<div class="rich-text">` | `global/rich-text.scss` |
 | Текстовая страница (политика) | `html/policy.html` | `components/text-page.scss` |
+| Карьера: обращение директора, ценности, корпоративная жизнь, баланс, вакансии + форма (sticky на десктопе) | `html/career.html` | `components/career.scss` |
+| Карточка «Корпоративная жизнь» (фото 16:9 + иконка) | `html/components/card-life.html` | `components/cards.scss` |
+| Карточка вакансии | `html/components/card-vacancy.html` | `components/cards.scss` |
+| Форма «Не нашли подходящую вакансию?» | `html/components/vacancy-form.html` | `components/career.scss` |
 | Медиа детальная: текст новости (`.rich-text.article__text`) + фото, галерея на Swiper, «Другие новости» | `html/media-detail.html` | `components/article.scss`, `js/modules/sliders.js` |
 | Страница «Медиа»: полоса с фильтрами (`.breadcrumbs--filters`), сетка новостей, «Показать ещё» | `html/media.html` | `components/media-list.scss`, `js/modules/pagination.js` |
 | Страница 404 | `html/404.html` | `components/not-found.scss` |
