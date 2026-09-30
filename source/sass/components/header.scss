@@ -1,12 +1,24 @@
 // Шапка: десктоп 1920×188, мобильная 390×84, бургер-меню 390×844
+// На мобильной шапка прилипает к верху окна при прокрутке (на десктопе она слишком высокая — 188px)
 .header {
 	position: relative;
 	z-index: 10;
 	background-color: var(--color-bg-header);
 	overflow: hidden;
 
+	// в мобильных макетах шапка цвета страницы и без косой сетки — сетка начинается под ней, с полосы крошек
 	@include vp-mobile {
+		position: sticky;
+		top: 0;
 		overflow: visible;
+		background-color: var(--color-bg-page);
+		background-image: none;
+		transition: box-shadow var(--default-transition);
+
+		// страница прокручена — под шапкой тень
+		&.is-scrolled {
+			box-shadow: 0 0.4rem 2rem rgba(20, 40, 90, 0.12);
+		}
 	}
 }
 

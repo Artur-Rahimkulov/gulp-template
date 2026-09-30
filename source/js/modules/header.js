@@ -1,7 +1,19 @@
 // Мобильное меню: открывается на весь экран, закрытие крестиком, по Esc и при переходе на десктоп
 const DESKTOP_QUERY = '(min-width: 900px)'
 
+// Тень у прилипшей шапки (прилипает только на мобильной), когда страница прокручена
+const initStickyShadow = () => {
+  const headerEl = document.querySelector('[data-header]')
+  if (!headerEl) return
+
+  const update = () => headerEl.classList.toggle('is-scrolled', window.scrollY > 0)
+  update()
+  window.addEventListener('scroll', update, { passive: true })
+}
+
 export const header = () => {
+  initStickyShadow()
+
   const menu = document.querySelector('[data-header-menu]')
   const openButton = document.querySelector('[data-header-open]')
   const closeButton = document.querySelector('[data-header-close]')
