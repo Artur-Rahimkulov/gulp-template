@@ -56,7 +56,7 @@
 	padding: var(--space-section) 0;
 
 	@include vp-mobile {
-		padding-top: var(--space-section-top);
+		padding: var(--space-section-top) 0 9.8rem;
 	}
 
 	&__content {
@@ -113,7 +113,8 @@
 		margin-top: 4rem;
 	}
 
-	&__btn {
+	// .btn.vacancy-apply__btn — чтобы перебить margin: 0 из ui/btn.scss
+	.btn#{&}__btn {
 		margin-top: 3rem;
 
 		@include vp-mobile {

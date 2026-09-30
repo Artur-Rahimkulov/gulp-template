@@ -13,7 +13,11 @@
 
 // Двойная линия на границе секций: две линии по 1px через 1px
 .double-line {
+	position: relative;
+	z-index: 1;
 	height: 0.3rem;
+	// в макетах отступ после линии отсчитан от её верха — следующая секция заходит под линию
+	margin-bottom: -0.3rem;
 	border-top: 0.1rem solid var(--color-double-line);
 	border-bottom: 0.1rem solid var(--color-double-line);
 }

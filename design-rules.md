@@ -73,6 +73,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Подпись кнопки | `.btn` | 12 / 16 SemiBold, uppercase | 12 SemiBold |
 
 **Во всех текстах неразрывные пробелы после предлогов и союзов и перед тире — при переносе сохранять** (`&nbsp;`).
+В макетах `&nbsp;` стоит после **всех коротких слов до трёх букв** — не только предлогов и союзов, но и «для», «Это», «или», «вы». Без этого строки переносятся иначе, чем в макете.
 
 ## Сетка
 
@@ -101,7 +102,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 ## Фирменные элементы
 
 - Косая сетка (`.bg-grid`): наклон 20,3°, шаг 656 на десктопе и 300 на мобильной, толщина 2 и 1, прозрачность 6 %.
-- Двойная линия на границе секций (`.double-line`): две линии по 1px через 1px.
+- Двойная линия на границе секций (`.double-line`): две линии по 1px через 1px. Отступ после линии (110 / 46) в макетах отсчитан **от её верха**: у `.double-line` `margin-bottom: -3px`, следующая секция заходит под линию.
 - Скосы: 20,3° — плашка меню, рубрика новости; 13° — чип фильтра, маркер активного пункта; 20° — маркер списка; 5° — карточка «Ценности», подложка иконки. Скос рисуется псевдоэлементом (миксин `skew-bg`), текст не скашивается.
 - Кнопка — готовое изображение 207×57 (`assets/img/btn.png`). **Пропорцию менять нельзя**: при другой высоте фаска искажается. Размеры: 200×55 в карточке (`.btn`), 240×66 самостоятельная (`.btn--lg`), 220×61 на мобильной (`.btn--md`).
 - Тень карточки: смещение 0 / 18, размытие 36, цвет #142859 при 9 % (`--shadow-card`).
@@ -125,6 +126,11 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Текст из админки — только теги (p, h2–h4, ul, ol, a, strong, blockquote, table, img, hr), без классов | `<div class="rich-text">` | `global/rich-text.scss` |
 | Текстовая страница (политика) | `html/policy.html` | `components/text-page.scss` |
 | Карьера: обращение директора, ценности, корпоративная жизнь, баланс, вакансии + форма (sticky на десктопе) | `html/career.html` | `components/career.scss` |
+| Проект детальная: заказчик, «О проекте» + цифры, галерея на синей полосе, услуги, отзывы, похожие проекты, «Готовы начать» | `html/project.html` | `components/project.scss` |
+| Карточка отзыва (аватар — буква на круге) | `html/components/review.html` | `components/project.scss` |
+| Слайд похожего проекта (фото, описание, параметры `dl`) | `html/components/project-card.html` | `components/project.scss` |
+| Стрелки-плашки со скосом (активная синяя, неактивная белая) | `@@include("…/slider-arrows.html", {"skew": true})` | `.slider-arrow--skew` |
+| Настройки слайдера: `data-slider-per-view`, `data-slider-gap`, `data-slider-mobile-off` | `[data-slider]` | `js/modules/sliders.js` |
 | Вакансия детальная: вводный текст, обязанности/условия (`.rich-text.vacancy-text`: h3 + ul), отклик, «Другие вакансии» | `html/vacancy.html` | `components/vacancy.scss` |
 | Зона «Прикрепить резюме» — выбор файла и перетаскивание | `label.file-drop[data-file-drop]` | `components/vacancy.scss`, `js/modules/file-drop.js` |
 | Карточка «Корпоративная жизнь» (фото 16:9 + иконка) | `html/components/card-life.html` | `components/cards.scss` |

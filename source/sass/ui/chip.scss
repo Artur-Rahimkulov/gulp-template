@@ -6,7 +6,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 4.4rem;
-	padding: 0 2.8rem;
+	padding: 0 2.65rem;
 
 	font-family: inherit;
 	font-size: 1.4rem;
@@ -14,6 +14,11 @@
 	font-weight: 500;
 	color: var(--color-text-body);
 	white-space: nowrap;
+
+	// скошенная плашка уже поля подписи и смещена вправо, как в макете
+	&::before {
+		inset: 0 -0.4rem 0 1.5rem;
+	}
 
 	background: none;
 	border: none;
@@ -55,6 +60,5 @@
 .chips {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1.5rem;
-	padding-left: 1rem; // скос выходит за левую границу
+	gap: 1.4rem;
 }

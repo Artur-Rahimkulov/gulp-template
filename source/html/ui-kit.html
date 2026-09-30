@@ -18,8 +18,8 @@
           <div><div class="kit__swatch" style="background: var(--color-link)"></div><p class="caption">--color-link · #1C4FA3<br>Ссылки</p></div>
           <div><div class="kit__swatch" style="background: var(--color-brand-dark)"></div><p class="caption">--color-brand-dark · #192F7C<br>Тёмные полосы</p></div>
           <div><div class="kit__swatch" style="background: var(--color-bg-icon)"></div><p class="caption">--color-bg-icon · #DBE3F0<br>Подложка иконок</p></div>
-          <div><div class="kit__swatch" style="background: var(--color-bg-header)"></div><p class="caption">--color-bg-header · #EAECEF<br>Фон шапки</p></div>
-          <div><div class="kit__swatch" style="background: var(--color-bg-page)"></div><p class="caption">--color-bg-page · #F4F5F6<br>Фон страницы</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-bg-header)"></div><p class="caption">--color-bg-header · #EAECEF<br>Фон&nbsp;шапки</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-bg-page)"></div><p class="caption">--color-bg-page · #F4F5F6<br>Фон&nbsp;страницы</p></div>
           <div><div class="kit__swatch" style="background: var(--color-bg-shape)"></div><p class="caption">--color-bg-shape · #E1E6EC<br>Параллелограммы</p></div>
           <div><div class="kit__swatch" style="background: var(--color-card)"></div><p class="caption">--color-card · #FFFFFF<br>Карточки</p></div>
         </div>
@@ -50,7 +50,7 @@
         <div class="kit__row">
           <div class="kit__item">
             @@include("source/html/ui/button.html", {"name": "Подробнее"})
-            <p class="caption">.btn · в карточке 200×55</p>
+            <p class="caption">.btn · в&nbsp;карточке 200×55</p>
           </div>
           <div class="kit__item">
             @@include("source/html/ui/button.html", {"name": "Откликнуться", "class": "btn--lg"})
@@ -73,7 +73,7 @@
             <p class="caption">.btn-secondary:disabled</p>
           </div>
         </div>
-        <p class="caption kit__subtitle">Состояния: hover — светлее и приподнимается, focus (клавиатура) — рамка #1C4FA3, active — темнее и вдавливается, disabled — обесцвечена.</p>
+        <p class="caption kit__subtitle">Состояния: hover — светлее и&nbsp;приподнимается, focus (клавиатура) — рамка #1C4FA3, active — темнее и&nbsp;вдавливается, disabled — обесцвечена.</p>
       </section>
 
       <!-- Фильтры и маркеры -->
@@ -84,7 +84,7 @@
             <div class="chips">
               @@include("source/html/ui/chip.html", {"name": "Все", "param": "category", "value": "", "active": true})
               @@include("source/html/ui/chip.html", {"name": "Новости", "param": "category", "value": "news"})
-              @@include("source/html/ui/chip.html", {"name": "СМИ о&nbsp;нас", "param": "category", "value": "press"})
+              @@include("source/html/ui/chip.html", {"name": "СМИ&nbsp;о&nbsp;нас", "param": "category", "value": "press"})
               @@include("source/html/ui/chip.html", {"name": "Корпоративный досуг", "param": "category", "value": "leisure"})
             </div>
             <p class="caption">.chip · скос 13°, высота 44</p>
@@ -92,7 +92,7 @@
           <div class="kit__item">
             <ul class="list-marked">
               <li>пункт маркированного списка</li>
-              <li>ещё один пункт</li>
+              <li>ещё&nbsp;один пункт</li>
             </ul>
             <p class="caption">.list-marked · маркер 12×8, скос 20°</p>
           </div>
@@ -121,7 +121,7 @@
             "rubric": "Новости",
             "title": "Название новости",
             "date": "10.04.2025",
-            "text": "Это тестовый контент, который не&nbsp;должен нести смысла…",
+            "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…",
             "href": "/media/"
           })
           @@include("source/html/components/card-value.html", {
@@ -154,7 +154,7 @@
           <div class="kit__demo bg-grid" style="width: 100%"></div>
           <p class="caption">.bg-grid · косая сетка 20,3°</p>
           <div class="double-line" style="width: 100%"></div>
-          <p class="caption">.double-line · две линии по&nbsp;1px через 1px</p>
+          <p class="caption">.double-line · две&nbsp;линии по&nbsp;1px через 1px</p>
         </div>
       </section>
 
@@ -181,13 +181,13 @@
         <div class="chips">
           @@include("source/html/ui/chip.html", {"name": "Все", "param": "category", "value": "", "active": true})
           @@include("source/html/ui/chip.html", {"name": "Новости", "param": "category", "value": "news"})
-          @@include("source/html/ui/chip.html", {"name": "СМИ о&nbsp;нас", "param": "category", "value": "press"})
+          @@include("source/html/ui/chip.html", {"name": "СМИ&nbsp;о&nbsp;нас", "param": "category", "value": "press"})
         </div>
         <!-- data-list-items — список карточек, заменяется ответом сервера -->
         <div class="cards-grid" style="margin-top: var(--space-title)" data-list-items>
-          @@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
-          @@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "СМИ о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
-          @@include("source/html/components/card-news.html", {"img": "worker", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
+          @@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
+          @@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "СМИ&nbsp;о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
+          @@include("source/html/components/card-news.html", {"img": "worker", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
         </div>
         <!-- data-show-more-button скрывается, если не придёт в ответе -->
         <div style="margin-top: var(--space-more); text-align: center">

@@ -1,7 +1,11 @@
 // Текстовая страница (политика конфиденциальности и т. п.)
 .text-page {
 	position: relative;
-	padding: var(--space-section) 0;
+	padding: 10.8rem 0 var(--space-section);
+
+	@include vp-mobile {
+		padding-top: 6.3rem;
+	}
 }
 
 .text-page__inner {
