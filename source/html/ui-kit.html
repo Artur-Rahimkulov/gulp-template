@@ -1,237 +1,204 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include("source/html/base/head.html", { "title": "Разводящая страница" })
+@@include("source/html/base/head.html", { "title": "UI-kit" })
 <body>
 <div class="wrapper">
-  @@include("source/html/base/header.html")
-  <main>
-    <section class="intro">
-      <div class="container">
-        <h2>1. Модалки</h2>
-        <div class="example" style="margin-top: 20px;">
-          <!-- для работы модалкок, нужно связать кнопку и модалку с помощью значения дата атрибута data-modal-button для кнокпи и data-modal для модалки
-          пример: data-modal-button="my-super-modal" для кнопки и data-modal="my-super-modal" для модалки
-          ниже живые примеры -->
-          <button type="button" class="btn" data-modal-button="modal-one">первая модалка</button>
-          <button type="button" class="btn" data-modal-button="modal-two">вторая модалка</button>
-        </div>
+  @@include("source/html/base/header.html", {"active": "projects"})
+  <main class="kit">
+    <div class="container">
 
-        <h2>2. Аккордионы</h2>
-        <!-- если нужен аккордион с одним раскрытым блоком, используйте для дата атрибута data-accordion, значение "single-expand".
-        если нужно раскрывать все блоки аккордиона не зависимо друг от друга, то оставьте пустым значение дата атрибут data-accordion
-        примеры ниже -->
-        <div class="example">
-          <h3>Пример аккордиона с одним раскрытым блоком</h3>
-          <ul class="accordion" style="margin-top: 20px;" data-accordion="single-expand">
-            <li class="accordion_item active" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 1
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <img src="assets/img/jeans.webp" alt="jeans" style="width: auto; height: 400px;">
-                </div>
-              </div>
-            </li>
-            <li class="accordion_item" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 2
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <p>accordion content</p>
-                  <p>accordion content</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <h3>Пример аккордиона без ограничений на раскрытые блоки</h3>
-          <!-- аккордион без ограничений на раскрытые блоки -->
-          <ul class="accordion" style="margin-top: 20px;" data-accordion>
-            <li class="accordion_item" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 1
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <img src="assets/img/jeans.jpg" alt="jeans" style="width: auto; height: 300px;">
-                </div>
-              </div>
-            </li>
-            <li class="accordion_item" data-accordion-item>
-              <button class="accordion_button" data-accordion-button>
-                кнопка аккордиона 2
-              </button>
-              <div class="accordion_content">
-                <div class="accordion_hidden-wrap">
-                  <p>accordion content</p>
-                  <p>accordion content</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+      <!-- Цвет -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Цвет</h2>
+        <div class="kit__swatches">
+          <div><div class="kit__swatch" style="background: var(--color-text)"></div><p class="caption">--color-text · #16181D<br>Основной текст, заголовки</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-text-body)"></div><p class="caption">--color-text-body · #3C4250<br>Текст абзацев</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-text-muted)"></div><p class="caption">--color-text-muted · #6F7683<br>Подписи</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-brand)"></div><p class="caption">--color-brand · #164194<br>Маркеры, иконки</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-link)"></div><p class="caption">--color-link · #1C4FA3<br>Ссылки</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-brand-dark)"></div><p class="caption">--color-brand-dark · #192F7C<br>Тёмные полосы</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-bg-icon)"></div><p class="caption">--color-bg-icon · #DBE3F0<br>Подложка иконок</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-bg-header)"></div><p class="caption">--color-bg-header · #EAECEF<br>Фон шапки</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-bg-page)"></div><p class="caption">--color-bg-page · #F4F5F6<br>Фон страницы</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-bg-shape)"></div><p class="caption">--color-bg-shape · #E1E6EC<br>Параллелограммы</p></div>
+          <div><div class="kit__swatch" style="background: var(--color-card)"></div><p class="caption">--color-card · #FFFFFF<br>Карточки</p></div>
         </div>
-        <h2 style="margin-top: 40px;">3. Селект</h2>
-        <div class="example" style="margin-top: 20px;">
-          @@include("source/html/ui/select.html", {
-          button: 'Выберите',
-          value: '',
-          label: 'Область применения',
-          name: '',
-          required: 'false',
-          selectOptions: [
-          {value: 'Menu item', text: 'Menu item 1'},
-          {value: 'Menu item', text: 'Menu item 2'},
-          {value: 'Menu item', text: 'Menu item 3'}
-          ]
-          })
+      </section>
 
-          @@include("source/html/ui/select.html", {
-          button: 'Выберите',
-          value: '',
-          label: 'Область применения',
-          name: '',
-          required: 'false',
-          class: 'error',
-          selectOptions: [
-          {value: 'Menu item', text: 'Menu item 1'}
-          ]
-          })
+      <!-- Типографика -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Типографика</h2>
+        <div class="kit__item">
+          <p class="title-h1">Электромонтажные работы</p>
+          <p class="caption">.title-h1 · 52 / 29 SemiBold</p>
+          <p class="title-h2">О&nbsp;проекте</p>
+          <p class="caption">.title-h2 · 38 / 24 SemiBold</p>
+          <p class="title-h3">Инженерные изыскания</p>
+          <p class="caption">.title-h3 · 21 / 18 SemiBold</p>
+          <p class="text">Наша компания специализируется…</p>
+          <p class="caption">.text · 17 / 16 Medium</p>
+          <p class="text-card">Полный комплекс работ по&nbsp;монтажу</p>
+          <p class="caption">.text-card · 16 Medium</p>
+          <p class="caption">10.04.2025 · Заказчик — .caption · 14 Medium</p>
+          <a class="link" href="#">Ссылка .link</a>
         </div>
-        <h2 style="margin-top: 40px;">4. Чекбокс</h2>
-        <div class="example" style="margin-top: 20px;">
-          @@include("source/html/ui/checkbox.html",{
-          label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-          required: 'true'
-          })
-          <div style="background-color: black; padding: 16px">
-            @@include("source/html/ui/checkbox.html",{
-            label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-            required: 'true',
-            containerClass: 'label-white'
-            })
+      </section>
+
+      <!-- Кнопки -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Кнопки</h2>
+        <div class="kit__row">
+          <div class="kit__item">
+            @@include("source/html/ui/button.html", {"name": "Подробнее"})
+            <p class="caption">.btn · в карточке 200×55</p>
           </div>
-          @@include("source/html/ui/checkbox.html",{
-          label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-          required: 'true',
-          containerClass: 'has-danger'
-          })
-        </div>
-
-        <h2 style="margin-top: 40px;">5. Валидация</h2>
-        <div class="example" style="margin-top: 20px;">
-          <!--  novalidate обязателен -->
-          <form novalidate>
-            <div style="margin: 15px 0">
-              @@include("source/html/ui/input-text.html", {
-              placeholder: 'Имя*',
-              required: 'true',
-              type: 'name'
-              })
-            </div>
-            <div style="margin: 15px 0">
-              @@include("source/html/ui/input-phone.html", {
-              placeholder: 'Телефон*',
-              required: 'true',
-              name: 'phone',
-              })
-            </div>
-            <div style="margin: 15px 0">
-              @@include("source/html/ui/input-email.html", {
-              placeholder: 'Email*',
-              required: 'true',
-              })
-
-            </div>
-            @@include("source/html/ui/checkbox.html",{
-            label: 'Нажимая на кнопку «Отправить» я&nbsp;принимаю условия <a href="#" target="_blank">Политики конфиденциальности</a>',
-            required: 'true'
-            })
-
-            <div style="margin-top: 15px;">
-              @@include("source/html/ui/button.html",{
-              class: 'btn--orange',
-              type: 'submit',
-              name: 'Отправить'
-              })
-            </div>
-          </form>
-        </div>
-
-        <h2 style="margin-top: 40px;">6. Пагинация/фильтрация JS</h2>
-        <!-- data-pagination-wrapper общая обертка-->
-        <div data-pagination-wrapper="">
-          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-            <!--
-            выпадающие списки для фильтрации, сохраняют выбранные значения к квери параметры
-            синхронизируются относительно url
-            -->
-            <div style="width: 300px;">
-              @@include("source/html/ui/select.html", {
-              button: 'Выберите',
-              value: '',
-              label: 'Область 1',
-              name: '',
-              required: 'false',
-              paramsSearch: 'query1',
-              selectOptions: [
-              {value: 'Все', text: 'Все'},
-              {value: 'Menu item', text: 'Menu item 1'}
-              ]
-
-              })
-            </div>
-            <div style="width: 300px;">
-              @@include("source/html/ui/select.html", {
-              button: 'Выберите',
-              value: '',
-              label: 'Область 2',
-              name: '',
-              required: 'false',
-              paramsSearch: 'query2',
-              selectOptions: [
-              {value: 'Menu item 2', text: 'Menu item 2'},
-              {value: 'Menu item 3', text: 'Menu item 3'}
-              ]
-              })
-            </div>
+          <div class="kit__item">
+            @@include("source/html/ui/button.html", {"name": "Откликнуться", "class": "btn--lg"})
+            <p class="caption">.btn--lg · самостоятельная 240×66</p>
           </div>
-          <!--data-list-items="" вешаем на список элементов-->
-          <div data-list-items="" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px">
-            <div style="background-color: red; height: 100px;"></div>
-            <div style="background-color: rebeccapurple; height: 100px;"></div>
-            <div style="background-color: yellow; height: 100px;"></div>
-            <div style="background-color: red; height: 100px;"></div>
-            <div style="background-color: rebeccapurple; height: 100px;"></div>
-            <div style="background-color: yellow; height: 100px;"></div>
+          <div class="kit__item">
+            @@include("source/html/ui/button.html", {"tag": "a", "href": "#", "name": "Обсудить проект", "class": "btn--md"})
+            <p class="caption">.btn--md · мобильная 220×61, ссылка</p>
           </div>
-          <!-- data-show-more-button="" кнопка показать еще, скрывается, если с запроса она не придет
-
-           -->
-          <button data-show-more-button=""
-                  style="background-color: black; color: white;cursor: pointer; padding: 10px; margin: 10px auto; width: 100%;">
-            Показать еще
-          </button>
-
-          <!--
-          data-pagination="" ссылки вешаются на беке, наша задача отправить запрос и обновить страницы
-          is-active приходит с бека, онбволять нам не нужно
-          -->
-          <div data-pagination="" style="display: flex; justify-content: center">
-            <a href="#" style="padding: 10px; background-color: lightblue" class="is-active">1</a>
-            <a href="#" style="padding: 10px">2</a>
-            <a href="#" style="padding: 10px">3</a>
-            <span href="#" style="padding: 10px">...</span>
-            <a href="#" style="padding: 10px">10</a>
+          <div class="kit__item">
+            @@include("source/html/ui/button.html", {"name": "Подробнее", "disabled": true})
+            <p class="caption">.btn:disabled</p>
+          </div>
+          <div class="kit__item">
+            <button class="btn-secondary" type="button">Показать ещё</button>
+            <p class="caption">.btn-secondary · вторичная 240×60</p>
+          </div>
+          <div class="kit__item">
+            <button class="btn-secondary" type="button" disabled>Показать ещё</button>
+            <p class="caption">.btn-secondary:disabled</p>
           </div>
         </div>
-      </div>
-    </section>
+        <p class="caption kit__subtitle">Состояния: hover — светлее и приподнимается, focus (клавиатура) — рамка #1C4FA3, active — темнее и вдавливается, disabled — обесцвечена.</p>
+      </section>
+
+      <!-- Фильтры и маркеры -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Фильтры и&nbsp;маркеры</h2>
+        <div class="kit__row">
+          <div class="kit__item">
+            <div class="chips">
+              @@include("source/html/ui/chip.html", {"name": "Все", "param": "category", "value": "", "active": true})
+              @@include("source/html/ui/chip.html", {"name": "Новости", "param": "category", "value": "news"})
+              @@include("source/html/ui/chip.html", {"name": "СМИ о&nbsp;нас", "param": "category", "value": "press"})
+              @@include("source/html/ui/chip.html", {"name": "Корпоративный досуг", "param": "category", "value": "leisure"})
+            </div>
+            <p class="caption">.chip · скос 13°, высота 44</p>
+          </div>
+          <div class="kit__item">
+            <ul class="list-marked">
+              <li>пункт маркированного списка</li>
+              <li>ещё один пункт</li>
+            </ul>
+            <p class="caption">.list-marked · маркер 12×8, скос 20°</p>
+          </div>
+          <div class="kit__item">
+            @@include("source/html/ui/icon-plate.html", {"icon": "icon-shield"})
+            <p class="caption">.icon-plate · 56×56, иконка 26×26</p>
+          </div>
+          <div class="kit__item">
+            @@include("source/html/ui/slider-arrows.html")
+            <p class="caption">.slider-arrow · 56×56</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Карточки -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Карточки</h2>
+        <div class="cards-grid">
+          @@include("source/html/components/card-service.html", {
+            "title": "Инженерные изыскания",
+            "text": "Полный комплекс работ по&nbsp;проектированию, монтажу и&nbsp;пусконаладке",
+            "href": "/services/"
+          })
+          @@include("source/html/components/card-news.html", {
+            "img": "vremena",
+            "rubric": "Новости",
+            "title": "Название новости",
+            "date": "10.04.2025",
+            "text": "Это тестовый контент, который не&nbsp;должен нести смысла…",
+            "href": "/media/"
+          })
+          @@include("source/html/components/card-value.html", {
+            "number": "01.",
+            "icon": "icon-shield",
+            "title": "Надёжность",
+            "text": "Мы&nbsp;выполняем свои обязательства в&nbsp;полном объёме и&nbsp;в&nbsp;срок."
+          })
+        </div>
+      </section>
+
+      <!-- Галерея -->
+      <section class="kit__section gallery" data-slider-wrapper>
+        <h2 class="title-h2">Галерея</h2>
+        <div class="swiper" data-slider>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="assets/img/panel.webp" width="447" height="335" alt="" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/site.webp" width="447" height="335" alt="" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/site2.webp" width="447" height="335" alt="" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/worker.webp" width="447" height="335" alt="" loading="lazy"></div>
+          </div>
+        </div>
+        @@include("source/html/ui/slider-arrows.html")
+      </section>
+
+      <!-- Фирменные элементы -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Фирменные элементы</h2>
+        <div class="kit__item">
+          <div class="kit__demo bg-grid" style="width: 100%"></div>
+          <p class="caption">.bg-grid · косая сетка 20,3°</p>
+          <div class="double-line" style="width: 100%"></div>
+          <p class="caption">.double-line · две линии по&nbsp;1px через 1px</p>
+        </div>
+      </section>
+
+      <!-- Форма -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Форма</h2>
+        <!-- novalidate обязателен -->
+        <form class="kit__form" novalidate>
+          @@include("source/html/ui/input-text.html", {"placeholder": "Имя*", "required": "true", "type": "name"})
+          @@include("source/html/ui/input-phone.html", {"placeholder": "Телефон*", "required": "true", "name": "phone"})
+          @@include("source/html/ui/input-email.html", {"placeholder": "Email*", "required": "true"})
+          @@include("source/html/ui/checkbox.html", {
+            "label": "Нажимая на&nbsp;кнопку «Отправить» я&nbsp;принимаю условия <a href=\"#\" target=\"_blank\">Политики конфиденциальности</a>",
+            "required": "true"
+          })
+          @@include("source/html/ui/button.html", {"type": "submit", "name": "Отправить", "class": "btn--lg"})
+        </form>
+      </section>
+
+      <!-- Пагинация / фильтрация -->
+      <section class="kit__section" data-pagination-wrapper>
+        <h2 class="title-h2 kit__title">Фильтрация и&nbsp;«Показать ещё»</h2>
+        <!-- data-filter — имя query-параметра, data-filter-value — значение (пустое = «Все») -->
+        <div class="chips">
+          @@include("source/html/ui/chip.html", {"name": "Все", "param": "category", "value": "", "active": true})
+          @@include("source/html/ui/chip.html", {"name": "Новости", "param": "category", "value": "news"})
+          @@include("source/html/ui/chip.html", {"name": "СМИ о&nbsp;нас", "param": "category", "value": "press"})
+        </div>
+        <!-- data-list-items — список карточек, заменяется ответом сервера -->
+        <div class="cards-grid" style="margin-top: var(--space-title)" data-list-items>
+          @@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
+          @@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "СМИ о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
+          @@include("source/html/components/card-news.html", {"img": "worker", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
+        </div>
+        <!-- data-show-more-button скрывается, если не придёт в ответе -->
+        <div style="margin-top: var(--space-more); text-align: center">
+          <button class="btn-secondary" type="button" data-show-more-button data-href="?page=2">Показать ещё</button>
+        </div>
+      </section>
+
+    </div>
   </main>
   @@include("source/html/base/footer.html")
 </div>
-@@include("source/html/components/modal-1.html")
-@@include("source/html/components/modal-2.html")
 @@include("source/html/base/scripts.html")
 </body>
 </html>

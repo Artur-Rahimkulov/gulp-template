@@ -5,32 +5,33 @@
 
 // Global
 // ---------------------------------
-@import 'variables';
 @import 'breakpoints';
 @import 'mixins';
+@import 'variables';
 @import 'global/fonts';
 @import 'global/reboot';
 @import 'global/utils';
 @import 'global/container';
+@import 'global/typography';
+@import 'global/decor';
 
 // Components
 // ---------------------------------
-
-@import 'components/modal';
-@import 'components/accordion';
-@import 'components/example';
 @import 'components/header';
 @import 'components/footer';
+@import 'components/cards';
+@import 'components/ui-kit';
 
 // Ui
 // ---------------------------------
-
 @import 'ui/btn';
-@import 'ui/select';
+@import 'ui/chip';
+@import 'ui/list';
+@import 'ui/icon-plate';
+@import 'ui/slider-arrow';
 @import 'ui/checkbox';
 @import 'ui/input';
 
-
 // ---------------------------------
 
-// адаптив пишем внутри каждого класса (смотрим container.scss)
+// адаптив пишем внутри каждого класса через @include vp-mobile (переключение на 900px)

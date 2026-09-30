@@ -1,0 +1,70 @@
+// Стрелка листания 56×56. Неактивная — прозрачность 50 %
+.slider-arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 5.6rem;
+	height: 5.6rem;
+	padding: 0;
+
+	font-family: inherit;
+	font-size: 1.8rem;
+	line-height: 2rem;
+	font-weight: 500;
+	color: var(--color-brand);
+
+	background-color: var(--color-white);
+	border: 0.1rem solid var(--color-border);
+	outline: none;
+	cursor: pointer;
+	transition:
+		color var(--default-transition),
+		background-color var(--default-transition),
+		border-color var(--default-transition),
+		opacity var(--default-transition);
+
+	@include hover {
+		border-color: var(--color-brand);
+	}
+
+	@include focus {
+		outline: 0.2rem solid var(--color-link);
+		outline-offset: 0.3rem;
+	}
+
+	@include active {
+		color: var(--color-white);
+		background-color: var(--color-brand);
+		border-color: var(--color-brand);
+	}
+
+	&:disabled,
+	&.swiper-button-disabled {
+		opacity: 0.5;
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+.slider-arrows {
+	display: flex;
+	gap: 1rem;
+}
+
+// Галерея на Swiper: на мобильной — лента с прокруткой, кадр 316
+.gallery {
+	display: grid;
+	gap: var(--space-block);
+
+	.swiper-slide {
+		@include vp-mobile {
+			width: 31.6rem;
+		}
+
+		img {
+			width: 100%;
+			aspect-ratio: 4 / 3;
+			object-fit: cover;
+		}
+	}
+}

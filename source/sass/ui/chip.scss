@@ -1,0 +1,60 @@
+// Чип фильтра — скос 13°, высота 44. Активный — синяя плашка, белый текст.
+.chip {
+	@include skew-bg(var(--skew-chip), var(--color-white));
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 4.4rem;
+	padding: 0 2.2rem;
+
+	font-family: inherit;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	font-weight: 500;
+	color: var(--color-text-body);
+	white-space: nowrap;
+
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: color var(--default-transition);
+
+	@include hover {
+		color: var(--color-brand);
+	}
+
+	@include focus {
+		&::before {
+			box-shadow: 0 0 0 0.2rem var(--color-link);
+		}
+	}
+
+	@include active {
+		&::before {
+			background-color: var(--color-bg-icon);
+		}
+	}
+
+	&.is-active {
+		color: var(--color-white);
+		cursor: default;
+
+		&::before {
+			background-color: var(--color-brand);
+		}
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	padding-left: 1rem; // скос выходит за левую границу
+}

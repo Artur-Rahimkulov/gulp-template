@@ -1,3 +1,59 @@
-<header class="header">
-    <div class="container">header</div>
+<!-- активный пункт меню: @@include("source/html/base/header.html", {"active": "projects"})
+     значения: main, services, projects, career, about, media, contacts -->
+<header class="header bg-grid" data-header>
+  <div class="container header__inner">
+    <img class="header__decor header__decor--tiles" src="assets/img/tiles-small.webp" width="180" height="66" alt="" aria-hidden="true">
+    <span class="header__decor header__decor--flat" aria-hidden="true"></span>
+    <img class="header__decor header__decor--slab" src="assets/img/slab-blue.webp" width="372" height="372" alt="" aria-hidden="true">
+    <img class="header__decor header__decor--tiles-2" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
+
+    <a class="header__logo" href="/" aria-label="Инженерный центр Крафт — на главную">
+      <img src="assets/img/logo.webp" width="226" height="42" alt="Инженерный центр Крафт">
+    </a>
+
+    <div class="header__menu bg-grid" id="header-menu" data-header-menu>
+      <div class="header__menu-top">
+        <a class="header__logo" href="/" aria-label="Инженерный центр Крафт — на главную">
+          <img src="assets/img/logo.webp" width="150" height="28" alt="Инженерный центр Крафт">
+        </a>
+        <button class="header__toggle" type="button" aria-label="Закрыть меню" data-header-close>
+          <img src="assets/svg/close.svg" width="20" height="20" alt="">
+        </button>
+      </div>
+
+      <nav class="header__nav" aria-label="Основное меню">
+        <ul class="header__list">
+          <li><a class="header__link @@if (context.active === 'main') {is-active}" href="/">Главная</a></li>
+          <li><a class="header__link @@if (context.active === 'services') {is-active}" href="/services/">Услуги</a></li>
+          <li><a class="header__link @@if (context.active === 'projects') {is-active}" href="/projects/">Проекты</a></li>
+          <li><a class="header__link @@if (context.active === 'career') {is-active}" href="/career/">Карьера</a></li>
+          <li><a class="header__link @@if (context.active === 'about') {is-active}" href="/about/">О компании</a></li>
+          <li><a class="header__link @@if (context.active === 'media') {is-active}" href="/media/">Медиа</a></li>
+          <li><a class="header__link @@if (context.active === 'contacts') {is-active}" href="/contacts/">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__contacts">
+        <p class="header__label">Телефон:</p>
+        <a class="header__contact-phone" href="tel:+73472164324">+7 (347) 216-43-24</a>
+        <a class="link header__email" href="mailto:102kraft@gmail.com">102kraft@gmail.com</a>
+        <p class="header__label">Адрес:</p>
+        <p class="header__address">450100, ул. Маршала Жукова, д.&nbsp;3/1, 1-й&nbsp;этаж</p>
+        @@include("source/html/ui/button.html", {
+          "tag": "a",
+          "href": "/contacts/",
+          "class": "btn--md header__btn",
+          "name": "Обсудить проект"
+        })
+      </div>
+    </div>
+
+    <a class="header__phone" href="tel:+73472164324">+7 (347) 216 43 24</a>
+
+    <button class="header__toggle header__burger" type="button" aria-label="Открыть меню" aria-controls="header-menu" aria-expanded="false" data-header-open>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </header>

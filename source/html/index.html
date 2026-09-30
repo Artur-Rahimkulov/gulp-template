@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include("source/html/base/head.html", { "title": "Главная" })
+	@@include("source/html/base/head.html", { "title": "Разводящая страница" })
 	<body>
 		<div class="wrapper">
 			@@include("source/html/base/header.html")
-			<main>
-				<section class="intro">
-					<div class="container">
-                        <h1>Разводящая страница</h1>
-                        <p>На многостраничных сайтах используйте эту страницу для создания списков всех страниц и ссылок на них.</p>
-                        <h2>Список страниц</h2>
-                        <ol>
-                        <li style="margin-top: 10px;">
-                            <a href="main.html" style="color: blue;">Главная — main.html</a>
-                        </li>
-                        <li style="margin-top: 10px;">
-                            <a href="ui-kit.html" style="color: blue;">Готовые компоненты — ui-kit.html</a>
-                        </li>
-                        </ol>
-					</div>
-				</section>
+			<main class="kit">
+				<div class="container">
+					<h1 class="title-h1">Разводящая страница</h1>
+					<p class="text" style="margin: 2.4rem 0 4rem">Список всех страниц проекта.</p>
+					<ul class="list-marked">
+						<li><a class="link" href="main.html">Главная — main.html</a></li>
+						<li><a class="link" href="ui-kit.html">Компоненты и токены — ui-kit.html</a></li>
+					</ul>
+				</div>
 			</main>
 			@@include("source/html/base/footer.html")
 		</div>

@@ -1,18 +1,7 @@
+// Контентная колонка: 1400 на десктопе 1920 (поля 260), 358 на мобильной 390 (поля 16)
 .container {
 	width: 100%;
-	max-width: 192rem;
+	max-width: calc(var(--content-width) + var(--container-padding) * 2);
 	margin: 0 auto;
-	padding: 0 40px;
-
-	@include vp-1440 {
-		padding: 0 3.2rem;
-	}
-
-	@include vp-1024 {
-		padding: 0 2.4rem;
-	}
-
-	@include vp-768 {
-		padding: 0 1.6rem;
-	}
+	padding: 0 var(--container-padding);
 }

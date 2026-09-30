@@ -1,33 +1,22 @@
-import { modals } from './modules/modals';
-import { accordion } from './modules/accordion';
-import { sliders } from './modules/sliders';
-import { select } from './modules/select';
-import {validateForms} from "./modules/validateForms.js";
-import {inputPhone} from "./modules/input-phone.js";
-import {pagination} from "./modules/pagination.js";
-import {DynamicAdapt} from "./modules/dynamicAdapt.js";
+import { header } from './modules/header.js';
+import { sliders } from './modules/sliders.js';
+import { validateForms } from './modules/validateForms.js';
+import { inputPhone } from './modules/input-phone.js';
+import { pagination } from './modules/pagination.js';
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
 // в load следует добавить скрипты, не участвующие в работе первого экрана
 
 window.addEventListener('DOMContentLoaded', () => {
-	// Utils
-    inputPhone()
-
-	// ---------------------------------
-
 	// Modules
-	DynamicAdapt.init();
+	header();
+	inputPhone();
 	// ---------------------------------
 
 	window.addEventListener('load', () => {
-		modals();
-		accordion();
 		sliders();
-		select();
-        validateForms();
-        pagination();
-
+		validateForms();
+		pagination();
 	});
 });
 

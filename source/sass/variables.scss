@@ -1,21 +1,113 @@
+// Токены из Figma: «08 Основы» и «09 Компоненты».
+// Правила использования — в design-rules.md в корне проекта.
+
 :root {
     // Colors
     // ---------------------------------
-    // Default
-    --color-black: #000000;
     --color-white: #ffffff;
     --color-transparent: rgba(255, 255, 255, 0);
-    --color-overlay: rgba(0, 0, 0, 0.5);
 
-    // Project palette
-    // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
-    --color-neon-blue: #2c39f2;
-    --color-torch-red: #ff1553;
-    --color-zirkon: #DBE8EA;
+    // Текст
+    --color-text: #16181d;           // основной текст, заголовки
+    --color-text-body: #3c4250;      // текст абзацев
+    --color-text-muted: #6f7683;     // подписи, второстепенный текст
 
-    // Gradient
-    --black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+    // Фирменные
+    --color-brand: #164194;          // фирменный синий: маркеры, иконки
+    --color-link: #1c4fa3;           // ссылки
+    --color-brand-dark: #192f7c;     // тёмные полосы и синие блоки
+    --color-brand-flat: #1a5398;     // плоская синяя плашка в шапке
+
+    // Фоны
+    --color-bg-page: #f4f5f6;        // фон страницы
+    --color-bg-header: #eaecf0;      // полоса первого экрана, фон шапки
+    --color-bg-footer: #f6f6f7;      // фон подвала
+    --color-bg-shape: #e1e6ec;       // фоновые параллелограммы
+    --color-bg-icon: #dbe3f0;        // подложка под иконками
+    --color-card: #ffffff;           // карточки
+
+    // Служебные
+    --color-border: #e3e5e9;         // рамка вторичной кнопки, стрелок
+    --color-number: #eff0f4;         // номер в карточке «Ценности»
+    --color-divider: rgba(22, 24, 29, 0.07);
+    --color-line: rgba(22, 24, 29, 0.09);
+    --color-grid-line: rgba(20, 45, 100, 0.06);
+    --color-double-line: rgba(20, 45, 100, 0.35);
+    --color-overlay: rgba(22, 24, 29, 0.5);
+    --color-error: #d23c3c;          // ошибки форм (в макете не отрисованы)
+
+    // Shadows
+    // ---------------------------------
+    --shadow-card: 0 1.8rem 3.6rem 0 rgba(20, 40, 90, 0.09);
+    --shadow-menu: 0 1.4rem 2.8rem -0.6rem rgba(20, 40, 90, 0.1);
+    --shadow-burger: 0 0.8rem 2rem 0 rgba(20, 40, 90, 0.12);
+
+    // Скосы
+    // ---------------------------------
+    --skew-menu: -20.3deg;           // плашка меню, рубрика новости, косая сетка
+    --skew-chip: -13deg;             // чип фильтра, маркер активного пункта
+    --skew-marker: -20deg;           // маркер списка
+    --skew-card: -5deg;              // карточка «Ценности», подложка иконки
+
+    // Typography
+    // ---------------------------------
+    --font-family: 'Montserrat', 'Arial', sans-serif;
+
+    --fs-h1: 5.2rem;   --lh-h1: 6.5rem;
+    --fs-h2: 3.8rem;   --lh-h2: 4.8rem;
+    --fs-h3: 2.1rem;   --lh-h3: 2.6rem;
+    --fs-body: 1.7rem; --lh-body: 2.1rem;
+    --fs-card: 1.6rem; --lh-card: 2.7rem;
+    --fs-caption: 1.4rem; --lh-caption: 1.8rem;
+    --fs-btn: 1.2rem;  --lh-btn: 1.6rem;
+    --ls-btn: 0.06rem;
+
+    // Grid & spacing (десктоп / мобильная ниже)
+    // ---------------------------------
+    --content-width: 140rem;
+    --container-padding: 4rem;
+
+    --space-hero: 6rem;              // поля первого экрана сверху и снизу
+    --space-title: 4rem;             // заголовок раздела → контент
+    --gap-cards: 3rem;               // между карточками в сетке
+    --space-block: 4rem;             // между блоками внутри секции
+    --space-block-lg: 6rem;
+    --space-more: 6rem;              // перед «Показать ещё» и формой
+    --space-section: 11rem;          // низ секции → разделительная линия
+    --space-section-top: 11rem;      // линия → заголовок следующей секции
+    --space-page-bottom: 11rem;      // нижнее поле макета
+    --card-padding: 3.6rem;          // внутреннее поле карточки
+    --card-value-padding: 5.8rem;    // внутреннее поле карточки «Ценности»
+
+    --grid-step: 61.5rem;            // шаг косой сетки по перпендикуляру (656 по горизонтали)
+    --grid-line-width: 0.2rem;
 
     // Transition
+    // ---------------------------------
     --default-transition: 0.3s ease;
+
+    @include vp-mobile {
+        --fs-h1: 2.9rem;   --lh-h1: 3.8rem;
+        --fs-h2: 2.4rem;   --lh-h2: 3.1rem;
+        --fs-h3: 1.8rem;   --lh-h3: 2.3rem;
+        --fs-body: 1.6rem; --lh-body: 2.1rem;
+        --fs-card: 1.6rem; --lh-card: 2.1rem;
+
+        --container-padding: 1.6rem;
+
+        --space-hero: 2.8rem;
+        --space-title: 2.4rem;
+        --gap-cards: 2.4rem;
+        --space-block: 2.4rem;
+        --space-block-lg: 4rem;
+        --space-more: 4rem;
+        --space-section: 6rem;
+        --space-section-top: 4.6rem;
+        --space-page-bottom: 6rem;
+        --card-padding: 1.8rem;
+        --card-value-padding: 1.8rem;
+
+        --grid-step: 28.1rem;        // 300 по горизонтали
+        --grid-line-width: 0.1rem;
+    }
 }

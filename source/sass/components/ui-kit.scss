@@ -1,0 +1,55 @@
+// Стили только для страницы-витрины ui-kit.html
+.kit {
+	padding: var(--space-hero) 0 var(--space-page-bottom);
+}
+
+.kit__section {
+	& + & {
+		margin-top: var(--space-section-top);
+	}
+}
+
+.kit__title {
+	margin-bottom: var(--space-title);
+}
+
+.kit__subtitle {
+	margin: var(--space-block) 0 2rem;
+}
+
+.kit__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 3rem 5rem;
+}
+
+.kit__item {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.4rem;
+}
+
+.kit__swatches {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+	gap: 3rem 3.6rem;
+}
+
+.kit__swatch {
+	height: 8.8rem;
+	margin-bottom: 1.2rem;
+	border: 0.1rem solid #dbdee3;
+}
+
+.kit__demo {
+	height: 26rem;
+	background-color: var(--color-white);
+}
+
+.kit__form {
+	display: grid;
+	gap: 1.6rem;
+	max-width: 48rem;
+}

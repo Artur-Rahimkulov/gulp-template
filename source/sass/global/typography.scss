@@ -1,0 +1,64 @@
+// Montserrat — Regular, Medium, SemiBold. Размеры меняются через токены на 900px.
+// Во всех текстах неразрывные пробелы после предлогов и союзов и перед тире — при переносе сохранять.
+
+.title-h1,
+.title-h2,
+.title-h3 {
+	margin: 0;
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.title-h1 {
+	font-size: var(--fs-h1);
+	line-height: var(--lh-h1);
+}
+
+.title-h2 {
+	font-size: var(--fs-h2);
+	line-height: var(--lh-h2);
+}
+
+.title-h3 {
+	font-size: var(--fs-h3);
+	line-height: var(--lh-h3);
+}
+
+.text {
+	margin: 0;
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+	color: var(--color-text-body);
+}
+
+.text-card {
+	margin: 0;
+	font-size: var(--fs-card);
+	line-height: var(--lh-card);
+	color: var(--color-text-muted);
+}
+
+.caption {
+	margin: 0;
+	font-size: var(--fs-caption);
+	line-height: var(--lh-caption);
+	color: var(--color-text-muted);
+}
+
+// Ссылки: подчёркивание на месте, цвет #1C4FA3
+.link {
+	color: var(--color-link);
+	text-decoration: underline;
+	text-decoration-thickness: 0.1rem;
+	text-underline-offset: 0.4rem;
+	transition: color var(--default-transition), text-decoration-color var(--default-transition);
+
+	@include hover-focus {
+		color: var(--color-brand-dark);
+	}
+
+	@include focus {
+		outline: 0.2rem solid var(--color-link);
+		outline-offset: 0.2rem;
+	}
+}

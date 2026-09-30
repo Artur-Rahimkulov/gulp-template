@@ -1,46 +1,26 @@
-import Swiper from "swiper";
-import { Pagination, Autoplay } from "swiper/modules";
+import Swiper from 'swiper'
+import { Navigation } from 'swiper/modules'
 
-
-// пример инициализации слайдера
+// Галереи: листание стрелками, на мобильной — лента с прокруткой.
+// Разметка: [data-slider] > .swiper-wrapper > .swiper-slide, стрелки — source/html/ui/slider-arrows.html
 export const sliders = () => {
-	// const organizersSlider = document.querySelector('[data-slider="organizers"]');
-	// if (organizersSlider) {
-	// 	const organizersPagination = organizersSlider.querySelector('[data-slider-pagination]');
-	// 	new Swiper(organizersSlider, {
-	// 		modules: [Pagination, Autoplay],
-	// 		loop: true,
-	// 		slideToClickedSlide: false,
-	// 		simulateTouch: true,
-	// 		touchRatio: 1,
-	// 		speed: 700,
-	// 		autoplay: {
-	// 			delay: 2800,
-	// 			// Отключить после ручного перетаскивания
-	// 			disableOnInteraction: false
-	// 		},
-	// 		breakpoints: {
-	// 			0: {
-	// 				slidesPerView: 1,
-	// 				spaceBetween: 10,
-	// 			},
-	// 			576: {
-	// 				slidesPerView: 2,
-	// 				spaceBetween: 10,
-	// 			},
-	// 			1281: {
-	// 				slidesPerView: 3,
-	// 				spaceBetween: 20,
-	// 			},
-	// 		},
-	// 		pagination: {
-	// 			el: organizersPagination,
-	// 			clickable: 'true',
-	// 			type: 'bullets',
-	// 			renderBullet: function (className) {
-	// 				return '<span class="' + className + '">' + '<i></i>' + '<b></b>'  + '</span>';
-	// 			},
-	// 		}
-	// 	});
-	// }
+  document.querySelectorAll('[data-slider]').forEach((slider) => {
+    const wrapper = slider.closest('[data-slider-wrapper]') || slider.parentElement
+
+    new Swiper(slider, {
+      modules: [Navigation],
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      navigation: {
+        prevEl: wrapper.querySelector('[data-slider-prev]'),
+        nextEl: wrapper.querySelector('[data-slider-next]'),
+      },
+      breakpoints: {
+        900: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    })
+  })
 }

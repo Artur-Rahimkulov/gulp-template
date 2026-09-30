@@ -1,0 +1,17 @@
+// Иконка на подложке — подложка 56×56 со скосом 5°, иконка 26×26, линия 1,8
+.icon-plate {
+	@include skew-bg(var(--skew-card), var(--color-bg-icon));
+
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 5.6rem;
+	height: 5.6rem;
+
+	img,
+	svg {
+		width: 2.6rem;
+		height: 2.6rem;
+	}
+}

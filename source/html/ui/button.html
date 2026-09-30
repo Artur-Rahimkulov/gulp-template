@@ -1,12 +1,21 @@
+<!-- Основная кнопка (фон — изображение btn.png)
+     параметры: name, class (btn--lg | btn--md), tag ("a" для ссылки), href, type, disabled, id, dataAttrString -->
+@@if (context.tag === 'a') {
+<a
+  class="btn @@if (context.class) {@@class}"
+  href="@@href"
+  @@if (context.id) {id="@@id"}
+  @@if (context.dataAttrString) {@@dataAttrString}
+  @@if (context.disabled) {aria-disabled="true" tabindex="-1"}
+>@@name</a>
+}
+@@if (context.tag !== 'a') {
 <button
-  class="btn @@class"
-  @@if(context.type){type="@@type"}
-  @@if(context.dataAttrString){@@dataAttrString}
-  @@if(context.disabled){disabled="disabled"}
-  @@if(context.id){id="@@id"}
->
-  @@if(context.icon){
-  <span>@@icon</span>
-  }
-  <span>@@name</span>
-</button>
+  class="btn @@if (context.class) {@@class}"
+  @@if (context.type) {type="@@type"}
+  @@if (!context.type) {type="button"}
+  @@if (context.id) {id="@@id"}
+  @@if (context.dataAttrString) {@@dataAttrString}
+  @@if (context.disabled) {disabled}
+>@@name</button>
+}

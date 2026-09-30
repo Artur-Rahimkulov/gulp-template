@@ -5,7 +5,7 @@ export const pagination = () => {
   const list = wrapper.querySelector('[data-list-items]')
   const paginationEl = wrapper.querySelector('[data-pagination]')
   let showMoreBtn = wrapper.querySelector('[data-show-more-button]')
-  const selects = wrapper.querySelectorAll('[data-select="select"]')
+  const filters = wrapper.querySelectorAll('[data-filter]')
 
   // ------------------------
   // загрузка
@@ -70,21 +70,30 @@ export const pagination = () => {
   }
 
   // ------------------------
-  // селекты
+  // фильтры-чипы
   // ------------------------
 
-  const handleSelect = (select, option) => {
-    const paramName = select.dataset.paramsSearch
-    const value = option.dataset.value
+  const setActiveFilter = (paramName, value) => {
+    filters.forEach(chip => {
+      if (chip.dataset.filter !== paramName) return
+      chip.classList.toggle('is-active', chip.dataset.filterValue === value)
+    })
+  }
+
+  const handleFilter = (chip) => {
+    const paramName = chip.dataset.filter
+    const value = chip.dataset.filterValue
 
     const url = new URL(window.location.href)
 
-    if (value === 'Все') {
-      url.searchParams.delete(paramName)
-    } else {
+    // пустое значение — «Все»
+    if (value) {
       url.searchParams.set(paramName, value)
+    } else {
+      url.searchParams.delete(paramName)
     }
 
+    setActiveFilter(paramName, value)
     load(url.toString())
   }
 
@@ -117,41 +126,13 @@ export const pagination = () => {
     }
   }
 
-  // инициализация квери параметров
-  const initSelectsFromUrl = () => {
+  // инициализация фильтров из квери параметров
+  const initFiltersFromUrl = () => {
     const url = new URL(window.location.href)
+    const params = new Set(Array.from(filters, chip => chip.dataset.filter))
 
-    selects.forEach(select => {
-
-      const paramName = select.dataset.paramsSearch
-      if (!paramName) return
-
-      const valueFromUrl = url.searchParams.get(paramName)
-      if (!valueFromUrl) return
-      const options = select.querySelectorAll('[data-select="option"]')
-      const buttonTitle = select.querySelector('[data-select="button"] .select__title span')
-      const input = select.querySelector('input')
-
-      options.forEach(option => {
-        const value = option.dataset.value
-
-        if (value === valueFromUrl) {
-          // активный пункт
-          option.classList.add('is-selected')
-
-          // обновляем текст кнопки
-          if (buttonTitle) {
-            buttonTitle.textContent = option.textContent.trim()
-          }
-
-          // обновляем input
-          if (input) {
-            input.value = value
-          }
-        } else {
-          option.classList.remove('is-selected')
-        }
-      })
+    params.forEach(paramName => {
+      setActiveFilter(paramName, url.searchParams.get(paramName) || '')
     })
   }
 
@@ -194,15 +175,13 @@ export const pagination = () => {
     load(currentUrl.toString(), true)
   })
 
-  // селекты
-  selects?.forEach(select => {
-    select.addEventListener('click', (e) => {
-      const option = e.target.closest('[data-select="option"]')
-      if (!option) return
-
-      handleSelect(select, option)
+  // фильтры
+  filters.forEach(chip => {
+    chip.addEventListener('click', () => {
+      if (chip.classList.contains('is-active')) return
+      handleFilter(chip)
     })
-  });
+  })
 
-  initSelectsFromUrl()
+  initFiltersFromUrl()
 }

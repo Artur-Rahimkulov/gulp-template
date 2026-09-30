@@ -1,0 +1,44 @@
+// Фирменные элементы
+
+// Косая сетка: наклон 20,3°, шаг 656 на десктопе и 300 на мобильной, толщина 2 и 1, прозрачность 6 %
+.bg-grid {
+	background-image: repeating-linear-gradient(
+		110.3deg,
+		transparent 0,
+		transparent calc(var(--grid-step) - var(--grid-line-width)),
+		var(--color-grid-line) calc(var(--grid-step) - var(--grid-line-width)),
+		var(--color-grid-line) var(--grid-step)
+	);
+}
+
+// Двойная линия на границе секций: две линии по 1px через 1px
+.double-line {
+	height: 0.3rem;
+	border-top: 0.1rem solid var(--color-double-line);
+	border-bottom: 0.1rem solid var(--color-double-line);
+}
+
+// Одиночная разделительная линия
+.divider {
+	height: 0.1rem;
+	background-color: var(--color-line);
+}
+
+// Сетка карточек: 2, 3 и 4 колонки на десктопе — одна на мобильной
+.cards-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+	gap: var(--gap-cards);
+
+	&--2 {
+		--cols: 2;
+	}
+
+	&--4 {
+		--cols: 4;
+	}
+
+	@include vp-mobile {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

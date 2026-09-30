@@ -1,0 +1,169 @@
+// Тень карточки: смещение 0 / 18, размытие 36, цвет #142859 при 9 %.
+// Кнопка в карточке всегда прижата к низу — одинаковое поле под ней во всех карточках ряда.
+
+// Карточка услуги
+.card-service {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: calc(var(--card-padding) - 0.2rem) var(--card-padding) var(--card-padding);
+	background-color: var(--color-card);
+	box-shadow: var(--shadow-card);
+
+	&__title {
+		margin: 0 0 2rem;
+		font-size: var(--fs-h3);
+		line-height: 2.8rem;
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	&__text {
+		margin: 0 0 1.6rem;
+	}
+
+	&__btn {
+		margin-top: auto;
+	}
+}
+
+// Карточка новости — фото 16:10, рубрика на скошенной плашке
+.card-news {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: var(--color-card);
+	box-shadow: var(--shadow-card);
+
+	&__media {
+		position: relative;
+		aspect-ratio: 16 / 10;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.6s ease;
+		}
+	}
+
+	&__rubric {
+		@include skew-bg(var(--skew-chip), var(--color-white));
+
+		position: absolute;
+		top: 1.8rem;
+		left: 2.2rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 9.6rem;
+		height: 3.2rem;
+		padding: 0 1.4rem;
+		font-size: 1.2rem;
+		line-height: 1.6rem;
+		font-weight: 600;
+		color: var(--color-brand);
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		padding: 2.8rem 3rem 2.4rem;
+
+		@include vp-mobile {
+			padding: 2rem var(--card-padding) 2rem;
+		}
+	}
+
+	&__head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 2rem;
+		margin-bottom: 1.3rem;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 1.9rem;
+		line-height: 2.5rem;
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	&__date {
+		flex-shrink: 0;
+		padding-top: 0.2rem;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		color: var(--color-text-muted);
+	}
+
+	&__text {
+		margin: 0 0 0.2rem;
+		line-height: 2.6rem;
+	}
+
+	&__link {
+		align-self: flex-start;
+		margin-top: auto;
+		font-size: 1.5rem;
+		line-height: 2.2rem;
+
+		// вся карточка кликабельна
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	@include hover {
+		.card-news__media img {
+			transform: scale(1.04);
+		}
+	}
+}
+
+// Карточка «Ценности» — подложка со скосом 5°, номер #EFF0F4
+.card-value {
+	@include skew-bg(var(--skew-card), var(--color-card));
+
+	display: flex;
+	flex-direction: column;
+	min-height: 36rem;
+	padding: 3.8rem var(--card-value-padding) 4rem calc(var(--card-value-padding) - 0.2rem);
+
+	&::before {
+		box-shadow: var(--shadow-card);
+	}
+
+	@include vp-mobile {
+		min-height: 0;
+		margin: 0 1.6rem; // скос не должен вылетать за контентную колонку
+		padding: 2.4rem var(--card-value-padding);
+	}
+
+	&__number {
+		margin: 0 0 2.8rem;
+		font-size: 5.4rem;
+		line-height: 5.4rem;
+		font-weight: 600;
+		color: var(--color-number);
+	}
+
+	&__icon {
+		margin: 0 0 2.4rem 0.2rem;
+	}
+
+	&__title {
+		margin: 0 0 1rem;
+		font-size: var(--fs-h3);
+		line-height: 2.8rem;
+		font-weight: 600;
+		color: var(--color-text);
+	}
+}
