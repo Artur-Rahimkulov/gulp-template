@@ -1,5 +1,6 @@
-<!-- Стрелки листания. Swiper сам ставит .swiper-button-disabled неактивной стрелке -->
-<div class="slider-arrows">
-  <button class="slider-arrow" type="button" aria-label="Назад" data-slider-prev>←</button>
-  <button class="slider-arrow" type="button" aria-label="Вперёд" data-slider-next>→</button>
+<!-- Стрелки листания. Swiper сам ставит .swiper-button-disabled неактивной стрелке.
+     Параметр skew: true — стрелки-плашки со скосом (отзывы, похожие проекты) -->
+<div class="slider-arrows @@if (context.skew) {slider-arrows--skew}">
+  <button class="slider-arrow @@if (context.skew) {slider-arrow--skew}" type="button" aria-label="Назад" data-slider-prev>←</button>
+  <button class="slider-arrow @@if (context.skew) {slider-arrow--skew}" type="button" aria-label="Вперёд" data-slider-next>→</button>
 </div>

@@ -1,25 +1,44 @@
 // Тень карточки: смещение 0 / 18, размытие 36, цвет #142859 при 9 %.
 // Кнопка в карточке всегда прижата к низу — одинаковое поле под ней во всех карточках ряда.
 
-// Карточка услуги
+// Карточка услуги — отступы и шрифты по странице «Проект детальная»
 .card-service {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: calc(var(--card-padding) - 0.2rem) var(--card-padding) var(--card-padding);
+	min-height: 26.9rem;
+	padding: 3.6rem;
 	background-color: var(--color-card);
 	box-shadow: var(--shadow-card);
 
+	@include vp-mobile {
+		min-height: 27.9rem;
+		padding: 2rem 1.8rem 1.8rem;
+		box-shadow: 0 1.4rem 3rem 0 rgba(20, 40, 90, 0.09);
+	}
+
 	&__title {
-		margin: 0 0 2rem;
+		margin: 0 0 3.2rem;
 		font-size: var(--fs-h3);
 		line-height: 2.8rem;
 		font-weight: 600;
 		color: var(--color-text);
+
+		@include vp-mobile {
+			margin-bottom: 1.4rem;
+			line-height: 2.4rem;
+		}
 	}
 
 	&__text {
-		margin: 0 0 1.6rem;
+		margin: 0 0 2.4rem;
+		font-size: 1.7rem;
+		line-height: 2.9rem;
+
+		@include vp-mobile {
+			font-size: 1.6rem;
+			line-height: 2.6rem;
+		}
 	}
 
 	&__btn {

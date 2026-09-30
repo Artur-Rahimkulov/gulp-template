@@ -1,0 +1,29 @@
+<!-- Слайд похожего проекта. Параметры: title, customer, img, text, power, area, term, termUnit, href -->
+<article class="project-card swiper-slide">
+  <h3 class="project-card__title">@@title</h3>
+  <div class="project-card__customer">
+    <p>Заказчик</p>
+    <p>@@customer</p>
+  </div>
+  <div class="project-card__photo">
+    <img src="assets/img/@@img.webp" width="330" height="261" alt="" loading="lazy">
+  </div>
+  <div class="project-card__body">
+    <p class="project-card__text">@@text</p>
+    <dl class="project-card__params">
+      <div>
+        <dt>Мощность</dt>
+        <dd>@@power <span>МВт</span></dd>
+      </div>
+      <div>
+        <dt>Площадь</dt>
+        <dd>@@area <span>м²</span></dd>
+      </div>
+      <div>
+        <dt>Срок</dt>
+        <dd>@@term <span>@@termUnit</span></dd>
+      </div>
+    </dl>
+    @@include("source/html/ui/button.html", {"tag": "a", "href": "@@href", "name": "Подробнее", "class": "btn--lg project-card__btn"})
+  </div>
+</article>

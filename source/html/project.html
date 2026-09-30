@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Электромонтажные работы производственного комплекса" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "projects"})
+			<main>
+				<div class="breadcrumbs breadcrumbs--title project-hero bg-grid">
+					<img class="project-hero__slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+					<div class="container">
+						<nav aria-label="Хлебные крошки">
+							<ol class="breadcrumbs__list">
+								<li><a class="breadcrumbs__link" href="/projects/">Проекты</a></li>
+								<li aria-current="page">Электромонтажные работы производственного комплекса</li>
+							</ol>
+						</nav>
+						<h1 class="title-h1 breadcrumbs__title">Электромонтажные работы производственного комплекса</h1>
+						<p class="project-hero__label">Заказчик</p>
+						<p class="project-hero__value">ГК&nbsp;«Развитие»</p>
+					</div>
+				</div>
+				<div class="double-line"></div>
+
+				<section class="project-about bg-grid">
+					<img class="project-about__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<div class="container project-about__inner">
+						<h2 class="title-h2 project-about__title">О&nbsp;проекте</h2>
+						<!-- Текст из админки: внутри .rich-text только теги -->
+						<div class="rich-text project-about__text">
+							<p>Наша компания специализируется на&nbsp;выполнении электромонтажных работ любой сложности. Мы&nbsp;обладаем всеми необходимыми допусками и&nbsp;лицензиями для работы на&nbsp;объектах различного назначения. Наши специалисты имеют многолетний опыт и&nbsp;регулярно проходят обучение по&nbsp;новейшим технологиям и&nbsp;стандартам.</p>
+							<p>Электромонтажные работы&nbsp;&mdash; это основное направление деятельности ИЦ&nbsp;Крафт с&nbsp;момента основания компании в&nbsp;2013&nbsp;году. За&nbsp;годы работы мы&nbsp;реализовали более 150&nbsp;проектов в&nbsp;сфере электроснабжения, от&nbsp;небольших офисных помещений до&nbsp;крупных промышленных комплексов. Наш опыт позволяет нам гарантировать высокое качество работ, соблюдение всех норм безопасности и&nbsp;своевременное выполнение договорных обязательств.</p>
+						</div>
+						<dl class="project-stats">
+							<div>
+								<dt class="project-stats__label">Лет<br>на&nbsp;рынке</dt>
+								<dd class="project-stats__value">15<span>+</span></dd>
+							</div>
+							<div>
+								<dt class="project-stats__label">Завершённых<br>проектов</dt>
+								<dd class="project-stats__value">200<span>+</span></dd>
+							</div>
+							<div>
+								<dt class="project-stats__label">Специалистов<br>в&nbsp;штате</dt>
+								<dd class="project-stats__value">50<span>+</span></dd>
+							</div>
+							<div>
+								<dt class="project-stats__label">Выполнение<br>обязательств</dt>
+								<dd class="project-stats__value">100<span>%</span></dd>
+							</div>
+						</dl>
+					</div>
+				</section>
+
+				<section class="project-gallery" aria-label="Фотографии проекта">
+					<img class="project-gallery__tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="project-gallery__slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<div class="container">
+						<div class="swiper" data-slider>
+							<div class="swiper-wrapper">
+								<div class="swiper-slide"><img src="assets/img/panel.webp" width="447" height="335" alt="" loading="lazy"></div>
+								<div class="swiper-slide"><img src="assets/img/mosk.webp" width="447" height="335" alt="" loading="lazy"></div>
+								<div class="swiper-slide"><img src="assets/img/tc.webp" width="447" height="335" alt="" loading="lazy"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="double-line"></div>
+
+				<section class="project-section bg-grid">
+					<div class="container">
+						<h2 class="title-h2 section-title">Услуги по&nbsp;проекту</h2>
+						<div class="cards-grid cards-grid--2 project-section__grid">
+							@@include("source/html/components/card-service.html", {"title": "Электромонтажные работы", "text": "Полный комплекс работ по&nbsp;проектированию, монтажу и&nbsp;пусконаладке электрических систем любой сложности", "href": "/services/"})
+							@@include("source/html/components/card-service.html", {"title": "Строительство водных сооружений", "text": "Полный комплекс работ по&nbsp;проектированию, монтажу и&nbsp;пусконаладке электрических систем любой сложности", "href": "/services/"})
+							@@include("source/html/components/card-service.html", {"title": "Инженерные изыскания", "text": "Полный комплекс работ по&nbsp;проектированию, монтажу и&nbsp;пусконаладке электрических систем любой сложности", "href": "/services/"})
+							@@include("source/html/components/card-service.html", {"title": "Производство строительных материалов", "text": "Полный комплекс работ по&nbsp;проектированию, монтажу и&nbsp;пусконаладке электрических систем любой сложности", "href": "/services/"})
+						</div>
+					</div>
+				</section>
+				<div class="double-line"></div>
+
+				<section class="project-section bg-grid" data-slider-wrapper>
+					<img class="project-section__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<div class="container">
+						<h2 class="title-h2 section-title">Отзывы</h2>
+						<!-- на мобильной выводятся две первые карточки -->
+						<div class="swiper reviews-slider" data-slider data-slider-per-view="4" data-slider-gap="26.5" data-slider-mobile-off>
+							<div class="swiper-wrapper">
+								@@include("source/html/components/review.html", {"letter": "А", "name": "Анна Петрова", "post": "Компания, Должность", "text": "Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле."})
+								@@include("source/html/components/review.html", {"letter": "И", "name": "Игорь Смирнов", "post": "Компания, Должность", "text": "Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле."})
+								@@include("source/html/components/review.html", {"letter": "Е", "name": "Елена Козлова", "post": "Компания, Должность", "text": "Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле."})
+								@@include("source/html/components/review.html", {"letter": "Д", "name": "Дмитрий Орлов", "post": "Компания, Должность", "text": "Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле."})
+								@@include("source/html/components/review.html", {"letter": "М", "name": "Мария Волкова", "post": "Компания, Должность", "text": "Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле."})
+								@@include("source/html/components/review.html", {"letter": "С", "name": "Сергей Никитин", "post": "Компания, Должность", "text": "Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле."})
+							</div>
+						</div>
+						@@include("source/html/ui/slider-arrows.html", {"skew": true})
+					</div>
+				</section>
+				<div class="double-line"></div>
+
+				<section class="project-section project-section--similar bg-grid" data-slider-wrapper>
+					<div class="container">
+						<div class="project-section__head">
+							<h2 class="title-h2 section-title">Похожие проекты</h2>
+							<a class="link project-section__all" href="/projects/">Все проекты</a>
+						</div>
+						<div class="similar">
+							<div class="similar__panel">
+								<p class="similar__title">Реализованные проекты</p>
+								<p class="similar__text">Проектирование, монтаж и&nbsp;подключение</p>
+								@@include("source/html/ui/button.html", {"tag": "a", "href": "/projects/", "name": "Смотреть все", "class": "btn--lg similar__btn"})
+							</div>
+							<!-- на мобильной выводится первый проект -->
+							<div class="swiper similar__slider" data-slider data-slider-per-view="1" data-slider-gap="0" data-slider-mobile-off>
+								<div class="swiper-wrapper">
+									@@include("source/html/components/project-card.html", {"title": "Модернизация систем электроснабжения ТЦ", "customer": "ГК&nbsp;«Развитие»", "img": "tau", "text": "Замена силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.", "power": "2,5", "area": "15&nbsp;000", "term": "4", "termUnit": "месяца", "href": "/projects/"})
+									@@include("source/html/components/project-card.html", {"title": "Электроснабжение жилого комплекса", "customer": "ГК&nbsp;«Развитие»", "img": "vremena", "text": "Проектирование и&nbsp;монтаж внутренних сетей электроснабжения, освещения и&nbsp;слаботочных систем жилого комплекса.", "power": "1,8", "area": "24&nbsp;000", "term": "6", "termUnit": "месяцев", "href": "/projects/"})
+									@@include("source/html/components/project-card.html", {"title": "Реконструкция трансформаторной подстанции", "customer": "ГК&nbsp;«Развитие»", "img": "site", "text": "Замена трансформаторов и&nbsp;распределительных устройств, пусконаладочные работы и&nbsp;ввод в&nbsp;эксплуатацию.", "power": "4", "area": "1&nbsp;200", "term": "3", "termUnit": "месяца", "href": "/projects/"})
+								</div>
+							</div>
+						</div>
+						@@include("source/html/ui/slider-arrows.html", {"skew": true})
+					</div>
+				</section>
+
+				<section class="project-cta">
+					<div class="container">
+						<h2 class="project-cta__title">Готовы начать свой проект?</h2>
+						<p class="project-cta__text">Свяжитесь с&nbsp;нами для обсуждения вашей задачи. Мы&nbsp;подготовим индивидуальное коммерческое предложение с&nbsp;учетом всех ваших требований.</p>
+						@@include("source/html/ui/button.html", {"tag": "a", "href": "/contacts/", "name": "Обсудить проект", "class": "btn--lg project-cta__btn"})
+					</div>
+				</section>
+				<div class="project-cta-gap bg-grid"></div>
+			</main>
+			@@include("source/html/base/footer.html")
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>

@@ -1,14 +1,22 @@
 import Swiper from 'swiper'
 import { Navigation } from 'swiper/modules'
 
-// Галереи: листание стрелками, на мобильной — лента с прокруткой.
+// Слайдеры: листание стрелками, на мобильной — лента с прокруткой.
 // Разметка: [data-slider] > .swiper-wrapper > .swiper-slide, стрелки — source/html/ui/slider-arrows.html
+// Настройки десктопа (от 900px) через атрибуты:
+//   data-slider-per-view — сколько слайдов видно (по умолчанию 3)
+//   data-slider-gap — зазор между слайдами в px (по умолчанию 30)
+//   data-slider-mobile-off — на мобильной слайдер выключен, раскладку задаёт CSS
 export const sliders = () => {
   document.querySelectorAll('[data-slider]').forEach((slider) => {
     const wrapper = slider.closest('[data-slider-wrapper]') || slider.parentElement
+    const perView = Number(slider.dataset.sliderPerView) || 3
+    const gap = slider.dataset.sliderGap !== undefined ? Number(slider.dataset.sliderGap) : 30
+    const mobileOff = slider.hasAttribute('data-slider-mobile-off')
 
     new Swiper(slider, {
       modules: [Navigation],
+      enabled: !mobileOff,
       slidesPerView: 'auto',
       spaceBetween: 12,
       navigation: {
@@ -17,8 +25,9 @@ export const sliders = () => {
       },
       breakpoints: {
         900: {
-          slidesPerView: 3,
-          spaceBetween: 30,
+          enabled: true,
+          slidesPerView: perView,
+          spaceBetween: gap,
         },
       },
     })
