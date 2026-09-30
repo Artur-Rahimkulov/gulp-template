@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Страница не найдена" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html")
+			<main>
+				@@include("source/html/ui/breadcrumbs.html", {"current": "Страница не найдена"})
+				<section class="not-found bg-grid">
+					<div class="container not-found__inner">
+						<img class="not-found__slab" src="assets/img/slab-blue.webp" width="620" height="592" alt="" aria-hidden="true">
+						<div class="not-found__content">
+							<h1 class="not-found__code">404</h1>
+							<p class="not-found__title">Страница не&nbsp;найдена</p>
+							<p class="text not-found__text">Страница, на&nbsp;которую вы&nbsp;пытаетесь попасть, не&nbsp;найдена или была удалена.</p>
+							<a class="btn btn--lg not-found__btn" href="/">Вернуться на&nbsp;главную</a>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include("source/html/base/footer.html", {"plain": true})
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>

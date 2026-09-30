@@ -1,6 +1,9 @@
+<!-- {"plain": true} — без объёмных плашек на стыке (например, на 404) -->
 <footer class="footer">
+  @@if (!context.plain) {
   <img class="footer__slab footer__slab--white" src="assets/img/slab-white.webp" width="300" height="250" alt="" aria-hidden="true">
   <img class="footer__slab footer__slab--blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="" aria-hidden="true">
+  }
 
   <div class="footer__bg bg-grid" aria-hidden="true">
     <div class="container footer__shapes">

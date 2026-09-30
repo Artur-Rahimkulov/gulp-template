@@ -14,12 +14,17 @@
 @import 'global/container';
 @import 'global/typography';
 @import 'global/decor';
+@import 'global/rich-text';
 
 // Components
 // ---------------------------------
 @import 'components/header';
 @import 'components/footer';
 @import 'components/cards';
+@import 'components/breadcrumbs';
+@import 'components/not-found';
+@import 'components/text-page';
+@import 'components/media-list';
 @import 'components/ui-kit';
 
 // Ui

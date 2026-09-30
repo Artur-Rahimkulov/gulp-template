@@ -1,0 +1,90 @@
+// Полоса с хлебными крошками под шапкой, ниже — двойная линия
+.breadcrumbs {
+	padding: 5rem 0 6rem;
+	margin-bottom: 2.6rem;
+	background-color: var(--color-bg-header);
+
+	@include vp-mobile {
+		padding: 2.8rem 0;
+		margin-bottom: 2.2rem;
+	}
+
+	// с заголовком страницы на полосе
+	&--title {
+		padding-top: 6rem;
+		margin-bottom: 3.2rem;
+
+		@include vp-mobile {
+			padding-top: 2.8rem;
+			margin-bottom: 2.2rem;
+		}
+	}
+}
+
+.breadcrumbs__title {
+	margin-top: 2.2rem;
+	line-height: 5.8rem;
+
+	@include vp-mobile {
+		margin-top: 0.8rem;
+		line-height: 3.4rem;
+	}
+}
+
+.breadcrumbs__list {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	color: var(--color-text-muted);
+
+	li + li::before {
+		content: '/';
+		margin: 0 0.8rem;
+
+		@include vp-mobile {
+			margin: 0 0.4rem;
+		}
+	}
+}
+
+.breadcrumbs__link {
+	transition: color var(--default-transition);
+
+	@include hover-focus {
+		color: var(--color-link);
+	}
+}
+
+// с фильтрами под заголовком (страница «Медиа»)
+.breadcrumbs--filters {
+	margin-bottom: 2.6rem;
+
+	@include vp-mobile {
+		margin-bottom: 2.2rem;
+	}
+}
+
+.breadcrumbs--filters .breadcrumbs__title {
+	margin-top: 1rem;
+
+	@include vp-mobile {
+		margin-top: 0.6rem;
+	}
+}
+
+.breadcrumbs__filters {
+	margin-top: 3rem;
+
+	@include vp-mobile {
+		column-gap: 1rem;
+		row-gap: 1rem;
+
+		.chip {
+			height: 4rem;
+			padding: 0 2rem;
+			font-size: 1.3rem;
+			line-height: 1.6rem;
+		}
+	}
+}

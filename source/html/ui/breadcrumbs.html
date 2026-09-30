@@ -1,0 +1,16 @@
+<!-- Хлебные крошки на полосе под шапкой, ниже — двойная линия.
+     Параметры: current — название текущей страницы; title — заголовок h1 на полосе (необязательно) -->
+<div class="breadcrumbs @@if (context.title) {breadcrumbs--title}">
+  <div class="container">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <li aria-current="page">@@current</li>
+      </ol>
+    </nav>
+    @@if (context.title) {
+    <h1 class="title-h1 breadcrumbs__title">@@title</h1>
+    }
+  </div>
+</div>
+<div class="double-line"></div>

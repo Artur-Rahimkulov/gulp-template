@@ -1,0 +1,29 @@
+// Текстовая страница (политика конфиденциальности и т. п.)
+.text-page {
+	position: relative;
+	padding: var(--space-section) 0;
+}
+
+.text-page__inner {
+	position: relative;
+}
+
+// Плашка-призрак за текстом справа
+.text-page__ghost {
+	position: absolute;
+	top: calc(11.2rem - var(--space-section));
+	left: calc(var(--container-padding) + 124rem);
+	z-index: 0;
+	width: 40.7rem;
+	max-width: none;
+	pointer-events: none;
+
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+.text-page__content {
+	position: relative;
+	z-index: 1;
+}

@@ -120,7 +120,12 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Карточка новости, фото 16:10 | `html/components/card-news.html` | `components/cards.scss` |
 | Карточка «Ценности» | `html/components/card-value.html` | `components/cards.scss` |
 | Шапка + бургер-меню | `html/base/header.html` | `components/header.scss`, `js/modules/header.js` |
-| Подвал | `html/base/footer.html` | `components/footer.scss` |
+| Подвал (`{"plain": true}` — без плашек на стыке) | `html/base/footer.html` | `components/footer.scss` |
+| Хлебные крошки + двойная линия (`title` — h1 на полосе) | `html/ui/breadcrumbs.html` | `components/breadcrumbs.scss` |
+| Текст из админки — только теги (p, h2–h4, ul, ol, a, strong, blockquote, table, img, hr), без классов | `<div class="rich-text">` | `global/rich-text.scss` |
+| Текстовая страница (политика) | `html/policy.html` | `components/text-page.scss` |
+| Страница «Медиа»: полоса с фильтрами (`.breadcrumbs--filters`), сетка новостей, «Показать ещё» | `html/media.html` | `components/media-list.scss`, `js/modules/pagination.js` |
+| Страница 404 | `html/404.html` | `components/not-found.scss` |
 
 ### Состояния
 

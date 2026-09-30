@@ -1,0 +1,49 @@
+// Страница «Медиа»: сетка новостей 3 колонки / 1 на мобильной
+.media-list {
+	position: relative;
+	padding: var(--space-section) 0;
+
+	@include vp-mobile {
+		padding-top: 4rem;
+	}
+}
+
+.media-list__inner {
+	position: relative;
+	z-index: 1;
+}
+
+// Объёмная синяя плашка на стыке полосы и сетки
+.media-list__slab {
+	position: absolute;
+	top: -19.1rem;
+	left: calc(50% + 69.8rem);
+	z-index: 2;
+	width: 49.6rem;
+	max-width: none;
+	pointer-events: none;
+}
+
+// Плашка-призрак у левого края
+.media-list__ghost {
+	position: absolute;
+	top: 65.1rem;
+	left: calc(50% - 113rem);
+	z-index: 0;
+	width: 40.7rem;
+	max-width: none;
+	pointer-events: none;
+}
+
+.media-list__slab,
+.media-list__ghost {
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+.media-list__more {
+	display: flex;
+	justify-content: center;
+	margin-top: var(--space-more);
+}

@@ -1,0 +1,75 @@
+// Страница 404
+.not-found {
+	position: relative;
+	padding: var(--space-section) 0;
+}
+
+.not-found__inner {
+	position: relative;
+}
+
+.not-found__slab {
+	position: absolute;
+	top: calc(-4.6rem - var(--space-section)); // от верха секции, как в макете
+	right: calc(var(--container-padding) - 50.7rem);
+	z-index: 1;
+	width: 62rem;
+	max-width: none;
+	pointer-events: none;
+
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+.not-found__content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 70.1rem;
+}
+
+.not-found__code {
+	margin: 0 0 2rem;
+	font-size: 20rem;
+	line-height: 0.7; // высота строки = высота заглавных, как text-box-trim в макете
+	font-weight: 500;
+	color: var(--color-text);
+
+	@include vp-mobile {
+		margin-bottom: 1rem;
+		font-size: 10rem;
+	}
+}
+
+.not-found__title {
+	margin: 0 0 3rem;
+	font-size: 3.8rem;
+	line-height: 2.9rem;
+	font-weight: 500;
+	color: var(--color-text-muted);
+
+	@include vp-mobile {
+		margin-bottom: 2.4rem;
+		font-size: 2.4rem;
+	}
+}
+
+.not-found__text {
+	max-width: 43rem;
+	margin: 0 0 2.4rem;
+	line-height: 3rem;
+
+	@include vp-mobile {
+		max-width: none;
+		margin-bottom: 4rem;
+	}
+}
+
+.not-found__btn {
+	@include vp-mobile {
+		--btn-width: 22rem;
+	}
+}
