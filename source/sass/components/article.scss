@@ -1,0 +1,137 @@
+// Детальная страница новости: текст + фото на серой полосе, галерея, «Другие новости»
+.article {
+	position: relative;
+
+	@include vp-mobile {
+		margin-bottom: 1.8rem;
+	}
+}
+
+.article__body {
+	display: grid;
+	grid-template-columns: minmax(0, 71fr) minmax(0, 62fr);
+	column-gap: 7rem;
+	align-items: start;
+	margin-top: 3rem;
+
+	@include vp-mobile {
+		grid-template-columns: minmax(0, 1fr);
+		row-gap: 2.4rem;
+		margin-top: 2.4rem;
+	}
+}
+
+// фото 620×465 (4:3), на мобильной 358×224 (16:10) под текстом
+.article__photo {
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@include vp-mobile {
+		aspect-ratio: 16 / 10;
+	}
+}
+
+// текст новости из админки: абзацы плотнее, чем на текстовых страницах
+.article__text {
+	p {
+		margin-bottom: 1.6rem;
+	}
+
+	@include vp-mobile {
+		line-height: 2.7rem;
+
+		p {
+			margin-bottom: 1.4rem;
+		}
+	}
+}
+
+.article__slab {
+	position: absolute;
+	top: 69.5rem;
+	left: calc(50% + 72.6rem);
+	z-index: 2;
+	width: 49.6rem;
+	max-width: none;
+	pointer-events: none;
+}
+
+// Галерея новости
+.article-gallery {
+	position: relative;
+	padding: var(--space-section) 0;
+
+	@include vp-mobile {
+		padding-top: 4rem;
+	}
+
+	.slider-arrows {
+		justify-content: flex-end;
+		margin-top: 3rem;
+
+		@include vp-mobile {
+			gap: 0;
+			margin-top: 1.8rem;
+		}
+	}
+}
+
+.article-gallery__ghost {
+	position: absolute;
+	top: 59.8rem;
+	left: calc(50% + 60rem);
+	z-index: 1;
+	width: 40.7rem;
+	max-width: none;
+	pointer-events: none;
+}
+
+.article-gallery__slab {
+	position: absolute;
+	top: 51.8rem;
+	left: calc(50% - 119.7rem);
+	z-index: 2;
+	width: 49.7rem;
+	max-width: none;
+	pointer-events: none;
+}
+
+.article__slab,
+.article-gallery__ghost,
+.article-gallery__slab {
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+// «Другие новости»
+.related {
+	padding: var(--space-section-top) 0 var(--space-section);
+
+	&__title {
+		margin-bottom: var(--space-title);
+		line-height: 4.4rem;
+
+		@include vp-mobile {
+			line-height: 3rem;
+		}
+	}
+}
+
+.article-gallery .swiper-slide {
+	@include vp-mobile {
+		width: 31.6rem;
+	}
+
+	img {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+	}
+}

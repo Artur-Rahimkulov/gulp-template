@@ -10,7 +10,7 @@ export const sliders = () => {
     new Swiper(slider, {
       modules: [Navigation],
       slidesPerView: 'auto',
-      spaceBetween: 24,
+      spaceBetween: 12,
       navigation: {
         prevEl: wrapper.querySelector('[data-slider-prev]'),
         nextEl: wrapper.querySelector('[data-slider-next]'),

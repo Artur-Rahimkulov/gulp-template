@@ -124,6 +124,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Хлебные крошки + двойная линия (`title` — h1 на полосе) | `html/ui/breadcrumbs.html` | `components/breadcrumbs.scss` |
 | Текст из админки — только теги (p, h2–h4, ul, ol, a, strong, blockquote, table, img, hr), без классов | `<div class="rich-text">` | `global/rich-text.scss` |
 | Текстовая страница (политика) | `html/policy.html` | `components/text-page.scss` |
+| Медиа детальная: текст новости (`.rich-text.article__text`) + фото, галерея на Swiper, «Другие новости» | `html/media-detail.html` | `components/article.scss`, `js/modules/sliders.js` |
 | Страница «Медиа»: полоса с фильтрами (`.breadcrumbs--filters`), сетка новостей, «Показать ещё» | `html/media.html` | `components/media-list.scss`, `js/modules/pagination.js` |
 | Страница 404 | `html/404.html` | `components/not-found.scss` |
 

@@ -106,10 +106,11 @@
 	outline: none;
 	cursor: pointer;
 
-	// на мобильной 220×56
+	// на мобильной 220×56, без тени
 	@include vp-mobile {
 		width: 22rem;
 		height: 5.6rem;
+		box-shadow: none;
 	}
 
 	transition:

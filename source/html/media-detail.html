@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Название новости" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "media"})
+			<main>
+				<article class="article">
+					<div class="breadcrumbs breadcrumbs--title breadcrumbs--filters bg-grid">
+						<div class="container">
+							<nav aria-label="Хлебные крошки">
+								<ol class="breadcrumbs__list">
+									<li><a class="breadcrumbs__link" href="/media/">Медиа</a></li>
+									<li aria-current="page">Название новости</li>
+								</ol>
+							</nav>
+							<h1 class="title-h1 breadcrumbs__title">Название новости</h1>
+							<div class="article__body">
+								<!-- Текст из админки: внутри .rich-text только теги, без классов -->
+								<div class="rich-text article__text">
+							<p>Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле. Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле.</p>
+							<p>Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле. Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле.</p>
+							<p>Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле. Рыбатекст используется дизайнерами, проектировщиками и&nbsp;фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле.</p>
+								</div>
+								<div class="article__photo">
+									<img src="assets/img/tc.webp" width="620" height="465" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+					<img class="article__slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+				</article>
+				<div class="double-line"></div>
+
+				<section class="article-gallery bg-grid" data-slider-wrapper aria-label="Галерея">
+					<img class="article-gallery__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="article-gallery__slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<div class="container">
+						<div class="swiper" data-slider>
+							<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="assets/img/panel.webp" width="447" height="335" alt="" loading="lazy"></div>
+									<div class="swiper-slide"><img src="assets/img/mosk.webp" width="447" height="335" alt="" loading="lazy"></div>
+									<div class="swiper-slide"><img src="assets/img/site.webp" width="447" height="335" alt="" loading="lazy"></div>
+									<div class="swiper-slide"><img src="assets/img/site2.webp" width="447" height="335" alt="" loading="lazy"></div>
+									<div class="swiper-slide"><img src="assets/img/worker.webp" width="447" height="335" alt="" loading="lazy"></div>
+									<div class="swiper-slide"><img src="assets/img/tc.webp" width="447" height="335" alt="" loading="lazy"></div>
+							</div>
+						</div>
+						@@include("source/html/ui/slider-arrows.html")
+					</div>
+				</section>
+				<div class="double-line"></div>
+
+				<section class="related bg-grid">
+					<div class="container">
+						<h2 class="title-h2 related__title">Другие новости</h2>
+						<div class="cards-grid">
+							@@include("source/html/components/card-news.html", {"img": "vremena", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
+							@@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
+							@@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include("source/html/base/footer.html")
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>
