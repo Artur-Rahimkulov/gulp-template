@@ -42,6 +42,11 @@
 		--cols: 4;
 	}
 
+	// на узком десктопе (900–1200) карточки в три-четыре колонки слишком узкие — не больше двух
+	@include vp-narrow {
+		--cols: 2;
+	}
+
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
 	}

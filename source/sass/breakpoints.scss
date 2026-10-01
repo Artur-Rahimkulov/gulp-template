@@ -15,3 +15,12 @@ $vp-desktop: 900px;
 		@content;
 	}
 }
+
+// Узкий десктоп 900–1200: макета нет, раскладку десктопа ужимаем, чтобы блоки не наезжали
+$vp-wide: 1200px;
+
+@mixin vp-narrow {
+	@media (min-width: $vp-desktop) and (max-width: ($vp-wide - 0.02px)) {
+		@content;
+	}
+}

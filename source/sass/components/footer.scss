@@ -36,7 +36,8 @@
 		height: 66rem;
 	}
 
-	@include vp-mobile {
+	// плашки лежат в полях за контейнером; уже 1900px полей не хватает и они подходят к тексту вплотную
+	@media (max-width: 1899.98px) {
 		display: none;
 	}
 }
@@ -99,6 +100,11 @@
 	grid-template-columns: 711fr 234fr 455fr;
 	padding-bottom: 19rem;
 
+	@include vp-narrow {
+		grid-template-columns: minmax(0, 1.3fr) auto minmax(0, 1fr);
+		column-gap: 4rem;
+	}
+
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
 		row-gap: 4rem;
@@ -141,6 +147,11 @@
 
 	@include hover-focus {
 		color: var(--color-link);
+	}
+
+	@include vp-narrow {
+		font-size: 3rem;
+		letter-spacing: 0;
 	}
 
 	@include vp-mobile {
@@ -213,6 +224,10 @@
 	gap: 1.3rem 0;
 	margin-top: 2.1rem;
 
+	@include vp-narrow {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
 		gap: 1.2rem;
@@ -261,6 +276,12 @@
 	align-items: start;
 	padding-top: 7.9rem;
 
+	// на узком десктопе логотип и копирайт — двумя строками
+	@include vp-narrow {
+		grid-template-columns: minmax(0, 1fr);
+		row-gap: 3rem;
+	}
+
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
 		row-gap: 2rem;
@@ -273,6 +294,11 @@
 	align-items: flex-start;
 	justify-content: space-between;
 	padding: 0 4.4rem 0 0.5rem;
+
+	@include vp-narrow {
+		justify-content: flex-start;
+		gap: 8rem;
+	}
 
 	@include vp-mobile {
 		padding: 0 1.4rem 0 0;
@@ -323,6 +349,12 @@
 	grid-template-columns: 48.7rem auto;
 	align-items: start;
 	padding-top: 1rem;
+
+	// «Политика» выходит за контейнер только на 1920 (как в макете), уже — копирайт переносится
+	@media (min-width: $vp-desktop) and (max-width: 1859.98px) {
+		grid-template-columns: minmax(0, 1fr) auto;
+		column-gap: 2.4rem;
+	}
 
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
