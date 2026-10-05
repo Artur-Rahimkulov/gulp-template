@@ -377,6 +377,11 @@
 	height: auto;
 	color: var(--color-text);
 
+	// запас под крупные цифры: строка 40px выше своей ячейки и иначе срезается краем слайдера
+	@include vp-mobile {
+		padding-bottom: 0.5rem;
+	}
+
 	&__title {
 		max-width: 74.6rem;
 		margin: 0;
@@ -534,12 +539,19 @@
 		// на мобильной колонки 96 и 168 по краям строки
 		@include vp-mobile {
 			display: grid;
-			grid-template-columns: 9.6rem 16.8rem;
+			// вторая колонка по содержимому — на узких телефонах число не обрезается
+			grid-template-columns: 9.6rem max-content;
+			gap: 0 1.6rem;
 			justify-content: space-between;
 			margin-top: 2rem;
 
 			div:first-child {
 				width: auto;
+			}
+
+			// в макете вторая колонка 168px
+			div:last-child {
+				min-width: 16.8rem;
 			}
 
 			dt {

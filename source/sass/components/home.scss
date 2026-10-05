@@ -546,6 +546,8 @@
 // «Надёжный партнёр» — белая карточка у нижнего края синей полосы
 .home-about {
 	position: relative;
+	// выше декора соседних секций: на мобильной синяя плашка цифр заходит на угол карточки
+	z-index: 2;
 	width: 70.6rem;
 	height: 50.2rem;
 	margin: 11.2rem 0 0 auto;
@@ -1027,6 +1029,12 @@
 		font-weight: 600;
 		color: var(--color-white);
 
+		// на узком десктопе колонка 340–370px — заголовок мельче, чтобы слово не обрезалось
+		@media (min-width: $vp-desktop) and (max-width: 1279.98px) {
+			font-size: 3rem;
+			line-height: 3.6rem;
+		}
+
 		@include vp-mobile {
 			max-width: 20rem;
 			font-size: 2.4rem;
@@ -1114,7 +1122,7 @@
 		margin-top: 0.1rem;
 
 		@include vp-mobile {
-			margin-top: 3rem;
+			margin-top: 2.5rem;
 		}
 	}
 }
@@ -1457,8 +1465,10 @@
 		}
 	}
 
+	// выше слайдера: размытая тень карточек заходит на стрелки
 	&__arrows {
 		position: relative;
+		z-index: 2;
 		justify-content: flex-end;
 		margin-top: 4rem;
 

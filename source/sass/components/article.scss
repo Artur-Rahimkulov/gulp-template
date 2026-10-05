@@ -113,8 +113,18 @@
 	}
 }
 
+// уже 1440 плашка-призрак заходит на дату карточки «Другие новости»
+.article-gallery__ghost {
+	@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+		display: none;
+	}
+}
+
 // «Другие новости»
+// над плашкой-призраком галереи: призрак заходит в секцию, но остаётся под карточками
 .related {
+	position: relative;
+	z-index: 2;
 	padding: var(--space-section-top) 0 var(--space-section);
 
 	&__title {
