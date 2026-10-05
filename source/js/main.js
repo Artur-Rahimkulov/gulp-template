@@ -4,6 +4,7 @@ import { validateForms } from './modules/validateForms.js';
 import { inputPhone } from './modules/input-phone.js';
 import { pagination } from './modules/pagination.js';
 import { fileDrop } from './modules/file-drop.js';
+import { heroTags } from './modules/hero-tags.js';
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
 // в load следует добавить скрипты, не участвующие в работе первого экрана
@@ -11,6 +12,7 @@ import { fileDrop } from './modules/file-drop.js';
 window.addEventListener('DOMContentLoaded', () => {
 	// Modules
 	header();
+	heroTags();
 	inputPhone();
 	// ---------------------------------
 

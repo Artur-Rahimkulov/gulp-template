@@ -1,0 +1,19 @@
+<!-- Карточка новости с ярлыком номера (главная). Параметры: num, img, title, text, date (дд.мм.гггг), iso (гггг-мм-дд), href -->
+<article class="card-news-tab swiper-slide">
+  <span class="card-news-tab__shade" aria-hidden="true"><img src="assets/img/card-shadow.webp" width="533" height="267" alt=""></span>
+  <span class="card-news-tab__num">/@@num</span>
+  <div class="card-news-tab__body">
+    <img class="card-news-tab__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+    <div class="card-news-tab__media">
+      <img src="assets/img/@@img.webp" width="306" height="178" alt="" loading="lazy">
+    </div>
+    <div class="card-news-tab__content">
+      <h3 class="card-news-tab__title">@@title</h3>
+      <p class="card-news-tab__text">@@text</p>
+    </div>
+    <div class="card-news-tab__footer">
+      <time class="card-news-tab__date" datetime="@@iso">@@date</time>
+      <a class="card-news-tab__link" href="@@href">Подробнее<span class="round-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</article>

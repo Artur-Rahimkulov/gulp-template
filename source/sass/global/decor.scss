@@ -2,13 +2,7 @@
 
 // Косая сетка: наклон 20,3°, шаг 656 на десктопе и 300 на мобильной, толщина 2 и 1, прозрачность 6 %
 .bg-grid {
-	background-image: repeating-linear-gradient(
-		110.3deg,
-		transparent 0,
-		transparent calc(var(--grid-step) - var(--grid-line-width)),
-		var(--color-grid-line) calc(var(--grid-step) - var(--grid-line-width)),
-		var(--color-grid-line) var(--grid-step)
-	);
+	@include grid-lines;
 }
 
 // Двойная линия на границе секций: две линии по 1px через 1px

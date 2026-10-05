@@ -1,6 +1,7 @@
 <!-- активный пункт меню: @@include("source/html/base/header.html", {"active": "projects"})
-     значения: main, services, projects, career, about, media, contacts -->
-<header class="header bg-grid" data-header>
+     значения: main, services, projects, career, about, media, contacts
+     {"overlay": true} — прозрачная шапка поверх первого экрана (главная) -->
+<header class="header bg-grid @@if (context.overlay) {header--overlay}" data-header>
   <div class="container header__inner">
     <img class="header__decor header__decor--tiles" src="assets/img/tiles-small.webp" width="180" height="66" alt="" aria-hidden="true">
     <span class="header__decor header__decor--flat" aria-hidden="true"></span>

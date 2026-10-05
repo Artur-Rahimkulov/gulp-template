@@ -45,3 +45,14 @@
 		transition: background-color var(--default-transition), box-shadow var(--default-transition);
 	}
 }
+
+// Косая сетка фоном. Цвет линий — переменная --color-grid-line (на синем фоне переопределяется на белый)
+@mixin grid-lines {
+	background-image: repeating-linear-gradient(
+		110.3deg,
+		transparent 0,
+		transparent calc(var(--grid-step) - var(--grid-line-width)),
+		var(--color-grid-line) calc(var(--grid-step) - var(--grid-line-width)),
+		var(--color-grid-line) var(--grid-step)
+	);
+}

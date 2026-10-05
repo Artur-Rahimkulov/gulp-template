@@ -1,0 +1,6 @@
+<!-- Плашка-ссылка на услугу со стрелкой (первый экран главной).
+     Параметры: name (можно с <br>), href, class (tag-link--tall — в две строки, высота 77) -->
+<a class="tag-link @@if (context.class) {@@class}" href="@@href">
+  <span class="tag-link__arrow" aria-hidden="true">→</span>
+  <span class="tag-link__name">@@name</span>
+</a>

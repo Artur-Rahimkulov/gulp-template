@@ -1,0 +1,558 @@
+// Карточки главной: услуга на синей полосе, «Почему выбирают», новость с ярлыком, слайд проекта
+
+// Карточка услуги на синей полосе: 430×316, полупрозрачный фон и синяя рамка
+.card-service-dark {
+	height: 31.6rem;
+	padding: 4rem 5rem;
+	color: var(--color-white);
+	background-color: rgba(11, 41, 92, 0.8);
+	border: 0.1rem solid #0073ff;
+
+	@include vp-mobile {
+		width: 29.4rem;
+		height: 20.8rem;
+		padding: 3rem;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 2.1rem;
+		line-height: 2.8rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			max-width: 21rem;
+			font-size: 1.6rem;
+			line-height: 2rem;
+		}
+	}
+
+	&__text {
+		margin: 1.7rem 0 0;
+		font-size: 1.6rem;
+		line-height: 2.7rem;
+		font-weight: 500;
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+			line-height: 2rem;
+		}
+	}
+}
+
+// Скошенная карточка «Почему выбирают» 330×493: белый параллелограмм (svg) и размытая тень у низа
+.card-why {
+	position: relative;
+	isolation: isolate;
+	flex-shrink: 0;
+	width: 33rem;
+	height: 49.3rem;
+	padding: 4rem 3.2rem 0 5rem;
+	color: var(--color-text);
+
+	// фон-параллелограмм
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background: url("../assets/svg/why-card.svg") no-repeat 0 0 / 100% 100%;
+	}
+
+	// тень под нижним краем
+	&::before {
+		content: '';
+		position: absolute;
+		top: 38.8rem;
+		left: 4.6rem;
+		z-index: -2;
+		width: 20.6rem;
+		height: 11.5rem;
+		background-color: rgba(66, 66, 66, 0.1);
+		filter: blur(1rem);
+	}
+
+	@include vp-mobile {
+		width: 20.3rem;
+		height: 30.5rem;
+		padding: 3rem 4.8rem 0 4rem;
+
+		&::after {
+			background-image: url("../assets/svg/why-card-sm.svg");
+		}
+
+		&::before {
+			top: 24rem;
+			left: 2.8rem;
+			width: 12.7rem;
+			height: 7.1rem;
+		}
+	}
+
+	&__num {
+		display: block;
+
+		@include vp-mobile {
+			width: auto;
+			height: 3.2rem;
+		}
+	}
+
+	// иконка на маленькой синей скошенной плашке
+	&__icon {
+		position: relative;
+		display: block;
+		width: max-content;
+		height: 5.9rem;
+		margin-top: 12.4rem;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 3.25rem;
+			left: 0.5rem;
+			width: 2.8rem;
+			height: 2.63rem;
+			background-color: var(--color-brand-flat);
+			transform: skewX(-20.3deg);
+		}
+
+		img {
+			position: relative;
+			display: block;
+		}
+
+		@include vp-mobile {
+			height: 5rem;
+			margin-top: 3.9rem;
+
+			&::before {
+				top: 2.75rem;
+				width: 2.4rem;
+				height: 2.25rem;
+			}
+
+			img {
+				width: auto;
+				height: 4rem;
+			}
+		}
+	}
+
+	&__title {
+		margin: 5.1rem 0 0;
+		font-size: 1.8rem;
+		line-height: 2.8rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			margin-top: 2rem;
+			font-size: 1.4rem;
+			line-height: 1.4rem;
+		}
+	}
+
+	&__text {
+		margin: 1rem 0 0;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+			line-height: 1.4rem;
+		}
+	}
+}
+
+// Карточка новости с ярлыком «/01»: ярлык 91×42 и белое тело 335×460
+.card-news-tab {
+	position: relative;
+	height: auto;
+
+	&__num {
+		position: relative;
+		display: block;
+		width: 9.1rem;
+		height: 4.2rem;
+		padding: 1rem 0 0 1rem;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: var(--color-white);
+		background: url("../assets/svg/news-tab.svg") no-repeat 0 0 / 100% 100%;
+
+		@include vp-mobile {
+			width: 6.1rem;
+			height: 2.8rem;
+			padding: 0 0 0 1rem;
+			font-size: 1.2rem;
+			background-image: url("../assets/svg/news-tab-sm.svg");
+		}
+	}
+
+	// размытая тень под карточкой
+	&__shade {
+		position: absolute;
+		top: 35.4rem;
+		left: 0;
+		width: 100%;
+		height: 22.3rem;
+		overflow: hidden;
+		pointer-events: none;
+
+		img {
+			position: absolute;
+			top: -0.21%;
+			left: -21.79%;
+			width: 141.79%;
+			max-width: none;
+			height: 106.7%;
+		}
+
+		@include vp-mobile {
+			top: 21.4rem;
+			height: 15.3rem;
+		}
+	}
+
+	&__body {
+		position: relative;
+		height: 46rem;
+		padding-top: 2rem;
+		background-color: var(--color-card);
+
+		@include vp-mobile {
+			height: 27.5rem;
+		}
+	}
+
+	&__ghost {
+		position: absolute;
+		top: 6.6rem;
+		left: 0;
+		width: 22.2rem;
+		max-width: none;
+		height: 35.2rem;
+		object-fit: cover;
+		object-position: right;
+		pointer-events: none;
+
+		@include vp-mobile {
+			top: 0;
+			left: 1.6rem;
+			width: 16rem;
+			height: 25.3rem;
+		}
+	}
+
+	&__media {
+		position: relative;
+		width: 30rem;
+		height: 17.5rem;
+		margin-left: 1.5rem;
+
+		// размытая тень под фотографией
+		&::after {
+			content: '';
+			position: absolute;
+			top: 13.9rem;
+			left: -1.5rem;
+			width: 33.3rem;
+			height: 9.9rem;
+			background: url("../assets/img/photo-shadow.webp") no-repeat 0 0 / 100% 100%;
+			pointer-events: none;
+		}
+
+		img {
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@include vp-mobile {
+			width: 19.8rem;
+			height: 11.5rem;
+			margin-left: 1.6rem;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	&__content {
+		position: absolute;
+		top: 23.5rem;
+		left: 1.5rem;
+		width: 30rem;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			top: 15.2rem;
+			left: 1.6rem;
+			width: 19.8rem;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 1.7rem;
+		line-height: 2rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+		}
+	}
+
+	&__text {
+		margin: 1rem 0 0;
+		font-size: 1.2rem;
+		line-height: 2rem;
+		font-weight: 400;
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+
+	&__footer {
+		position: absolute;
+		top: 39.5rem;
+		right: 2rem;
+		left: 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		@include vp-mobile {
+			top: 22.9rem;
+			right: 1.6rem;
+			left: 1.6rem;
+		}
+	}
+
+	&__date {
+		font-size: 1.4rem;
+		line-height: 2rem;
+		font-weight: 400;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+		}
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 13.2rem;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: var(--color-link);
+		text-decoration: none;
+		transition: color var(--default-transition);
+
+		@include hover-focus {
+			color: var(--color-brand-dark);
+
+			.round-arrow {
+				background-color: #0062d6;
+			}
+		}
+
+		@include vp-mobile {
+			width: 12rem;
+			font-size: 1.2rem;
+		}
+	}
+}
+
+// Слайд проекта на главной: название, заказчик, фото и параметры
+.project-slide {
+	height: auto;
+	color: var(--color-text);
+
+	&__title {
+		max-width: 74.6rem;
+		margin: 0;
+		font-size: 2.7rem;
+		line-height: 1.4;
+		font-weight: 600;
+
+		@include vp-mobile {
+			font-size: 2.4rem;
+			line-height: 2.8rem;
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	&__label {
+		margin: 2rem 0 0;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: var(--color-link);
+
+		@include vp-mobile {
+			margin-top: 1rem;
+		}
+	}
+
+	&__customer {
+		margin: 0.6rem 0 0;
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			margin-top: 0;
+			font-size: 1.4rem;
+		}
+	}
+
+	&__row {
+		display: flex;
+		gap: 6.3rem;
+		margin-top: 4.5rem;
+
+		// уже 1440 фото и описание не помещаются в строку — описание под фото
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			display: block;
+
+			.project-slide__body {
+				width: auto;
+				max-width: 51.5rem;
+				margin-top: 3rem;
+			}
+		}
+
+		@include vp-mobile {
+			display: block;
+			margin-top: 1rem;
+		}
+	}
+
+	&__photo {
+		position: relative;
+		isolation: isolate;
+		flex-shrink: 0;
+		width: 33.4rem;
+		height: 25.1rem;
+
+		// размытая тень под фотографией
+		&::after {
+			content: '';
+			position: absolute;
+			top: 14.8rem;
+			left: 4.2rem;
+			z-index: -1;
+			width: 29.2rem;
+			height: 11.5rem;
+			background-color: rgba(66, 66, 66, 0.3);
+			filter: blur(1rem);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@include vp-mobile {
+			width: 17rem;
+			height: 12.8rem;
+
+			&::after {
+				top: 8.1rem;
+				left: 1.1rem;
+				width: 15rem;
+				height: 5.8rem;
+			}
+		}
+	}
+
+	&__body {
+		width: 51.5rem;
+
+		@include vp-mobile {
+			width: auto;
+			margin-top: 1.6rem;
+		}
+	}
+
+	&__text {
+		margin: 0;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			max-width: 27rem;
+			font-size: 1.4rem;
+			line-height: 2rem;
+		}
+	}
+
+	&__params {
+		display: flex;
+		gap: 12.7rem;
+		margin: 3rem 0 0;
+
+		div:first-child {
+			width: 13.8rem;
+		}
+
+		dt {
+			font-size: 1.7rem;
+			line-height: 2.8rem;
+			font-weight: 600;
+		}
+
+		dd {
+			display: flex;
+			align-items: flex-end;
+			height: 7.2rem;
+			margin: 1rem 0 0;
+			font-size: 5.2rem;
+			line-height: 7.2rem;
+			font-weight: 500;
+			white-space: nowrap;
+
+			span {
+				font-size: 1.7rem;
+			}
+		}
+
+		// на мобильной колонки 96 и 168 по краям строки
+		@include vp-mobile {
+			display: grid;
+			grid-template-columns: 9.6rem 16.8rem;
+			justify-content: space-between;
+			margin-top: 2rem;
+
+			div:first-child {
+				width: auto;
+			}
+
+			dt {
+				font-size: 1.4rem;
+			}
+
+			dd {
+				align-items: flex-start;
+				height: 4rem;
+				margin-top: 0;
+				font-size: 4rem;
+				line-height: 4rem;
+			}
+		}
+	}
+}

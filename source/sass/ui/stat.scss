@@ -1,0 +1,57 @@
+// Цифра с подписью: подпись в две строки, синий «+» и крупное число (главная)
+.stat {
+	&__label {
+		height: 5.6rem;
+		margin: 0;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		font-weight: 600;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			height: 3.9rem;
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+		}
+	}
+
+	&__value {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		height: 7.2rem;
+		margin: 1rem 0 0;
+		white-space: nowrap;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			margin-top: 0;
+		}
+	}
+
+	&__plus {
+		font-size: 7.2rem;
+		line-height: 5rem;
+		font-weight: 400;
+		color: #104488;
+
+		@include vp-mobile {
+			font-size: 6rem;
+		}
+	}
+
+	&__number {
+		font-size: 7.2rem;
+		line-height: 7.2rem;
+		font-weight: 500;
+
+		@include vp-mobile {
+			font-size: 6rem;
+			font-weight: 400;
+		}
+	}
+
+	&__unit {
+		font-size: 1.7rem;
+	}
+}

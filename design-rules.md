@@ -130,7 +130,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Карточка отзыва (аватар — буква на круге) | `html/components/review.html` | `components/project.scss` |
 | Слайд похожего проекта (фото, описание, параметры `dl`) | `html/components/project-card.html` | `components/project.scss` |
 | Стрелки-плашки со скосом (активная синяя, неактивная белая) | `@@include("…/slider-arrows.html", {"skew": true})` | `.slider-arrow--skew` |
-| Настройки слайдера: `data-slider-per-view`, `data-slider-gap`, `data-slider-mobile-off` | `[data-slider]` | `js/modules/sliders.js` |
+| Настройки слайдера: `data-slider-per-view` (число или `auto`), `data-slider-gap`, `data-slider-gap-mobile`, `data-slider-mobile-off` | `[data-slider]` | `js/modules/sliders.js` |
 | Вакансия детальная: вводный текст, обязанности/условия (`.rich-text.vacancy-text`: h3 + ul), отклик, «Другие вакансии» | `html/vacancy.html` | `components/vacancy.scss` |
 | Зона «Прикрепить резюме» — выбор файла и перетаскивание | `label.file-drop[data-file-drop]` | `components/vacancy.scss`, `js/modules/file-drop.js` |
 | Карточка «Корпоративная жизнь» (фото 16:9 + иконка) | `html/components/card-life.html` | `components/cards.scss` |
@@ -139,6 +139,15 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Медиа детальная: текст новости (`.rich-text.article__text`) + фото, галерея на Swiper, «Другие новости» | `html/media-detail.html` | `components/article.scss`, `js/modules/sliders.js` |
 | Страница «Медиа»: полоса с фильтрами (`.breadcrumbs--filters`), сетка новостей, «Показать ещё» | `html/media.html` | `components/media-list.scss`, `js/modules/pagination.js` |
 | Страница 404 | `html/404.html` | `components/not-found.scss` |
+| Главная: первый экран под прозрачной шапкой, услуги на синей полосе, «Надёжный партнёр», цифры и партнёры, проекты, «Почему выбирают», новости | `html/main.html` | `components/home.scss` |
+| Шапка поверх первого экрана (`{"overlay": true}`), подвал главной (`{"home": true}`) | `html/base/header.html`, `footer.html` | `.header--overlay`, `.footer--home` |
+| Плашка-ссылка на услугу со стрелкой (`tag-link--tall` — в две строки) | `html/ui/tag-link.html` | `ui/tag-link.scss`, на мобильной листание — `js/modules/hero-tags.js` |
+| Скруглённая синяя стрелка 37×37 (неактивная — 20 %) | `@@include("…/slider-arrows.html", {"round": true})`, `.round-arrow` | `ui/round-arrow.scss` |
+| Цифра «+200» с подписью | `html/components/stat.html` | `ui/stat.scss` |
+| Карточка услуги на синей полосе | `html/components/card-service-dark.html` | `components/cards-home.scss` |
+| Скошенная карточка «Почему выбирают» (номер и иконка — картинки) | `html/components/card-why.html` | `components/cards-home.scss` |
+| Карточка новости с ярлыком «/01» | `html/components/card-news-tab.html` | `components/cards-home.scss` |
+| Слайд проекта на главной | `.project-slide` в `html/main.html` | `components/cards-home.scss` |
 
 ### Состояния
 
@@ -149,6 +158,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 - Чип: hover — синий текст; активный — синяя плашка, белый текст.
 - Ссылки: подчёркивание на месте, цвет #1C4FA3, hover — `--color-brand-dark`.
 - Focus-стили показываются только при навигации с клавиатуры (`:focus-visible`).
+- Стрелки «←/→» в шрифте Montserrat отсутствуют — в стрелках листания и плашках они рисуются svg-маской `assets/svg/arrow.svg` (цвет — `currentColor`), символ в разметке оставлен для доступности.
 
 ## Поведение
 

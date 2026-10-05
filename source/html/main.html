@@ -3,13 +3,247 @@
 	@@include("source/html/base/head.html", { "title": "Главная" })
 	<body>
 		<div class="wrapper">
-			@@include("source/html/base/header.html", {"active": "main"})
-			<main class="kit">
-				<div class="container">
-					<h1 class="title-h1">Главная страница</h1>
-				</div>
+			@@include("source/html/base/header.html", {"active": "main", "overlay": true})
+			<main class="home">
+
+				<!-- Первый экран: заголовок и плашки услуг поверх иллюстрации -->
+				<section class="home-hero bg-grid">
+					<div class="double-line home-hero__line"></div>
+					<img class="home-hero__photo" src="assets/img/home-hero.webp" width="1525" height="928" alt="" aria-hidden="true">
+					<img class="home-hero__decor home-hero__decor--tiles" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
+					<img class="home-hero__decor home-hero__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+
+					<div class="container home-hero__inner">
+						<p class="home-hero__label">Инженерный центр «Крафт»</p>
+						<h1 class="home-hero__title">Электроснабжение, автоматизация и&nbsp;пожарная безопасность для&nbsp;лидеров строительной отрасли</h1>
+						<ul class="home-hero__facts">
+							<li>Комплексные инженерные решения</li>
+							<li>Монтажная<br> компания</li>
+						</ul>
+						@@include("source/html/ui/button.html", {"tag": "a", "href": "/contacts/", "name": "Обсудить проект", "class": "home-hero__btn"})
+
+						<!-- Плашки услуг: на десктопе разложены по иллюстрации, на мобильной видна одна и листается стрелками -->
+						<div class="home-hero__tags" data-hero-tags>
+							<ul class="home-hero__tags-list">
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение", "href": "/services/"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Наружное<br>сообщение", "href": "/services/", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение<br>внутри помещения", "href": "/services/", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag is-active" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроподстанция", "href": "/services/"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Автоматическая<br>пожарная сигнализация", "href": "/services/", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "СКУД", "href": "/services/"})</li>
+							</ul>
+							<div class="slider-arrows slider-arrows--skew home-hero__arrows">
+								<button class="slider-arrow slider-arrow--skew" type="button" aria-label="Предыдущая услуга" data-hero-tags-prev>←</button>
+								<button class="slider-arrow slider-arrow--skew" type="button" aria-label="Следующая услуга" data-hero-tags-next>→</button>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Услуги на синей полосе и «Надёжный партнёр» -->
+				<section class="home-services" data-slider-wrapper>
+					<div class="home-services__band" aria-hidden="true">
+						<span class="home-services__grid"></span>
+					</div>
+					<img class="home-services__worker home-services__worker--top" src="assets/img/home-worker-top.webp" width="1920" height="825" alt="" aria-hidden="true">
+					<img class="home-services__worker home-services__worker--bottom" src="assets/img/home-worker-bottom.webp" width="1920" height="951" alt="" aria-hidden="true">
+					<img class="home-services__decor home-services__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<div class="home-services__decor home-services__decor--slab-top" aria-hidden="true">
+						<img src="assets/img/slab-white.webp" width="497" height="439" alt="">
+					</div>
+					<img class="home-services__decor home-services__decor--slab-card" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<img class="home-services__decor home-services__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="home-services__decor home-services__decor--tiles-left" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+
+					<div class="container home-services__inner">
+						<div class="home-services__cable" aria-hidden="true">
+							<img src="assets/img/home-cable.webp" width="785" height="361" alt="">
+						</div>
+						<h2 class="home-services__title">Услуги</h2>
+
+						<div class="swiper home-services__slider" data-slider data-slider-per-view="3" data-slider-gap="55" data-slider-gap-mobile="49">
+							<div class="swiper-wrapper">
+								@@include("source/html/components/card-service-dark.html", {"title": "Электроснабжение (ЭС)", "text": "Проектирование и монтаж систем любой сложности: от ввода до распределительных щитов. Расчёт нагрузок, подбор кабелей и защитной аппаратуры, схемы АВР."})
+								@@include("source/html/components/card-service-dark.html", {"title": "Наружное освещение (ЭН)", "text": "Городские улицы, архитектурная подсветка, пешеходные зоны. Светотехнический расчёт, энергоэффективные решения."})
+								@@include("source/html/components/card-service-dark.html", {"title": "Блочные КТП (БКТП)", "text": "Изготовление, доставка и монтаж подстанций 0,4/6/10 кВ. Полный цикл: ввод, секционирование, учёт, компенсация реактивной мощности, РЗА."})
+								@@include("source/html/components/card-service-dark.html", {"title": "Пожарная сигнализация (АПС)", "text": "Тестовый контент: проектирование и монтаж систем пожарной сигнализации и оповещения, пусконаладка и обслуживание."})
+								@@include("source/html/components/card-service-dark.html", {"title": "Слаботочные системы (СС)", "text": "Тестовый контент: СКУД, видеонаблюдение, структурированные кабельные сети и диспетчеризация инженерных систем."})
+							</div>
+						</div>
+						@@include("source/html/ui/slider-arrows.html", {"round": true, "class": "home-services__arrows"})
+
+						<!-- «Надёжный партнёр»: на мобильной без подписи и абзаца -->
+						<article class="home-about">
+							<span class="home-about__ghost home-about__ghost--top" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt=""></span>
+							<span class="home-about__ghost" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt=""></span>
+							<p class="home-about__label">Инженерный центр «Крафт»</p>
+							<h2 class="home-about__title">Надёжный партнёр<br> в&nbsp;мире энергетики и&nbsp;инженерии</h2>
+							<p class="home-about__text">Мы многопрофильная компания, специализирующаяся на полном цикле инженерных систем: от проектирования и монтажа до пусконаладки. Мы строим электроснабжение, водные сооружения и производим собственные стройматериалы.</p>
+							<p class="home-about__reputation"><span>Наша репутация –</span> это <b>95%</b> клиентов, которые<br> возвращаются к&nbsp;нам&nbsp;снова.</p>
+							@@include("source/html/ui/button.html", {"tag": "a", "href": "/about/", "name": "О&nbsp;компании", "class": "home-about__btn"})
+						</article>
+					</div>
+				</section>
+
+				<!-- Цифры и партнёры -->
+				<section class="home-stats bg-grid">
+					<div class="double-line home-stats__line"></div>
+					<img class="home-stats__decor home-stats__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+					<img class="home-stats__decor home-stats__decor--ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="home-stats__decor home-stats__decor--ghost-bottom" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+
+					<div class="container">
+						<div class="home-stats__list">
+							@@include("source/html/components/stat.html", {"label": "Завершённых проектов", "value": "200"})
+							@@include("source/html/components/stat.html", {"label": "Специалистов<br>в&nbsp;штате", "value": "50"})
+							@@include("source/html/components/stat.html", {"label": "Обслуживаемых объектов", "value": "500 000", "unit": "м²", "class": "stat--wide"})
+						</div>
+
+						<h2 class="home-partners__title">Партнеры</h2>
+						<p class="home-partners__text">Партнеры ИЦ&nbsp;«Крафт» - надежные и&nbsp;проверенные.<br> Мы&nbsp;работаем вместе уже&nbsp;не&nbsp;один год.</p>
+					</div>
+
+					<div class="double-line home-partners__line"></div>
+
+					<div class="container">
+						<div class="home-partners__row" data-slider-wrapper>
+							<button class="round-arrow round-arrow--prev home-partners__arrow home-partners__arrow--prev" type="button" aria-label="Назад" data-slider-prev>→</button>
+							<div class="swiper home-partners__slider" data-slider data-slider-per-view="auto" data-slider-gap="106" data-slider-gap-mobile="40">
+								<ul class="swiper-wrapper home-partners__list">
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-sber.webp" width="169" height="53" alt="Сбер"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-sibur.webp" width="156" height="38" alt="Сибур"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-gazprom.webp" width="134" height="75" alt="Газпром"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-4.webp" width="197" height="61" alt="Партнёр"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-5.webp" width="175" height="46" alt="Партнёр"></li>
+								</ul>
+							</div>
+							<button class="round-arrow home-partners__arrow home-partners__arrow--next" type="button" aria-label="Вперёд" data-slider-next>→</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- Реализованные проекты: синяя панель + слайдер проектов -->
+				<section class="home-projects" data-slider-wrapper>
+					<img class="home-projects__decor home-projects__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<img class="home-projects__decor home-projects__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+
+					<div class="home-projects__aside">
+						<img class="home-projects__cabinet" src="assets/img/home-cabinet.webp" width="493" height="673" alt="" aria-hidden="true">
+						<img class="home-projects__outline" src="assets/svg/outline-shapes.svg" width="990" height="1305" alt="" aria-hidden="true">
+						<img class="home-projects__outline home-projects__outline--sm" src="assets/svg/outline-shapes-sm.svg" width="544" height="930" alt="" aria-hidden="true">
+						<div class="home-projects__aside-inner">
+							<h2 class="home-projects__title">Реализованные проекты</h2>
+							<p class="home-projects__text">Проектирование, монтаж и&nbsp;подключение</p>
+							@@include("source/html/ui/button.html", {"tag": "a", "href": "/projects/", "name": "Смотреть все", "class": "home-projects__btn"})
+						</div>
+					</div>
+
+					<div class="home-projects__main">
+						<img class="home-projects__ghost" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
+						<img class="home-projects__number" src="assets/img/project-number.webp" width="244" height="337" alt="" aria-hidden="true">
+						<div class="swiper home-projects__slider" data-slider data-slider-per-view="1" data-slider-gap="0" data-slider-gap-mobile="0">
+							<div class="swiper-wrapper">
+								<article class="swiper-slide project-slide">
+									<h3 class="project-slide__title">Модернизация систем электроснабжения<br> торгового центра</h3>
+									<p class="project-slide__label">Заказчик</p>
+									<p class="project-slide__customer">ГК&nbsp;«Развитие»</p>
+									<div class="project-slide__row">
+										<div class="project-slide__photo">
+											<img src="assets/img/project-mall.webp" width="334" height="251" alt="Торговый центр после модернизации" loading="lazy">
+										</div>
+										<div class="project-slide__body">
+											<p class="project-slide__text">Замена силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.</p>
+											<dl class="project-slide__params">
+												<div>
+													<dt>Мощность</dt>
+													<dd>2,5<span>МВт</span></dd>
+												</div>
+												<div>
+													<dt>Площадь</dt>
+													<dd>15 000<span>м²</span></dd>
+												</div>
+											</dl>
+										</div>
+									</div>
+								</article>
+								<article class="swiper-slide project-slide">
+									<h3 class="project-slide__title">Электроснабжение жилого комплекса<br> «Новые горизонты»</h3>
+									<p class="project-slide__label">Заказчик</p>
+									<p class="project-slide__customer">ГК&nbsp;«Развитие»</p>
+									<div class="project-slide__row">
+										<div class="project-slide__photo">
+											<img src="assets/img/news-2.webp" width="306" height="178" alt="Жилой комплекс" loading="lazy">
+										</div>
+										<div class="project-slide__body">
+											<p class="project-slide__text">Тестовый контент: проектирование и&nbsp;монтаж внешних и&nbsp;внутренних сетей электроснабжения жилого комплекса.</p>
+											<dl class="project-slide__params">
+												<div>
+													<dt>Мощность</dt>
+													<dd>1,8<span>МВт</span></dd>
+												</div>
+												<div>
+													<dt>Площадь</dt>
+													<dd>24 000<span>м²</span></dd>
+												</div>
+											</dl>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+						@@include("source/html/ui/slider-arrows.html", {"round": true, "class": "home-projects__arrows"})
+					</div>
+				</section>
+
+				<!-- Почему выбирают ИЦ «Крафт» -->
+				<section class="home-why bg-grid">
+					<img class="home-why__decor home-why__decor--shadow" src="assets/img/slab-blue-shadow.webp" width="730" height="379" alt="" aria-hidden="true">
+					<img class="home-why__decor home-why__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+					<img class="home-why__decor home-why__decor--ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="home-why__decor home-why__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<div class="double-line home-why__line"></div>
+
+					<div class="container home-why__head">
+						<h2 class="home-why__title">Почему выбирают<br> ИЦ&nbsp;«Крафт»</h2>
+						<p class="home-why__text">Инженерный центр «Крафт» – монтажная компания с <b>15</b>-летним опытом комплексных инженерных решений для&nbsp;промышленных и&nbsp;гражданских объектов.</p>
+					</div>
+
+					<div class="home-why__list">
+						@@include("source/html/components/card-why.html", {"num": "01", "numWidth": "90", "numHeight": "54", "icon": "why-icon-1", "iconWidth": "57", "iconHeight": "47", "title": "Полный цикл", "text": "от&nbsp;расчёта<br> до&nbsp;пусконаладки<br> «под&nbsp;ключ»"})
+						@@include("source/html/components/card-why.html", {"num": "02", "numWidth": "90", "numHeight": "47", "icon": "why-icon-2", "iconWidth": "48", "iconHeight": "49", "title": "Собственное производство", "text": "бетонные и&nbsp;гипсовые изделия для стройнужд"})
+						@@include("source/html/components/card-why.html", {"num": "03", "numWidth": "94", "numHeight": "49", "icon": "why-icon-3", "iconWidth": "45", "iconHeight": "46", "title": "Сертифицированная команда", "text": "допуски СРО,<br> опытные инженеры"})
+						@@include("source/html/components/card-why.html", {"num": "04", "numWidth": "94", "numHeight": "49", "icon": "why-icon-4", "iconWidth": "48", "iconHeight": "53", "title": "Гарантия 100% обязательств", "text": "строгое соблюдение<br> сроков и&nbsp;качества"})
+						@@include("source/html/components/card-why.html", {"num": "05", "numWidth": "90", "numHeight": "48", "icon": "why-icon-5", "iconWidth": "56", "iconHeight": "53", "title": "Круглосуточная техподдержка", "text": "24/7 для&nbsp;ваших<br> объектов"})
+					</div>
+				</section>
+
+				<!-- Новости -->
+				<section class="home-news" data-slider-wrapper>
+					<div class="home-news__bg" aria-hidden="true">
+						<img class="home-news__outline" src="assets/svg/outline-shapes.svg" width="990" height="1305" alt="">
+					</div>
+					<img class="home-news__decor home-news__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<img class="home-news__decor home-news__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+
+					<div class="container">
+						<div class="home-news__head">
+							<h2 class="home-news__title">Новости</h2>
+							@@include("source/html/ui/button.html", {"tag": "a", "href": "/media/", "name": "Смотреть все", "class": "btn--lg home-news__btn"})
+						</div>
+						<div class="swiper home-news__slider" data-slider data-slider-per-view="4" data-slider-gap="20" data-slider-gap-mobile="17">
+							<div class="swiper-wrapper">
+								@@include("source/html/components/card-news-tab.html", {"num": "01", "img": "news-1", "title": "Качественное и эффективное проектирование инженерных систем в Уфе", "text": "Современные инженерные системы предназначены для создания...", "date": "12.09.2026", "iso": "2026-09-12", "href": "/media/"})
+								@@include("source/html/components/card-news-tab.html", {"num": "02", "img": "news-2", "title": "Определение стоимости комплексного проекта инженерных сетей", "text": "Для вашего удобства мы создали онлайн-калькулятор, который позволит...", "date": "12.09.2026", "iso": "2026-09-12", "href": "/media/"})
+								@@include("source/html/components/card-news-tab.html", {"num": "03", "img": "news-3", "title": "Лучший монтаж", "text": "Когда инженерные системы разрабатываются комплексно, а не по отдельности, то учитываются их особенности и оптимальное", "date": "12.09.2026", "iso": "2026-09-12", "href": "/media/"})
+								@@include("source/html/components/card-news-tab.html", {"num": "04", "img": "news-4", "title": "Надзор за исполнением работ", "text": "Вы сможете проконтролировать как проведены работы и в случае необходимости предъявить обоснованные претензии строительной компании. Это застрахует вас от недобросовестных исполнителей.", "date": "12.09.2026", "iso": "2026-09-12", "href": "/media/"})
+								@@include("source/html/components/card-news-tab.html", {"num": "05", "img": "news-1", "title": "Тестовая новость для проверки листания", "text": "Это тестовый контент, который не должен нести смысла.", "date": "12.09.2026", "iso": "2026-09-12", "href": "/media/"})
+							</div>
+						</div>
+						@@include("source/html/ui/slider-arrows.html", {"round": true, "class": "home-news__arrows"})
+					</div>
+				</section>
 			</main>
-			@@include("source/html/base/footer.html")
+			@@include("source/html/base/footer.html", {"home": true})
 		</div>
 		@@include("source/html/base/scripts.html")
 	</body>

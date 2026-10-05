@@ -1,0 +1,74 @@
+// Скруглённая синяя кнопка со стрелкой 37×37 (главная): листание слайдеров и «Подробнее» в новости.
+// Назад — та же стрелка, отражённая; неактивная — прозрачность 20 %
+.round-arrow {
+	--arrow-size: 3.7rem;
+
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: var(--arrow-size);
+	height: var(--arrow-size);
+	padding: 0;
+
+	// символ «→» в разметке оставлен для доступности, рисуется svg-маской: в шрифте проекта стрелок нет
+	font-size: 0;
+	color: var(--color-white);
+
+	background-color: #0053b8;
+	border: 0.1rem solid #0081d7;
+	border-radius: 1rem;
+	// размытая тень под кнопкой
+	box-shadow: 0 1.25rem 1rem -0.25rem rgba(66, 66, 66, 0.5);
+	outline: none;
+	cursor: pointer;
+	transition:
+		background-color var(--default-transition),
+		box-shadow var(--default-transition),
+		opacity var(--default-transition);
+
+	&::before {
+		content: '';
+		width: 1.6rem;
+		height: 1.4rem;
+		background-color: currentColor;
+		mask: url("../assets/svg/arrow.svg") no-repeat center / contain;
+	}
+
+	&--prev {
+		transform: scaleX(-1);
+	}
+
+	@include hover {
+		background-color: #0062d6;
+	}
+
+	@include focus {
+		outline: 0.2rem solid var(--color-white);
+		outline-offset: 0.2rem;
+	}
+
+	@include active {
+		background-color: #00439a;
+	}
+
+	&:disabled,
+	&.swiper-button-disabled {
+		opacity: 0.2;
+		box-shadow: none;
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+.slider-arrows--round {
+	gap: 2rem;
+
+	@include vp-mobile {
+		gap: 1.4rem;
+
+		.round-arrow {
+			--arrow-size: 3rem;
+		}
+	}
+}

@@ -1,6 +1,15 @@
 <!-- Стрелки листания. Swiper сам ставит .swiper-button-disabled неактивной стрелке.
-     Параметр skew: true — стрелки-плашки со скосом (отзывы, похожие проекты) -->
-<div class="slider-arrows @@if (context.skew) {slider-arrows--skew}">
+     Параметры: skew: true — стрелки-плашки со скосом (отзывы, похожие проекты);
+     round: true — скруглённые синие кнопки (главная); class — дополнительный класс обёртки -->
+@@if (context.round) {
+<div class="slider-arrows slider-arrows--round @@if (context.class) {@@class}">
+  <button class="round-arrow round-arrow--prev" type="button" aria-label="Назад" data-slider-prev>→</button>
+  <button class="round-arrow" type="button" aria-label="Вперёд" data-slider-next>→</button>
+</div>
+}
+@@if (!context.round) {
+<div class="slider-arrows @@if (context.skew) {slider-arrows--skew} @@if (context.class) {@@class}">
   <button class="slider-arrow @@if (context.skew) {slider-arrow--skew}" type="button" aria-label="Назад" data-slider-prev>←</button>
   <button class="slider-arrow @@if (context.skew) {slider-arrow--skew}" type="button" aria-label="Вперёд" data-slider-next>→</button>
 </div>
+}

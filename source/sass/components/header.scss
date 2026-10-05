@@ -20,6 +20,30 @@
 			box-shadow: 0 0.4rem 2rem rgba(20, 40, 90, 0.12);
 		}
 	}
+
+	// главная: шапка прозрачная и лежит поверх иллюстрации первого экрана;
+	// на мобильной после прокрутки получает фон страницы
+	&--overlay {
+		background-color: transparent;
+
+		@include vp-mobile {
+			background-color: transparent;
+			transition: box-shadow var(--default-transition), background-color var(--default-transition);
+
+			&.is-scrolled {
+				background-color: var(--color-bg-page);
+			}
+
+			// в мобильном макете главной логотип ниже, телефона в шапке нет
+			.header__inner > .header__logo {
+				margin-top: 2.7rem;
+			}
+
+			.header__inner > .header__phone {
+				visibility: hidden;
+			}
+		}
+	}
 }
 
 .header__inner {
