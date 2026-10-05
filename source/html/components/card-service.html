@@ -1,7 +1,9 @@
 <!-- Карточка услуги. Параметры: title, text, href -->
 <article class="card-service">
   <h3 class="card-service__title">@@title</h3>
-  <p class="text-card card-service__text">@@text</p>
+  <div class="rich-text text-card card-service__text">
+    <p>@@text</p>
+  </div>
   <div class="card-service__btn">
     @@include("source/html/ui/button.html", {
       "tag": "a",

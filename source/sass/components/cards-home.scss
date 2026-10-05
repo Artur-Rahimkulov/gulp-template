@@ -28,6 +28,9 @@
 	}
 
 	&__text {
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		color: inherit;
+
 		margin: 1.7rem 0 0;
 		font-size: 1.6rem;
 		line-height: 2.7rem;
@@ -153,6 +156,9 @@
 	}
 
 	&__text {
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		color: inherit;
+
 		margin: 1rem 0 0;
 		font-size: 1.4rem;
 		line-height: 2rem;
@@ -308,6 +314,9 @@
 	}
 
 	&__text {
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		color: inherit;
+
 		margin: 1rem 0 0;
 		font-size: 1.2rem;
 		line-height: 2rem;
@@ -494,6 +503,9 @@
 	}
 
 	&__text {
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		color: inherit;
+
 		margin: 0;
 		font-size: 1.7rem;
 		line-height: 2.8rem;

@@ -124,6 +124,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Подвал (`{"plain": true}` — без плашек на стыке) | `html/base/footer.html` | `components/footer.scss` |
 | Хлебные крошки + двойная линия (`title` — h1 на полосе) | `html/ui/breadcrumbs.html` | `components/breadcrumbs.scss` |
 | Текст из админки — только теги (p, h2–h4, ul, ol, a, strong, blockquote, table, img, hr), без классов | `<div class="rich-text">` | `global/rich-text.scss` |
+| Описания в карточках и секциях (тоже из админки): обёртка `div.rich-text` + класс блока, внутри только `<p>`, `<b>`/`<strong>`, `<a>`, `<br>`. Размер и цвет задаёт класс блока, отступы между абзацами — правило `p + p` в блоке | `<div class="rich-text card-life__text"><p>…</p></div>` | стили блока в `components/*` |
 | Текстовая страница (политика) | `html/policy.html` | `components/text-page.scss` |
 | Карьера: обращение директора, ценности, корпоративная жизнь, баланс, вакансии + форма (sticky на десктопе) | `html/career.html` | `components/career.scss` |
 | Проект детальная: заказчик, «О проекте» + цифры, галерея на синей полосе, услуги, отзывы, похожие проекты, «Готовы начать» | `html/project.html` | `components/project.scss` |

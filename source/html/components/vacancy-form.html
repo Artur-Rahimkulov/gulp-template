@@ -1,7 +1,9 @@
 <!-- Форма «Не нашли подходящую вакансию?» (синяя, с полями-подчёркиваниями) -->
 <form class="vacancy-form" action="#" method="post" novalidate>
   <h2 class="vacancy-form__title">Не&nbsp;нашли подходящую вакансию?</h2>
-  <p class="vacancy-form__text">Заполните форму, и&nbsp;наш&nbsp;специалист свяжется с&nbsp;вами для&nbsp;уточнения деталей</p>
+  <div class="rich-text vacancy-form__text">
+    <p>Заполните форму, и&nbsp;наш&nbsp;специалист свяжется с&nbsp;вами для&nbsp;уточнения деталей</p>
+  </div>
   <div class="vacancy-form__fields">
     <div class="vacancy-form__field" data-form-group>
       <input class="vacancy-form__input" type="text" name="name" placeholder="Имя*" aria-label="Имя" required data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя">
@@ -13,6 +15,8 @@
       <input class="vacancy-form__input" type="email" name="email" placeholder="Почта*" aria-label="Почта" required data-type="email" autocomplete="email" data-required-message="Заполните поле" data-error-message="Некорректный email">
     </div>
   </div>
-  <p class="vacancy-form__consent">Нажимая на&nbsp;кнопку «Отправить заявку» я&nbsp;принимаю условия <a href="/policy/">Политики конфиденциальности</a></p>
+  <div class="rich-text vacancy-form__consent">
+    <p>Нажимая на&nbsp;кнопку «Отправить заявку» я&nbsp;принимаю условия <a href="/policy/">Политики конфиденциальности</a></p>
+  </div>
   @@include("source/html/ui/button.html", {"type": "submit", "name": "Отправить", "class": "btn--lg vacancy-form__btn"})
 </form>
