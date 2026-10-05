@@ -29,6 +29,10 @@
 		margin-top: 0.8rem;
 		line-height: 3.4rem;
 	}
+
+	@media (max-width: 374.98px) {
+		line-height: var(--lh-h1);
+	}
 }
 
 .breadcrumbs__list {

@@ -428,3 +428,28 @@
 		font-size: 1.5rem;
 	}
 }
+
+// узкие телефоны (до 390): логотип и телефон не помещаются рядом — логотип меньше, телефон ближе к бургеру
+@media (max-width: 389.98px) {
+	.header__inner > .header__logo {
+		width: 13rem;
+		margin-top: 2.5rem;
+	}
+
+	.header__inner > .header__phone {
+		margin-right: 1rem;
+		font-size: 1.2rem;
+	}
+}
+
+// совсем узкие экраны (до 340): телефон остаётся только в бургер-меню
+@media (max-width: 339.98px) {
+	.header__inner > .header__phone {
+		display: none;
+	}
+
+	.header__toggle {
+		flex-shrink: 0;
+		margin-left: auto;
+	}
+}

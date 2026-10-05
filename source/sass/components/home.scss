@@ -86,11 +86,17 @@
 				height: 5.2rem;
 			}
 
+			// от правого края экрана и правее телефона в шапке — иначе синие цифры ложатся на синюю плашку
 			&--slab {
 				top: -15.2rem;
-				left: calc(50% + 4.6rem);
+				left: calc(100% - 9.4rem);
 				width: 20.1rem;
 				height: 20.2rem;
+
+				// до 390 телефон ближе к бургеру (см. header.scss)
+				@media (max-width: 389.98px) {
+					left: calc(100% - 7.6rem);
+				}
 			}
 		}
 	}
@@ -809,6 +815,17 @@
 			grid-template-columns: 21.7rem auto;
 			margin-left: 0.1rem;
 
+			// до 375 колонки поровну и цифры мельче
+			@media (max-width: 374.98px) {
+				grid-template-columns: 1fr 1fr;
+				column-gap: 1.6rem;
+
+				.stat__plus,
+				.stat__number {
+					font-size: 4.8rem;
+				}
+			}
+
 			.stat--wide {
 				display: none;
 			}
@@ -915,19 +932,13 @@
 		}
 	}
 
+	// на мобильной стрелка «вперёд» стоит в ряду, а не поверх логотипов
 	&__arrow {
 		position: relative;
 		z-index: 2;
 
 		@include vp-mobile {
 			--arrow-size: 2.6rem;
-
-			&--next {
-				position: absolute;
-				top: 50%;
-				right: 0.1rem;
-				margin-top: -1.3rem;
-			}
 		}
 	}
 }
