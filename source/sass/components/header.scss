@@ -33,15 +33,6 @@
 			&.is-scrolled {
 				background-color: var(--color-bg-page);
 			}
-
-			// в мобильном макете главной логотип ниже, телефона в шапке нет
-			.header__inner > .header__logo {
-				margin-top: 2.7rem;
-			}
-
-			.header__inner > .header__phone {
-				visibility: hidden;
-			}
 		}
 	}
 }
