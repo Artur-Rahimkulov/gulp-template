@@ -801,39 +801,42 @@
 	}
 
 	// крупный год текущего слайда на фоне
-	// шрифт из макета: Gotham Pro Regular 300 / 100 %, без разрядки
+	// год svg-картинками: 659×221 на десктопе, как в макете; цвет #1c4fa3 при прозрачности 10 %
 	&__year {
 		position: absolute;
-		top: 6.3rem;
-		font-family: 'Gotham Pro', var(--font-family);
-		font-size: 30rem;
-		line-height: 1;
-		font-weight: 400;
-		letter-spacing: 0;
-		color: rgba(0, 108, 185, 0.127);
-		white-space: nowrap;
+		top: 11rem;
+		display: flex;
+		height: 22.1rem;
+		opacity: 0.1;
 		pointer-events: none;
 		user-select: none;
 
+		img {
+			display: block;
+			width: auto;
+			max-width: none;
+			height: 100%;
+		}
+
+		// от края контейнера вместе с его полем
 		&--left {
-			left: calc(var(--container-padding) - 20.1rem);
+			left: calc(var(--container-padding) - 19.5rem);
 		}
 
 		&--right {
-			left: calc(var(--container-padding) + 63.8rem);
+			left: calc(var(--container-padding) + 64.4rem);
 		}
 
 		@include vp-mobile {
-			top: 35.17rem;
-			// на мобильной год в масштабе макета 361/659
-			font-size: 16.4rem;
+			top: 37.8rem;
+			height: 12.1rem;
 
 			&--left {
-				left: calc(var(--container-padding) - 17.22rem);
+				left: calc(var(--container-padding) - 16.89rem);
 			}
 
 			&--right {
-				left: calc(var(--container-padding) + 28.24rem);
+				left: calc(var(--container-padding) + 28.57rem);
 			}
 		}
 	}

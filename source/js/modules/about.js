@@ -3,8 +3,12 @@ import { Navigation } from 'swiper/modules'
 
 // «О компании»: история по годам и документы.
 // История: [data-history] — слайдер [data-history-slider], годы на шкале [data-history-tab],
-//   крупный год на фоне [data-history-year]; шкале передаются положения точек (--progress, --line-end).
+//   последняя цифра крупного года на фоне [data-history-year]; шкале передаются положения точек (--progress, --line-end).
 // Документы: [data-docs-slider] листается только на мобильной, на десктопе — сетка.
+
+// ширина svg последней цифры года (высота у всех 218)
+const DIGIT_WIDTH = { 3: 171, 4: 193, 5: 174, 6: 183, 7: 171 }
+
 export const about = () => {
   const history = document.querySelector('[data-history]')
 
@@ -20,8 +24,15 @@ export const about = () => {
         tab.classList.toggle('is-active', i === index)
         tab.setAttribute('aria-current', i === index ? 'step' : 'false')
       })
-      const year = tabs[index]?.querySelector('.about-timeline__year')?.textContent
-      if (year) years.forEach((el) => { el.textContent = year })
+      // крупный год: «201» постоянная картинка, последняя цифра — своя svg (есть для 3–7)
+      const year = tabs[index]?.querySelector('.about-timeline__year')?.textContent.trim()
+      const digit = year?.slice(-1)
+      if (digit && DIGIT_WIDTH[digit]) {
+        years.forEach((img) => {
+          img.src = `assets/svg/year/year-${digit}.svg`
+          img.width = DIGIT_WIDTH[digit]
+        })
+      }
       if (timeline && tabs.length) {
         timeline.style.setProperty('--progress', `${dotX(tabs[index])}px`)
         timeline.style.setProperty('--line-end', `${dotX(tabs[tabs.length - 1])}px`)
