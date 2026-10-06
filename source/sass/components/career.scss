@@ -53,19 +53,20 @@
 	}
 }
 
-.welcome__title {
-	margin-bottom: var(--space-title);
-	line-height: 4.4rem;
-
-	@include vp-mobile {
-		line-height: 3rem;
-	}
-}
-
+// Обращение директора из админки: h2, абзацы; призыв выделяется тегом <strong>
 .welcome__text {
 	// в мобильном макете обращение крупнее обычного текста — 17px
 	@include vp-mobile {
 		font-size: 1.7rem;
+	}
+
+	h2 {
+		margin: 0 0 var(--space-title);
+		line-height: 4.4rem;
+
+		@include vp-mobile {
+			line-height: 3rem;
+		}
 	}
 
 	p {
@@ -76,11 +77,9 @@
 		}
 	}
 
-	// призыв в конце обращения
-	p:last-child {
+	// абзац, целиком выделенный жирным, — призыв: отделён от текста сильнее
+	p:has(> strong:only-child) {
 		margin-top: 2.4rem;
-		font-weight: 600;
-		color: var(--color-text);
 	}
 }
 
@@ -207,26 +206,35 @@
 		background-image: linear-gradient(94.8deg, #1b4d9e 7.4%, #0e2a5e 81.5%);
 	}
 
-	&__title {
-		color: var(--color-white);
-		line-height: 4.4rem;
-
-		@include vp-mobile {
-			line-height: 3rem;
-		}
-	}
-
+	// заголовок и вводный текст из админки
 	&__text {
+		--rich-text-strong: currentColor;
+
 		max-width: 70rem;
-		margin: 1.6rem 0 4rem;
+		margin: 0 0 4rem;
 		font-size: 1.7rem;
 		line-height: 2.9rem;
 		color: rgba(255, 255, 255, 0.72);
 
+		h2 {
+			margin: 0 0 1.6rem;
+			line-height: 4.4rem;
+			color: var(--color-white);
+		}
+
+		p {
+			margin: 0;
+		}
+
 		@include vp-mobile {
-			margin: 1rem 0 2.4rem;
+			margin: 0 0 2.4rem;
 			font-size: 1.6rem;
 			line-height: 2.6rem;
+
+			h2 {
+				margin-bottom: 1rem;
+				line-height: 3rem;
+			}
 		}
 	}
 
@@ -260,24 +268,29 @@
 		}
 	}
 
-	&__title {
-		line-height: 4.4rem;
-
-		@include vp-mobile {
-			line-height: 3rem;
-		}
-	}
-
+	// заголовок и текст из админки
 	&__text {
-		max-width: 68rem;
-		margin: 2rem auto 0;
 		font-size: 1.7rem;
 		line-height: 2.9rem;
 		color: var(--color-text-muted);
 
+		h2 {
+			margin: 0 0 2rem;
+			line-height: 4.4rem;
+		}
+
+		p {
+			max-width: 68rem;
+			margin: 0 auto;
+		}
+
 		@include vp-mobile {
 			font-size: 1.6rem;
 			line-height: 2.7rem;
+
+			h2 {
+				line-height: 3rem;
+			}
 		}
 	}
 }
@@ -410,26 +423,31 @@
 		background-image: linear-gradient(102.7deg, #1b4d9e 7.4%, #0f2c63 81.5%);
 	}
 
-	&__title {
-		margin: 0;
-		font-size: 2.3rem;
-		line-height: 3rem;
-		font-weight: 600;
-
-		@include vp-mobile {
-			font-size: 2rem;
-			line-height: 2.6rem;
-		}
-	}
-
+	// заголовок и подзаголовок формы из админки
 	&__text {
-		margin: 1.4rem 0 0;
+		--rich-text-strong: currentColor;
+
 		font-size: 1.5rem;
 		line-height: 2.4rem;
 		color: rgba(255, 255, 255, 0.72);
 
+		h2 {
+			margin: 0 0 1.4rem;
+			font-size: 2.3rem;
+			line-height: 3rem;
+			color: var(--color-white);
+		}
+
+		p {
+			margin: 0;
+		}
+
 		@include vp-mobile {
-			margin-top: 1.2rem;
+			h2 {
+				margin-bottom: 1.2rem;
+				font-size: 2rem;
+				line-height: 2.6rem;
+			}
 		}
 	}
 

@@ -1,5 +1,8 @@
 // Текст из админки (визуальный редактор): стили только по тегам, без классов внутри.
-// Оборачивайте вывод редактора в <div class="rich-text">…</div>
+// Оборачивайте вывод редактора в <div class="rich-text">…</div>.
+// Теги: h1–h4, p, strong/b, em/i, span, a, br, ul/ol/li, blockquote, table, img/figure, hr.
+// Выделение — только тегами (<strong>, <b>, <em>), не позицией (:first-child / :last-child).
+// В секциях класс блока на обёртке задаёт размеры: .rich-text.welcome__text h2 { … }
 .rich-text {
 	font-size: var(--fs-body);
 	line-height: 3rem;
@@ -23,6 +26,7 @@
 		margin: 0 0 3rem;
 	}
 
+	h1,
 	h2,
 	h3,
 	h4 {
@@ -33,6 +37,11 @@
 		@include vp-mobile {
 			margin-top: 4rem;
 		}
+	}
+
+	h1 {
+		font-size: var(--fs-h1);
+		line-height: var(--lh-h1);
 	}
 
 	h2 {
@@ -50,10 +59,16 @@
 		line-height: var(--lh-body);
 	}
 
+	// на цветном фоне блок задаёт --rich-text-strong: currentColor — жирное остаётся цвета текста
 	strong,
 	b {
 		font-weight: 600;
-		color: var(--color-text);
+		color: var(--rich-text-strong, var(--color-text));
+	}
+
+	em,
+	i {
+		font-style: italic;
 	}
 
 	a {

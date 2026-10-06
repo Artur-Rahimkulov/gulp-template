@@ -77,9 +77,12 @@
 							<span class="home-about__ghost home-about__ghost--top" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt=""></span>
 							<span class="home-about__ghost" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt=""></span>
 							<p class="home-about__label">Инженерный центр «Крафт»</p>
-							<h2 class="home-about__title">Надёжный партнёр<br> в&nbsp;мире энергетики и&nbsp;инженерии</h2>
+							<!-- Текст из админки: заголовок и описание (на мобильной описание скрыто), ниже — абзац о репутации -->
 							<div class="rich-text home-about__text">
+							  <h2>Надёжный партнёр<br> в&nbsp;мире энергетики и&nbsp;инженерии</h2>
 							  <p>Мы&nbsp;многопрофильная компания, специализирующаяся на&nbsp;полном цикле инженерных систем: от&nbsp;проектирования и&nbsp;монтажа до&nbsp;пусконаладки. Мы&nbsp;строим электроснабжение, водные сооружения и&nbsp;производим собственные стройматериалы.</p>
+							</div>
+							<div class="rich-text home-about__reputation">
 							  <p><strong>Наша репутация –</strong> это <b>95%</b> клиентов, которые<br> возвращаются к&nbsp;нам&nbsp;снова.</p>
 							</div>
 							@@include("source/html/ui/button.html", {"tag": "a", "href": "/about/", "name": "О&nbsp;компании", "class": "home-about__btn"})
@@ -101,8 +104,8 @@
 							@@include("source/html/components/stat.html", {"label": "Обслуживаемых объектов", "value": "500 000", "unit": "м²", "class": "stat--wide"})
 						</div>
 
-						<h2 class="home-partners__title">Партнеры</h2>
 						<div class="rich-text home-partners__text">
+						  <h2>Партнеры</h2>
 						  <p>Партнеры ИЦ&nbsp;«Крафт» - надежные и&nbsp;проверенные.<br> Мы&nbsp;работаем вместе уже&nbsp;не&nbsp;один год.</p>
 						</div>
 					</div>
@@ -136,8 +139,8 @@
 						<img class="home-projects__outline" src="assets/svg/outline-shapes.svg" width="990" height="1305" alt="" aria-hidden="true">
 						<img class="home-projects__outline home-projects__outline--sm" src="assets/svg/outline-shapes-sm.svg" width="544" height="930" alt="" aria-hidden="true">
 						<div class="home-projects__aside-inner">
-							<h2 class="home-projects__title">Реализованные проекты</h2>
 							<div class="rich-text home-projects__text">
+							  <h2>Реализованные проекты</h2>
 							  <p>Проектирование, монтаж и&nbsp;подключение</p>
 							</div>
 							@@include("source/html/ui/button.html", {"tag": "a", "href": "/projects/", "name": "Смотреть все", "class": "home-projects__btn"})
@@ -151,8 +154,10 @@
 							<div class="swiper-wrapper">
 								<article class="swiper-slide project-slide">
 									<h3 class="project-slide__title">Модернизация систем электроснабжения<br> торгового центра</h3>
-									<p class="project-slide__label">Заказчик</p>
-									<p class="project-slide__customer">ГК&nbsp;«Развитие»</p>
+									<dl class="project-slide__customer">
+										<dt>Заказчик</dt>
+										<dd>ГК&nbsp;«Развитие»</dd>
+									</dl>
 									<div class="project-slide__row">
 										<div class="project-slide__photo">
 											<img src="assets/img/project-mall.webp" width="334" height="251" alt="Торговый центр после модернизации" loading="lazy">
@@ -176,8 +181,10 @@
 								</article>
 								<article class="swiper-slide project-slide">
 									<h3 class="project-slide__title">Электроснабжение жилого комплекса<br> «Новые горизонты»</h3>
-									<p class="project-slide__label">Заказчик</p>
-									<p class="project-slide__customer">ГК&nbsp;«Развитие»</p>
+									<dl class="project-slide__customer">
+										<dt>Заказчик</dt>
+										<dd>ГК&nbsp;«Развитие»</dd>
+									</dl>
 									<div class="project-slide__row">
 										<div class="project-slide__photo">
 											<img src="assets/img/news-2.webp" width="306" height="178" alt="Жилой комплекс" loading="lazy">

@@ -28,7 +28,9 @@
 	}
 
 	&__text {
-		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой), жирное — того же цвета
+		--rich-text-strong: currentColor;
+
 		color: inherit;
 
 		margin: 1.7rem 0 0;
@@ -156,7 +158,9 @@
 	}
 
 	&__text {
-		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой), жирное — того же цвета
+		--rich-text-strong: currentColor;
+
 		color: inherit;
 
 		margin: 1rem 0 0;
@@ -314,7 +318,9 @@
 	}
 
 	&__text {
-		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой), жирное — того же цвета
+		--rich-text-strong: currentColor;
+
 		color: inherit;
 
 		margin: 1rem 0 0;
@@ -408,27 +414,31 @@
 		}
 	}
 
-	&__label {
+	// заказчик: dt — подпись, dd — название
+	&__customer {
 		margin: 2rem 0 0;
-		font-size: 1.4rem;
-		line-height: 2rem;
-		font-weight: 500;
-		color: var(--color-link);
+
+		dt {
+			font-size: 1.4rem;
+			line-height: 2rem;
+			font-weight: 500;
+			color: var(--color-link);
+		}
+
+		dd {
+			margin: 0.6rem 0 0;
+			font-size: 1.8rem;
+			line-height: 2.6rem;
+			font-weight: 600;
+		}
 
 		@include vp-mobile {
 			margin-top: 1rem;
-		}
-	}
 
-	&__customer {
-		margin: 0.6rem 0 0;
-		font-size: 1.8rem;
-		line-height: 2.6rem;
-		font-weight: 600;
-
-		@include vp-mobile {
-			margin-top: 0;
-			font-size: 1.4rem;
+			dd {
+				margin-top: 0;
+				font-size: 1.4rem;
+			}
 		}
 	}
 
@@ -503,7 +513,9 @@
 	}
 
 	&__text {
-		// цвет как у карточки (текст из админки, .rich-text задаёт свой)
+		// цвет как у карточки (текст из админки, .rich-text задаёт свой), жирное — того же цвета
+		--rich-text-strong: currentColor;
+
 		color: inherit;
 
 		margin: 0;
@@ -519,13 +531,11 @@
 	}
 
 	&__params {
-		display: flex;
-		gap: 12.7rem;
+		display: grid;
+		grid-template-columns: 13.8rem auto;
+		justify-content: start;
+		column-gap: 12.7rem;
 		margin: 3rem 0 0;
-
-		div:first-child {
-			width: 13.8rem;
-		}
 
 		dt {
 			font-size: 1.7rem;
@@ -550,21 +560,11 @@
 
 		// на мобильной колонки 96 и 168 по краям строки
 		@include vp-mobile {
-			display: grid;
-			// вторая колонка по содержимому — на узких телефонах число не обрезается
-			grid-template-columns: 9.6rem max-content;
+			// вторая колонка 168px, как в макете, или шире по содержимому — на узких телефонах число не обрезается
+			grid-template-columns: 9.6rem minmax(16.8rem, max-content);
 			gap: 0 1.6rem;
 			justify-content: space-between;
 			margin-top: 2rem;
-
-			div:first-child {
-				width: auto;
-			}
-
-			// в макете вторая колонка 168px
-			div:last-child {
-				min-width: 16.8rem;
-			}
 
 			dt {
 				font-size: 1.4rem;

@@ -19,22 +19,27 @@
 	}
 }
 
-.project-hero__label {
-	margin: 2.6rem 0 0.6rem;
-	font-size: 1.4rem;
-	line-height: 2rem;
-	color: var(--color-text-muted);
-}
+// заказчик: dt — подпись, dd — название
+.project-hero__customer {
+	margin: 2.6rem 0 0;
 
-.project-hero__value {
-	margin: 0;
-	font-size: 1.8rem;
-	line-height: 2.6rem;
-	font-weight: 600;
-	color: var(--color-text);
+	dt {
+		margin-bottom: 0.6rem;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		color: var(--color-text-muted);
+	}
 
-	@include vp-mobile {
-		line-height: 2.4rem;
+	dd {
+		margin: 0;
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		font-weight: 600;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			line-height: 2.4rem;
+		}
 	}
 }
 
@@ -543,32 +548,38 @@
 		}
 	}
 
-	&__title {
-		max-width: 28.8rem;
-		margin: 0;
-		font-size: 3rem;
-		line-height: 3.6rem;
-		font-weight: 600;
-
-		@include vp-mobile {
-			max-width: none;
-			font-size: 2.2rem;
-			line-height: 2.8rem;
-		}
-	}
-
+	// заголовок и текст панели из админки
 	&__text {
+		--rich-text-strong: currentColor;
+
 		max-width: 28.8rem;
-		margin: 2rem 0 3rem;
+		margin: 0 0 3rem;
 		font-size: 1.5rem;
 		line-height: 2.4rem;
 		color: rgba(255, 255, 255, 0.72);
 
+		h3 {
+			margin: 0 0 2rem;
+			font-size: 3rem;
+			line-height: 3.6rem;
+			color: var(--color-white);
+		}
+
+		p {
+			margin: 0;
+		}
+
 		@include vp-mobile {
 			max-width: none;
-			margin: 1rem 0 2.2rem;
+			margin: 0 0 2.2rem;
 			line-height: 2.2rem;
 			color: #d1def2;
+
+			h3 {
+				margin-bottom: 1rem;
+				font-size: 2.2rem;
+				line-height: 2.8rem;
+			}
 		}
 	}
 
@@ -638,13 +649,14 @@
 
 	&__customer {
 		grid-area: customer;
-		margin-bottom: 0.2rem;
+		margin: 0 0 0.2rem;
 
-		p {
+		dt,
+		dd {
 			margin: 0;
 		}
 
-		p:first-child {
+		dt {
 			margin-bottom: 0.4rem;
 			font-size: 1.4rem;
 			line-height: 2rem;
@@ -656,7 +668,7 @@
 			}
 		}
 
-		p:last-child {
+		dd {
 			font-size: 1.7rem;
 			line-height: 2.4rem;
 			font-weight: 600;
@@ -808,31 +820,41 @@
 		background-image: linear-gradient(128.4deg, #1b4d9e 0%, #0e2a5e 71.4%);
 	}
 
-	&__title {
-		margin: 0;
-		font-size: var(--fs-h2);
-		line-height: 4.4rem;
-		font-weight: 600;
-
-		@include vp-mobile {
-			font-size: 2.6rem;
-			line-height: 3.2rem;
-		}
-	}
-
+	// заголовок и текст из админки
 	&__text {
-		max-width: 64rem;
-		margin: 2.4rem auto 1.5rem;
+		--rich-text-strong: currentColor;
+
+		margin: 0 0 1.5rem;
 		font-size: 1.7rem;
 		line-height: 2.9rem;
 		color: rgba(255, 255, 255, 0.72);
 
+		h2 {
+			margin: 0 0 2.4rem;
+			line-height: 4.4rem;
+			color: var(--color-white);
+		}
+
+		p {
+			max-width: 64rem;
+			margin: 0 auto;
+		}
+
 		@include vp-mobile {
-			max-width: none;
-			margin: 1.6rem 0 2.8rem;
+			margin: 0 0 2.8rem;
 			font-size: 1.6rem;
 			line-height: 2.6rem;
 			color: #d9e3f5;
+
+			h2 {
+				margin-bottom: 1.6rem;
+				font-size: 2.6rem;
+				line-height: 3.2rem;
+			}
+
+			p {
+				max-width: none;
+			}
 		}
 	}
 
