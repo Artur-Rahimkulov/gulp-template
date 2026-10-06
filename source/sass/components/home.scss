@@ -86,17 +86,12 @@
 				height: 5.2rem;
 			}
 
-			// от правого края экрана и правее телефона в шапке — иначе синие цифры ложатся на синюю плашку
+			// от правого края экрана; низ плашки выше телефона в шапке, цифры на неё не ложатся
 			&--slab {
-				top: -15.2rem;
-				left: calc(100% - 9.4rem);
+				top: -17.2rem;
+				left: calc(100% - 14.9rem);
 				width: 20.1rem;
 				height: 20.2rem;
-
-				// до 390 телефон ближе к бургеру (см. header.scss)
-				@media (max-width: 389.98px) {
-					left: calc(100% - 7.6rem);
-				}
 			}
 		}
 	}
@@ -260,7 +255,7 @@
 
 			.tag-link {
 				width: auto;
-				padding-right: 3.6rem;
+				padding-right: 2.2rem;
 				padding-left: 7.1rem !important;
 			}
 		}
@@ -295,9 +290,10 @@
 				gap: 1.4rem;
 			}
 
+			// стрелка в макете — 10×9
 			.slider-arrow::after {
-				width: 1.4rem;
-				height: 1.2rem;
+				width: 1rem;
+				height: 0.9rem;
 			}
 
 			// «Назад» — белая плашка с синей стрелкой, как в макете
@@ -697,8 +693,10 @@
 			margin: 0;
 		}
 
+		// крупная цифра не раздвигает строку: в макете шаг строк 28px
 		b {
 			font-size: 2.7rem;
+			line-height: 0;
 			font-weight: 600;
 		}
 
@@ -1301,8 +1299,10 @@
 		font-weight: 400;
 		color: var(--color-text);
 
+		// крупная цифра не раздвигает строку: в макете шаг строк 28px
 		b {
 			font-size: 2.7rem;
+			line-height: 0;
 			font-weight: 400;
 		}
 
@@ -1359,12 +1359,13 @@
 .home-news {
 	position: relative;
 	height: 90rem;
-	// подвал в макете заходит на нижние 4px панели
+	// подвал в десктопном макете заходит на нижние 4px панели, в мобильном — встык
 	margin-bottom: -0.4rem;
 	padding-top: 10.7rem;
 
 	@include vp-mobile {
 		height: 48.7rem;
+		margin-bottom: 0;
 		padding-top: 4rem;
 	}
 
