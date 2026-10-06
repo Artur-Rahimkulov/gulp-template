@@ -38,6 +38,29 @@
 		clip-path: inset(24.3rem 0 0);
 	}
 
+	// «О компании»: синяя плашка у правого края, слева светлая плашка и призрак
+	.footer--about &--blue {
+		top: 0;
+		right: auto;
+		left: calc(50% + 65rem);
+		width: 47.6rem;
+		height: 56.3rem;
+	}
+
+	&--about-light {
+		top: -5.1rem;
+		left: calc(50% - 134.6rem);
+		width: 49.7rem;
+		height: 43.9rem;
+	}
+
+	&--about-ghost {
+		top: -6.3rem;
+		left: calc(50% - 85.7rem);
+		width: 20.2rem;
+		height: 25.8rem;
+	}
+
 	// главная: синяя плашка меньше и ниже
 	.footer--home &--blue {
 		top: -14.7rem;
@@ -49,6 +72,17 @@
 	// плашки лежат в полях за контейнером; уже 1900px полей не хватает и они подходят к тексту вплотную
 	@media (max-width: 1899.98px) {
 		display: none;
+	}
+
+	// на мобильной «О компании» — маленькая светлая плашка у стыка с документами
+	@include vp-mobile {
+		&--about-light {
+			top: -8rem;
+			left: calc(50% - 23.9rem);
+			display: block;
+			width: 13.9rem;
+			height: 12.3rem;
+		}
 	}
 }
 

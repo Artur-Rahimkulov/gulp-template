@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "О компании" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "about", "overlay": true})
+			<main class="about">
+
+				<!-- Первый экран: шапка лежит поверх фотографии -->
+				<section class="about-hero">
+					<img class="about-hero__photo" src="assets/img/about-hero.webp" width="1900" height="859" alt="" aria-hidden="true">
+					<img class="about-hero__decor about-hero__decor--figure" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="about-hero__decor about-hero__decor--ghost-1" src="assets/img/ghost-a.webp" width="407" height="517" alt="" aria-hidden="true">
+					<img class="about-hero__decor about-hero__decor--ghost-2" src="assets/img/ghost-a.webp" width="407" height="517" alt="" aria-hidden="true">
+					<img class="about-hero__decor about-hero__decor--ghost-3" src="assets/img/ghost-a.webp" width="407" height="517" alt="" aria-hidden="true">
+					<div class="about-hero__decor about-hero__decor--slab" aria-hidden="true">
+						<img src="assets/img/slab-white.webp" width="497" height="439" alt="">
+					</div>
+					<img class="about-hero__decor about-hero__decor--header-tiles" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
+					<img class="about-hero__decor about-hero__decor--header-slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+
+					<div class="container about-hero__inner">
+						<p class="about-hero__label">Инженерный центр «Крафт»</p>
+						<h1 class="about-hero__title">О&nbsp;компании</h1>
+						<!-- Текст из админки: внутри .rich-text только теги -->
+						<div class="rich-text about-hero__text">
+							<p>Инженерный центр полного цикла с&nbsp;многолетним опытом реализации сложных промышленных и&nbsp;инфраструктурных проектов</p>
+						</div>
+
+						<div class="about-hero__card">
+							<img class="about-hero__card-decor" src="assets/img/about-card-decor.webp" width="491" height="197" alt="" aria-hidden="true">
+							<p class="about-hero__years"><b>15</b> лет</p>
+							<div class="rich-text about-hero__card-text">
+								<p>монтажная компания с&nbsp;большим опытом комплексных инженерных решений для промышленных и&nbsp;гражданских объектов</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Руководитель на синей полосе -->
+				<section class="about-leader">
+					<div class="double-line about-leader__line"></div>
+					<img class="about-leader__decor about-leader__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="about-leader__decor about-leader__decor--tiles-edge" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="about-leader__decor about-leader__decor--tiles-bottom" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="about-leader__decor about-leader__decor--tiles-mobile" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
+
+					<div class="container about-leader__inner">
+						<div class="about-leader__person">
+							<img class="about-leader__photo" src="assets/img/about-director.webp" width="394" height="793" alt="Шарафлисламов Ильнур Максутович">
+							<div class="about-leader__plate">
+								<p class="about-leader__name">Шарафлисламов<br> Ильнур Максутович</p>
+								<p class="about-leader__post">директор ИЦ&nbsp;Крафт</p>
+							</div>
+						</div>
+
+						<div class="about-leader__content">
+							<!-- Текст из админки: заголовок и абзацы — на десктопе абзацы в две колонки -->
+							<div class="rich-text about-leader__text">
+								<h2>Более 20&nbsp;лет опыта в&nbsp;сфере промышленного строительства и&nbsp;электромонтажных работ.<br> Основатель и&nbsp;руководитель компании ИЦ&nbsp;Крафт с&nbsp;2013&nbsp;года.</h2>
+								<p>Под&nbsp;его&nbsp;руководством компания выросла от&nbsp;небольшой подрядной организации до&nbsp;многопрофильного инженерного центра с&nbsp;собственной производственной базой и&nbsp;штатом высококвалифицированных специалистов.</p>
+								<p>Ильнур Максутович лично курирует все&nbsp;крупные проекты компании, обеспечивая соблюдение высоких стандартов качества и&nbsp;своевременное выполнение обязательств перед заказчиками.</p>
+							</div>
+
+							<dl class="about-leader__facts">
+								<div>
+									<dt>Образование</dt>
+									<dd>БГМУ, УГНТУ, инженер-электрик<br> МВА в&nbsp;области управления проектами</dd>
+								</div>
+								<div>
+									<dt>Достижения</dt>
+									<dd>Почетный строитель России<br> Член НОСТРОЙ с&nbsp;2014&nbsp;года</dd>
+								</div>
+							</dl>
+
+							<div class="about-leader__stats">
+								@@include("source/html/components/stat.html", {"label": "В&nbsp;промышленном строительстве", "value": "20", "unit": "лет", "noPlus": true, "class": "stat--light"})
+								@@include("source/html/components/stat.html", {"label": "Руководства<br>ИЦ&nbsp;Крафт", "value": "13", "unit": "лет", "noPlus": true, "class": "stat--light"})
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- История компании: слайдер по годам и шкала времени -->
+				<section class="about-history" data-history>
+					<img class="about-history__decor about-history__decor--ghost-left" src="assets/img/ghost-c.webp" width="215" height="274" alt="" aria-hidden="true">
+					<img class="about-history__decor about-history__decor--ghost-right" src="assets/img/ghost-c.webp" width="215" height="274" alt="" aria-hidden="true">
+					<img class="about-history__decor about-history__decor--ghost-brochure" src="assets/img/ghost-b.webp" width="404" height="497" alt="" aria-hidden="true">
+					<img class="about-history__decor about-history__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+					<span class="about-history__line" aria-hidden="true"></span>
+
+					<div class="container about-history__inner">
+						<!-- крупный год на фоне — текущий слайд -->
+						<span class="about-history__year about-history__year--left" aria-hidden="true" data-history-year>2013</span>
+						<span class="about-history__year about-history__year--right" aria-hidden="true" data-history-year>2013</span>
+
+						<div class="about-history__stage">
+							<div class="swiper about-history__slider" data-history-slider>
+								<div class="swiper-wrapper">
+									@@include("source/html/components/history-slide.html", {"year": "2013", "title": "Основание компании ИЦ&nbsp;Крафт", "text": "ИЦ&nbsp;Крафт был основан в&nbsp;2013&nbsp;году как&nbsp;специализированная организация по&nbsp;электромонтажным работам. За&nbsp;годы работы мы&nbsp;значительно расширили спектр предоставляемых услуг и&nbsp;географию деятельности.", "img": "about-history-photo"})
+									@@include("source/html/components/history-slide.html", {"year": "2014", "title": "Расширение номенклатуры", "text": "Временный текст: компания расширила перечень работ и&nbsp;услуг, освоила новые направления проектирования и&nbsp;монтажа инженерных систем.", "img": "about-history-photo"})
+									@@include("source/html/components/history-slide.html", {"year": "2015", "title": "Расширение номенклатуры", "text": "Временный текст: компания расширила перечень работ и&nbsp;услуг, освоила новые направления проектирования и&nbsp;монтажа инженерных систем.", "img": "about-history-photo"})
+									@@include("source/html/components/history-slide.html", {"year": "2016", "title": "Расширение номенклатуры", "text": "Временный текст: компания расширила перечень работ и&nbsp;услуг, освоила новые направления проектирования и&nbsp;монтажа инженерных систем.", "img": "about-history-photo"})
+									@@include("source/html/components/history-slide.html", {"year": "2017", "title": "Расширение номенклатуры", "text": "Временный текст: компания расширила перечень работ и&nbsp;услуг, освоила новые направления проектирования и&nbsp;монтажа инженерных систем.", "img": "about-history-photo"})
+								</div>
+							</div>
+							@@include("source/html/ui/slider-arrows.html", {"round": true, "class": "about-history__arrows"})
+						</div>
+
+						<!-- Шкала времени: год — переключатель слайда -->
+						<ol class="about-timeline" data-history-tabs>
+							<li><button class="about-timeline__item is-active" type="button" data-history-tab><span class="about-timeline__year">2013</span> <span class="about-timeline__label">Регистрация компании</span></button></li>
+							<li><button class="about-timeline__item" type="button" data-history-tab><span class="about-timeline__year">2014</span> <span class="about-timeline__label">Расширение номенклатуры</span></button></li>
+							<li><button class="about-timeline__item" type="button" data-history-tab><span class="about-timeline__year">2015</span> <span class="about-timeline__label">Расширение номенклатуры</span></button></li>
+							<li><button class="about-timeline__item" type="button" data-history-tab><span class="about-timeline__year">2016</span> <span class="about-timeline__label">Расширение номенклатуры</span></button></li>
+							<li><button class="about-timeline__item" type="button" data-history-tab><span class="about-timeline__year">2017</span> <span class="about-timeline__label">Расширение номенклатуры</span></button></li>
+						</ol>
+
+						<!-- Презентация компании -->
+						<div class="about-history__brochure">
+							<img class="about-history__brochure-shadow about-history__brochure-shadow--back" src="assets/img/about-brochure-shadow.webp" width="517" height="337" alt="" aria-hidden="true">
+							<img class="about-history__brochure-shadow about-history__brochure-shadow--front" src="assets/img/about-brochure-shadow.webp" width="517" height="337" alt="" aria-hidden="true">
+							<img class="about-history__brochure-edge" src="assets/img/about-values-edge.webp" width="224" height="468" alt="" aria-hidden="true">
+							<img class="about-history__brochure-img" src="assets/img/about-brochure.webp" width="415" height="340" alt="Каталог услуг и&nbsp;проектов ИЦ&nbsp;Крафт">
+							<a class="btn btn--wide about-history__download" href="/about/presentation.pdf" download>Скачать презентацию<br> о&nbsp;компании</a>
+						</div>
+					</div>
+				</section>
+
+				<!-- Наши ценности на синей полосе -->
+				<section class="about-values">
+					<div class="about-values__bg" aria-hidden="true">
+						<img class="about-values__layer about-values__layer--base" src="assets/img/about-values-bg.webp" width="1920" height="1047" alt="">
+						<img class="about-values__layer about-values__layer--site" src="assets/img/about-values-site.webp" width="1194" height="725" alt="">
+						<img class="about-values__layer about-values__layer--edge" src="assets/img/about-values-edge.webp" width="224" height="468" alt="">
+						<img class="about-values__layer about-values__layer--vignette" src="assets/img/about-values-vignette.webp" width="1920" height="1047" alt="">
+						<span class="about-values__lines"></span>
+					</div>
+					<img class="about-values__decor about-values__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<img class="about-values__decor about-values__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="about-values__decor about-values__decor--tiles-bottom" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+
+					<div class="container about-values__inner">
+						<div class="about-values__worker">
+							<img src="assets/img/about-worker.webp" width="659" height="810" alt="Электромонтажник ИЦ&nbsp;Крафт за&nbsp;работой" loading="lazy">
+						</div>
+
+						<div class="about-values__content">
+							<h2 class="about-values__title">Наши ценности</h2>
+							<!-- Порядок по колонкам: на десктопе две колонки по три ценности, на мобильной — одна -->
+							<ul class="about-values__list">
+								<li class="about-value">
+									<h3 class="about-value__title">Надежность</h3>
+									<div class="rich-text about-value__text"><p>Выполняем свои обязательства в&nbsp;полном объеме и&nbsp;в&nbsp;установленные сроки. Наши клиенты могут быть уверены в&nbsp;качестве работ и&nbsp;соблюдении договоренностей.</p></div>
+								</li>
+								<li class="about-value">
+									<h3 class="about-value__title">Инновации</h3>
+									<div class="rich-text about-value__text"><p>Мы&nbsp;внедряем современные технологии и&nbsp;методы работы, используем передовое оборудование и материалы для&nbsp;достижения лучших результатов.</p></div>
+								</li>
+								<li class="about-value">
+									<h3 class="about-value__title">Качество</h3>
+									<div class="rich-text about-value__text"><p>Высокие стандарты качества&nbsp;&mdash; основа нашей работы. Мы&nbsp;контролируем каждый этап выполнения проекта и&nbsp;гарантируем соответствие всем нормам.</p></div>
+								</li>
+								<li class="about-value">
+									<h3 class="about-value__title">Профессионализм</h3>
+									<div class="rich-text about-value__text"><p>В&nbsp;нашей команде работают только квалифицированные специалисты с&nbsp;профильным образованием и&nbsp;многолетним опытом. Мы&nbsp;постоянно совершенствуем свои навыки.</p></div>
+								</li>
+								<li class="about-value">
+									<h3 class="about-value__title">Ответственность</h3>
+									<div class="rich-text about-value__text"><p>Мы&nbsp;несем полную ответственность за&nbsp;результат нашей работы. Каждый проект выполняется с&nbsp;максимальной отдачей и&nbsp;вниманием к&nbsp;деталям.</p></div>
+								</li>
+								<li class="about-value">
+									<h3 class="about-value__title">Партнерство</h3>
+									<div class="rich-text about-value__text"><p>Мы&nbsp;строим долгосрочные отношения с&nbsp;клиентами, основанные на&nbsp;доверии и&nbsp;взаимном уважении. Успех наших заказчиков&nbsp;&mdash; это&nbsp;наш успех.</p></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- Лицензии и документы: на десктопе сетка 2×2 и «Показать ещё», на мобильной — слайдер -->
+				<section class="about-docs" data-pagination-wrapper>
+					<img class="about-docs__decor about-docs__decor--ghost-left" src="assets/img/ghost-c.webp" width="215" height="274" alt="" aria-hidden="true">
+					<img class="about-docs__decor about-docs__decor--ghost-right" src="assets/img/ghost-c.webp" width="215" height="274" alt="" aria-hidden="true">
+
+					<div class="container about-docs__inner" data-docs-wrapper>
+						<h2 class="about-docs__title">Лицензии и&nbsp;документации</h2>
+
+						<div class="swiper about-docs__slider" data-docs-slider>
+							<div class="swiper-wrapper about-docs__list" data-list-items>
+								@@include("source/html/components/doc-card.html", {"class": "swiper-slide", "title": "Свидетельство СРО", "text": "Допуск к&nbsp;строительным работам, которые оказывают влияние на&nbsp;безопасность<br> объектов капитального строительства", "number": "№&nbsp;СРО-С-123-45678901", "date": "15.08.2027", "img": "doc-sro"})
+								@@include("source/html/components/doc-card.html", {"class": "swiper-slide", "title": "Свидетельство СРО", "text": "Допуск к&nbsp;строительным работам, которые оказывают влияние на&nbsp;безопасность<br> объектов капитального строительства", "number": "№&nbsp;СРО-С-123-45678901", "date": "15.08.2027", "img": "doc-sro"})
+								@@include("source/html/components/doc-card.html", {"class": "swiper-slide", "title": "Свидетельство СРО", "text": "Допуск к&nbsp;строительным работам, которые оказывают влияние на&nbsp;безопасность<br> объектов капитального строительства", "number": "№&nbsp;СРО-С-123-45678901", "date": "15.08.2027", "img": "doc-sro"})
+								@@include("source/html/components/doc-card.html", {"class": "swiper-slide", "title": "Свидетельство СРО", "text": "Допуск к&nbsp;строительным работам, которые оказывают влияние на&nbsp;безопасность<br> объектов капитального строительства", "number": "№&nbsp;СРО-С-123-45678901", "date": "15.08.2027", "img": "doc-sro"})
+							</div>
+						</div>
+
+						@@include("source/html/ui/slider-arrows.html", {"round": true, "class": "about-docs__arrows"})
+
+						<!-- data-show-more-button убирается, если в ответе сервера кнопки нет -->
+						<div class="about-docs__more" data-pagination>
+							@@include("source/html/ui/more-button.html", {"name": "Показать еще", "dataAttrString": "data-show-more-button data-href=\"?page=2\""})
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include("source/html/base/footer.html", {"about": true})
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>

@@ -100,6 +100,14 @@
             <button class="btn-secondary" type="button" disabled>Показать ещё</button>
             <p class="caption">.btn-secondary:disabled</p>
           </div>
+          <div class="kit__item">
+            <a class="btn btn--wide" href="#" download>Скачать презентацию<br> о&nbsp;компании</a>
+            <p class="caption">.btn--wide · 327×57, свой фон («О&nbsp;компании»)</p>
+          </div>
+          <div class="kit__item">
+            @@include("source/html/ui/more-button.html", {"name": "Показать еще"})
+            <p class="caption">.more-button · 371×56 («О&nbsp;компании»)</p>
+          </div>
         </div>
         <p class="caption kit__subtitle">Состояния: hover — светлее и&nbsp;приподнимается, focus (клавиатура) — рамка #1C4FA3, active — темнее и&nbsp;вдавливается, disabled — обесцвечена.</p>
       </section>
@@ -158,6 +166,9 @@
             "title": "Надёжность",
             "text": "Мы&nbsp;выполняем свои обязательства в&nbsp;полном объёме и&nbsp;в&nbsp;срок."
           })
+        </div>
+        <div class="kit__row" style="margin-top: 4rem">
+          @@include("source/html/components/doc-card.html", {"title": "Свидетельство СРО", "text": "Допуск к&nbsp;строительным работам, которые оказывают влияние на&nbsp;безопасность<br> объектов капитального строительства", "number": "№&nbsp;СРО-С-123-45678901", "date": "15.08.2027", "img": "doc-sro"})
         </div>
       </section>
 

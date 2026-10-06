@@ -52,6 +52,25 @@
 		--btn-height: 6.1rem;
 	}
 
+	// широкая 327×57 со своим фоном (btn-wide.png): «Скачать презентацию о компании»;
+	// на мобильной — обычная 200×55, подпись в две строки от левого края
+	&--wide {
+		--btn-width: 32.7rem;
+		--btn-height: 5.7rem;
+
+		background-image: url("../assets/img/btn-wide.webp");
+
+		@include vp-mobile {
+			--btn-width: 20rem;
+			--btn-height: 5.5rem;
+
+			justify-content: flex-start;
+			padding: 0 1rem 0.2rem;
+			text-align: left;
+			background-image: url("../assets/img/btn.webp");
+		}
+	}
+
 	// hover — плашка чуть светлее и приподнимается
 	@include hover {
 		filter: brightness(1.12) saturate(1.05);

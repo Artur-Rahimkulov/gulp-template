@@ -1,0 +1,18 @@
+<!-- Карточка документа: скан в рамке, название, описание из админки, номер и срок действия.
+     Параметры: title, text, number, date, img (скан, без расширения), class -->
+<article class="doc-card @@if (context.class) {@@class}">
+  <div class="doc-card__image">
+    <img src="assets/img/@@img.webp" width="181" height="261" alt="@@title" loading="lazy">
+  </div>
+  <div class="doc-card__body">
+    <h3 class="doc-card__title">@@title</h3>
+    <div class="rich-text doc-card__text">
+      <p>@@text</p>
+    </div>
+    <dl class="doc-card__meta">
+      <dt>Номер</dt>
+      <dd class="doc-card__number">@@number</dd>
+      <dd class="doc-card__date">Действует до: @@date</dd>
+    </dl>
+  </div>
+</article>

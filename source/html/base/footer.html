@@ -1,11 +1,16 @@
 <!-- {"plain": true} — без объёмных плашек на стыке (например, на 404)
-     {"home": true} — плашки главной: синяя меньше и ниже, слева добавлена светлая -->
-<footer class="footer @@if (context.home) {footer--home}">
+     {"home": true} — плашки главной: синяя меньше и ниже, слева добавлена светлая
+     {"about": true} — «О компании»: синяя плашка у правого края, слева светлая плашка и плашка-призрак -->
+<footer class="footer @@if (context.home) {footer--home} @@if (context.about) {footer--about}">
   @@if (!context.plain) {
   <img class="footer__slab footer__slab--blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="" aria-hidden="true">
   }
   @@if (context.home) {
   <img class="footer__slab footer__slab--light" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+  }
+  @@if (context.about) {
+  <img class="footer__slab footer__slab--about-light" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+  <img class="footer__slab footer__slab--about-ghost" src="assets/img/ghost-c.webp" width="215" height="274" alt="" aria-hidden="true">
   }
 
   <div class="footer__bg bg-grid" aria-hidden="true">

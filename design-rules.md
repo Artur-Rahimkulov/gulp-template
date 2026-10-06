@@ -10,6 +10,7 @@
 
 | Страница | Десктоп | Мобильная |
 |---|---|---|
+| О компании | 1920×5483 | 390×5880 |
 | Проект детальная | 1920×5526 | 390×6401 |
 | Карьера | 1920×6778 | 390×9176 |
 | Вакансия детальная | 1920×3916 | 390×5228 |
@@ -150,6 +151,14 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Скошенная карточка «Почему выбирают» (номер и иконка — картинки) | `html/components/card-why.html` | `components/cards-home.scss` |
 | Карточка новости с ярлыком «/01» | `html/components/card-news-tab.html` | `components/cards-home.scss` |
 | Слайд проекта на главной | `.project-slide` в `html/main.html` | `components/cards-home.scss` |
+| О компании: первый экран с фото и карточкой «15 лет», руководитель на синей полосе, история по годам (слайдер + шкала), «Наши ценности», лицензии (на мобильной — слайдер) | `html/about.html` | `components/about.scss`, `js/modules/about.js` |
+| Слайд истории (год, заголовок и текст из админки, фото) | `html/components/history-slide.html` | `components/about.scss` |
+| Шкала времени: год — переключатель слайда, линия с точками до текущего года | `ol.about-timeline[data-history-tabs]` | `components/about.scss`, `js/modules/about.js` |
+| Карточка документа (скан в рамке, описание, номер, срок) | `html/components/doc-card.html` | `components/cards.scss` |
+| Кнопка «Показать еще» со скошенной плашкой и стрелкой вниз | `html/ui/more-button.html` | `ui/more-button.scss` |
+| Кнопка 327×57 со своим фоном (на мобильной — обычная 200×55) | `.btn.btn--wide` | `ui/btn.scss` |
+| Цифра без «+» на синем фоне («20 лет») | `stat.html` с `{"noPlus": true, "class": "stat--light"}` | `ui/stat.scss` |
+| Подвал «О компании» | `footer.html` с `{"about": true}` | `.footer--about` |
 
 ### Состояния
 

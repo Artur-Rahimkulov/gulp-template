@@ -1,5 +1,5 @@
-<!-- Цифра с подписью: «+200». Параметры: label, value, unit (необязательно), class -->
+<!-- Цифра с подписью: «+200». Параметры: label, value, unit (необязательно), class, noPlus (без синего «+») -->
 <div class="stat @@if (context.class) {@@class}">
   <p class="stat__label">@@label</p>
-  <p class="stat__value"><span class="stat__plus" aria-hidden="true">+</span><span class="stat__number">@@value@@if (context.unit) {<span class="stat__unit">@@unit</span>}</span></p>
+  <p class="stat__value">@@if (!context.noPlus) {<span class="stat__plus" aria-hidden="true">+</span>}<span class="stat__number">@@value@@if (context.unit) {<span class="stat__unit">@@unit</span>}</span></p>
 </div>

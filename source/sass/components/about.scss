@@ -1,0 +1,1625 @@
+// Страница «О компании». Координаты декора из макета 1920: left = calc(50% + (x − 960)px), на мобильной 390 — от центра 195.
+
+// фото и плашки выходят за края экрана — без горизонтальной прокрутки
+.about {
+	overflow-x: clip;
+}
+
+// Общее для декоративных картинок секций
+.about-hero__decor,
+.about-leader__decor,
+.about-history__decor,
+.about-values__decor,
+.about-docs__decor {
+	position: absolute;
+	max-width: none;
+	object-fit: contain;
+	pointer-events: none;
+}
+
+// ---------------------------------
+// Первый экран: шапка лежит поверх, фото начинается от верха окна
+// ---------------------------------
+.about-hero {
+	position: relative;
+	z-index: 1;
+	min-height: 83.3rem;
+	margin-top: -18.8rem;
+	padding: 23.5rem 0 6rem;
+
+	// косая сетка под шапкой до линии и смещённая — после неё
+	&::before,
+	&::after {
+		@include grid-lines;
+
+		content: '';
+		position: absolute;
+		right: 0;
+		left: 0;
+		pointer-events: none;
+	}
+
+	&::before {
+		top: 18.8rem;
+		height: 40.3rem;
+	}
+
+	&::after {
+		top: 59.1rem;
+		bottom: 0;
+		border-top: 0.1rem solid var(--color-double-line);
+		background-position: -17.9rem 0;
+	}
+
+	@include vp-mobile {
+		min-height: 89.9rem;
+		margin-top: -8.4rem;
+		padding: 14.9rem 0 4rem;
+
+		// белая дымка под шапкой
+		&::before {
+			top: 0;
+			z-index: 1;
+			height: 31.7rem;
+			background-image: linear-gradient(180deg, var(--color-white) 40.9%, rgba(255, 255, 255, 0) 100%);
+		}
+
+		&::after {
+			content: none;
+		}
+	}
+
+	&__photo {
+		position: absolute;
+		top: -0.8rem;
+		left: calc(50% - 27.2rem);
+		width: 129.1rem;
+		max-width: none;
+		height: 84.1rem;
+		object-fit: cover;
+		object-position: right center;
+		pointer-events: none;
+
+		// уже 1440 фото уходит вправо и плавно гаснет к тексту, чтобы не мешать читать
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			left: auto;
+			right: -30rem;
+			mask-image: linear-gradient(90deg, transparent 0, #000 40%);
+		}
+
+		// уже 1200 фото ложится под текст — убираем
+		@include vp-narrow {
+			display: none;
+		}
+
+		@include vp-mobile {
+			top: 12.3rem;
+			left: calc(50% - 50.2rem);
+			width: 79.6rem;
+			height: 51.8rem;
+		}
+	}
+
+	&__decor {
+		// фоновая фигура под фото
+		&--figure {
+			top: -1.5rem;
+			left: calc(50% + 0.7rem);
+			width: 42.1rem;
+			height: 52.5rem;
+		}
+
+		// плашки-призраки поверх фото
+		&--ghost-1 {
+			z-index: 1;
+			top: 18rem;
+			left: calc(50% - 15.3rem);
+			width: 40.7rem;
+			height: 51.7rem;
+		}
+
+		&--ghost-2 {
+			z-index: 1;
+			top: -3.9rem;
+			left: calc(50% + 41.2rem);
+			width: 38.9rem;
+			height: 49.5rem;
+		}
+
+		&--ghost-3 {
+			z-index: 1;
+			top: 0.2rem;
+			left: calc(50% + 12.5rem);
+			width: 15.4rem;
+			height: 19.6rem;
+		}
+
+		// светлая плашка за карточкой «15 лет»: низ срезан
+		&--slab {
+			z-index: 1;
+			top: 42.6rem;
+			left: calc(50% - 76.3rem);
+			width: 61rem;
+			height: 49.6rem;
+			overflow: hidden;
+
+			img {
+				display: block;
+				width: 100%;
+				max-width: none;
+				height: auto;
+			}
+		}
+
+		// на мобильной у шапки плитка и синяя плашка
+		&--header-tiles,
+		&--header-slab {
+			display: none;
+		}
+
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			&--figure,
+			&--ghost-1,
+			&--ghost-3 {
+				display: none;
+			}
+		}
+
+		@include vp-mobile {
+			&--figure,
+			&--ghost-1,
+			&--ghost-2,
+			&--ghost-3 {
+				display: none;
+			}
+
+			&--slab {
+				top: 59.7rem;
+				left: calc(50% - 22.5rem);
+				width: 37rem;
+				height: 30.2rem;
+			}
+
+			&--header-tiles {
+				z-index: 2;
+				top: 10.1rem;
+				left: calc(50% - 22.6rem);
+				display: block;
+				width: 14rem;
+				height: 5.2rem;
+			}
+
+			&--header-slab {
+				z-index: 2;
+				top: -17.2rem;
+				left: calc(100% - 14.9rem);
+				display: block;
+				width: 20.1rem;
+				height: 20.2rem;
+			}
+		}
+	}
+
+	&__inner {
+		position: relative;
+		z-index: 2;
+
+		@include vp-mobile {
+			padding-left: calc(var(--container-padding) + 2.4rem);
+		}
+	}
+
+	&__label {
+		margin: 0;
+		font-size: 2.1rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: var(--color-link);
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+		}
+	}
+
+	&__title {
+		margin: 2rem 0 0;
+		font-size: 5.2rem;
+		line-height: 5.8rem;
+		font-weight: 600;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			margin-top: 0.1rem;
+			font-size: 2.4rem;
+			line-height: 3.4rem;
+		}
+	}
+
+	&__text {
+		max-width: 71.9rem;
+		margin-top: 2rem;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		font-weight: 600;
+		color: var(--color-text);
+
+		p {
+			margin: 0;
+		}
+
+		@include vp-mobile {
+			max-width: 29.9rem;
+			margin-top: 1.4rem;
+			font-size: 1.2rem;
+			line-height: 1.8rem;
+		}
+	}
+
+	// карточка «15 лет»
+	&__card {
+		position: relative;
+		width: 70rem;
+		max-width: 100%;
+		min-height: 19.6rem;
+		margin-top: 6rem;
+		padding: 1.9rem 3rem 1rem 4.1rem;
+		background-color: var(--color-card);
+
+		@include vp-mobile {
+			width: 31rem;
+			min-height: 21.5rem;
+			margin-top: 33.5rem;
+			padding: 1.8rem 1.6rem 1rem 2.5rem;
+
+			// на мобильной вместо узора-картинки — два среза плашки-призрака
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				background: url("../assets/img/ghost-a.webp") no-repeat;
+				pointer-events: none;
+			}
+
+			&::before {
+				top: 4.3rem;
+				left: 0;
+				width: 25.7rem;
+				height: 17.2rem;
+				background-position: -5.3rem 0;
+				background-size: 31rem 39.4rem;
+			}
+
+			&::after {
+				top: 0;
+				left: 14rem;
+				width: 15.4rem;
+				height: 5.7rem;
+				background-position: 0 -13.9rem;
+				background-size: 15.4rem 19.6rem;
+			}
+		}
+	}
+
+	&__card-decor {
+		position: absolute;
+		top: -0.1rem;
+		left: 3.2rem;
+		width: 49.1rem;
+		max-width: none;
+		height: 19.7rem;
+		pointer-events: none;
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+
+	&__years {
+		position: relative;
+		margin: 0;
+		font-size: 2.7rem;
+		line-height: 1.4;
+		font-weight: 600;
+		color: var(--color-text);
+
+		b {
+			font-size: 7.2rem;
+			font-weight: 600;
+		}
+
+		@include vp-mobile {
+			font-size: 2rem;
+			font-weight: 400;
+
+			b {
+				font-size: 4.8rem;
+				font-weight: 400;
+			}
+		}
+	}
+
+	&__card-text {
+		position: relative;
+		max-width: 62rem;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		font-weight: 400;
+		color: var(--color-text);
+
+		p {
+			margin: 0;
+		}
+
+		@include vp-mobile {
+			max-width: 26.9rem;
+			font-size: 1.2rem;
+			line-height: 2rem;
+		}
+	}
+}
+
+// ---------------------------------
+// Руководитель на синей полосе
+// ---------------------------------
+.about-leader {
+	position: relative;
+	z-index: 2;
+	min-height: 72.7rem;
+	padding: 8rem 0 6rem;
+	background-image: linear-gradient(132.78deg, #1b4d9e 7.4%, #0f2c63 81.5%);
+
+	// косая сетка белыми линиями и тень от верхнего и нижнего края
+	&::before {
+		--color-grid-line: rgba(255, 255, 255, 0.06);
+
+		@include grid-lines;
+
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 10.8rem;
+		background-color: rgba(14, 42, 94, 0.5);
+		filter: blur(4.5rem);
+		pointer-events: none;
+	}
+
+	@include vp-mobile {
+		min-height: 0;
+		padding: 45.3rem 0 8rem;
+		background-image: linear-gradient(95.61deg, #1b4d9e 7.4%, #0f2c63 81.5%);
+
+		&::after {
+			content: none;
+		}
+	}
+
+	// двойная белая линия через полосу
+	&__line {
+		position: absolute;
+		top: 39.1rem;
+		right: 0;
+		left: 0;
+		border-color: rgba(255, 255, 255, 0.09);
+
+		@include vp-mobile {
+			top: 18.6rem;
+			border-color: rgba(255, 255, 255, 0.1);
+		}
+	}
+
+	&__decor {
+		// плитка на стыке с первым экраном
+		&--tiles {
+			z-index: 3;
+			top: -1.2rem;
+			left: calc(50% + 61.5rem);
+			width: 16.8rem;
+			height: 8.8rem;
+		}
+
+		// плитка у нижнего края, заходит на историю
+		&--tiles-edge {
+			z-index: 3;
+			top: 70.5rem;
+			left: calc(50% + 21rem);
+			width: 16.8rem;
+			height: 8.8rem;
+		}
+
+		&--tiles-bottom {
+			z-index: 3;
+			top: 53.5rem;
+			left: calc(50% - 91.8rem);
+			width: 16.8rem;
+			height: 8.8rem;
+		}
+
+		&--tiles-mobile {
+			display: none;
+		}
+
+		@include vp-mobile {
+			&--tiles,
+			&--tiles-edge,
+			&--tiles-bottom {
+				display: none;
+			}
+
+			&--tiles-mobile {
+				z-index: 3;
+				top: 2rem;
+				left: calc(50% + 6.6rem);
+				display: block;
+				width: 14rem;
+				height: 5.2rem;
+			}
+		}
+	}
+
+	&__inner {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: 39.4rem minmax(0, 89.8rem);
+		column-gap: 10.6rem;
+		align-items: start;
+
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			grid-template-columns: 32rem minmax(0, 1fr);
+			column-gap: 6rem;
+		}
+
+		@include vp-mobile {
+			display: block;
+		}
+	}
+
+	// фото выходит над полосой на 66px и стоит на её нижнем крае
+	&__person {
+		position: relative;
+		align-self: stretch;
+		margin: -14.6rem 0 -8rem;
+
+		@include vp-mobile {
+			position: absolute;
+			top: -51.2rem;
+			left: var(--container-padding);
+			right: var(--container-padding);
+			margin: 0;
+		}
+	}
+
+	&__photo {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 39.4rem;
+		max-width: 100%;
+		height: auto;
+
+		@include vp-mobile {
+			position: relative;
+			bottom: auto;
+			left: 1rem;
+			display: block;
+			width: 30.4rem;
+			height: 48rem;
+			object-fit: cover;
+			object-position: top left;
+		}
+	}
+
+	// табличка с именем поверх фото
+	&__plate {
+		position: absolute;
+		top: 47.7rem;
+		left: 12rem;
+		width: 33rem;
+		min-height: 13.4rem;
+		padding: 2rem;
+		color: var(--color-white);
+		background-color: rgba(11, 41, 92, 0.8);
+		border: 0.1rem solid #0073ff;
+
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			left: 4rem;
+			width: 28rem;
+		}
+
+		@include vp-mobile {
+			top: 34.2rem;
+			left: 0;
+			width: 100%;
+			min-height: 13.8rem;
+		}
+	}
+
+	&__name {
+		margin: 0;
+		font-size: 2.1rem;
+		line-height: 2rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__post {
+		margin: 1rem 0 0;
+		font-size: 1.6rem;
+		line-height: 2.7rem;
+		font-weight: 500;
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		color: var(--color-white);
+
+		@include vp-mobile {
+			gap: 4.8rem;
+		}
+	}
+
+	// заголовок и два абзаца из админки: на десктопе абзацы в две колонки
+	&__text {
+		--rich-text-strong: currentColor;
+
+		display: grid;
+		grid-template-columns: minmax(0, 42.5rem) minmax(0, 39.1rem);
+		column-gap: 8.2rem;
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+		font-weight: 500;
+		color: inherit;
+
+		h2 {
+			grid-column: 1 / -1;
+			max-width: 71.6rem;
+			margin: 0 0 3rem;
+			font-size: 2.7rem;
+			line-height: 3.2rem;
+			color: inherit;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		@include vp-narrow {
+			grid-template-columns: minmax(0, 1fr);
+			row-gap: 2.4rem;
+
+			h2 {
+				margin-bottom: 0.6rem;
+			}
+		}
+
+		@include vp-mobile {
+			grid-template-columns: minmax(0, 1fr);
+			row-gap: 2.4rem;
+			font-size: 1.4rem;
+
+			h2 {
+				margin-bottom: 2.4rem;
+				font-size: 2rem;
+				line-height: 1.2;
+			}
+		}
+	}
+
+	&__facts {
+		display: flex;
+		margin: 0;
+
+		div {
+			flex-shrink: 0;
+			width: 37.4rem;
+		}
+
+		dt {
+			font-size: 1.6rem;
+			line-height: 2rem;
+			font-weight: 600;
+			color: #6fb0ff;
+		}
+
+		dd {
+			margin: 0.6rem 0 0;
+			font-size: 1.6rem;
+			line-height: 2.6rem;
+			font-weight: 500;
+		}
+
+		@include vp-narrow {
+			flex-direction: column;
+			gap: 2.4rem;
+		}
+
+		@include vp-mobile {
+			flex-direction: column;
+			gap: 4.8rem;
+
+			div {
+				width: auto;
+			}
+
+			dt {
+				font-size: 1.4rem;
+			}
+
+			dd {
+				font-size: 1.4rem;
+				line-height: 2rem;
+			}
+
+			div:first-child dd {
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	&__stats {
+		display: flex;
+
+		.stat {
+			flex-shrink: 0;
+			width: 20rem;
+		}
+
+		@include vp-mobile {
+			.stat:first-child {
+				width: 20rem;
+			}
+
+			.stat:last-child {
+				width: 15.8rem;
+			}
+		}
+	}
+}
+
+// ---------------------------------
+// История компании
+// ---------------------------------
+.about-history {
+	position: relative;
+	z-index: 3;
+	min-height: 108rem;
+	padding: 8.5rem 0 6rem;
+
+	// разделительные линии: через карточку и под шкалой времени
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		height: 0.1rem;
+		background-color: var(--color-double-line);
+		pointer-events: none;
+	}
+
+	&::before {
+		top: 38.1rem;
+		left: calc(50% - 70rem);
+		width: 166.5rem;
+	}
+
+	&::after {
+		top: 79.2rem;
+		left: calc(50% - 80.9rem);
+		width: 164.2rem;
+	}
+
+	@include vp-mobile {
+		min-height: 68.9rem;
+		padding: 5.3rem 0 0;
+
+		&::before {
+			top: 24.6rem;
+			left: 0;
+			width: 100%;
+		}
+
+		&::after {
+			top: 48.1rem;
+			left: 0;
+			width: 100%;
+		}
+	}
+
+	&__decor {
+		&--ghost-left {
+			top: 0;
+			left: calc(50% - 89.5rem);
+			width: 20.2rem;
+			height: 25.8rem;
+		}
+
+		&--ghost-right {
+			top: 0;
+			left: calc(50% + 22rem);
+			width: 39.5rem;
+			height: 50.4rem;
+		}
+
+		// призрак за брошюрой: нижняя часть уходит под полосу «Ценностей»
+		&--ghost-brochure {
+			top: 76.2rem;
+			left: calc(50% - 38rem);
+			width: 41.7rem;
+			height: 51.2rem;
+			object-fit: cover;
+			clip-path: inset(0 0 19.4rem 0);
+		}
+
+		&--slab {
+			top: 2.9rem;
+			left: calc(50% + 78.8rem);
+			width: 49.6rem;
+			height: 47.4rem;
+		}
+
+		@include vp-mobile {
+			&--ghost-left {
+				top: -7.9rem;
+				left: calc(50% - 13.6rem);
+				width: 27.2rem;
+				height: 34.6rem;
+			}
+
+			&--ghost-right {
+				top: 48.9rem;
+				left: calc(50% + 2.8rem);
+				width: 27.2rem;
+				height: 34.6rem;
+			}
+
+			&--ghost-brochure,
+			&--slab {
+				display: none;
+			}
+		}
+	}
+
+	&__inner {
+		position: relative;
+	}
+
+	// крупный год текущего слайда на фоне
+	// шрифт из макета: Gotham Pro Regular 300 / 100 %, без разрядки
+	&__year {
+		position: absolute;
+		top: 6.3rem;
+		font-family: 'Gotham Pro', var(--font-family);
+		font-size: 30rem;
+		line-height: 1;
+		font-weight: 400;
+		letter-spacing: 0;
+		color: rgba(0, 108, 185, 0.127);
+		white-space: nowrap;
+		pointer-events: none;
+		user-select: none;
+
+		&--left {
+			left: calc(var(--container-padding) - 20.1rem);
+		}
+
+		&--right {
+			left: calc(var(--container-padding) + 63.8rem);
+		}
+
+		@include vp-mobile {
+			top: 35.17rem;
+			// на мобильной год в масштабе макета 361/659
+			font-size: 16.4rem;
+
+			&--left {
+				left: calc(var(--container-padding) - 17.22rem);
+			}
+
+			&--right {
+				left: calc(var(--container-padding) + 28.24rem);
+			}
+		}
+	}
+
+	// карточка-слайдер и стрелки справа от неё
+	&__stage {
+		position: relative;
+		width: 60.5rem;
+		max-width: 100%;
+
+		@include vp-mobile {
+			width: 100%;
+		}
+	}
+
+	&__slider {
+		width: 100%;
+		margin: 0;
+	}
+
+	&__arrows {
+		position: absolute;
+		top: 45.2rem;
+		left: 68.1rem;
+
+		@include vp-mobile {
+			position: relative;
+			top: auto;
+			left: auto;
+			justify-content: flex-end;
+			margin-top: 1.5rem;
+
+			// на мобильной стрелки без тени, как в макете
+			.round-arrow {
+				box-shadow: none;
+			}
+		}
+	}
+
+	// брошюра с тенями и кнопка «Скачать презентацию»
+	&__brochure {
+		position: relative;
+		width: 90.4rem;
+		max-width: 100%;
+		height: 19.8rem;
+		margin-top: 2.6rem;
+
+		@include vp-mobile {
+			width: 100%;
+			height: 18.1rem;
+			margin-top: 0.5rem;
+		}
+	}
+
+	&__brochure-img,
+	&__brochure-shadow,
+	&__brochure-edge {
+		position: absolute;
+		max-width: none;
+		pointer-events: none;
+	}
+
+	&__brochure-img {
+		top: -1.9rem;
+		left: 0.4rem;
+		width: 41.5rem;
+		height: 34rem;
+
+		@include vp-mobile {
+			top: 2rem;
+			left: calc(50% - 25rem);
+			width: 28.6rem;
+			height: 23.4rem;
+		}
+	}
+
+	&__brochure-shadow {
+		&--back {
+			top: 10.95rem;
+			left: -3.65rem;
+			width: 51.7rem;
+			height: 33.7rem;
+			transform: rotate(-10.58deg);
+			clip-path: inset(0 0 18.8rem 0);
+
+			@include vp-mobile {
+				display: none;
+			}
+		}
+
+		&--front {
+			top: 11.63rem;
+			left: 0.36rem;
+			width: 38rem;
+			height: 24.8rem;
+			transform: rotate(3.17deg);
+
+			@include vp-mobile {
+				top: 11.3rem;
+				left: calc(50% - 25.05rem);
+				width: 26.2rem;
+				height: 17.1rem;
+			}
+		}
+	}
+
+	&__brochure-edge {
+		display: none;
+
+		@include vp-mobile {
+			top: 6.6rem;
+			left: calc(50% - 9.25rem);
+			display: block;
+			width: 9.6rem;
+			height: 20.2rem;
+		}
+	}
+
+	// .btn подключается позже и задаёт position: relative — повышаем специфичность
+	.btn#{&}__download {
+		position: absolute;
+		top: 13rem;
+		left: 31.7rem;
+
+		br {
+			display: none;
+		}
+
+		// на узких телефонах кнопка прижимается к правому краю колонки
+		@include vp-mobile {
+			top: 12.6rem;
+			right: max(0rem, calc(50% - 18rem));
+			left: auto;
+
+			br {
+				display: inline;
+			}
+		}
+	}
+}
+
+// Слайд истории: синяя карточка с годом, текстом и фото
+.history-slide {
+	height: 49.9rem;
+	padding: 5.9rem 5rem 0;
+	color: var(--color-white);
+	background: url("../assets/img/about-history-card.webp") no-repeat center / cover;
+
+	@include vp-mobile {
+		height: 36.8rem;
+		padding: 2.5rem 2.5rem 0;
+	}
+
+	&__year {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 9rem;
+		height: 3rem;
+		margin: 0;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: #6fb0ff;
+		background-color: #0e3473;
+
+		@include vp-mobile {
+			width: 5.9rem;
+			height: 2.3rem;
+			font-size: 1rem;
+		}
+	}
+
+	&__text {
+		--rich-text-strong: currentColor;
+
+		max-width: 49.1rem;
+		margin-top: 4.3rem;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: inherit;
+
+		h3 {
+			margin: 0 0 3rem;
+			font-size: 2.7rem;
+			line-height: 1.2;
+			color: inherit;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		@include vp-mobile {
+			max-width: 29.8rem;
+			margin-top: 2.5rem;
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+
+			h3 {
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+	&__photo {
+		display: block;
+		width: 27rem;
+		height: 15.1rem;
+		margin-top: 1.8rem;
+		object-fit: cover;
+
+		@include vp-mobile {
+			width: 17.8rem;
+			height: 10rem;
+			margin-top: 1.2rem;
+		}
+	}
+}
+
+// Шкала времени: годы-переключатели и линия с точками
+.about-timeline {
+	--progress: 0;
+
+	position: relative;
+	display: flex;
+	gap: 7.5rem;
+	margin: 9.3rem 0 0;
+	padding: 0 0 3.9rem;
+	list-style: none;
+
+	// линия: до текущего года — сплошная, дальше — бледная
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 1.2rem;
+		left: -16.5rem;
+		height: 0.1rem;
+		background-color: #0574c3;
+	}
+
+	// концы линии ставит скрипт по положению точек: --line-end — последняя, --progress — текущая
+	&::before {
+		width: calc(var(--line-end, 1193.5px) + 16.5rem);
+		opacity: 0.5;
+	}
+
+	&::after {
+		width: calc(var(--progress, 12.5px) + 16.5rem);
+	}
+
+	li {
+		position: relative;
+		flex: 0 1 22rem;
+		min-width: 0;
+
+		// точка под годом
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -3.9rem;
+			left: 0;
+			z-index: 1;
+			width: 2.5rem;
+			height: 2.5rem;
+			background: radial-gradient(circle, var(--color-white) 0.5rem, transparent 0.55rem), rgba(226, 238, 244, 0.8);
+			border-radius: 50%;
+		}
+
+		&:has(.is-active)::after {
+			background: radial-gradient(circle, #0574c3 0.5rem, transparent 0.55rem), rgba(255, 255, 255, 0.8);
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		height: 8rem;
+		margin: 0;
+		padding: 1.7rem 1.9rem;
+		font-family: inherit;
+		text-align: left;
+		background-color: var(--color-white);
+		border: 0.1rem solid #d0deea;
+		cursor: pointer;
+		transition: border-color var(--default-transition);
+
+		@include hover {
+			border-color: #0574c3;
+		}
+
+		@include focus {
+			outline: 0.2rem solid var(--color-link);
+			outline-offset: 0.2rem;
+		}
+
+		@include vp-narrow {
+			height: auto;
+			min-height: 8rem;
+			padding: 1.4rem 1.6rem;
+		}
+
+		&.is-active {
+			padding: 1.4rem 3.5rem;
+
+			@include vp-narrow {
+				padding: 1.4rem 1.6rem;
+			}
+			background-image: linear-gradient(90deg, #0054c5 0%, #499be5 100%);
+			border: none;
+			cursor: default;
+		}
+	}
+
+	&__year {
+		font-size: 1.6rem;
+		line-height: 2.6rem;
+		font-weight: 400;
+		color: var(--color-text);
+
+		.is-active & {
+			color: var(--color-white);
+		}
+	}
+
+	&__label {
+		font-size: 1.2rem;
+		line-height: 2rem;
+		font-weight: 400;
+		color: #3d86b1;
+
+		.is-active & {
+			line-height: 2.6rem;
+			color: var(--color-white);
+		}
+	}
+
+	@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+		gap: 2rem;
+	}
+
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+// ---------------------------------
+// Наши ценности на синей полосе
+// ---------------------------------
+.about-values {
+	position: relative;
+	z-index: 2;
+	min-height: 100rem;
+	padding: 10rem 0 8rem;
+	color: var(--color-white);
+	background-color: #10368a;
+
+	@include vp-mobile {
+		min-height: 124.3rem;
+		padding: 5.4rem 0 35.1rem;
+		background-image: linear-gradient(96.28deg, #1b4d9e 7.4%, #0f2c63 81.5%);
+	}
+
+	&__bg {
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
+		pointer-events: none;
+
+		// тень от верхнего края
+		&::before {
+			content: '';
+			position: absolute;
+			top: 1.9rem;
+			right: 0;
+			left: 0;
+			z-index: 2;
+			height: 10.8rem;
+			background-color: rgba(14, 42, 94, 0.5);
+			filter: blur(4.5rem);
+		}
+
+		@include vp-mobile {
+			&::before {
+				content: none;
+			}
+
+			// голубое свечение у нижнего края
+			&::after {
+				content: '';
+				position: absolute;
+				top: 57.2rem;
+				left: calc(50% - 23.2rem);
+				width: 45.5rem;
+				height: 61.1rem;
+				background-color: #114fa6;
+				filter: blur(2rem);
+			}
+		}
+	}
+
+	&__layer {
+		position: absolute;
+		max-width: none;
+
+		&--base,
+		&--vignette {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 104.7rem;
+			object-fit: cover;
+			object-position: top center;
+		}
+
+		&--site {
+			top: 0;
+			left: calc(50% - 58rem);
+			width: 164.7rem;
+			height: 100rem;
+			object-fit: cover;
+		}
+
+		&--edge {
+			top: 0;
+			left: 0;
+			width: 22.4rem;
+			height: 46.8rem;
+		}
+
+		@include vp-mobile {
+			&--base,
+			&--edge {
+				display: none;
+			}
+
+			&--site {
+				top: 9.8rem;
+				left: calc(50% - 53.8rem);
+				width: 83.8rem;
+				height: 50.9rem;
+			}
+
+			&--vignette {
+				left: calc(50% - 77.1rem);
+				width: 116.5rem;
+				height: 63.6rem;
+			}
+		}
+	}
+
+	// белые линии: сверху, двойная посередине и внизу
+	&__lines {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 7rem;
+			left: calc(50% - 90.9rem);
+			width: 192rem;
+			height: 0.1rem;
+			background-color: rgba(255, 255, 255, 0.09);
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 45.4rem;
+			left: calc(50% - 90.5rem);
+			width: 182rem;
+			height: 0.2rem;
+			background-color: rgba(255, 255, 255, 0.09);
+		}
+
+		@include vp-mobile {
+			&::before {
+				top: 6.2rem;
+				left: 0;
+				width: 100%;
+			}
+
+			&::after {
+				top: 30.5rem;
+				left: 0;
+				width: 100%;
+				height: 0.3rem;
+				background-color: transparent;
+				border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+				border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+			}
+		}
+	}
+
+	&__decor {
+		&--slab {
+			z-index: 3;
+			top: -4.4rem;
+			left: calc(50% - 130.5rem);
+			width: 49.7rem;
+			height: 43.9rem;
+		}
+
+		&--tiles {
+			z-index: 3;
+			top: -0.9rem;
+			left: calc(50% + 51.9rem);
+			width: 16.8rem;
+			height: 8.8rem;
+		}
+
+		&--tiles-bottom {
+			z-index: 3;
+			top: 85.3rem;
+			left: calc(50% + 67.6rem);
+			width: 16.8rem;
+			height: 8.8rem;
+		}
+
+		@include vp-mobile {
+			&--slab {
+				top: auto;
+				bottom: 9rem;
+				left: calc(50% - 36.2rem);
+				width: 23.7rem;
+				height: 20.9rem;
+			}
+
+			&--tiles,
+			&--tiles-bottom {
+				display: none;
+			}
+		}
+	}
+
+	&__inner {
+		position: relative;
+		z-index: 3;
+		padding-left: calc(var(--container-padding) + 51.9rem);
+
+		// диапазоны не пересекаются: сборка группирует медиазапросы и меняет их порядок
+		@media (min-width: $vp-wide) and (max-width: 1439.98px) {
+			padding-left: calc(var(--container-padding) + 40rem);
+		}
+
+		// фото электрика скрыто — текст от края контентной колонки
+		@include vp-narrow {
+			padding-left: var(--container-padding);
+		}
+
+		@include vp-mobile {
+			padding-left: calc(var(--container-padding) + 2.6rem);
+		}
+	}
+
+	// электромонтажник стоит на нижнем крае полосы
+	&__worker {
+		position: absolute;
+		top: 9rem;
+		left: calc(50% - 84.9rem);
+		width: 65.9rem;
+		height: 81rem;
+		pointer-events: none;
+
+		img {
+			display: block;
+			width: 100%;
+			max-width: none;
+			height: 100%;
+		}
+
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			left: calc(50% - 100rem);
+		}
+
+		@include vp-narrow {
+			display: none;
+		}
+
+		// на мобильной стоит на нижнем крае полосы при любой длине текста
+		@include vp-mobile {
+			top: auto;
+			bottom: -36.7rem;
+			left: calc(50% - 15rem);
+			width: 33.9rem;
+			height: 33.3rem;
+			overflow: hidden;
+
+			img {
+				height: auto;
+			}
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 3.8rem;
+		line-height: 4.4rem;
+		font-weight: 600;
+		color: inherit;
+
+		@include vp-mobile {
+			font-size: 2rem;
+		}
+	}
+
+	// две колонки по три ценности, порядок — по колонкам
+	&__list {
+		display: grid;
+		grid-template-rows: repeat(3, auto);
+		// как в макете: вторая колонка 433px и на 5px выходит за контентную колонку
+		grid-template-columns: 44.1rem 43.3rem;
+		grid-auto-flow: column;
+		gap: 9rem 1.2rem;
+		margin: 5rem 0 0;
+		padding: 0;
+		list-style: none;
+
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: 3rem;
+		}
+
+		@include vp-narrow {
+			row-gap: 4rem;
+		}
+
+		@include vp-mobile {
+			grid-template-rows: none;
+			grid-template-columns: minmax(0, 1fr);
+			grid-auto-flow: row;
+			gap: 3rem;
+			max-width: 31.9rem;
+			margin-top: 0.8rem;
+		}
+	}
+}
+
+.about-value {
+	&__title {
+		margin: 0;
+		font-size: 2.1rem;
+		line-height: 2.8rem;
+		font-weight: 600;
+		color: inherit;
+
+		@include vp-mobile {
+			font-size: 1.6rem;
+		}
+	}
+
+	&__text {
+		--rich-text-strong: currentColor;
+
+		margin-top: 1.4rem;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: inherit;
+
+		p {
+			margin: 0;
+		}
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+		}
+	}
+}
+
+// ---------------------------------
+// Лицензии и документы
+// ---------------------------------
+.about-docs {
+	position: relative;
+	padding: 10rem 0 12rem;
+
+	@include vp-mobile {
+		padding: 3.4rem 0 8rem;
+	}
+
+	&__decor {
+		&--ghost-left {
+			top: 0;
+			left: calc(50% - 70rem);
+			width: 20.2rem;
+			height: 25.8rem;
+		}
+
+		&--ghost-right {
+			top: 0;
+			left: calc(50% + 51.4rem);
+			width: 39.5rem;
+			height: 50.4rem;
+		}
+
+		@include vp-mobile {
+			&--ghost-left {
+				left: calc(50% - 21.5rem);
+				width: 41.1rem;
+				height: 52.4rem;
+			}
+
+			&--ghost-right {
+				display: none;
+			}
+		}
+	}
+
+	&__inner {
+		position: relative;
+
+		@include vp-mobile {
+			padding-left: calc(var(--container-padding) + 2.8rem);
+		}
+	}
+
+	&__title {
+		margin: 0 0 6rem;
+		font-size: 3.8rem;
+		line-height: 4.4rem;
+		font-weight: 600;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			max-width: 20rem;
+			margin-bottom: 3rem;
+			font-size: 2.4rem;
+			line-height: 2.6rem;
+		}
+	}
+
+	// на десктопе слайдер выключен — сетка 2×2
+	&__slider {
+		@include vp-desktop {
+			overflow: visible;
+		}
+	}
+
+	&__list {
+		@include vp-desktop {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 8rem 7.2rem;
+			transform: none !important;
+
+			.swiper-slide {
+				width: auto !important;
+				margin: 0 !important;
+			}
+		}
+
+		@include vp-narrow {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+
+	// .slider-arrows подключается позже — повышаем специфичность
+	.slider-arrows#{&}__arrows {
+		display: none;
+
+		@include vp-mobile {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 3rem;
+
+			.round-arrow {
+				box-shadow: none;
+			}
+		}
+	}
+
+	&__more {
+		display: flex;
+		justify-content: center;
+		margin-top: 6rem;
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+}

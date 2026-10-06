@@ -1,0 +1,97 @@
+// Кнопка «Показать ещё» («О компании»): белая скошенная плашка с подписью и синий блок со стрелкой вниз.
+// Габарит 371×56 как у слоя в макете: плашка начинается с отступом 79 слева
+.more-button {
+	position: relative;
+	isolation: isolate;
+	display: inline-block;
+	width: 37.1rem;
+	height: 5.6rem;
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+	font-size: 1.6rem;
+	line-height: 2.8rem;
+	font-weight: 400;
+	color: var(--color-text);
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	// белая плашка со скосом и тенью
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0.4rem;
+		left: 7.9rem;
+		z-index: -2;
+		width: 24.7rem;
+		height: 5.3rem;
+		background-image: linear-gradient(180deg, var(--color-white) 0%, #f8f9fb 100%);
+		clip-path: polygon(1.96rem 0, 100% 0, calc(100% - 1.96rem) 100%, 0 100%);
+		filter: drop-shadow(0 1.4rem 1.4rem rgba(20, 40, 90, 0.1));
+	}
+
+	// тень под синим блоком
+	&::after {
+		content: '';
+		position: absolute;
+		top: 4.5rem;
+		left: 24.2rem;
+		z-index: -1;
+		width: 5.2rem;
+		height: 1.2rem;
+		background-color: #0e2a5e;
+		filter: blur(1rem);
+	}
+
+	&__name {
+		position: absolute;
+		top: 1.5rem;
+		left: 10.4rem;
+		white-space: nowrap;
+	}
+
+	// синий блок со стрелкой вниз (svg-маска: в шрифте проекта стрелок нет)
+	&__arrow {
+		position: absolute;
+		top: 0.1rem;
+		left: 22.4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 10.3rem;
+		height: 5.6rem;
+		color: var(--color-white);
+		background-color: var(--color-brand-flat);
+		clip-path: polygon(2.07rem 0, 100% 0, calc(100% - 2.07rem) 100%, 0 100%);
+		transition: background-color var(--default-transition);
+
+		&::before {
+			content: '';
+			width: 2.1rem;
+			height: 1.8rem;
+			background-color: currentColor;
+			mask: url("../assets/svg/arrow.svg") no-repeat center / contain;
+			transform: rotate(90deg);
+		}
+	}
+
+	@include hover {
+		color: var(--color-link);
+
+		.more-button__arrow {
+			background-color: var(--color-link);
+		}
+	}
+
+	@include focus {
+		outline: 0.2rem solid var(--color-link);
+		outline-offset: 0.4rem;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+}

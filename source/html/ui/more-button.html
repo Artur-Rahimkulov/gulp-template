@@ -1,0 +1,6 @@
+<!-- Кнопка «Показать ещё» со скошенной плашкой и синей стрелкой вниз («О компании»).
+     Параметры: name, class, dataAttrString -->
+<button class="more-button @@if (context.class) {@@class}" type="button" @@if (context.dataAttrString) {@@dataAttrString}>
+  <span class="more-button__name">@@name</span>
+  <span class="more-button__arrow" aria-hidden="true"></span>
+</button>
