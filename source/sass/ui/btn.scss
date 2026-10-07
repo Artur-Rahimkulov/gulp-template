@@ -1,11 +1,12 @@
 // Основная кнопка (UI-кит «03. О компании», компонент Button: Default / Hover / Disable) — только градиенты:
 // заливка 75° (из дизайн-кода Figma), рамка 1px — градиент от тёмного к белому (через border-box),
 // скругление 2px, тень, по краям фаски 6px — горизонтальные градиенты.
-// Размеры: 200×55 в карточке (`.btn`), 240×66 (`--lg`), 220×61 (`--md`), 327×57 (`--wide`).
+// Размеры: 200×55 в карточке (`.btn`), 240×66 (`--lg`), 220×61 (`--md`), 305×55 (`--wide`).
 .btn {
 	--btn-width: 20rem;
 	--btn-height: 5.5rem;
-	--btn-fill: linear-gradient(74.99deg, #0953c1 60.42%, #6692d1 93.74%);
+	--btn-angle: 74.99deg;
+	--btn-fill: linear-gradient(var(--btn-angle), #0953c1 60.42%, #6692d1 93.74%);
 	--btn-stroke: linear-gradient(64deg, #1750a2 45%, #ffffff 96%);
 	--btn-edge-left: linear-gradient(90deg, #628fd0 0.05rem, #4d81cc 0.15rem, #3571c8 0.25rem, #1e61c4 0.35rem, #135ac2 0.45rem);
 	--btn-edge-right: linear-gradient(90deg, #6692d1 0.15rem, #6c98d5 0.25rem, #7ba4de 0.35rem, #89b0e8 0.45rem, #97bcf0 0.55rem);
@@ -78,16 +79,21 @@
 		--btn-height: 6.1rem;
 	}
 
-	// широкая 327×57: «Скачать презентацию о компании»;
+	// широкая 305×55: «Скачать презентацию о компании» (угол заливки 67,76° из макета);
 	// на мобильной — обычная 200×55, подпись в две строки от левого края
 	&--wide {
-		--btn-width: 32.7rem;
-		--btn-height: 5.7rem;
+		--btn-width: 30.5rem;
+		--btn-height: 5.5rem;
+		--btn-angle: 67.76deg;
+
+		padding: 0 0.6rem;
+		white-space: nowrap;
 
 		@include vp-mobile {
 			--btn-width: 20rem;
-			--btn-height: 5.5rem;
+			--btn-angle: 74.99deg;
 
+			white-space: normal;
 			justify-content: flex-start;
 			padding: 0 1rem;
 			text-align: left;
@@ -96,7 +102,7 @@
 
 	// hover — состояние Hover из макета
 	@include hover {
-		--btn-fill: linear-gradient(74.99deg, #192f7c 60.42%, #0852c0 93.74%);
+		--btn-fill: linear-gradient(var(--btn-angle), #192f7c 60.42%, #0852c0 93.74%);
 		--btn-edge-left: linear-gradient(90deg, #638dcd 0.05rem, #4f74b7 0.15rem, #39579f 0.25rem, #233b87 0.35rem, #192f7c 0.45rem);
 		--btn-edge-right: linear-gradient(90deg, #0950bc 0.15rem, #1b5ec3 0.25rem, #447dd2 0.35rem, #6d9ce1 0.45rem, #93b9f0 0.55rem);
 	}
@@ -109,7 +115,7 @@
 
 	// active — как hover и вдавливается, тень короче (в макете не отрисовано)
 	@include active {
-		--btn-fill: linear-gradient(74.99deg, #192f7c 60.42%, #0852c0 93.74%);
+		--btn-fill: linear-gradient(var(--btn-angle), #192f7c 60.42%, #0852c0 93.74%);
 		--btn-edge-left: linear-gradient(90deg, #638dcd 0.05rem, #4f74b7 0.15rem, #39579f 0.25rem, #233b87 0.35rem, #192f7c 0.45rem);
 		--btn-edge-right: linear-gradient(90deg, #0950bc 0.15rem, #1b5ec3 0.25rem, #447dd2 0.35rem, #6d9ce1 0.45rem, #93b9f0 0.55rem);
 
@@ -122,7 +128,7 @@
 	&:disabled,
 	&.is-disabled,
 	&[aria-disabled='true'] {
-		--btn-fill: linear-gradient(74.99deg, #3b4150 60.42%, #8d8d8d 93.74%);
+		--btn-fill: linear-gradient(var(--btn-angle), #3b4150 60.42%, #8d8d8d 93.74%);
 		--btn-stroke: linear-gradient(64deg, #3b4150 45%, #ffffff 96%);
 		--btn-edge-left: linear-gradient(90deg, #7d7d81 0.05rem, #6b6d73 0.15rem, #575a64 0.25rem, #434855 0.35rem, #3a404f 0.45rem);
 		--btn-edge-right: linear-gradient(90deg, #8d8d8d 0, #a0a0a0 100%);

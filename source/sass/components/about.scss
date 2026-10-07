@@ -27,28 +27,32 @@
 	margin-top: -18.8rem;
 	padding: 23.5rem 0 6rem;
 
-	// косая сетка под шапкой до линии и смещённая — после неё
+	// косая сетка из макета (svg 1920 по центру): верхний кусок до линии и смещённый — после неё
 	&::before,
 	&::after {
-		@include grid-lines;
-
 		content: '';
 		position: absolute;
 		right: 0;
 		left: 0;
+		background-repeat: no-repeat;
+		background-size: 192rem 38.6rem;
 		pointer-events: none;
 	}
 
 	&::before {
 		top: 18.8rem;
-		height: 40.3rem;
+		height: 38.6rem;
+		background-image: url("../assets/svg/grid/about-hero-top.svg");
+		background-position: 50% 0;
 	}
 
 	&::after {
 		top: 59.1rem;
 		bottom: 0;
 		border-top: 0.1rem solid var(--color-double-line);
-		background-position: -17.9rem 0;
+		background-image: url("../assets/svg/grid/about-hero-bottom.svg");
+		background-origin: border-box;
+		background-position: calc(50% - 17.9rem) -0.6rem;
 	}
 
 	@include vp-mobile {
@@ -62,6 +66,7 @@
 			z-index: 1;
 			height: 31.7rem;
 			background-image: linear-gradient(180deg, var(--color-white) 40.9%, rgba(255, 255, 255, 0) 100%);
+			background-size: auto;
 		}
 
 		&::after {
@@ -369,14 +374,12 @@
 	background-image: linear-gradient(132.78deg, #1b4d9e 7.4%, #0f2c63 81.5%);
 
 	// косая сетка белыми линиями и тень от верхнего и нижнего края
+	// косые линии из макета: пять отдельных линий (svg 1920 по центру)
 	&::before {
-		--color-grid-line: rgba(255, 255, 255, 0.06);
-
-		@include grid-lines;
-
 		content: '';
 		position: absolute;
 		inset: 0;
+		background: url("../assets/svg/grid/about-leader.svg") 50% 0 / 192rem 72.7rem no-repeat;
 		pointer-events: none;
 	}
 
@@ -394,11 +397,17 @@
 
 	@include vp-mobile {
 		min-height: 0;
-		padding: 45.3rem 0 8rem;
+		padding: 45.3rem 0 5.6rem;
 		background-image: linear-gradient(95.61deg, #1b4d9e 7.4%, #0f2c63 81.5%);
 
 		&::after {
 			content: none;
+		}
+
+		// на мобильной свои линии из макета (svg по центру экрана)
+		&::before {
+			background-image: url("../assets/svg/grid/about-leader-m.svg");
+			background-size: 192rem 139.3rem;
 		}
 	}
 
@@ -411,7 +420,7 @@
 		border-color: rgba(255, 255, 255, 0.09);
 
 		@include vp-mobile {
-			top: 18.6rem;
+			top: 24rem;
 			border-color: rgba(255, 255, 255, 0.1);
 		}
 	}
@@ -616,7 +625,7 @@
 			font-size: 1.4rem;
 
 			h2 {
-				margin-bottom: 2.4rem;
+				margin-bottom: 4.8rem;
 				font-size: 2rem;
 				line-height: 1.2;
 			}
@@ -702,6 +711,11 @@
 	z-index: 3;
 	min-height: 108rem;
 	padding: 8.5rem 0 6rem;
+	// косая сетка из макета двумя кусками (svg 1920 по центру): первый от 1530, второй от 1942
+	background-image: url("../assets/svg/grid/about-history-a.svg"), url("../assets/svg/grid/about-history-b.svg");
+	background-position: calc(50% - 23.6rem) -3rem, calc(50% + 15.2rem) 38.2rem;
+	background-repeat: no-repeat;
+	background-size: 192rem 80.7rem;
 
 	// разделительные линии: через карточку и под шкалой времени
 	&::before,
@@ -721,13 +735,16 @@
 
 	&::after {
 		top: 79.2rem;
-		left: calc(50% - 80.9rem);
+		left: calc(50% - 65.7rem);
 		width: 164.2rem;
 	}
 
 	@include vp-mobile {
 		min-height: 68.9rem;
 		padding: 5.3rem 0 0;
+		background-position: calc(50% + 29.2rem) -16.4rem, calc(50% + 17.2rem) 7.1rem;
+		background-size: 105rem 44.1rem;
+		background-image: url("../assets/svg/grid/about-history-m-a.svg"), url("../assets/svg/grid/about-history-m-b.svg");
 
 		&::before {
 			top: 24.6rem;
@@ -959,7 +976,7 @@
 	.btn#{&}__download {
 		position: absolute;
 		top: 13rem;
-		left: 31.7rem;
+		left: 23.6rem;
 
 		br {
 			display: none;
@@ -1120,7 +1137,7 @@
 		width: 100%;
 		height: 8rem;
 		margin: 0;
-		padding: 1.7rem 1.9rem;
+		padding: 1.7rem 2rem;
 		font-family: inherit;
 		text-align: left;
 		background-color: var(--color-white);
@@ -1144,7 +1161,7 @@
 		}
 
 		&.is-active {
-			padding: 1.4rem 3.5rem;
+			padding: 1.4rem 2rem;
 
 			@include vp-narrow {
 				padding: 1.4rem 1.6rem;
@@ -1209,6 +1226,13 @@
 		inset: 0;
 		overflow: hidden;
 		pointer-events: none;
+		// косые линии из макета: отдельные линии (svg 1920 по центру), на мобильной одна
+		background: url("../assets/svg/grid/about-values.svg") 50% 0 / 192rem 100rem no-repeat;
+
+		@include vp-mobile {
+			background-image: url("../assets/svg/grid/about-values-m.svg");
+			background-size: 192rem 124.3rem;
+		}
 
 		// тень от верхнего края
 		&::before {
