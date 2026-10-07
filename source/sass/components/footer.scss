@@ -91,6 +91,31 @@
 	inset: 0;
 	overflow: hidden;
 	pointer-events: none;
+
+	// косая сетка привязана к центру экрана, как в макете 1920 (а не к размеру подвала):
+	// слой шириной ровно 6 шагов по 656, так что линии стоят одинаково на любой ширине
+	&.bg-grid {
+		background-image: none;
+	}
+
+	&::before {
+		@include grid-lines;
+
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: calc(50% - 196.8rem);
+		width: 393.6rem;
+		background-position: 28.67rem 0;
+	}
+
+	// в мобильном макете подвал без сетки
+	@include vp-mobile {
+		&::before {
+			content: none;
+		}
+	}
 }
 
 .footer__shapes {
