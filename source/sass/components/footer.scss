@@ -206,19 +206,33 @@
 	}
 }
 
+// подчёркивание — отдельная линия, как в макете: 30px от верха строки, по ширине текста;
+// на мобильной — 26px от верха и на всю колонку 300px
 .footer__email {
+	position: relative;
 	margin: 0.6rem 0 6.4rem -0.4rem;
 	font-size: 1.74rem;
 	line-height: 2.4rem;
+	text-decoration: none;
 
-	// на мобильной в макете под почтой отдельная линия на всю ширину колонки 300px
+	&::after {
+		content: '';
+		position: absolute;
+		top: 3rem;
+		right: 0;
+		left: 0;
+		height: 0.1rem;
+		background-color: currentColor;
+	}
+
 	@include vp-mobile {
 		width: 30rem;
-		margin: 0 0 2.9rem;
-		padding-bottom: 0.2rem;
+		margin: 0 0 3.2rem;
 		font-size: 1.7rem;
-		text-decoration: none;
-		border-bottom: 0.1rem solid currentColor;
+
+		&::after {
+			top: 2.6rem;
+		}
 	}
 }
 
@@ -432,17 +446,33 @@
 	}
 }
 
+// подчёркивание — линия 20px от верха строки (на мобильной 21px), по ширине текста
 .footer__policy {
+	position: relative;
 	justify-self: start;
 	margin-top: -0.2rem;
 	white-space: nowrap;
 	font-size: 1.35rem;
 	line-height: 1.9rem;
-	text-underline-offset: 0.2rem;
+	text-decoration: none;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 2rem;
+		right: 0;
+		left: 0;
+		height: 0.1rem;
+		background-color: currentColor;
+	}
 
 	@include vp-mobile {
 		margin-top: 0;
 		font-size: 1.3rem;
+
+		&::after {
+			top: 2.1rem;
+		}
 	}
 }
 
