@@ -152,12 +152,24 @@
 		}
 	}
 
+	// подчёркивание — отдельная линия 1px, на 2px ниже строки, по ширине текста, как в макете
 	&__link {
+		position: relative;
 		align-self: flex-start;
 		margin-top: auto;
 		font-size: 1.5rem;
 		line-height: 2.2rem;
-		text-underline-offset: 0.3rem;
+		text-decoration: none;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 2.4rem;
+			right: 0;
+			left: 0;
+			height: 0.1rem;
+			background-color: currentColor;
+		}
 
 		// вся карточка кликабельна
 		&::after {

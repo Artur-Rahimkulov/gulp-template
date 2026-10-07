@@ -129,3 +129,8 @@ button,
 	background-color: var(--color-transparent);
 	border: none;
 }
+
+// атрибут hidden должен скрывать элемент, даже если у класса задан display (фильтр карточек на «Медиа»)
+[hidden] {
+	display: none !important;
+}

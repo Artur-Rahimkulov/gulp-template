@@ -5,7 +5,8 @@
 		<div class="wrapper">
 			@@include("source/html/base/header.html", {"active": "media"})
 			<main data-pagination-wrapper>
-				<div class="breadcrumbs breadcrumbs--title breadcrumbs--filters bg-grid">
+				<div class="media-head">
+				<div class="breadcrumbs breadcrumbs--title breadcrumbs--filters">
 					<div class="container">
 						<nav aria-label="Хлебные крошки">
 							<ol class="breadcrumbs__list">
@@ -23,24 +24,25 @@
 						</div>
 					</div>
 				</div>
+				</div>
 				<div class="double-line"></div>
 
-				<section class="media-list bg-grid">
+				<section class="media-list">
 					<img class="media-list__slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
 					<img class="media-list__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
 					<div class="container media-list__inner">
 						<h2 class="visually-hidden">Новости</h2>
 						<!-- data-list-items — список карточек, заменяется ответом сервера -->
 						<div class="cards-grid" data-list-items>
-						@@include("source/html/components/card-news.html", {"img": "tc", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "mosk", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "vremena", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "site", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "panel", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "site2", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-						@@include("source/html/components/card-news.html", {"img": "worker", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
+						@@include("source/html/components/card-news.html", {"img": "tc", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "news"})
+						@@include("source/html/components/card-news.html", {"img": "mosk", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "news"})
+						@@include("source/html/components/card-news.html", {"img": "vremena", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "news"})
+						@@include("source/html/components/card-news.html", {"img": "site", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "news"})
+						@@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "СМИ&nbsp;о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "press"})
+						@@include("source/html/components/card-news.html", {"img": "panel", "rubric": "СМИ&nbsp;о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "press"})
+						@@include("source/html/components/card-news.html", {"img": "tau", "rubric": "СМИ&nbsp;о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "press"})
+						@@include("source/html/components/card-news.html", {"img": "site2", "rubric": "Корпоративный досуг", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "leisure"})
+						@@include("source/html/components/card-news.html", {"img": "worker", "rubric": "Корпоративный досуг", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/", "category": "leisure"})
 						</div>
 						<!-- data-show-more-button убирается, если в ответе сервера кнопки нет -->
 						<div class="media-list__more">

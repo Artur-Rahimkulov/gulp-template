@@ -58,7 +58,13 @@ export const pagination = () => {
         paginationEl.innerHTML = newPagination.innerHTML
       }
 
-      handleEmpty()
+      // подгруженные карточки подчиняются активному фильтру
+      const active = Array.from(filters).find(chip => chip.classList.contains('is-active'))
+      if (active && hasLocalItems()) {
+        applyFilter(active.dataset.filterValue)
+      } else {
+        handleEmpty()
+      }
 
       history.pushState(null, '', url)
 
@@ -80,6 +86,18 @@ export const pagination = () => {
     })
   }
 
+  // фильтрация без запроса: карточки с data-category скрываются, если категория не совпала
+  // с data-filter-value активного чипа (пустое значение — «Все»)
+  const hasLocalItems = () => Array.from(list.children).some(el => 'category' in el.dataset)
+
+  const applyFilter = (value) => {
+    Array.from(list.children).forEach(el => {
+      if (!('category' in el.dataset)) return
+      el.hidden = Boolean(value) && el.dataset.category !== value
+    })
+    handleEmpty()
+  }
+
   const handleFilter = (chip) => {
     const paramName = chip.dataset.filter
     const value = chip.dataset.filterValue
@@ -94,6 +112,14 @@ export const pagination = () => {
     }
 
     setActiveFilter(paramName, value)
+
+    // есть карточки с data-category — фильтруем на месте, иначе просим список у сервера
+    if (hasLocalItems()) {
+      applyFilter(value)
+      history.replaceState(null, '', url)
+      return
+    }
+
     load(url.toString())
   }
 
@@ -111,7 +137,7 @@ export const pagination = () => {
   // ------------------------
 
   const handleEmpty = () => {
-    const items = list.children.length
+    const items = Array.from(list.children).filter(el => !el.hidden && !el.classList.contains('not-found')).length
     const existing = list.querySelector('.not-found')
 
     if (items === 0) {
@@ -132,7 +158,9 @@ export const pagination = () => {
     const params = new Set(Array.from(filters, chip => chip.dataset.filter))
 
     params.forEach(paramName => {
-      setActiveFilter(paramName, url.searchParams.get(paramName) || '')
+      const value = url.searchParams.get(paramName) || ''
+      setActiveFilter(paramName, value)
+      if (value && hasLocalItems()) applyFilter(value)
     })
   }
 

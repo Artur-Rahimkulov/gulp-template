@@ -16,14 +16,18 @@
 	white-space: nowrap;
 
 	// скошенная плашка уже поля подписи и смещена вправо, как в макете
+	// плашка в макете сжата по высоте до 97 % (42,87 из 44) и со скосом 13° занимает 79,9 по ширине
 	&::before {
-		inset: 0 -0.4rem 0 1.5rem;
+		inset: -0.0435rem 0.45rem 0.1565rem 0.56rem;
 	}
 
 	background: none;
 	border: none;
 	outline: none;
 	cursor: pointer;
+	// без синей подсветки при нажатии (тап на телефоне, выделение текста)
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
 	transition: color var(--default-transition);
 
 	@include hover {
@@ -36,10 +40,9 @@
 		}
 	}
 
-	@include active {
-		&::before {
-			background-color: var(--color-bg-icon);
-		}
+	// кольцо фокуса — только при навигации с клавиатуры; активный чип его не показывает
+	&.is-active:focus-visible::before {
+		box-shadow: none;
 	}
 
 	&.is-active {

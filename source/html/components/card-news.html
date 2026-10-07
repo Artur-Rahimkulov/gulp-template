@@ -1,5 +1,6 @@
-<!-- Карточка новости. Параметры: img (без расширения, из assets/img), rubric, title, date, text, href -->
-<article class="card-news">
+<!-- Карточка новости. Параметры: img (без расширения, из assets/img), rubric, title, date, text, href,
+     category — значение для фильтра «Медиа» (data-category, совпадает с data-filter-value чипа) -->
+<article class="card-news" @@if (context.category) {data-category="@@category"}>
   <div class="card-news__media">
     <img src="assets/img/@@img.webp" width="447" height="279" alt="" loading="lazy">
     <span class="card-news__rubric">@@rubric</span>

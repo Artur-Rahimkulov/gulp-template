@@ -17,6 +17,12 @@
 	align-items: start;
 	margin-top: 3rem;
 
+	// уже 1200 текст и фото в одну колонку, фото под текстом, как на мобильной
+	@include vp-narrow {
+		grid-template-columns: minmax(0, 1fr);
+		row-gap: 3rem;
+	}
+
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
 		row-gap: 2.4rem;
@@ -33,6 +39,10 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	@include vp-narrow {
+		aspect-ratio: 16 / 10;
 	}
 
 	@include vp-mobile {
@@ -67,6 +77,12 @@
 
 // Галерея новости
 .article-gallery {
+	@include grid-lines-centered(-16.31rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(2.74rem);
+	}
+
 	position: relative;
 	padding: var(--space-section) 0;
 
@@ -123,6 +139,12 @@
 // «Другие новости»
 // над плашкой-призраком галереи: призрак заходит в секцию, но остаётся под карточками
 .related {
+	@include grid-lines-centered(-17.58rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(8.86rem);
+	}
+
 	position: relative;
 	z-index: 2;
 	padding: var(--space-section-top) 0 var(--space-section);
@@ -148,3 +170,17 @@
 		object-fit: cover;
 	}
 }
+
+// Первый экран новости: в макете сетку закрывает серая полоса, видна она только
+// в зазоре между полосой и двойной линией — поэтому сетка на всём блоке, а полоса без неё
+.article {
+	@include grid-lines-centered(10.5rem);
+
+	// отступ под полосой остаётся внутри блока — сетка видна в зазоре
+	display: flow-root;
+
+	@include vp-mobile {
+		@include grid-lines-centered(4.32rem);
+	}
+}
+

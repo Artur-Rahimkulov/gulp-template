@@ -1,5 +1,23 @@
 // Страница «Медиа»: сетка новостей 3 колонки / 1 на мобильной
+// Первый экран: серая полоса закрывает сетку, видна она в зазоре до двойной линии, как в макете
+.media-head {
+	@include grid-lines-centered(-19.12rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(6.95rem);
+	}
+
+	// отступ под полосой остаётся внутри блока
+	display: flow-root;
+}
+
 .media-list {
+	@include grid-lines-centered(-28.5rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(0rem);
+	}
+
 	position: relative;
 	padding: var(--space-section) 0;
 
