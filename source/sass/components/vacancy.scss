@@ -1,5 +1,17 @@
 // Страница «Вакансия детальная»
 
+// Косая сетка первого экрана: серая полоса закрывает её, видна в зазоре до двойной линии, как в макете
+.vacancy-head {
+	@include grid-lines-centered(-10.83rem);
+
+	// отступ под полосой остаётся внутри блока
+	display: flow-root;
+
+	@include vp-mobile {
+		@include grid-lines-centered(-10.33rem);
+	}
+}
+
 // Полоса первого экрана: крошки, заголовок, вводные абзацы
 .vacancy-hero {
 	position: relative;
@@ -53,6 +65,12 @@
 
 // Описание вакансии: обязанности, условия, отклик
 .vacancy-body {
+	@include grid-lines-centered(15.75rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(0.58rem);
+	}
+
 	padding: var(--space-section) 0;
 
 	@include vp-mobile {
@@ -201,6 +219,12 @@
 
 // Другие вакансии
 .other-vacancies {
+	@include grid-lines-centered(-12.19rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(5.47rem);
+	}
+
 	position: relative;
 	padding: var(--space-section-top) 0 var(--space-section);
 
