@@ -9,12 +9,20 @@
 		margin-top: 2rem;
 	}
 
+	// мобильный макет: полоса 240 без двойной линии под ней, заголовок раздела на 350
 	@include vp-mobile {
-		padding-bottom: 2.8rem;
+		padding-bottom: 2.4rem;
+		margin-bottom: 0;
 
 		.breadcrumbs__title {
 			margin-top: 1rem;
 		}
+	}
+}
+
+.career-hero-line {
+	@include vp-mobile {
+		display: none;
 	}
 }
 
@@ -69,7 +77,7 @@
 	@include vp-mobile {
 		@include grid-lines-centered(10rem);
 
-		padding-top: var(--space-section-top);
+		padding-top: 2.6rem;
 
 		&::before {
 			content: none;
@@ -100,6 +108,7 @@
 		line-height: 4.4rem;
 
 		@include vp-mobile {
+			margin-bottom: 4rem;
 			line-height: 3rem;
 		}
 	}
@@ -278,7 +287,7 @@
 		row-gap: 1.8rem;
 
 		@include vp-mobile {
-			row-gap: 3.6rem;
+			row-gap: 3.67rem;
 		}
 	}
 }
