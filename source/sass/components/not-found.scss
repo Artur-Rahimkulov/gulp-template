@@ -1,10 +1,14 @@
 // Страница 404
 .not-found {
+	@include grid-lines-centered(6.56rem);
+
 	position: relative;
 	// в макете от кнопки до подвала 107 на десктопе
 	padding: 11.4rem 0 10.7rem;
 
 	@include vp-mobile {
+		@include grid-lines-centered(1.15rem);
+
 		padding: 6.3rem 0 var(--space-section);
 	}
 }

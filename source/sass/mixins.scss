@@ -56,3 +56,13 @@
 		var(--color-grid-line) var(--grid-step)
 	);
 }
+
+// Косая сетка, привязанная к центру экрана, как в макете 1920 (а не к левому краю блока):
+// плитка шириной ровно 6 шагов по 656, по центру блока; $offset — сдвиг линий, подобранный по макету
+@mixin grid-lines-centered($offset: 0rem) {
+	@include grid-lines;
+
+	background-repeat: no-repeat;
+	background-position: calc(50% + #{$offset}) 0;
+	background-size: 393.6rem 100%;
+}
