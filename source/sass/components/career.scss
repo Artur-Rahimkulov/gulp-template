@@ -32,13 +32,48 @@
 	}
 }
 
+// Косая сетка: на первой полосе её закрывает серая полоса, дальше — по центру экрана, как в макете;
+// «Ценности», «Корпоративная жизнь» и «Баланс» — один слой сетки (синяя полоса лежит поверх)
+.career-main {
+	@include grid-lines-centered(-5.85rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(-9.85rem);
+	}
+}
+
 // «Добро пожаловать»: обращение директора и фото
 .welcome {
+	@include grid-lines-centered(-15.75rem);
+
 	position: relative;
+	isolation: isolate;
+
+	// в макете сетка здесь из двух кусков: верхний (до подписи директора, 686px) смещён на 11,5px
+	&::before {
+		@include grid-lines-centered(-14.6rem);
+
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: -1;
+		height: 68.6rem;
+		background-color: var(--color-bg-page);
+		pointer-events: none;
+	}
+
 	padding: 10.6rem 0 var(--space-section);
 
 	@include vp-mobile {
+		@include grid-lines-centered(10rem);
+
 		padding-top: var(--space-section-top);
+
+		&::before {
+			content: none;
+		}
 	}
 }
 
@@ -297,6 +332,12 @@
 
 // Актуальные вакансии + форма
 .vacancies {
+	@include grid-lines-centered(26.25rem);
+
+	@include vp-mobile {
+		@include grid-lines-centered(2.5rem);
+	}
+
 	position: relative;
 	padding: var(--space-section-top) 0 15.5rem;
 
@@ -340,18 +381,27 @@
 		}
 	}
 
-	// на десктопе форма остаётся в поле зрения, пока листается список
+	// на десктопе форма остаётся в поле зрения, пока листается список, и останавливается у низа списка:
+	// колонка растянута на высоту списка (строка 1), форма липнет внутри неё, а не во всём блоке — до кнопки не доходит
 	&__aside {
-		position: sticky;
-		top: 2.4rem;
 		grid-row: 1;
 		grid-column: 2;
+		align-self: stretch;
+
+		> .vacancy-form {
+			position: sticky;
+			top: 2.4rem;
+		}
 
 		@include vp-mobile {
-			position: static;
 			grid-row: auto;
 			grid-column: auto;
+			align-self: auto;
 			margin-top: 4rem;
+
+			> .vacancy-form {
+				position: static;
+			}
 		}
 	}
 
