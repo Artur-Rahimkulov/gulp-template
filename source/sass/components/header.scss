@@ -4,7 +4,22 @@
 	position: relative;
 	z-index: 10;
 	background-color: var(--color-bg-header);
+	// сетка — слоем ::before, привязанным к центру экрана, как в макете 1920 (не к краю шапки)
+	background-image: none;
 	overflow: hidden;
+
+	&::before {
+		@include grid-lines;
+
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: calc(50% - 196.8rem);
+		width: 393.6rem;
+		background-position: -0.36rem 0;
+		pointer-events: none;
+	}
 
 	// в мобильных макетах шапка цвета страницы и без косой сетки — сетка начинается под ней, с полосы крошек
 	@include vp-mobile {
@@ -12,8 +27,11 @@
 		top: 0;
 		overflow: visible;
 		background-color: var(--color-bg-page);
-		background-image: none;
 		transition: box-shadow var(--default-transition);
+
+		&::before {
+			content: none;
+		}
 
 		// страница прокручена — под шапкой тень
 		&.is-scrolled {
@@ -87,7 +105,7 @@
 		@media (min-width: 1860px) {
 			z-index: 2;
 		}
-		right: calc(var(--container-padding) + 13.9rem - var(--phone-shift));
+		right: calc(var(--container-padding) + 13.8rem - var(--phone-shift));
 		width: 37.2rem;
 		height: 37.2rem;
 	}
@@ -109,12 +127,15 @@
 	display: block;
 	flex-shrink: 0;
 	width: 22.6rem;
-	margin-top: 0.3rem;
+	margin: 0.3rem 0 0 0.1rem;
 	transition: opacity var(--default-transition);
 
+	// как в макете: логотип вписан в рамку 226×42 без искажения пропорций
 	img {
+		display: block;
 		width: 100%;
-		height: auto;
+		height: 4.2rem;
+		object-fit: contain;
 	}
 
 	@include hover-focus {
@@ -123,7 +144,11 @@
 
 	@include vp-mobile {
 		width: 15rem;
-		margin-top: 0;
+		margin: 0;
+
+		img {
+			height: 2.8rem;
+		}
 	}
 }
 
@@ -172,15 +197,18 @@
 
 	z-index: 1;
 	flex-shrink: 1;
+	align-self: flex-start;
 	min-width: 0;
-	margin-left: clamp(2.4rem, 3.5vw, 5.6rem);
-	padding: 1.9rem clamp(2.4rem, 3vw, 6rem) 1.9rem clamp(2.4rem, 2.4vw, 4.6rem);
+	// плашка 747×54,4 с верхом на 64px, первый пункт на 56px от её левого края (макет 1920)
+	margin: 6.4rem 0 0 clamp(2.4rem, 2.4vw, 4.59rem);
+	padding: 2rem clamp(2.4rem, 1.64vw, 3.14rem) 1.84rem clamp(2.4rem, 2.92vw, 5.61rem);
 
 	&::before {
 		box-shadow: var(--shadow-menu);
 	}
 
 	@include vp-mobile {
+		align-self: auto;
 		margin: 0 0 2.4rem;
 		padding: 0;
 
@@ -194,6 +222,15 @@
 	display: flex;
 	gap: clamp(1.6rem, 2.2vw, 4.2rem);
 
+	// на 1920 отступы между пунктами — из макета, у каждого свой (--gap в разметке)
+	@media (min-width: 1860px) {
+		gap: 0;
+
+		li + li {
+			margin-left: var(--gap, 4.2rem);
+		}
+	}
+
 	@include vp-mobile {
 		flex-direction: column;
 		gap: 0;
@@ -206,9 +243,11 @@
 	font-size: 1.1rem;
 	line-height: 1.6rem;
 	font-weight: 500;
+	// разрядка у каждого пункта своя, как в макете (--tracking в разметке шапки)
+	letter-spacing: var(--tracking, 0);
 	text-transform: uppercase;
 	white-space: nowrap;
-	color: var(--color-text-body);
+	color: #424242;
 	outline: none;
 	transition: color var(--default-transition);
 
@@ -222,10 +261,9 @@
 		outline-offset: 0.4rem;
 	}
 
-	// Активный пункт — синий полужирный
+	// активный пункт — синий, начертание как у остальных (макет шапки 1920)
 	&.is-active {
-		font-weight: 600;
-		color: var(--color-link);
+		color: #235899;
 	}
 
 	@include vp-mobile {
@@ -242,6 +280,8 @@
 
 		&.is-active {
 			padding-left: 2.2rem;
+			font-weight: 600;
+			color: var(--color-link);
 
 			&::before {
 				content: '';
@@ -267,7 +307,7 @@
 	line-height: 2.6rem;
 	font-weight: 500;
 	white-space: nowrap;
-	color: var(--color-link);
+	color: #235899;
 	outline: none;
 	transition: color var(--default-transition);
 
@@ -303,7 +343,9 @@
 	margin-right: 0.8rem;
 	cursor: pointer;
 
+	// плашка 48×41,4 (в макете сжата по высоте до 94 %)
 	&::before {
+		inset: 0.13rem 0;
 		box-shadow: var(--shadow-burger);
 	}
 
@@ -394,13 +436,6 @@
 	@include vp-mobile {
 		margin-top: 3rem;
 		margin-right: 2.2rem;
-	}
-}
-
-@include vp-desktop {
-	.header__nav {
-		align-self: flex-start;
-		margin-top: 6.5rem;
 	}
 }
 

@@ -1,4 +1,5 @@
 <!-- активный пункт меню: @@include("source/html/base/header.html", {"active": "projects"})
+     у пунктов меню разрядка (--tracking) и отступ слева (--gap) свои, как в макете шапки 1920
      значения: main, services, projects, career, about, media, contacts
      {"overlay": true} — прозрачная шапка поверх первого экрана (главная) -->
 <header class="header bg-grid @@if (context.overlay) {header--overlay}" data-header>
@@ -24,13 +25,13 @@
 
       <nav class="header__nav" aria-label="Основное меню">
         <ul class="header__list">
-          <li><a class="header__link @@if (context.active === 'main') {is-active}" href="/">Главная</a></li>
-          <li><a class="header__link @@if (context.active === 'services') {is-active}" href="/services/">Услуги</a></li>
-          <li><a class="header__link @@if (context.active === 'projects') {is-active}" href="/projects/">Проекты</a></li>
-          <li><a class="header__link @@if (context.active === 'career') {is-active}" href="/career/">Карьера</a></li>
-          <li><a class="header__link @@if (context.active === 'about') {is-active}" href="/about/">О компании</a></li>
-          <li><a class="header__link @@if (context.active === 'media') {is-active}" href="/media/">Медиа</a></li>
-          <li><a class="header__link @@if (context.active === 'contacts') {is-active}" href="/contacts/">Контакты</a></li>
+          <li style="--tracking: -0.0143rem"><a class="header__link @@if (context.active === 'main') {is-active}" href="/">Главная</a></li>
+          <li style="--tracking: -0.0165rem; --gap: 4.03rem"><a class="header__link @@if (context.active === 'services') {is-active}" href="/services/">Услуги</a></li>
+          <li style="--tracking: -0.0429rem; --gap: 4.46rem"><a class="header__link @@if (context.active === 'projects') {is-active}" href="/projects/">Проекты</a></li>
+          <li style="--tracking: -0.0572rem; --gap: 4.54rem"><a class="header__link @@if (context.active === 'career') {is-active}" href="/career/">Карьера</a></li>
+          <li style="--tracking: -0.0396rem; --gap: 4.46rem"><a class="header__link @@if (context.active === 'about') {is-active}" href="/about/">О компании</a></li>
+          <li style="--tracking: -0.0803rem; --gap: 4.57rem"><a class="header__link @@if (context.active === 'media') {is-active}" href="/media/">Медиа</a></li>
+          <li style="--tracking: -0.0253rem; --gap: 4.89rem"><a class="header__link @@if (context.active === 'contacts') {is-active}" href="/contacts/">Контакты</a></li>
         </ul>
       </nav>
 
