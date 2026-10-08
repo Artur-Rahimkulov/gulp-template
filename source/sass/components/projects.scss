@@ -1,0 +1,733 @@
+// Страница «Проекты»: заголовок с фильтрами и список проектов, каждый второй — зеркально и на светлой полосе.
+// Координаты декора из макета 1920: left = calc(50% + (x − 960)px), top — от верха main (188 в макете);
+// на мобильной 390 — от центра 195, верх main — 84.
+.projects {
+	position: relative;
+	overflow-x: clip;
+	padding-bottom: 21.4rem;
+	// косые и горизонтальные линии, которые в макете лежат под полосами проектов
+	background: url("../assets/svg/grid/projects-under.svg") no-repeat 50% 0 / 192rem 275.5rem;
+
+	@include vp-mobile {
+		padding-bottom: 6rem;
+		background: none;
+	}
+}
+
+// линии поверх полос, но под фото и текстом
+.projects__lines {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+	height: 275.5rem;
+	background: url("../assets/svg/grid/projects-over.svg") no-repeat 50% 0 / 192rem 275.5rem;
+	pointer-events: none;
+
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+.projects__decor {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.projects__decor-img {
+	position: absolute;
+	max-width: none;
+	object-fit: cover;
+
+	// плашки-призраки обрезаны в макете сверху
+	&--ghost-c1,
+	&--ghost-c2,
+	&--ghost-c3,
+	&--ghost-c4 {
+		object-position: 50% 100%;
+	}
+
+	&--top-ghost {
+		top: -19.2rem;
+		left: calc(50% + 7.4rem);
+		width: 21.5rem;
+		height: 23.3rem;
+	}
+
+	&--top-figure {
+		top: -18.8rem;
+		left: calc(50% + 39.8rem);
+		width: 35.5rem;
+		height: 44.2rem;
+		object-fit: contain;
+	}
+
+	&--hero-ghost {
+		top: 2.7rem;
+		left: calc(50% - 17.6rem);
+		width: 40.7rem;
+		height: 51.7rem;
+	}
+
+	&--hero-slab {
+		top: 18.9rem;
+		left: calc(50% - 131.3rem);
+		width: 47.3rem;
+		height: 41.7rem;
+		object-fit: contain;
+	}
+
+	// полоска у левого края экрана
+	&--edge {
+		top: 19.2rem;
+		left: 0;
+		width: 15.9rem;
+		height: 44.6rem;
+	}
+
+	&--ghost-b {
+		top: 107.7rem;
+		left: calc(50% + 26.6rem);
+		width: 41rem;
+		height: 50.5rem;
+	}
+
+	&--ghost-c1 {
+		top: 107.7rem;
+		left: calc(50% - 91.5rem);
+		width: 21.5rem;
+		height: 26.9rem;
+	}
+
+	&--ghost-c2 {
+		top: 200.9rem;
+		left: calc(50% + 21.6rem);
+		width: 35.6rem;
+		height: 44.4rem;
+	}
+
+	&--ghost-c3 {
+		top: 200.9rem;
+		left: calc(50% - 91.5rem);
+		width: 21.5rem;
+		height: 26.8rem;
+	}
+
+	&--ghost-c4 {
+		top: 253.5rem;
+		left: calc(50% - 86.1rem);
+		width: 24rem;
+		height: 29.9rem;
+	}
+
+	&--ghost-c5 {
+		top: 244.37rem;
+		left: calc(50% + 41.2rem);
+		width: 33.4rem;
+		height: 42.56rem;
+	}
+
+	// синяя плашка на стыке, поверх полосы второго проекта
+	&--slab-blue {
+		z-index: 2;
+		top: 76.4rem;
+		left: calc(50% + 70rem);
+		width: 49.6rem;
+		height: 47.4rem;
+		object-fit: contain;
+	}
+
+	// светлая плашка заходит на подвал
+	&--bottom-slab {
+		z-index: 3;
+		top: 259.8rem;
+		left: calc(50% - 132.6rem);
+		width: 47.3rem;
+		height: 41.7rem;
+		object-fit: contain;
+	}
+
+	&--m-edge,
+	&--m-tiles,
+	&--m-ghost {
+		display: none;
+	}
+
+	// на узком десктопе плашки у краёв заходят на текст
+	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
+		&--hero-slab,
+		&--edge,
+		&--slab-blue,
+		&--bottom-slab {
+			display: none;
+		}
+	}
+
+	@include vp-mobile {
+		display: none;
+
+		&--top-figure {
+			top: -8.4rem;
+			left: calc(50% + 10.8rem);
+			display: block;
+			width: 25.1rem;
+			height: 31.4rem;
+		}
+
+		&--m-edge {
+			top: 18.9rem;
+			left: 0;
+			display: block;
+			width: 5.7rem;
+			height: 28.8rem;
+		}
+
+		&--m-tiles {
+			top: 1.6rem;
+			left: calc(50% - 23.5rem);
+			display: block;
+			width: 14rem;
+			height: 5.2rem;
+			object-fit: contain;
+		}
+
+		&--m-ghost {
+			top: 41rem;
+			left: calc(50% - 3.1rem);
+			display: block;
+			width: 15.3rem;
+			height: 19.5rem;
+		}
+	}
+}
+
+// Заголовок: крошки и H1 слева, подзаголовок справа, фильтры под ними
+.projects__head {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: 83.8rem minmax(0, 1fr);
+	padding-top: 6rem;
+
+	@include vp-narrow {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 56.2rem);
+		column-gap: 4rem;
+	}
+
+	@include vp-mobile {
+		grid-template-columns: minmax(0, 1fr);
+		padding-top: 8.5rem;
+	}
+}
+
+.projects__heading {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.projects__breadcrumbs {
+	.breadcrumbs__link {
+		color: var(--color-link);
+	}
+
+	// «Главная /» в макете целиком синяя, пробелы обычные
+	li + li::before {
+		margin: 0 0.4rem 0 0.3rem;
+		color: var(--color-link);
+	}
+
+	@include vp-mobile {
+		display: none;
+	}
+}
+
+.projects__title {
+	line-height: 5.8rem;
+
+	@include vp-mobile {
+		line-height: 3.4rem;
+	}
+}
+
+.projects__lead {
+	max-width: 56.2rem;
+	margin: 0;
+	font-size: 1.8rem;
+	line-height: 2rem;
+	font-weight: 600;
+	color: var(--color-text);
+
+	@include vp-mobile {
+		max-width: 29.9rem;
+		margin-top: 1.4rem;
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+}
+
+.projects__filters {
+	display: flex;
+	flex-wrap: wrap;
+	grid-column: 1 / -1;
+	gap: 1.2rem;
+	margin-top: 3.1rem;
+
+	// на мобильной чипы в одну строку с прокруткой
+	@include vp-mobile {
+		flex-wrap: nowrap;
+		margin: 2.4rem calc(var(--container-padding) * -1) 0;
+		padding: 0 var(--container-padding);
+		overflow-x: auto;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+.projects__items {
+	display: grid;
+	row-gap: 15.5rem;
+	margin-top: 4.5rem;
+
+	@include vp-mobile {
+		row-gap: 6.4rem;
+		margin-top: 4.1rem;
+	}
+}
+
+.projects__more {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	margin-top: 11.2rem;
+
+	@include vp-mobile {
+		margin-top: 6rem;
+	}
+}
+
+// ---------------------------------
+// Проект в списке
+// ---------------------------------
+// десктоп: характеристики · фото · текст; каждый второй видимый — фото · текст · характеристики
+.project-row {
+	position: relative;
+	display: grid;
+	// колонки в пропорциях макета 1400: 373 · 74 · 519 · 65 · 369
+	grid-template-columns: minmax(0, 373fr) minmax(0, 74fr) minmax(0, 519fr) minmax(0, 65fr) minmax(0, 369fr);
+	grid-template-areas: 'info . photo . main';
+
+	// на мобильной обёртки main и info растворяются (display: contents) — z-index ставим самим блокам
+	&__photo,
+	&__text,
+	&__link,
+	&__params,
+	&__logo,
+	&__customer {
+		position: relative;
+		z-index: 2;
+	}
+
+	// чётные считаются среди видимых — после фильтра чередование сохраняется
+	&:nth-child(even of :not([hidden])) {
+		grid-template-columns: minmax(0, 519fr) minmax(0, 40fr) minmax(0, 407fr) minmax(0, 61fr) minmax(0, 373fr);
+		grid-template-areas: 'photo . main . info';
+
+		// светлая полоса во всю ширину экрана и плашки-призраки на ней
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			pointer-events: none;
+		}
+
+		&::before {
+			top: -7.75rem;
+			right: -100vw;
+			bottom: -7.75rem;
+			left: -100vw;
+			z-index: 0;
+			background:
+				url("../assets/img/ghost-d.webp") no-repeat calc(50% - 62.15rem) 0 / 20.9rem 26.6rem,
+				#e9eef1;
+		}
+
+		&::after {
+			top: -7.75rem;
+			left: calc(50% + 48.7rem);
+			z-index: 0;
+			width: 44.5rem;
+			height: 55.4rem;
+			background: url("../assets/img/slab-ghost-white.webp") no-repeat 0 0 / 100% 100%;
+		}
+	}
+
+	// узкий десктоп: фото на половину ширины, рядом текст, под ним характеристики и заказчик
+	@include vp-narrow {
+		&,
+		&:nth-child(even of :not([hidden])) {
+			grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr);
+			grid-template-areas:
+				'photo . main'
+				'photo . info';
+			align-items: start;
+		}
+
+		&:nth-child(even of :not([hidden])) {
+			grid-template-areas:
+				'main . photo'
+				'info . photo';
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	// мобильная: фото, текст, характеристики или логотип, заказчик и кнопка в одну строку
+	@include vp-mobile {
+		&,
+		&:nth-child(even of :not([hidden])) {
+			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-areas:
+				'photo photo'
+				'text text'
+				'info info'
+				'customer link';
+		}
+
+		&:nth-child(even of :not([hidden])) {
+			&::before {
+				top: -3.4rem;
+				bottom: -6.4rem;
+				background:
+					url("../assets/img/projects-m-ghost-white.webp") no-repeat calc(50% + 11.7rem) -0.3rem / 22.8rem 47.8rem,
+					#e9eef1;
+			}
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	// фото 519×301 и тень под ним
+	&__photo {
+		grid-area: photo;
+		isolation: isolate;
+		height: 30.1rem;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 4.4rem;
+			left: -1.8rem;
+			z-index: -1;
+			// 550×320 при фото 519×301
+			width: calc(100% + 3.1rem);
+			height: calc(100% + 1.9rem);
+			background: url("../assets/img/project-photo-shadow.webp") no-repeat 0 0 / 100% 100%;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@include vp-narrow {
+			height: auto;
+			aspect-ratio: 519 / 301;
+		}
+
+		// мобильная: 294×170 при колонке 358 (82 %), тень 301×181 ниже на 25
+		@include vp-mobile {
+			width: 82%;
+			height: auto;
+			aspect-ratio: 519 / 301;
+
+			&::before {
+				top: 2.5rem;
+				left: 0;
+				width: calc(100% + 0.73rem);
+				height: calc(100% + 1.07rem);
+			}
+		}
+	}
+
+	&:nth-child(even of :not([hidden])) &__photo::before {
+		left: -1.5rem;
+
+		@include vp-mobile {
+			left: 0;
+		}
+	}
+
+	// текст сверху, кнопка прижата к низу фото
+	&__main {
+		grid-area: main;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		@include vp-narrow {
+			gap: 3rem;
+		}
+
+		@include vp-mobile {
+			display: contents;
+		}
+	}
+
+	// характеристики или логотип сверху, заказчик — по низу фото
+	&__info {
+		grid-area: info;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		@include vp-narrow {
+			margin-top: 3rem;
+		}
+
+		@include vp-mobile {
+			display: contents;
+		}
+	}
+
+	&__text {
+		grid-area: text;
+
+		p {
+			margin: 0;
+			font-size: 1.7rem;
+			line-height: 2.4rem;
+			font-weight: 500;
+			color: var(--color-text-body);
+		}
+
+		@include vp-mobile {
+			margin-top: 3rem;
+
+			p {
+				font-size: 1.2rem;
+				line-height: 2rem;
+			}
+		}
+	}
+
+	&__title {
+		margin: 0 0 3.5rem;
+		font-size: 2.1rem;
+		line-height: 2.8rem;
+		font-weight: 600;
+		color: var(--color-text);
+
+		a {
+			transition: color var(--default-transition);
+
+			@include hover-focus {
+				color: #1c5298;
+			}
+		}
+
+		// при наведении на проект заголовок синеет, кнопка раскрывается (ui/project-link.scss)
+		@media (hover: hover) {
+			.project-row:hover & {
+				color: #1c5298;
+			}
+		}
+
+		@include vp-mobile {
+			margin-bottom: 1.2rem;
+			font-size: 1.6rem;
+			line-height: 2rem;
+		}
+	}
+
+	// мощность и площадь
+	&__params {
+		grid-area: info;
+		display: flex;
+		gap: 4rem;
+		margin: 0;
+		padding-top: 4.9rem;
+
+		div:first-child {
+			width: 13.8rem;
+		}
+
+		dt {
+			font-size: 1.7rem;
+			line-height: 2.8rem;
+			font-weight: 600;
+			color: var(--color-text);
+		}
+
+		dd {
+			margin: 1rem 0 0;
+			font-size: 5.2rem;
+			line-height: 7.2rem;
+			font-weight: 500;
+			white-space: nowrap;
+			color: var(--color-text);
+
+			span {
+				font-size: 1.7rem;
+			}
+		}
+
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			gap: 2.4rem;
+
+			div:first-child {
+				width: auto;
+			}
+
+			dd {
+				font-size: 4.2rem;
+			}
+		}
+
+		@include vp-narrow {
+			padding-top: 0;
+		}
+
+		@include vp-mobile {
+			justify-content: space-between;
+			margin-top: 2rem;
+			padding-top: 0;
+
+			div:first-child {
+				width: 9.6rem;
+			}
+
+			div:last-child {
+				width: 16.8rem;
+			}
+
+			dt {
+				font-size: 1.4rem;
+			}
+
+			dd {
+				margin: 0;
+				font-size: 4rem;
+				line-height: 4rem;
+			}
+		}
+	}
+
+	&:nth-child(even of :not([hidden])) &__params {
+		padding-top: 0.1rem;
+
+		@include vp-mobile {
+			padding-top: 0;
+		}
+	}
+
+	// логотип заказчика вместо характеристик
+	&__logo {
+		grid-area: info;
+		margin-top: 3.6rem;
+
+		@include vp-narrow {
+			margin-top: 0;
+		}
+
+		img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+
+		@include vp-mobile {
+			margin: -0.5rem 0 0 -2.5rem;
+
+			img {
+				width: auto;
+				max-width: none;
+				height: 8.5rem;
+			}
+		}
+	}
+
+	&:nth-child(even of :not([hidden])) &__logo {
+		margin-top: 9.1rem;
+
+		@include vp-narrow {
+			margin-top: 0;
+		}
+
+		@include vp-mobile {
+			margin-top: -0.5rem;
+		}
+	}
+
+	&__customer {
+		grid-area: customer;
+		margin: auto 0 0;
+
+		@include vp-narrow {
+			margin-top: 2.4rem;
+		}
+
+		dt {
+			font-size: 1.4rem;
+			line-height: 2rem;
+			font-weight: 500;
+			color: var(--color-link);
+		}
+
+		dd {
+			margin: 0.6rem 0 0;
+			font-size: 1.8rem;
+			line-height: 2.6rem;
+			font-weight: 600;
+			color: var(--color-text);
+		}
+
+		@include vp-mobile {
+			margin-top: 3.2rem;
+
+			dd {
+				margin: 0;
+				font-size: 1.2rem;
+				line-height: 2.4rem;
+			}
+		}
+	}
+
+	&__logo + &__customer {
+		@include vp-mobile {
+			margin-top: 1.8rem;
+		}
+	}
+
+	&__link {
+		grid-area: link;
+		margin-top: auto;
+
+		@include vp-narrow {
+			margin-top: 3rem;
+		}
+
+		@include vp-mobile {
+			align-self: start;
+			margin-top: 3.8rem;
+		}
+	}
+
+	&__logo ~ &__link {
+		@include vp-mobile {
+			margin-top: 3rem;
+		}
+	}
+}

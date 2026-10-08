@@ -1,0 +1,47 @@
+// Маленький чип фильтра («Проекты»): 28px, скругление 1px, подпись 11px капсом.
+// Активный — серо-голубой с белой подписью, при наведении — синий градиент.
+.tag-chip {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	height: 2.8rem;
+	margin: 0;
+	padding: 0 1.9rem;
+
+	font-family: inherit;
+	font-size: 1.1rem;
+	line-height: 1.6rem;
+	font-weight: 500;
+	letter-spacing: -0.0143rem;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #1c5193;
+
+	background-color: #e1e6ec;
+	border: none;
+	border-radius: 0.1rem;
+	outline: none;
+	cursor: pointer;
+	// без синей подсветки при нажатии на телефоне
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+	transition: color var(--default-transition), background-color var(--default-transition);
+
+	@include hover {
+		color: var(--color-white);
+		background-image: linear-gradient(90deg, #0a55c1 0%, #6a9be4 100%);
+	}
+
+	@include focus {
+		outline: 0.2rem solid var(--color-link);
+		outline-offset: 0.2rem;
+	}
+
+	&.is-active {
+		color: var(--color-white);
+		background-color: #b5c5df;
+		background-image: none;
+		cursor: default;
+	}
+}

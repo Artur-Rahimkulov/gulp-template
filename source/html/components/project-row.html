@@ -1,0 +1,42 @@
+<!-- Проект в списке «Проекты»: фото, описание и характеристики. Каждый второй — зеркально (фото слева), это делает css.
+     Параметры: title, text, img, href, category (для фильтра), customerLabel («Заказчик» / «Застройщик»), customer;
+     logo, logoWidth, logoHeight — логотип заказчика, если передан, выводится вместо характеристик;
+     power, powerUnit, area — характеристики (без логотипа) -->
+<article class="project-row" data-category="@@category">
+  <div class="project-row__photo">
+    <img src="assets/img/@@img.webp" width="519" height="301" alt="" loading="lazy">
+  </div>
+  <div class="project-row__main">
+    <div class="project-row__text">
+      <h3 class="project-row__title"><a href="@@href">@@title</a></h3>
+      <p>@@text</p>
+    </div>
+    <a class="project-link project-row__link" href="@@href" tabindex="-1" aria-hidden="true">
+      <span class="project-link__name">Подробнее о&nbsp;проекте</span>
+      <span class="project-link__arrow"></span>
+    </a>
+  </div>
+  <div class="project-row__info">
+    @@if (context.logo) {
+    <div class="project-row__logo">
+      <img src="assets/img/@@logo.webp" width="@@logoWidth" height="@@logoHeight" alt="@@customer" loading="lazy">
+    </div>
+    }
+    @@if (!context.logo) {
+    <dl class="project-row__params">
+      <div>
+        <dt>Мощность</dt>
+        <dd>@@power<span>@@powerUnit</span></dd>
+      </div>
+      <div>
+        <dt>Площадь</dt>
+        <dd>@@area<span>м²</span></dd>
+      </div>
+    </dl>
+    }
+    <dl class="project-row__customer">
+      <dt>@@customerLabel</dt>
+      <dd>@@customer</dd>
+    </dl>
+  </div>
+</article>

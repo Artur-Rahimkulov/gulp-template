@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Проекты" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "projects"})
+			<main class="projects" data-pagination-wrapper>
+				<!-- декор страницы: плашки-призраки и косые линии из макета, координаты — от центра экрана -->
+				<div class="projects__decor" aria-hidden="true">
+					<img class="projects__decor-img projects__decor-img--top-ghost" src="assets/img/ghost-e.webp" width="209" height="226" alt="">
+					<img class="projects__decor-img projects__decor-img--top-figure" src="assets/img/slab-ghost.webp" width="407" height="507" alt="">
+					<img class="projects__decor-img projects__decor-img--hero-ghost" src="assets/img/ghost-a.webp" width="407" height="517" alt="">
+					<img class="projects__decor-img projects__decor-img--edge" src="assets/img/projects-edge.webp" width="159" height="446" alt="">
+					<img class="projects__decor-img projects__decor-img--hero-slab" src="assets/img/slab-white.webp" width="497" height="439" alt="">
+					<img class="projects__decor-img projects__decor-img--ghost-b" src="assets/img/ghost-b.webp" width="404" height="497" alt="">
+					<img class="projects__decor-img projects__decor-img--ghost-c1" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
+					<img class="projects__decor-img projects__decor-img--ghost-c2" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
+					<img class="projects__decor-img projects__decor-img--ghost-c3" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
+					<img class="projects__decor-img projects__decor-img--ghost-c4" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
+					<img class="projects__decor-img projects__decor-img--ghost-c5" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
+					<img class="projects__decor-img projects__decor-img--slab-blue" src="assets/img/slab-blue.webp" width="496" height="474" alt="">
+					<img class="projects__decor-img projects__decor-img--bottom-slab" src="assets/img/slab-white.webp" width="497" height="439" alt="">
+					<img class="projects__decor-img projects__decor-img--m-edge" src="assets/img/projects-m-edge.webp" width="57" height="288" alt="">
+					<img class="projects__decor-img projects__decor-img--m-tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="">
+					<img class="projects__decor-img projects__decor-img--m-ghost" src="assets/img/projects-m-ghost.webp" width="153" height="195" alt="">
+				</div>
+				<div class="projects__lines" aria-hidden="true"></div>
+
+				<div class="container projects__head">
+					<div class="projects__heading">
+						<nav class="projects__breadcrumbs" aria-label="Хлебные крошки">
+							<ol class="breadcrumbs__list">
+								<li><a class="breadcrumbs__link" href="/">Главная</a></li>
+								<li aria-current="page">Проекты</li>
+							</ol>
+						</nav>
+						<h1 class="title-h1 projects__title">Проекты</h1>
+					</div>
+					<p class="projects__lead">Более 200&nbsp;успешно реализованных проектов в&nbsp;области промышленного и&nbsp;гражданского строительства</p>
+					<!-- data-filter — имя query-параметра, data-filter-value — значение (пустое = «Все») -->
+					<div class="projects__filters">
+						@@include("source/html/ui/tag-chip.html", {"name": "Все", "param": "category", "value": "", "active": true})
+						@@include("source/html/ui/tag-chip.html", {"name": "Наружное освещение", "param": "category", "value": "lighting"})
+						@@include("source/html/ui/tag-chip.html", {"name": "Электроснабжение", "param": "category", "value": "power"})
+						@@include("source/html/ui/tag-chip.html", {"name": "Электрификация внутри помещения", "param": "category", "value": "indoor"})
+						@@include("source/html/ui/tag-chip.html", {"name": "Пожарная безопасность", "param": "category", "value": "fire"})
+						@@include("source/html/ui/tag-chip.html", {"name": "СКУД", "param": "category", "value": "access"})
+					</div>
+				</div>
+
+				<section class="projects__list">
+					<h2 class="visually-hidden">Список проектов</h2>
+					<!-- data-list-items — список проектов, заменяется ответом сервера -->
+					<div class="container projects__items" data-list-items>
+						@@include("source/html/components/project-row.html", {"title": "Модернизация систем электроснабжения торгового центра", "text": "Замена силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.", "img": "project-tc", "href": "project.html", "category": "power", "customerLabel": "Заказчик", "customer": "ГК&nbsp;«Развитие»", "power": "2,5", "powerUnit": "МВт", "area": "15&nbsp;000"})
+						@@include("source/html/components/project-row.html", {"title": "Внутреннее электроснабжение для&nbsp;ЖК&nbsp;Московский и&nbsp;слаботочные сети", "text": "Замена силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.", "img": "project-mosk", "href": "project.html", "category": "indoor", "customerLabel": "Застройщик", "customer": "ГК&nbsp;Госстрой<br> ЖК&nbsp;Московский", "power": "35&nbsp;", "powerUnit": "кВ", "area": "15&nbsp;000"})
+						@@include("source/html/components/project-row.html", {"title": "Внутренне электроснабжение в&nbsp;Уфе, для&nbsp;ЖК&nbsp;«Времена года»", "text": "В&nbsp;2025&nbsp;году мы заменили силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.", "img": "project-vremena", "href": "project.html", "category": "power", "customerLabel": "Заказчик", "customer": "РемГорСтрой<br> ЖК&nbsp;«Времена года»", "logo": "logo-vremena", "logoWidth": "311", "logoHeight": "101"})
+						@@include("source/html/components/project-row.html", {"title": "Внешнее освещение жилого комплекса Нью&nbsp;Йорт, г.&nbsp;Уфа", "text": "Замена силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.", "img": "project-newyort", "href": "project.html", "category": "lighting", "customerLabel": "Застройщик", "customer": "КПД<br> ЖК&nbsp;Нью&nbsp;Йорт", "logo": "logo-newyort", "logoWidth": "250", "logoHeight": "68"})
+						@@include("source/html/components/project-row.html", {"title": "Установка БКТП, наружное освещение и&nbsp;электроснабжение в&nbsp;знаменитом Tau&nbsp;House", "text": "В&nbsp;2025&nbsp;году мы заменили силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.", "img": "project-tau", "href": "project.html", "category": "lighting", "customerLabel": "Застройщик", "customer": "Садовое кольцо<br> ЖК&nbsp;«Тау Хаус»", "power": "35&nbsp;", "powerUnit": "кВ", "area": "15&nbsp;000"})
+					</div>
+					<!-- data-show-more-button убирается, если в ответе сервера кнопки нет -->
+					<div class="projects__more">
+						@@include("source/html/ui/button.html", {"name": "Показать еще", "dataAttrString": "data-show-more-button data-href=\"?page=2\""})
+					</div>
+				</section>
+			</main>
+			@@include("source/html/base/footer.html")
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>
