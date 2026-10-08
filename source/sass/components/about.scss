@@ -908,6 +908,18 @@
 		}
 	}
 
+	// в макете синяя секция «Наши ценности» лежит поверх теней, а брошюра и кнопка — над ней:
+	// тени обрезаются по нижнему краю истории (на 6rem ниже блока брошюры)
+	&__brochure-shadows {
+		position: absolute;
+		inset: 0;
+		clip-path: inset(-30rem -10rem -6rem);
+
+		@include vp-mobile {
+			clip-path: none;
+		}
+	}
+
 	&__brochure-img,
 	&__brochure-shadow,
 	&__brochure-edge {
@@ -937,7 +949,6 @@
 			width: 51.7rem;
 			height: 33.7rem;
 			transform: rotate(-10.58deg);
-			clip-path: inset(0 0 18.8rem 0);
 
 			@include vp-mobile {
 				display: none;
@@ -1226,13 +1237,6 @@
 		inset: 0;
 		overflow: hidden;
 		pointer-events: none;
-		// косые линии из макета: отдельные линии (svg 1920 по центру), на мобильной одна
-		background: url("../assets/svg/grid/about-values.svg") 50% 0 / 192rem 100rem no-repeat;
-
-		@include vp-mobile {
-			background-image: url("../assets/svg/grid/about-values-m.svg");
-			background-size: 192rem 124.3rem;
-		}
 
 		// тень от верхнего края
 		&::before {
@@ -1321,6 +1325,13 @@
 		position: absolute;
 		inset: 0;
 		z-index: 1;
+		// косые линии из макета над фоновыми картинками (svg 1920 по центру), на мобильной одна
+		background: url("../assets/svg/grid/about-values.svg") 50% 0 / 192rem 100rem no-repeat;
+
+		@include vp-mobile {
+			background-image: url("../assets/svg/grid/about-values-m.svg");
+			background-size: 192rem 124.3rem;
+		}
 
 		&::before {
 			content: '';
