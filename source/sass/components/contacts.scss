@@ -1,0 +1,1003 @@
+// Страница «Контакты». Координаты декора из макета 1920: left = calc(50% + (x − 960)px), top — от верха секции;
+// на мобильной 390 — от центра 195.
+.contacts {
+	position: relative;
+	overflow-x: clip;
+}
+
+// синяя плашка у подвала (подвал без своих плашек) и полоска у левого края на мобильной
+.contacts__decor {
+	position: absolute;
+	z-index: 3;
+	max-width: none;
+	pointer-events: none;
+
+	&--slab {
+		top: calc(100% - 13.4rem);
+		left: calc(50% + 68.5rem);
+		width: 62rem;
+		height: 66rem;
+		object-fit: contain;
+
+		// плашка лежит в поле за контейнером — уже 1900 ей не хватает места
+		@media (max-width: 1899.98px) {
+			display: none;
+		}
+	}
+
+	&--m-edge {
+		display: none;
+
+		@include vp-mobile {
+			top: calc(100% - 8rem);
+			left: -3.5rem;
+			display: block;
+			width: 8.2rem;
+			height: 21.4rem;
+		}
+	}
+}
+
+// ---------------------------------
+// Первый экран: шапка лежит поверх фото офиса
+// ---------------------------------
+.contacts-hero {
+	position: relative;
+	z-index: 1;
+	min-height: 74.8rem;
+	margin-top: -18.8rem;
+	padding-top: 23.5rem;
+
+	// косая сетка из макета (svg 1920 по центру): кусок под шапкой и смещённый — ниже, с линией на 591
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: 1;
+		left: calc(50% - 96rem);
+		width: 192rem;
+		background-repeat: no-repeat;
+		pointer-events: none;
+	}
+
+	&::before {
+		top: 18.8rem;
+		height: 40.3rem;
+		background-image: url("../assets/svg/grid/contacts-hero-top.svg");
+		background-size: 192rem 40.3rem;
+	}
+
+	&::after {
+		top: 58.5rem;
+		left: 0;
+		right: 0;
+		width: auto;
+		height: 38.6rem;
+		background:
+			linear-gradient(var(--color-double-line), var(--color-double-line)) 0 0.6rem / 100% 0.2rem no-repeat,
+			url("../assets/svg/grid/contacts-hero-bottom.svg") calc(50% - 17.9rem) 0 / 192rem 38.6rem no-repeat;
+	}
+
+	@include vp-mobile {
+		min-height: 59.8rem;
+		margin-top: -8.4rem;
+		padding-top: 14.9rem;
+
+		// белая дымка под шапкой
+		&::before {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 31.7rem;
+			background: linear-gradient(180deg, var(--color-white) 40.9%, rgba(255, 255, 255, 0) 100%);
+		}
+
+		&::after {
+			content: none;
+		}
+	}
+
+	&__photo {
+		position: absolute;
+		top: -2.8rem;
+		left: calc(50% - 83.4rem);
+		width: 146.8rem;
+		max-width: none;
+		height: 87.4rem;
+		object-fit: cover;
+		pointer-events: none;
+
+		// уже 1440 фото уходит вправо и гаснет к тексту
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			left: auto;
+			right: -36rem;
+			mask-image: linear-gradient(90deg, transparent 0, #000 35%);
+		}
+
+		@include vp-narrow {
+			opacity: 0.35;
+		}
+
+		@include vp-mobile {
+			top: 17.8rem;
+			right: auto;
+			left: calc(50% - 23.4rem);
+			width: 78.2rem;
+			height: 42rem;
+			object-position: 50% 0;
+			opacity: 1;
+			mask-image: none;
+		}
+	}
+
+	&__decor {
+		position: absolute;
+		max-width: none;
+		object-fit: contain;
+		pointer-events: none;
+
+		&--figure {
+			top: -1.5rem;
+			left: calc(50% + 0.7rem);
+			width: 42.1rem;
+			height: 52.5rem;
+		}
+
+		&--ghost-1 {
+			z-index: 1;
+			top: 18rem;
+			left: calc(50% - 15.3rem);
+			width: 40.7rem;
+			height: 51.7rem;
+		}
+
+		&--ghost-2 {
+			z-index: 1;
+			top: -3.9rem;
+			left: calc(50% + 41.2rem);
+			width: 38.9rem;
+			height: 49.5rem;
+		}
+
+		&--ghost-3 {
+			z-index: 1;
+			top: 0.2rem;
+			left: calc(50% + 12.5rem);
+			width: 15.4rem;
+			height: 19.6rem;
+		}
+
+		&--m-ghost,
+		&--header-tiles,
+		&--header-slab {
+			display: none;
+		}
+
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			&--figure,
+			&--ghost-1,
+			&--ghost-3 {
+				display: none;
+			}
+		}
+
+		@include vp-mobile {
+			&--figure,
+			&--ghost-1,
+			&--ghost-2,
+			&--ghost-3 {
+				display: none;
+			}
+
+			&--m-ghost {
+				z-index: 2;
+				top: 0.6rem;
+				left: calc(50% + 6.5rem);
+				display: block;
+				width: 13rem;
+				height: 15.7rem;
+			}
+
+			&--header-tiles {
+				z-index: 2;
+				top: 10.1rem;
+				left: calc(50% - 22.6rem);
+				display: block;
+				width: 14rem;
+				height: 5.2rem;
+			}
+
+			&--header-slab {
+				z-index: 2;
+				top: -17.2rem;
+				left: calc(100% - 14.9rem);
+				display: block;
+				width: 20.1rem;
+				height: 20.2rem;
+			}
+		}
+	}
+
+	// десктоп: заголовок и кнопка слева, адрес и телефон — правая колонка на 1249
+	&__inner {
+		position: relative;
+		z-index: 3;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 46.4rem;
+		// высота первой строки — по заголовку, кнопка сразу под ним
+		grid-template-rows: auto 1fr;
+		grid-template-areas:
+			'heading info'
+			'btn info';
+		align-items: start;
+		column-gap: 4rem;
+
+		@include vp-mobile {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-rows: none;
+			grid-template-areas:
+				'heading'
+				'info'
+				'btn';
+		}
+	}
+
+	&__heading {
+		grid-area: heading;
+	}
+
+	&__label {
+		margin: 0;
+		font-size: 2.1rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: var(--color-link);
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+		}
+	}
+
+	&__title {
+		margin: 2rem 0 0;
+		font-size: 5.2rem;
+		line-height: 5.8rem;
+		font-weight: 600;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			margin-top: 0.1rem;
+			font-size: 2.4rem;
+			line-height: 3.4rem;
+		}
+	}
+
+	&__info {
+		grid-area: info;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top: 4.9rem;
+		font-style: normal;
+
+		// в макете колонка на 1249 и выходит за контейнер на 53
+		@media (min-width: 1440px) {
+			position: relative;
+			left: 5.3rem;
+		}
+
+		@include vp-mobile {
+			margin-top: 1.2rem;
+		}
+	}
+
+	&__caption {
+		margin: 0;
+		font-size: 1.26rem;
+		line-height: 2rem;
+		font-weight: 500;
+		color: #434343;
+	}
+
+	&__address {
+		margin: 0.8rem 0 0;
+		font-size: 1.64rem;
+		line-height: 2.4rem;
+		font-weight: 500;
+		color: #0e0e0f;
+
+		// на мобильной переносится по ширине: «450100, ул. Маршала Жукова, / д. 3/1, 1-й этаж»
+		@include vp-mobile {
+			max-width: 25rem;
+			font-size: 1.6rem;
+			font-weight: 600;
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	&__phone {
+		margin-top: 5rem;
+		font-size: 4.8rem;
+		line-height: 5.4rem;
+		font-weight: 500;
+		letter-spacing: 0.2016rem;
+		white-space: nowrap;
+		color: #0e0e0f;
+		transition: color var(--default-transition);
+
+		@include hover-focus {
+			color: var(--color-link);
+		}
+
+		@include vp-mobile {
+			margin-top: 1.1rem;
+			font-size: 3rem;
+			letter-spacing: 0.126rem;
+		}
+	}
+
+	&__email {
+		margin-top: 1.8rem;
+		font-size: 2.6rem;
+		line-height: 2.4rem;
+		font-weight: 500;
+		color: var(--color-link);
+		text-decoration: underline;
+		text-underline-offset: 0.3rem;
+		transition: color var(--default-transition);
+
+		@include hover-focus {
+			color: var(--color-brand-dark);
+		}
+
+		@include vp-mobile {
+			margin-top: 0;
+			font-size: 1.7rem;
+		}
+	}
+
+	.btn#{&}__btn {
+		grid-area: btn;
+		justify-self: start;
+		margin-top: 2.1rem;
+
+		// на мобильной кнопка обычного размера 200×55
+		@include vp-mobile {
+			--btn-width: auto;
+			--btn-height: 5.5rem;
+
+			min-width: 20rem;
+			margin-top: 4.2rem;
+			padding: 0 1rem;
+			white-space: nowrap;
+		}
+	}
+}
+
+// ---------------------------------
+// «Остались вопросы?» на синей полосе
+// ---------------------------------
+.contacts-feedback {
+	position: relative;
+	z-index: 2;
+	min-height: 98rem;
+	padding: 10.7rem 0 12.6rem;
+	color: var(--color-white);
+	// синяя панель, белые косые линии и двойная линия из макета
+	background:
+		url("../assets/svg/grid/contacts-blue.svg") 50% 0 / 192rem 98rem no-repeat,
+		linear-gradient(124.47deg, #1b4d9e 7.4%, #0f2c63 81.5%);
+
+	// виньетка по краям — поверх кабеля
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		height: 98.4rem;
+		background: url("../assets/img/contacts-vignette.webp") 50% 0 / 100% 100% no-repeat;
+		pointer-events: none;
+	}
+
+	// тень от верхнего края
+	&::after {
+		content: '';
+		position: absolute;
+		top: 8.46rem;
+		left: 0;
+		right: 0;
+		height: 10.8rem;
+		background-color: rgba(14, 42, 94, 0.5);
+		filter: blur(4.5rem);
+		pointer-events: none;
+	}
+
+	@include vp-mobile {
+		min-height: 133.9rem;
+		padding: 5.2rem 0 5.4rem;
+		background: #0f4aa0 url("../assets/img/contacts-blue-m.webp") 50% 0 / 100% 101.79% no-repeat;
+
+		&::before,
+		&::after {
+			content: none;
+		}
+	}
+
+	&__decor {
+		position: absolute;
+		max-width: none;
+		pointer-events: none;
+
+		&--cables {
+			top: -7.3rem;
+			left: calc(50% - 95.9rem);
+			width: 114.5rem;
+			height: 78.9rem;
+			object-fit: cover;
+		}
+
+		&--slab {
+			z-index: 2;
+			top: -6.5rem;
+			left: calc(50% - 147.7rem);
+			width: 61rem;
+			height: 49.6rem;
+			object-fit: cover;
+			object-position: 50% 0;
+		}
+
+		&--tiles-top {
+			z-index: 2;
+			top: -1.2rem;
+			left: calc(50% + 61.5rem);
+			width: 16.8rem;
+			height: 8.8rem;
+		}
+
+		&--tiles-left {
+			z-index: 2;
+			top: 36rem;
+			left: calc(50% - 91.8rem);
+			width: 16.8rem;
+			height: 8.8rem;
+		}
+
+		&--cables-m {
+			display: none;
+		}
+
+		// уже 1440 кабель уходит под форму
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			&--cables {
+				opacity: 0.4;
+			}
+
+			&--slab,
+			&--tiles-left {
+				display: none;
+			}
+		}
+
+		@include vp-mobile {
+			&--cables,
+			&--slab,
+			&--tiles-top {
+				display: none;
+			}
+
+			&--cables-m {
+				top: -5rem;
+				left: calc(50% - 19.6rem);
+				display: block;
+				width: 39.1rem;
+				height: 61.6rem;
+				object-fit: cover;
+				opacity: 0.4;
+			}
+
+			&--tiles-left {
+				top: 26.6rem;
+				left: calc(50% - 19.6rem);
+				width: 16.1rem;
+				height: 6.7rem;
+			}
+		}
+	}
+
+	// текст 380 слева, форма 956 справа (на 703 в макете)
+	&__inner {
+		position: relative;
+		z-index: 3;
+		display: grid;
+		grid-template-columns: minmax(0, 38rem) minmax(0, 95.6rem);
+		justify-content: space-between;
+		align-items: start;
+
+		@include vp-narrow {
+			grid-template-columns: minmax(0, 1fr);
+			row-gap: 5rem;
+		}
+
+		@include vp-mobile {
+			grid-template-columns: minmax(0, 1fr);
+			row-gap: 13.1rem;
+		}
+	}
+
+	&__title,
+	&__subtitle {
+		margin: 0;
+		font-size: 3.8rem;
+		line-height: 4.4rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			font-size: 2.4rem;
+			line-height: 1.2;
+		}
+	}
+
+	&__subtitle {
+		margin-top: 3rem;
+
+		@include vp-mobile {
+			margin-top: 3.5rem;
+		}
+	}
+
+	&__text {
+		max-width: 34.9rem;
+		margin: 1rem 0 0;
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+		font-weight: 500;
+
+		@include vp-mobile {
+			max-width: 27rem;
+			margin-top: 2rem;
+			font-size: 1.4rem;
+			line-height: 2rem;
+		}
+	}
+}
+
+// ---------------------------------
+// Форма «Остались вопросы?»
+// ---------------------------------
+.contacts-form {
+	--cf-accent: #6fb0ff;
+	--cf-field: #082454;
+	--cf-field-border: #3c5b91;
+
+	padding: 4.8rem 4.6rem;
+	background-color: rgba(11, 41, 92, 0.8);
+	border: 0.1rem solid #0073ff;
+
+	@include vp-mobile {
+		padding: 4.1rem 2rem 4.3rem;
+	}
+
+	// десктоп: две колонки 400 и 401 — лица, телефон, ИНН · e-mail, компания, документы; низ строк по линиям 56, 149, 256
+	&__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 400fr) minmax(0, 401fr);
+		grid-template-rows: 5.6rem 5.6rem auto;
+		grid-template-areas:
+			'name email'
+			'phone company'
+			'inn files';
+		column-gap: 6.2rem;
+		row-gap: 3.7rem;
+
+		// мобильная: одна колонка, между линией и следующей подписью 52
+		@include vp-mobile {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-rows: none;
+			grid-template-areas:
+				'name'
+				'email'
+				'phone'
+				'company'
+				'inn'
+				'files';
+			row-gap: 2.6rem;
+			margin-top: -2.6rem;
+		}
+	}
+
+	// поле: подпись лежит на месте текста, при вводе поднимается вверх; линия — на 56 от верха поля
+	&__field {
+		position: relative;
+		display: block;
+		height: 5.6rem;
+		border-bottom: 0.1rem solid var(--cf-accent);
+		cursor: text;
+		transition: border-color var(--default-transition);
+
+		&--name { grid-area: name; }
+		&--email { grid-area: email; }
+		&--phone { grid-area: phone; }
+		&--company { grid-area: company; }
+
+		&--inn {
+			grid-area: inn;
+			margin-top: 1.4rem;
+
+			@include vp-mobile {
+				margin-top: 0;
+			}
+		}
+
+		&:focus-within,
+		&:has(.contacts-form__input:not(:placeholder-shown)) {
+			border-bottom-color: var(--color-white);
+		}
+
+		&.has-danger {
+			border-bottom-color: #ffb4b4;
+		}
+
+		.error-message {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			margin-top: 0.4rem;
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+			color: #ffb4b4;
+		}
+	}
+
+	&__input {
+		position: absolute;
+		top: 3rem;
+		left: 0;
+		width: 100%;
+		height: 2rem;
+		padding: 0;
+		font-family: inherit;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		font-weight: 600;
+		color: var(--color-white);
+		background: none;
+		border: none;
+		outline: none;
+	}
+
+	&__label {
+		position: absolute;
+		top: 2.6rem;
+		left: 0;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		font-weight: 600;
+		color: var(--cf-accent);
+		pointer-events: none;
+		transition: top var(--default-transition);
+	}
+
+	&__input:focus + &__label,
+	&__input:not(:placeholder-shown) + &__label {
+		top: 0;
+	}
+
+	// документы: кнопка «Прикрепить» по линиям ряда и список прикреплённых
+	&__files {
+		grid-area: files;
+		min-height: 17.2rem;
+		margin-top: 2.6rem;
+
+		@include vp-mobile {
+			min-height: 0;
+		}
+	}
+
+	&__attach {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.3rem;
+		padding-bottom: 0.4rem;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		font-weight: 600;
+		color: var(--cf-accent);
+		border-bottom: 0.1rem solid var(--cf-accent);
+		cursor: pointer;
+		transition: color var(--default-transition);
+
+		img {
+			flex-shrink: 0;
+			width: 4rem;
+			height: 4rem;
+		}
+
+		span {
+			padding-top: 1.3rem;
+		}
+
+		@include hover {
+			color: var(--color-white);
+		}
+
+		&:focus-within {
+			outline: 0.2rem solid var(--cf-accent);
+			outline-offset: 0.2rem;
+		}
+	}
+
+	&__file-list {
+		display: grid;
+		gap: 1rem;
+		margin: 7.8rem 0 0;
+		padding: 0;
+		list-style: none;
+
+		&:empty {
+			display: none;
+		}
+
+		@include vp-mobile {
+			margin-top: 2rem;
+		}
+	}
+
+	&__file {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		font-weight: 600;
+
+		@include vp-mobile {
+			display: grid;
+			grid-template-columns: 2rem minmax(0, 1fr);
+			column-gap: 1rem;
+			align-items: start;
+			font-size: 1.4rem;
+		}
+	}
+
+	&__file-remove {
+		flex-shrink: 0;
+		width: 2rem;
+		height: 2rem;
+		padding: 0;
+		background: url("../assets/svg/icon-file-remove.svg") no-repeat center / contain;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: opacity var(--default-transition);
+
+		@include hover {
+			opacity: 0.8;
+		}
+
+		@include focus {
+			outline: 0.2rem solid var(--cf-accent);
+			outline-offset: 0.2rem;
+		}
+
+		@include vp-mobile {
+			grid-row: 1 / span 2;
+		}
+	}
+
+	&__file-status {
+		color: var(--color-white);
+	}
+
+	&__file-name {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		color: var(--cf-accent);
+
+		@include vp-mobile {
+			grid-column: 2;
+		}
+	}
+
+	// сообщение: поле со скруглением 16
+	&__message {
+		display: block;
+		margin-top: 5rem;
+
+		@include vp-mobile {
+			margin-top: 4rem;
+		}
+	}
+
+	&__textarea {
+		display: block;
+		width: 100%;
+		height: 13.2rem;
+		padding: 0.8rem 4rem;
+		font-family: inherit;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		font-weight: 600;
+		color: var(--color-white);
+		background-color: var(--cf-field);
+		border: 0.1rem solid var(--cf-field-border);
+		border-radius: 1.6rem;
+		outline: none;
+		resize: none;
+		transition: border-color var(--default-transition);
+
+		&::placeholder {
+			color: var(--cf-accent);
+			opacity: 1;
+		}
+
+		&:focus {
+			border-color: var(--cf-accent);
+		}
+
+		@include vp-mobile {
+			height: 13.6rem;
+			padding: 2rem;
+			font-size: 1.4rem;
+		}
+	}
+
+	// кнопка и согласие в строку, на мобильной — друг под другом
+	&__bottom {
+		display: flex;
+		align-items: flex-start;
+		gap: 3.3rem;
+		margin-top: 2.3rem;
+
+		@include vp-mobile {
+			flex-direction: column;
+			gap: 3rem;
+			margin-top: 2rem;
+		}
+	}
+
+	&__consent {
+		position: relative;
+		display: block;
+		flex: 1 1 auto;
+		max-width: 62.1rem;
+		min-height: 2.7rem;
+		padding-left: 4.6rem;
+		cursor: pointer;
+
+		@include vp-mobile {
+			max-width: none;
+		}
+
+		.error-message {
+			margin-top: 0.4rem;
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+			color: #ffb4b4;
+		}
+	}
+
+	&__checkbox {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+
+	&__box {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2.7rem;
+		height: 2.7rem;
+		background-color: var(--cf-field);
+		border: 0.1rem solid var(--cf-field-border);
+		transition: border-color var(--default-transition), background-color var(--default-transition);
+
+		// галочка
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0.5rem;
+			left: 0.9rem;
+			width: 0.7rem;
+			height: 1.2rem;
+			border: solid var(--color-white);
+			border-width: 0 0.2rem 0.2rem 0;
+			opacity: 0;
+			transform: rotate(45deg);
+			transition: opacity var(--default-transition);
+		}
+	}
+
+	&__consent:hover &__box {
+		border-color: var(--cf-accent);
+	}
+
+	&__checkbox:focus-visible + &__box {
+		outline: 0.2rem solid var(--cf-accent);
+		outline-offset: 0.2rem;
+	}
+
+	&__checkbox:checked + &__box {
+		background-color: #0953c1;
+		border-color: var(--cf-accent);
+
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	&__consent.has-danger &__box {
+		border-color: #ffb4b4;
+	}
+
+	&__consent-text {
+		display: block;
+		font-size: 1.2rem;
+		line-height: 2rem;
+		font-weight: 400;
+		color: var(--color-white);
+
+		a {
+			color: var(--cf-accent);
+			text-decoration: underline;
+			transition: color var(--default-transition);
+
+			@include hover-focus {
+				color: var(--color-white);
+			}
+		}
+
+		@include vp-mobile {
+			line-height: 1.8rem;
+			font-weight: 500;
+		}
+	}
+}
+
+// ---------------------------------
+// Карта (картинка из макета): видна от низа синей полосы, на мобильной — своя с меткой
+// ---------------------------------
+.contacts-map {
+	position: relative;
+	height: 53.5rem;
+	margin-bottom: 6.5rem;
+	overflow: hidden;
+
+	&__img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 100%;
+	}
+
+	&__pin {
+		display: none;
+	}
+
+	@include vp-mobile {
+		height: 51.4rem;
+		margin-bottom: 0;
+
+		&__img {
+			object-position: 50% 0;
+		}
+
+		&__pin {
+			position: absolute;
+			top: 16.5rem;
+			left: calc(50% - 5.3rem);
+			display: block;
+			width: 3.7rem;
+			height: 4.8rem;
+		}
+	}
+}

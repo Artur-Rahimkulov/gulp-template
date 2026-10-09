@@ -6,6 +6,7 @@ import { pagination } from './modules/pagination.js';
 import { fileDrop } from './modules/file-drop.js';
 import { heroTags } from './modules/hero-tags.js';
 import { about } from './modules/about.js';
+import { contactsFiles } from './modules/contacts-files.js';
 import { projectRows } from './modules/project-rows.js';
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
@@ -25,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		pagination();
 		fileDrop();
 		about();
+		contactsFiles();
 	});
 });
 

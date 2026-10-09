@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Контакты" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "contacts", "overlay": true})
+			<main class="contacts">
+
+				<!-- Первый экран: шапка лежит поверх фото офиса -->
+				<section class="contacts-hero">
+					<img class="contacts-hero__photo" src="assets/img/contacts-hero.webp" width="1468" height="874" alt="" aria-hidden="true">
+					<img class="contacts-hero__decor contacts-hero__decor--figure" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="contacts-hero__decor contacts-hero__decor--ghost-1" src="assets/img/ghost-a.webp" width="407" height="517" alt="" aria-hidden="true">
+					<img class="contacts-hero__decor contacts-hero__decor--ghost-2" src="assets/img/ghost-a.webp" width="407" height="517" alt="" aria-hidden="true">
+					<img class="contacts-hero__decor contacts-hero__decor--ghost-3" src="assets/img/ghost-a.webp" width="407" height="517" alt="" aria-hidden="true">
+					<img class="contacts-hero__decor contacts-hero__decor--m-ghost" src="assets/img/contacts-m-ghost.webp" width="130" height="157" alt="" aria-hidden="true">
+					<img class="contacts-hero__decor contacts-hero__decor--header-tiles" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
+					<img class="contacts-hero__decor contacts-hero__decor--header-slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+
+					<div class="container contacts-hero__inner">
+						<div class="contacts-hero__heading">
+							<p class="contacts-hero__label">Инженерный центр «Крафт»</p>
+							<h1 class="contacts-hero__title">Контакты</h1>
+						</div>
+
+						<address class="contacts-hero__info">
+							<p class="contacts-hero__caption">Адрес:</p>
+							<p class="contacts-hero__address">450100, ул.&nbsp;Маршала Жукова, д.&nbsp;3/1, <br>1-й этаж</p>
+							<a class="contacts-hero__phone" href="tel:+73472164324">+7&nbsp;(347)&nbsp;216-43-24</a>
+							<a class="contacts-hero__email" href="mailto:ufa@izkraft.com">ufa@izkraft.com</a>
+						</address>
+
+						@@include("source/html/ui/button.html", {"tag": "a", "href": "/contacts/partner-card.pdf", "name": "Скачать карту партнера", "class": "btn--lg contacts-hero__btn", "dataAttrString": "download"})
+					</div>
+				</section>
+
+				<!-- Форма обратной связи на синей полосе -->
+				<section class="contacts-feedback">
+					<img class="contacts-feedback__decor contacts-feedback__decor--cables" src="assets/img/contacts-cables.webp" width="1147" height="789" alt="" aria-hidden="true">
+					<img class="contacts-feedback__decor contacts-feedback__decor--cables-m" src="assets/img/contacts-cables-m.webp" width="375" height="591" alt="" aria-hidden="true">
+					<img class="contacts-feedback__decor contacts-feedback__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<img class="contacts-feedback__decor contacts-feedback__decor--tiles-top" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="contacts-feedback__decor contacts-feedback__decor--tiles-left" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+
+					<div class="container contacts-feedback__inner">
+						<div class="contacts-feedback__intro">
+							<h2 class="contacts-feedback__title">Остались вопросы?</h2>
+							<p class="contacts-feedback__subtitle">Напишите нам</p>
+							<p class="contacts-feedback__text">Сотрудники компании ИЦ&nbsp;«Крафт» помогут найти&nbsp;ответы</p>
+						</div>
+
+						@@include("source/html/components/contacts-form.html")
+					</div>
+				</section>
+
+				<!-- Карта: картинка из макета (можно заменить на виджет Яндекс.Карт в .contacts-map) -->
+				<div class="contacts-map">
+					<picture>
+						<source media="(max-width: 899.98px)" srcset="assets/img/contacts-map-m.webp">
+						<img class="contacts-map__img" src="assets/img/contacts-map.webp" width="1920" height="726" alt="Офис ИЦ&nbsp;Крафт на&nbsp;карте: Уфа, ул.&nbsp;Маршала Жукова, д.&nbsp;3/1" loading="lazy">
+					</picture>
+					<img class="contacts-map__pin" src="assets/img/contacts-pin.webp" width="37" height="48" alt="" aria-hidden="true">
+				</div>
+
+				<!-- плашки на стыке с подвалом -->
+				<img class="contacts__decor contacts__decor--slab" src="assets/img/slab-blue.webp" width="620" height="660" alt="" aria-hidden="true">
+				<img class="contacts__decor contacts__decor--m-edge" src="assets/img/contacts-m-edge.webp" width="82" height="214" alt="" aria-hidden="true">
+			</main>
+			@@include("source/html/base/footer.html", {"plain": true})
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>
