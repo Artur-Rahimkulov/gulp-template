@@ -436,9 +436,10 @@
 		}
 
 		// плитка у нижнего края, заходит на историю
+		// у нижнего края полосы: от низа, чтобы оставаться на стыке, когда полоса выше из-за переносов
 		&--tiles-edge {
 			z-index: 3;
-			top: 70.5rem;
+			top: calc(100% - 2.2rem);
 			left: calc(50% + 21rem);
 			width: 16.8rem;
 			height: 8.8rem;
@@ -446,7 +447,7 @@
 
 		&--tiles-bottom {
 			z-index: 3;
-			top: 53.5rem;
+			top: calc(100% - 19.2rem);
 			left: calc(50% - 91.8rem);
 			width: 16.8rem;
 			height: 8.8rem;
