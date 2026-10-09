@@ -94,6 +94,16 @@
 		object-fit: contain;
 	}
 
+	// синяя плашка одна на страницу — на стыке первого проекта и полосы второго
+	&--slab-blue {
+		z-index: 2;
+		top: 76.4rem;
+		left: calc(50% + 70rem);
+		width: 49.6rem;
+		height: 47.4rem;
+		object-fit: contain;
+	}
+
 	&--m-edge,
 	&--m-tiles,
 	&--m-ghost {
@@ -104,6 +114,7 @@
 	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
 		&--hero-slab,
 		&--edge,
+		&--slab-blue,
 		&--bottom-slab {
 			display: none;
 		}
@@ -261,7 +272,7 @@
 // ---------------------------------
 // Проект — целый «слот» макета со своими отступами, фоном и декором, поэтому проекты можно добавлять сколько угодно.
 // Нечётный — как 3-й проект макета (слот 505: фото на 80 ниже верха): характеристики · фото · текст.
-// Чётный — как 2-й проект (слот 474 на светлой полосе: фото на 110 ниже верха): фото · текст · характеристики.
+// Чётный — как 4-й проект (слот 427 — светлая полоса: фото на 63 ниже верха и на 63 выше низа): фото · текст · характеристики.
 .project-row {
 	position: relative;
 	display: grid;
@@ -285,7 +296,7 @@
 	&:nth-child(even of :not([hidden])) {
 		grid-template-columns: minmax(0, 519fr) minmax(0, 40fr) minmax(0, 407fr) minmax(0, 61fr) minmax(0, 373fr);
 		grid-template-areas: 'photo . main . info';
-		padding: 11rem 0 6.3rem;
+		padding: 6.3rem 0;
 
 		// светлая полоса во всю ширину экрана
 		&::before {
@@ -302,8 +313,8 @@
 	}
 
 	// декор слота в координатах макета 1920 (x — от левого края макета, y — от верха слота):
-	// нечётный — призраки на 1226 и 45, косые и горизонтальные линии; чётный — призраки на 234 и 1447,
-	// синяя плашка 1660 на 161, линии поверх полосы. Декор может заходить на соседний проект
+	// нечётный (3-й проект) — призраки на 1226 и 45, косые и горизонтальные линии;
+	// чётный (4-й проект) — призраки на 207 и 1513, линии поверх полосы. Декор может заходить на соседний проект
 	&__decor {
 		position: absolute;
 		top: 0;
@@ -346,20 +357,11 @@
 	}
 
 	&:nth-child(even of :not([hidden])) &__decor {
-		height: 63.5rem;
+		height: 50.7rem;
 		background:
-			url("../assets/img/slab-blue.webp") no-repeat 166rem 16.1rem / 49.6rem 47.4rem,
-			url("../assets/svg/grid/projects-even.svg") no-repeat 0 0 / 192rem 47.4rem,
-			url("../assets/img/slab-ghost-white.webp") no-repeat 144.7rem 0 / 44.5rem 55.4rem,
-			url("../assets/img/ghost-d.webp") no-repeat 23.4rem 0 / 20.9rem 26.6rem;
-
-		// уже 1600 синяя плашка у края заходит на характеристики
-		@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
-			background:
-				url("../assets/svg/grid/projects-even.svg") no-repeat 0 0 / 192rem 47.4rem,
-				url("../assets/img/slab-ghost-white.webp") no-repeat 144.7rem 0 / 44.5rem 55.4rem,
-				url("../assets/img/ghost-d.webp") no-repeat 23.4rem 0 / 20.9rem 26.6rem;
-		}
+			url("../assets/svg/grid/projects-even.svg") no-repeat 0 0 / 192rem 42.7rem,
+			url("../assets/img/slab-ghost-white.webp") no-repeat 151.3rem 0 / 40.7rem 50.7rem,
+			url("../assets/img/ghost-d.webp") no-repeat 20.7rem 0 / 20.9rem 26.6rem;
 	}
 
 	// узкий десктоп: фото на половину ширины, рядом текст, под ним характеристики и заказчик
@@ -719,19 +721,6 @@
 
 		@include vp-mobile {
 			margin-left: 0;
-		}
-	}
-
-	// во 2-м проекте макета заказчик на 20 выше низа фото
-	&:nth-child(even of :not([hidden])) &__customer {
-		margin-bottom: 2rem;
-
-		@include vp-narrow {
-			margin-bottom: 0;
-		}
-
-		@include vp-mobile {
-			margin-bottom: 0;
 		}
 	}
 
