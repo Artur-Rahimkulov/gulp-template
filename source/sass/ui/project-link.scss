@@ -1,8 +1,13 @@
 // Ссылка «Подробнее о проекте»: белая скошенная плашка с подписью и синий блок со стрелкой вправо.
 // Десктоп: в покое — только синяя плашка 54×40 со стрелкой (в рамке 68×38 со скосом),
 // при наведении на проект раскрывается до 372×56 с подписью (в узкой колонке сжимается, синий блок остаётся справа).
+// Высота на десктопе всегда 56 (свёрнутая плашка стоит внизу) — раскрытие не сдвигает вёрстку.
 // Мобильная: всегда раскрыта, 203×32, подпись в две строки
 .project-link {
+	// плавное раскрытие: ширина и синий блок — 0,6 с, подпись и белая плашка проявляются с задержкой
+	--pl-duration: 0.6s;
+	--pl-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
 	position: relative;
 	isolation: isolate;
 	display: block;
@@ -15,9 +20,8 @@
 	text-decoration: none;
 	transition:
 		color var(--default-transition),
-		width var(--default-transition),
-		height var(--default-transition),
-		filter var(--default-transition);
+		width var(--pl-duration) var(--pl-ease),
+		filter var(--pl-duration) var(--pl-ease);
 
 	// белая плашка со скосом 20,3°
 	&::before {
@@ -30,7 +34,7 @@
 		height: 5.44rem;
 		background-image: linear-gradient(180deg, var(--color-white) 0%, #f8f9fb 100%);
 		clip-path: polygon(2.01rem 0, 100% 0, calc(100% - 2.01rem) 100%, 0 100%);
-		transition: opacity var(--default-transition);
+		transition: opacity 0.4s ease 0.1s;
 	}
 
 	// тень у левого края синего блока
@@ -45,7 +49,7 @@
 		background-color: #0e2a5e;
 		filter: blur(1rem);
 		transform: rotate(20deg);
-		transition: opacity var(--default-transition);
+		transition: opacity 0.4s ease 0.1s;
 	}
 
 	&__name {
@@ -53,13 +57,13 @@
 		top: 1.4rem;
 		left: 4rem;
 		white-space: nowrap;
-		transition: opacity var(--default-transition);
+		transition: opacity 0.4s ease 0.2s;
 	}
 
 	&__arrow {
 		position: absolute;
-		top: 0;
 		right: 0;
+		bottom: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -70,9 +74,9 @@
 		clip-path: polygon(2.07rem 0, 100% 0, calc(100% - 2.07rem) 100%, 0 100%);
 		transition:
 			background-color var(--default-transition),
-			width var(--default-transition),
-			height var(--default-transition),
-			clip-path var(--default-transition);
+			width var(--pl-duration) var(--pl-ease),
+			height var(--pl-duration) var(--pl-ease),
+			clip-path var(--pl-duration) var(--pl-ease);
 
 		&::before {
 			content: '';
@@ -80,7 +84,7 @@
 			height: 1.8rem;
 			background-color: currentColor;
 			mask: url("../assets/svg/arrow.svg") no-repeat center / contain;
-			transition: width var(--default-transition), height var(--default-transition);
+			transition: width var(--pl-duration) var(--pl-ease), height var(--pl-duration) var(--pl-ease);
 		}
 	}
 
@@ -88,18 +92,20 @@
 	@include vp-desktop {
 		&:not(:focus-visible) {
 			width: 6.77rem;
-			height: 3.76rem;
 			filter: drop-shadow(0 1rem 0.9rem rgba(20, 40, 90, 0.18));
 
+			// при сворачивании подпись и белая плашка гаснут сразу
 			&::before,
 			&::after,
 			.project-link__name {
 				opacity: 0;
+				transition-delay: 0s;
+				transition-duration: 0.2s;
 			}
 
 			.project-link__arrow {
 				width: 100%;
-				height: 100%;
+				height: 3.76rem;
 				background-color: #2663ae;
 				clip-path: polygon(1.37rem 0, 100% 0, calc(100% - 1.37rem) 100%, 0 100%);
 
@@ -175,13 +181,22 @@
 @include vp-desktop {
 	.project-row:is(:hover, :focus-within) .project-link:not(:focus-visible) {
 		width: min(37.2rem, 100%);
-		height: 5.6rem;
 		filter: none;
 
 		&::before,
 		&::after,
 		.project-link__name {
 			opacity: 1;
+			transition-duration: 0.4s;
+		}
+
+		&::before,
+		&::after {
+			transition-delay: 0.1s;
+		}
+
+		.project-link__name {
+			transition-delay: 0.2s;
 		}
 
 		.project-link__arrow {

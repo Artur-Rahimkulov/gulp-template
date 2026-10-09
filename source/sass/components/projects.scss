@@ -502,24 +502,35 @@
 		}
 	}
 
+	// кнопка всегда ниже текста хотя бы на 2rem: при длинном описании проект становится выше фото
 	&__text {
 		grid-area: text;
+		margin-bottom: 2rem;
 
-		p {
-			margin: 0;
-			font-size: 1.7rem;
-			line-height: 2.4rem;
-			font-weight: 500;
-			color: var(--color-text-body);
+		@include vp-narrow {
+			margin-bottom: 0;
 		}
 
 		@include vp-mobile {
-			margin-top: 3rem;
+			margin: 3rem 0 0;
+		}
+	}
 
-			p {
-				font-size: 1.2rem;
-				line-height: 2rem;
-			}
+	// описание из админки (rich-text): размеры по тегам
+	&__desc {
+		font-size: 1.7rem;
+		line-height: 2.4rem;
+		font-weight: 500;
+
+		p,
+		ul,
+		ol {
+			margin-bottom: 1.2rem;
+		}
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+			line-height: 2rem;
 		}
 	}
 
@@ -636,7 +647,7 @@
 	// логотип заказчика вместо характеристик
 	&__logo {
 		grid-area: info;
-		margin-top: 3.6rem;
+		margin-top: 3.9rem;
 
 		@include vp-narrow {
 			margin-top: 0;
