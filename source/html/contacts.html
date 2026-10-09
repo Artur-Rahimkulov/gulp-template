@@ -53,13 +53,13 @@
 					</div>
 				</section>
 
-				<!-- Карта: картинка из макета (можно заменить на виджет Яндекс.Карт в .contacts-map) -->
-				<div class="contacts-map">
-					<picture>
+				<!-- Яндекс.Карта (js/modules/contacts-map.js): пока API грузится — картинка карты из макета -->
+				<div class="contacts-map" data-contacts-map data-map-apikey="fdceed69-b34e-4a4b-8904-78d61d0cb1fc" data-map-address="Уфа, улица Маршала Жукова, 3/1" data-map-coords="54.76614,56.04912" data-map-zoom="16">
+					<picture class="contacts-map__placeholder">
 						<source media="(max-width: 899.98px)" srcset="assets/img/contacts-map-m.webp">
-						<img class="contacts-map__img" src="assets/img/contacts-map.webp" width="1920" height="726" alt="Офис ИЦ&nbsp;Крафт на&nbsp;карте: Уфа, ул.&nbsp;Маршала Жукова, д.&nbsp;3/1" loading="lazy">
+						<img class="contacts-map__img" src="assets/img/contacts-map.webp" width="1920" height="726" alt="" aria-hidden="true" loading="lazy">
 					</picture>
-					<img class="contacts-map__pin" src="assets/img/contacts-pin.webp" width="37" height="48" alt="" aria-hidden="true">
+					<div class="contacts-map__canvas" data-contacts-map-canvas role="application" aria-label="Карта: ИЦ&nbsp;Крафт, Уфа, ул.&nbsp;Маршала Жукова, д.&nbsp;3/1, 1-й этаж"></div>
 				</div>
 
 				<!-- плашки на стыке с подвалом -->
