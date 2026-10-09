@@ -6,12 +6,28 @@
 	position: relative;
 	overflow-x: clip;
 	padding-bottom: 21.4rem;
-	// косая сетка первого экрана и двойная линия под ним
+	// двойная линия под первым экраном
 	background: url("../assets/svg/grid/projects-head.svg") no-repeat 50% 0 / 192rem 38.9rem;
+
+	// косая сетка одна на всю страницу — продолжение сетки первого экрана, линии без разрывов идут
+	// через все проекты и полосы (поверх полос, под фото и текстом). Плитка 3936×1773: за её высоту линия
+	// смещается ровно на шаг 656, поэтому по вертикали она повторяется без шва
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		background: url("../assets/svg/grid/projects-grid.svg") repeat-y 50% 0 / 393.6rem 177.34rem;
+		pointer-events: none;
+	}
 
 	@include vp-mobile {
 		padding-bottom: 6rem;
 		background: none;
+
+		&::before {
+			content: none;
+		}
 	}
 }
 
@@ -77,8 +93,10 @@
 		height: 29.9rem;
 	}
 
+	// справа у подвала, x как в макете; по высоте ниже правого призрака последнего проекта, чтобы не накладываться:
+	// у нечётного он кончается за 257 до подвала, у чётного — за 238 (в макете плашка была на 311)
 	&--ghost-c5 {
-		top: calc(100% - 31.13rem);
+		top: calc(100% - 23.8rem);
 		left: calc(50% + 41.2rem);
 		width: 33.4rem;
 		height: 42.56rem;
@@ -259,8 +277,19 @@
 	z-index: 2;
 	display: flex;
 	justify-content: center;
-	// в макете кнопка на 112 ниже фото последнего проекта, а нижний отступ проекта — 124
+	// в макете кнопка на 112 ниже фото последнего проекта — при любой его чётности:
+	// нижний отступ нечётного 124 → -12, чётного 63 → +49, единственного (первого) 50 → +62
 	margin-top: -1.2rem;
+
+	@include vp-desktop {
+		.projects__items:has(> .project-row:nth-child(even of .project-row:not([hidden])):nth-last-child(1 of .project-row:not([hidden]))) + & {
+			margin-top: 4.9rem;
+		}
+
+		.projects__items:has(> .project-row:nth-child(1 of .project-row:not([hidden])):nth-last-child(1 of .project-row:not([hidden]))) + & {
+			margin-top: 6.2rem;
+		}
+	}
 
 	@include vp-mobile {
 		margin-top: 3rem;
@@ -276,10 +305,14 @@
 .project-row {
 	position: relative;
 	display: grid;
+	// весь проект — ссылка (js/modules/project-rows.js)
+	cursor: pointer;
 	padding: 8rem 0 12.4rem;
 	// колонки в пропорциях макета 1400: 373 · 74 · 519 · 65 · 369
 	grid-template-columns: minmax(0, 373fr) minmax(0, 74fr) minmax(0, 519fr) minmax(0, 65fr) minmax(0, 369fr);
 	grid-template-areas: 'info . photo . main';
+	// высота строки — по фото: длинный текст выходит в нижний отступ, а не раздвигает проект
+	grid-template-rows: 30.1rem;
 
 	// на мобильной обёртки main и info растворяются (display: contents) — z-index ставим самим блокам
 	&__photo,
@@ -322,6 +355,7 @@
 		z-index: 1;
 		width: 192rem;
 		height: 50.5rem;
+		// горизонтальные линии слота; косые — общей сеткой страницы
 		background:
 			url("../assets/svg/grid/projects-odd.svg") no-repeat 0 0 / 192rem 50.5rem,
 			url("../assets/img/ghost-b.webp") no-repeat 122.6rem 0 / 41rem 50.5rem,
@@ -352,8 +386,7 @@
 	}
 
 	&:nth-child(1 of :not([hidden])) &__decor {
-		height: 43.1rem;
-		background: url("../assets/svg/grid/projects-first.svg") no-repeat 0 0 / 192rem 43.1rem;
+		display: none;
 	}
 
 	&:nth-child(even of :not([hidden])) &__decor {
@@ -369,6 +402,7 @@
 		&,
 		&:nth-child(even of :not([hidden])) {
 			grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr);
+			grid-template-rows: auto;
 			grid-template-areas:
 				'photo . main'
 				'photo . info';
@@ -387,6 +421,7 @@
 		&,
 		&:nth-child(even of :not([hidden])) {
 			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-rows: auto;
 			grid-template-areas:
 				'photo photo'
 				'text text'
@@ -430,6 +465,24 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+		}
+
+		// при наведении на проект на фото проявляется плашка-призрак
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			// плашка из макета (синяя #003B89) по высоте фото от левого верхнего угла, как синее тонирование
+			background: url("../assets/img/project-hover-ghost.webp") no-repeat 0 0 / auto 100%;
+			opacity: 0;
+			transition: opacity var(--default-transition);
+			pointer-events: none;
+		}
+
+		@media (hover: hover) {
+			.project-row:hover &::after {
+				opacity: 0.3;
+			}
 		}
 
 		@include vp-narrow {
@@ -505,6 +558,8 @@
 	// кнопка всегда ниже текста хотя бы на 2rem: при длинном описании проект становится выше фото
 	&__text {
 		grid-area: text;
+		// не сжимается, когда текст длиннее фото: иначе кнопка наезжает на него
+		flex-shrink: 0;
 		margin-bottom: 2rem;
 
 		@include vp-narrow {
@@ -569,7 +624,8 @@
 		display: flex;
 		gap: 4rem;
 		margin: 0;
-		padding-top: 4.9rem;
+		// по верху фото, как у чётных (у 1-го проекта макета было на 49 ниже)
+		padding-top: 0.1rem;
 
 		div:first-child {
 			width: 13.8rem;
@@ -733,6 +789,7 @@
 	// свёрнутая плашка в макете чуть левее текста: у 3-го проекта на 2, у 2-го на 7
 	&__link {
 		grid-area: link;
+		flex-shrink: 0;
 		margin-top: auto;
 		margin-left: -0.17rem;
 
