@@ -1640,8 +1640,19 @@
 			}
 		}
 
-		@include vp-narrow {
-			grid-template-columns: minmax(0, 1fr);
+		// уже 1480 скан с текстом рядом не помещаются по две — текст уходит под скан, в строке по-прежнему две
+		@media (min-width: $vp-desktop) and (max-width: 1479.98px) {
+			gap: 6rem 4rem;
+
+			.doc-card {
+				flex-direction: column;
+				gap: 2.4rem;
+			}
+
+			.doc-card__body {
+				flex-basis: auto;
+				width: 100%;
+			}
 		}
 	}
 
