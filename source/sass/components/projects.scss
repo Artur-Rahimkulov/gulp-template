@@ -220,7 +220,9 @@
 .projects__title {
 	line-height: 5.8rem;
 
+	// в мобильном макете заголовок страницы 24/34 (общий H1 на мобильной — 29)
 	@include vp-mobile {
+		font-size: 2.4rem;
 		line-height: 3.4rem;
 	}
 }
@@ -381,6 +383,7 @@
 		}
 
 		@include vp-mobile {
+			padding-top: 0;
 			padding-bottom: 3rem;
 		}
 	}
@@ -405,14 +408,14 @@
 			grid-template-rows: auto;
 			grid-template-areas:
 				'photo . main'
-				'photo . info';
+				'info info info';
 			align-items: start;
 		}
 
 		&:nth-child(even of :not([hidden])) {
 			grid-template-areas:
 				'main . photo'
-				'info . photo';
+				'info info info';
 		}
 	}
 
@@ -427,10 +430,11 @@
 				'text text'
 				'info info'
 				'customer link';
-			padding: 0 0 3rem;
+			padding: 3.4rem 0 3rem;
 		}
 
-		// мобильная: нечётный без отступа сверху, чётный на полосе — 34 сверху и 77 снизу
+		// мобильная: нечётный — 34 сверху, как у чётного (первый — без отступа, он сразу под фильтрами),
+		// чётный на полосе — 34 сверху и 77 снизу
 		&:nth-child(even of :not([hidden])) {
 			padding: 3.4rem 0 7.7rem;
 
@@ -546,8 +550,12 @@
 		flex-direction: column;
 		align-items: flex-start;
 
+		// узкий десктоп: под фото и текстом во всю ширину — характеристики или логотип и заказчик в строку
 		@include vp-narrow {
-			margin-top: 3rem;
+			flex-direction: row;
+			align-items: flex-end;
+			gap: 6rem;
+			margin-top: 4rem;
 		}
 
 		@include vp-mobile {
@@ -611,7 +619,10 @@
 			}
 		}
 
+		// в мобильном макете заголовок переносится уже ширины колонки:
+		// «Модернизация систем / электроснабжения торгового / центра» — колонка заголовка 300
 		@include vp-mobile {
+			max-width: 30rem;
 			margin-bottom: 1.2rem;
 			font-size: 1.6rem;
 			line-height: 2rem;
@@ -640,6 +651,8 @@
 
 		dd {
 			margin: 1rem 0 0;
+			// высота строго по строке: мелкая единица (МВт, м²) на одной базовой линии иначе раздувает строку
+			height: 7.2rem;
 			font-size: 5.2rem;
 			line-height: 7.2rem;
 			font-weight: 500;
@@ -685,6 +698,7 @@
 			}
 
 			dd {
+				height: 4rem;
 				margin: 0;
 				font-size: 4rem;
 				line-height: 4rem;
@@ -700,10 +714,10 @@
 		}
 	}
 
-	// логотип заказчика вместо характеристик
+	// логотип заказчика вместо характеристик (файл без полей): у нечётных на 69 ниже верха фото, у чётных на 91
 	&__logo {
 		grid-area: info;
-		margin-top: 3.9rem;
+		margin-top: 6.9rem;
 
 		@include vp-narrow {
 			margin-top: 0;
@@ -715,13 +729,16 @@
 			height: auto;
 		}
 
+		// мобильная: высота 59, на 20 ниже текста, от левого края колонки
 		@include vp-mobile {
-			margin: -0.5rem 0 0 -2.5rem;
+			margin: 2rem 0 0;
 
 			img {
 				width: auto;
-				max-width: none;
-				height: 8.5rem;
+				max-width: 100%;
+				height: 5.9rem;
+				object-fit: contain;
+				object-position: 0 50%;
 			}
 		}
 	}
@@ -734,7 +751,7 @@
 		}
 
 		@include vp-mobile {
-			margin-top: -0.5rem;
+			margin-top: 2rem;
 		}
 	}
 
@@ -743,7 +760,7 @@
 		margin: auto 0 0;
 
 		@include vp-narrow {
-			margin-top: 2.4rem;
+			margin-top: 0;
 		}
 
 		dt {
@@ -782,7 +799,7 @@
 
 	&__logo + &__customer {
 		@include vp-mobile {
-			margin-top: 1.8rem;
+			margin-top: 1.9rem;
 		}
 	}
 
@@ -804,9 +821,10 @@
 		}
 	}
 
-	&__logo ~ &__link {
+	// с логотипом кнопка на 12 ниже подписи заказчика
+	&:has(&__logo) &__link {
 		@include vp-mobile {
-			margin-top: 3rem;
+			margin-top: 3.1rem;
 		}
 	}
 }
