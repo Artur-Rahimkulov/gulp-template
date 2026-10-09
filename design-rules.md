@@ -157,7 +157,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Шкала времени: год — переключатель слайда, линия с точками до текущего года | `ol.about-timeline[data-history-tabs]` | `components/about.scss`, `js/modules/about.js` |
 | Карточка документа (скан в рамке, описание, номер, срок) | `html/components/doc-card.html` | `components/cards.scss` |
 | Проекты: заголовок с подзаголовком, чипы-фильтры, список проектов, «Показать еще» | `html/projects.html` | `components/projects.scss` |
-| Проект в списке: каждый второй видимый — зеркально и на светлой полосе; логотип заказчика вместо мощности/площади, если передан | `html/components/project-row.html` | `components/projects.scss` |
+| Проект в списке — целый слот макета со своим фоном и декором: нечётный как 3-й проект (505, фото на 80), чётный как 2-й (474 на светлой полосе, зеркально, фото на 110); логотип заказчика вместо мощности/площади, если передан | `html/components/project-row.html` | `components/projects.scss` |
 | Маленький чип фильтра 28px (активный — #B5C5DF, наведение — синий градиент) | `html/ui/tag-chip.html` | `ui/tag-chip.scss` |
 | Ссылка «Подробнее о проекте»: в покое синяя плашка 54×40 со стрелкой, при наведении на проект раскрывается до 372×56 с подписью (заголовок синеет); на мобильной всегда раскрыта | в `project-row.html` | `ui/project-link.scss` |
 | Кнопка «Показать еще» со скошенной плашкой и стрелкой вниз | `html/ui/more-button.html` | `ui/more-button.scss` |

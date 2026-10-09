@@ -5,26 +5,20 @@
 		<div class="wrapper">
 			@@include("source/html/base/header.html", {"active": "projects"})
 			<main class="projects" data-pagination-wrapper>
-				<!-- декор страницы: плашки-призраки и косые линии из макета, координаты — от центра экрана -->
+				<!-- декор шапки и низа страницы; фон и декор каждого проекта — внутри project-row -->
 				<div class="projects__decor" aria-hidden="true">
 					<img class="projects__decor-img projects__decor-img--top-ghost" src="assets/img/ghost-e.webp" width="209" height="226" alt="">
 					<img class="projects__decor-img projects__decor-img--top-figure" src="assets/img/slab-ghost.webp" width="407" height="507" alt="">
 					<img class="projects__decor-img projects__decor-img--hero-ghost" src="assets/img/ghost-a.webp" width="407" height="517" alt="">
 					<img class="projects__decor-img projects__decor-img--edge" src="assets/img/projects-edge.webp" width="159" height="446" alt="">
 					<img class="projects__decor-img projects__decor-img--hero-slab" src="assets/img/slab-white.webp" width="497" height="439" alt="">
-					<img class="projects__decor-img projects__decor-img--ghost-b" src="assets/img/ghost-b.webp" width="404" height="497" alt="">
-					<img class="projects__decor-img projects__decor-img--ghost-c1" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
-					<img class="projects__decor-img projects__decor-img--ghost-c2" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
-					<img class="projects__decor-img projects__decor-img--ghost-c3" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
 					<img class="projects__decor-img projects__decor-img--ghost-c4" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
 					<img class="projects__decor-img projects__decor-img--ghost-c5" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
-					<img class="projects__decor-img projects__decor-img--slab-blue" src="assets/img/slab-blue.webp" width="496" height="474" alt="">
 					<img class="projects__decor-img projects__decor-img--bottom-slab" src="assets/img/slab-white.webp" width="497" height="439" alt="">
 					<img class="projects__decor-img projects__decor-img--m-edge" src="assets/img/projects-m-edge.webp" width="57" height="288" alt="">
 					<img class="projects__decor-img projects__decor-img--m-tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="">
 					<img class="projects__decor-img projects__decor-img--m-ghost" src="assets/img/projects-m-ghost.webp" width="153" height="195" alt="">
 				</div>
-				<div class="projects__lines" aria-hidden="true"></div>
 
 				<div class="container projects__head">
 					<div class="projects__heading">
