@@ -515,6 +515,14 @@
 		max-width: 100%;
 		height: auto;
 
+		// уже 1440 колонка уже фото, а полоса выше из-за переносов текста: фото привязано к верху,
+		// как на 1920 (голова на 65 выше полосы), а низ плавно растворяется в синем, чтобы не висел срез
+		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
+			top: 0.1rem;
+			bottom: auto;
+			mask-image: linear-gradient(180deg, #000 75%, transparent 100%);
+		}
+
 		@include vp-mobile {
 			position: relative;
 			bottom: auto;
