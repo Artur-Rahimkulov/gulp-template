@@ -326,6 +326,25 @@
 		}
 	}
 
+	// первый проект — как 1-й в макете: до полосы следующего только 50, вместо призраков и линий слота —
+	// декор первого экрана (он на странице) и продолжение косой сетки
+	&:nth-child(1 of :not([hidden])) {
+		padding-bottom: 5rem;
+
+		@include vp-narrow {
+			padding-bottom: 8rem;
+		}
+
+		@include vp-mobile {
+			padding-bottom: 3rem;
+		}
+	}
+
+	&:nth-child(1 of :not([hidden])) &__decor {
+		height: 43.1rem;
+		background: url("../assets/svg/grid/projects-first.svg") no-repeat 0 0 / 192rem 43.1rem;
+	}
+
 	&:nth-child(even of :not([hidden])) &__decor {
 		height: 63.5rem;
 		background:
@@ -431,11 +450,21 @@
 		}
 	}
 
+	// чётный на мобильной крупнее, как 2-й проект мобильного макета: фото 311×180 (87 %), тень 332×193 левее на 4 и ниже на 27
+	&:nth-child(even of :not([hidden])) &__photo {
+		@include vp-mobile {
+			width: 87%;
+		}
+	}
+
 	&:nth-child(even of :not([hidden])) &__photo::before {
 		left: -1.5rem;
 
 		@include vp-mobile {
-			left: 0;
+			top: 2.66rem;
+			left: -0.42rem;
+			width: calc(100% + 2.05rem);
+			height: calc(100% + 1.27rem);
 		}
 	}
 
@@ -685,6 +714,14 @@
 		}
 	}
 
+	&:nth-child(even of :not([hidden])) &__link {
+		margin-left: -0.67rem;
+
+		@include vp-mobile {
+			margin-left: 0;
+		}
+	}
+
 	// во 2-м проекте макета заказчик на 20 выше низа фото
 	&:nth-child(even of :not([hidden])) &__customer {
 		margin-bottom: 2rem;
@@ -704,9 +741,11 @@
 		}
 	}
 
+	// свёрнутая плашка в макете чуть левее текста: у 3-го проекта на 2, у 2-го на 7
 	&__link {
 		grid-area: link;
 		margin-top: auto;
+		margin-left: -0.17rem;
 
 		@include vp-narrow {
 			margin-top: 3rem;
@@ -715,6 +754,7 @@
 		@include vp-mobile {
 			align-self: start;
 			margin-top: 3.8rem;
+			margin-left: 0;
 		}
 	}
 
