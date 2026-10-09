@@ -1,0 +1,49 @@
+<!-- Форма «Остались вопросы?» («Контакты»): поля с подписью, которая поднимается при вводе,
+     прикрепление нескольких документов (js/modules/contacts-files.js), сообщение и согласие -->
+<form class="contacts-form" action="#" method="post" enctype="multipart/form-data" novalidate>
+  <div class="contacts-form__grid">
+    <label class="contacts-form__field contacts-form__field--name" data-form-group>
+      <input class="contacts-form__input" type="text" name="name" placeholder=" " required data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя">
+      <span class="contacts-form__label">Контактное лицо</span>
+    </label>
+    <label class="contacts-form__field contacts-form__field--email" data-form-group>
+      <input class="contacts-form__input" type="email" name="email" placeholder=" " required data-type="email" autocomplete="email" data-required-message="Заполните поле" data-error-message="Некорректный email">
+      <span class="contacts-form__label">e-mail</span>
+    </label>
+    <label class="contacts-form__field contacts-form__field--phone" data-form-group>
+      <input class="contacts-form__input" type="tel" name="phone" placeholder=" " required data-type="phone" autocomplete="tel" data-required-message="Заполните поле" data-error-message="Некорректный телефон">
+      <span class="contacts-form__label">Телефон</span>
+    </label>
+    <label class="contacts-form__field contacts-form__field--company" data-form-group>
+      <input class="contacts-form__input" type="text" name="company" placeholder=" " autocomplete="organization">
+      <span class="contacts-form__label">Название компании</span>
+    </label>
+    <label class="contacts-form__field contacts-form__field--inn" data-form-group>
+      <input class="contacts-form__input" type="text" name="inn" placeholder=" " inputmode="numeric" maxlength="12">
+      <span class="contacts-form__label">ИНН</span>
+    </label>
+
+    <!-- документы: data-files — выбор, data-files-list — список прикреплённых (крестик убирает файл) -->
+    <div class="contacts-form__files" data-files>
+      <label class="contacts-form__attach">
+        <input class="visually-hidden" type="file" name="files[]" multiple data-files-input>
+        <img src="assets/svg/icon-attach.svg" width="40" height="40" alt="" aria-hidden="true">
+        <span>Прикрепить документ</span>
+      </label>
+      <ul class="contacts-form__file-list" data-files-list></ul>
+    </div>
+  </div>
+
+  <label class="contacts-form__message" data-form-group>
+    <textarea class="contacts-form__textarea" name="message" placeholder="Ваше сообщение"></textarea>
+  </label>
+
+  <div class="contacts-form__bottom">
+    @@include("source/html/ui/button.html", {"type": "submit", "name": "Отправить", "class": "contacts-form__btn"})
+    <label class="contacts-form__consent" data-form-group-checkbox>
+      <input class="contacts-form__checkbox" type="checkbox" name="consent" required>
+      <span class="contacts-form__box" aria-hidden="true"></span>
+      <span class="contacts-form__consent-text">Нажимая на&nbsp;кнопку «Отправить» Вы&nbsp;выражаете своё <a href="/policy/">согласие</a> на&nbsp;обработку Ваших персональных данных в&nbsp;соответствии с&nbsp;Федеральным законом от&nbsp;27&nbsp;июля 2006&nbsp;г. №&nbsp;152-ФЗ «О&nbsp;персональных данных» и&nbsp;<a href="/policy/">Политикой конфиденциальности компании</a></span>
+    </label>
+  </div>
+</form>
