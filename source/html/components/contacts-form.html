@@ -1,6 +1,7 @@
-<!-- Форма «Остались вопросы?» («Контакты»): поля с подписью, которая поднимается при вводе,
-     прикрепление нескольких документов (js/modules/contacts-files.js), сообщение и согласие -->
-<form class="contacts-form" action="#" method="post" enctype="multipart/form-data" novalidate>
+<!-- Форма «Остались вопросы?» («Контакты», «Услуга»): поля с подписью, которая поднимается при вводе,
+     прикрепление нескольких документов (js/modules/contacts-files.js), сообщение и согласие.
+     Параметры: compact: true — без компании и ИНН («Услуга»); message — подсказка в поле сообщения -->
+<form class="contacts-form @@if (context.compact) {contacts-form--compact}" action="#" method="post" enctype="multipart/form-data" novalidate>
   <div class="contacts-form__grid">
     <label class="contacts-form__field contacts-form__field--name" data-form-group>
       <input class="contacts-form__input" type="text" name="name" placeholder=" " required data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя">
@@ -14,6 +15,7 @@
       <input class="contacts-form__input" type="tel" name="phone" placeholder=" " required data-type="phone" autocomplete="tel" data-required-message="Заполните поле" data-error-message="Некорректный телефон">
       <span class="contacts-form__label">Телефон</span>
     </label>
+    @@if (!context.compact) {
     <label class="contacts-form__field contacts-form__field--company" data-form-group>
       <input class="contacts-form__input" type="text" name="company" placeholder=" " autocomplete="organization">
       <span class="contacts-form__label">Название компании</span>
@@ -22,6 +24,7 @@
       <input class="contacts-form__input" type="text" name="inn" placeholder=" " inputmode="numeric" maxlength="12">
       <span class="contacts-form__label">ИНН</span>
     </label>
+    }
 
     <!-- документы: data-files — выбор, data-files-list — список прикреплённых (крестик убирает файл) -->
     <div class="contacts-form__files" data-files>
@@ -35,7 +38,7 @@
   </div>
 
   <label class="contacts-form__message" data-form-group>
-    <textarea class="contacts-form__textarea" name="message" placeholder="Ваше сообщение"></textarea>
+    <textarea class="contacts-form__textarea" name="message" placeholder="@@if (context.message) {@@message}@@if (!context.message) {Ваше сообщение}"></textarea>
   </label>
 
   <div class="contacts-form__bottom">
