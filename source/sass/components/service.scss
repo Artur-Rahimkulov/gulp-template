@@ -3,6 +3,39 @@
 .service {
 	position: relative;
 	overflow-x: clip;
+
+	// контуры-параллелограммы из макета (белые 10 %) на синих блоках проектов и формы
+	&::before {
+		content: '';
+		position: absolute;
+		top: 220.7rem;
+		left: calc(50% - 126.1rem);
+		z-index: 4;
+		width: 99.07rem;
+		height: 128.55rem;
+		background: url("../assets/svg/grid/service-projects-lines.svg") no-repeat 0 0 / 100% 100%;
+		pointer-events: none;
+
+		@include vp-mobile {
+			top: 113.4rem;
+			left: calc(50% - 63.8rem);
+		}
+	}
+
+	// мобильная: белые линии на синем фоне формы
+	@include vp-mobile {
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: calc(50% - 19.5rem);
+			z-index: 3;
+			width: 39rem;
+			height: 280rem;
+			background: url("../assets/svg/grid/service-lines-m-white.svg") no-repeat 0 0 / 100% 100%;
+			pointer-events: none;
+		}
+	}
 }
 
 // косые и горизонтальные линии из макета поверх полос, но под фото и текстом (svg от верха main = 188 в макете)
@@ -17,7 +50,10 @@
 	pointer-events: none;
 
 	@include vp-mobile {
-		display: none;
+		left: calc(50% - 19.5rem);
+		width: 39rem;
+		height: 232rem;
+		background-image: url("../assets/svg/grid/service-lines-m.svg");
 	}
 }
 
@@ -370,16 +406,6 @@
 			height: 43.8rem;
 		}
 
-		// линия под блоком
-		&::after {
-			content: '';
-			position: absolute;
-			top: 60.3rem;
-			left: 0;
-			right: 0;
-			height: 0.1rem;
-			background-color: var(--color-double-line);
-		}
 	}
 
 	&__decor {
@@ -1225,6 +1251,20 @@
 		}
 	}
 
+	// светлая полоска у левого края на мобильной (заходит на блок проектов)
+	.contacts-feedback__decor--edge-m {
+		display: none;
+
+		@include vp-mobile {
+			z-index: 2;
+			top: -4.9rem;
+			left: -4.1rem;
+			display: block;
+			width: 8.2rem;
+			height: 21.4rem;
+		}
+	}
+
 	.contacts-feedback__intro {
 		margin-left: 0.3rem;
 	}
@@ -1248,11 +1288,7 @@
 		}
 
 		.contacts-feedback__decor--edge {
-			top: -4.9rem;
-			left: -4.1rem;
-			display: block;
-			width: 8.2rem;
-			height: 21.4rem;
+			display: none;
 		}
 	}
 }
