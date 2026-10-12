@@ -8,6 +8,7 @@ import { heroTags } from './modules/hero-tags.js';
 import { about } from './modules/about.js';
 import { contactsFiles } from './modules/contacts-files.js';
 import { contactsMap } from './modules/contacts-map.js';
+import { service } from './modules/service.js';
 import { projectRows } from './modules/project-rows.js';
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
@@ -29,6 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		about();
 		contactsFiles();
 		contactsMap();
+		service();
 	});
 });
 

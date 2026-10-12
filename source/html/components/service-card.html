@@ -1,0 +1,10 @@
+<!-- Карточка услуги «Комплекс работ»: синяя плашка с иллюстрацией, название и стрелка. Вся карточка — ссылка.
+     Параметры: title, href, bg (фон карточки), img, imgWidth, imgHeight, mod (положение иллюстрации: gas | light) -->
+<a class="service-card @@if (context.mod) {service-card--@@mod}" href="@@href">
+  <span class="service-card__bg" style="background-image: url('assets/img/@@bg.webp')" aria-hidden="true"></span>
+  @@if (context.img) {
+  <img class="service-card__img" src="assets/img/@@img.webp" width="@@imgWidth" height="@@imgHeight" alt="" loading="lazy">
+  }
+  <span class="service-card__title">@@title</span>
+  <span class="service-card__arrow" aria-hidden="true"></span>
+</a>

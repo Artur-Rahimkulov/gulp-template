@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Электромонтаж силового оборудования (ЭМ)" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "services", "overlay": true})
+			<main class="service">
+				<!-- косые и горизонтальные линии страницы из макета (svg 1920 по центру) -->
+				<div class="service__lines" aria-hidden="true"></div>
+
+				<!-- Первый экран: шапка поверх, справа — иллюстрация услуги -->
+				<section class="service-hero">
+					<img class="service-hero__decor service-hero__decor--figure" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="service-hero__decor service-hero__decor--ghost-top" src="assets/img/ghost-e.webp" width="209" height="226" alt="" aria-hidden="true">
+					<img class="service-hero__decor service-hero__decor--ghost" src="assets/img/ghost-a.webp" width="407" height="517" alt="" aria-hidden="true">
+					<img class="service-hero__decor service-hero__decor--edge" src="assets/img/projects-edge.webp" width="159" height="446" alt="" aria-hidden="true">
+					<img class="service-hero__decor service-hero__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<img class="service-hero__decor service-hero__decor--header-tiles" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
+					<img class="service-hero__decor service-hero__decor--header-slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+					<img class="service-hero__decor service-hero__decor--m-ghost" src="assets/img/contacts-m-ghost.webp" width="130" height="157" alt="" aria-hidden="true">
+
+					<div class="container service-hero__inner">
+						<div class="service-hero__content">
+							<nav class="service-hero__breadcrumbs" aria-label="Хлебные крошки">
+								<ol class="breadcrumbs__list">
+									<li><a class="breadcrumbs__link" href="/">Главная</a></li>
+									<li><a class="breadcrumbs__link" href="/services/">Услуги</a></li>
+									<li aria-current="page">Электромонтажные работы</li>
+								</ol>
+							</nav>
+							<h1 class="service-hero__title">Электромонтаж силового оборудования&nbsp;(ЭМ)</h1>
+							<p class="service-hero__text">Подключение бытового и&nbsp;промышленного силового электрооборудования любой мощности: электродвигателей, насосных групп, компрессоров, станков, технологических линий.</p>
+							@@include("source/html/ui/button.html", {"tag": "a", "href": "#service-feedback", "name": "Обсудить проект", "class": "service-hero__btn"})
+						</div>
+						<img class="service-hero__photo" src="assets/img/service-hero.webp" width="646" height="587" alt="Электромонтаж силового оборудования: шкаф управления и электродвигатель">
+					</div>
+				</section>
+
+				<!-- Описание услуги из админки: заголовок, текст и галерея объекта -->
+				<section class="service-about">
+					<img class="service-about__decor service-about__decor--ghost-left" src="assets/img/ghost-d.webp" width="209" height="266" alt="" aria-hidden="true">
+					<img class="service-about__decor service-about__decor--ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="service-about__decor service-about__decor--edge" src="assets/img/edge-shadow.webp" width="170" height="806" alt="" aria-hidden="true">
+					<img class="service-about__decor service-about__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+					<img class="service-about__decor service-about__decor--ghost-b" src="assets/img/ghost-b.webp" width="404" height="497" alt="" aria-hidden="true">
+					<img class="service-about__decor service-about__decor--m-ghost" src="assets/img/service-m-ghost.webp" width="190" height="290" alt="" aria-hidden="true">
+
+					<div class="container">
+						<div class="rich-text service-text">
+							<h2>Комплексный электромонтаж: <br>РП, шкафы учёта, молниезащита</h2>
+							<p>Монтируем распределительные пункты (РП), шкафы учёта и&nbsp;управления. Прокладываем силовые кабельные линии до&nbsp;0,4&nbsp;кВ с&nbsp;полным комплексом мер по&nbsp;молниезащите и&nbsp;заземлению установок. При&nbsp;работе на&nbsp;жилых и&nbsp;общественных объектах тесно взаимодействуем с&nbsp;дизайнерами и&nbsp;строго следуем дизайн-проекту: все выводы, розетки и&nbsp;шкафы размещаем с&nbsp;учётом интерьерных решений, сохраняя эстетику и&nbsp;удобство использования.</p>
+						</div>
+
+						<div class="service-gallery" data-service-gallery>
+							<div class="swiper service-gallery__slider">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="assets/img/service-photo.webp" width="758" height="420" alt="Распределительный шкаф в жилом комплексе «Времена года»" loading="lazy"></div>
+									<div class="swiper-slide"><img src="assets/img/project-vremena.webp" width="516" height="299" alt="Жилой комплекс «Времена года»" loading="lazy"></div>
+									<div class="swiper-slide"><img src="assets/img/project-mosk.webp" width="516" height="299" alt="Электромонтаж в жилом комплексе" loading="lazy"></div>
+								</div>
+							</div>
+							<div class="service-gallery__bottom">
+								<dl class="service-gallery__customer">
+									<dt>Заказчик</dt>
+									<dd>РемГорСтрой<br> ЖК&nbsp;«Времена года»</dd>
+								</dl>
+								@@include("source/html/ui/slider-arrows.html", {"skew": true, "class": "service-gallery__arrows"})
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="service-check">
+					<div class="container">
+						<div class="rich-text service-text service-text--check">
+							<h2>По&nbsp;завершении монтажа проводим тщательную проверку всех систем</h2>
+							<p>Все работы выполняем в&nbsp;строгом соответствии с&nbsp;действующими нормами ПУЭ и&nbsp;техническими регламентами, что гарантирует безопасность и&nbsp;долговечность каждой линии. Особое внимание уделяем качеству соединений и&nbsp;надёжности коммутационного оборудования, ведь именно от&nbsp;этого зависит бесперебойная работа всей системы. Мы&nbsp;берём на&nbsp;себя полную ответственность за&nbsp;результат&nbsp;— от&nbsp;проекта до&nbsp;сдачи объекта в&nbsp;эксплуатацию.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Комплекс работ в рамках услуги: карточки других услуг -->
+				<section class="service-works">
+					<img class="service-works__decor service-works__decor--ghost-left" src="assets/img/ghost-d.webp" width="209" height="266" alt="" aria-hidden="true">
+					<img class="service-works__decor service-works__decor--ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
+					<div class="container">
+						<h2 class="service-works__title">Комплекс работ в&nbsp;рамках услуги</h2>
+						<ul class="service-works__list">
+							<li>
+								@@include("source/html/components/service-card.html", {"title": "Электроснабжение газового оборудования&nbsp;(ЭГ)", "bg": "service-card-bg", "img": "service-card-gas", "imgWidth": "231", "imgHeight": "223", "mod": "gas", "href": "/services/eg/"})
+							</li>
+							<li>
+								@@include("source/html/components/service-card.html", {"title": "Электромонтаж силового оборудования&nbsp;(ЭМ)", "bg": "service-card-motor", "href": "/services/em/"})
+							</li>
+							<li>
+								@@include("source/html/components/service-card.html", {"title": "Внутреннее электроосвещение&nbsp;(ЭО)", "bg": "service-card-bg", "img": "service-card-light", "imgWidth": "342", "imgHeight": "231", "mod": "light", "href": "/services/eo/"})
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Реализованные проекты по услуге: синяя панель и слайдер проектов -->
+				<section class="service-projects" data-service-projects>
+					<div class="service-projects__panel">
+						<img class="service-projects__decor service-projects__decor--vignette" src="assets/img/service-projects-vignette.webp" width="723" height="697" alt="" aria-hidden="true">
+						<img class="service-projects__decor service-projects__decor--illustration" src="assets/img/service-projects-ghost.webp" width="548" height="659" alt="" aria-hidden="true">
+						<img class="service-projects__decor service-projects__decor--ghost" src="assets/img/service-ghost.webp" width="380" height="507" alt="" aria-hidden="true">
+						<img class="service-projects__decor service-projects__decor--photo-m" src="assets/img/service-projects-m.webp" width="364" height="272" alt="" aria-hidden="true">
+						<img class="service-projects__decor service-projects__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+						<img class="service-projects__decor service-projects__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+						<div class="service-projects__heading">
+							<h2 class="service-projects__title">Реализованные проекты<span> по&nbsp;услуге</span></h2>
+							<p class="service-projects__subtitle">Проектирование, монтаж и&nbsp;подключение</p>
+						</div>
+					</div>
+
+					<div class="service-projects__body">
+						<img class="service-projects__decor service-projects__decor--ghost-white" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
+						<img class="service-projects__decor service-projects__decor--ghost-b" src="assets/img/ghost-b.webp" width="404" height="497" alt="" aria-hidden="true">
+						<div class="swiper service-projects__slider">
+							<div class="swiper-wrapper">
+								@@include("source/html/components/service-project.html", {"num": "01", "title": "Модернизация систем электроснабжения торгового центра", "customer": "ГК&nbsp;«Развитие»", "img": "service-project-photo", "text": "Замена силового оборудования, модернизация систем освещения и&nbsp;аварийного электроснабжения торгового центра.", "power": "2,5", "powerUnit": "МВт", "area": "15&nbsp;000", "href": "project.html"})
+								@@include("source/html/components/service-project.html", {"num": "02", "title": "Внутреннее электроснабжение для&nbsp;ЖК&nbsp;Московский и&nbsp;слаботочные сети", "customer": "ГК&nbsp;Госстрой", "img": "project-mosk", "text": "Монтаж распределительных щитов, силовых линий и&nbsp;слаботочных сетей жилого комплекса.", "power": "35", "powerUnit": "кВ", "area": "15&nbsp;000", "href": "project.html"})
+							</div>
+						</div>
+						@@include("source/html/ui/slider-arrows.html", {"round": true, "class": "service-projects__arrows"})
+					</div>
+				</section>
+
+				<!-- Форма «Остались вопросы?» -->
+				<section class="contacts-feedback contacts-feedback--service" id="service-feedback">
+					<img class="contacts-feedback__decor contacts-feedback__decor--cables-m" src="assets/img/contacts-cables-m.webp" width="375" height="591" alt="" aria-hidden="true">
+					<img class="contacts-feedback__decor contacts-feedback__decor--tiles-left" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="contacts-feedback__decor contacts-feedback__decor--edge" src="assets/img/edge-shadow.webp" width="170" height="806" alt="" aria-hidden="true">
+
+					<div class="container contacts-feedback__inner">
+						<div class="contacts-feedback__intro">
+							<h2 class="contacts-feedback__title">Остались вопросы?</h2>
+							<p class="contacts-feedback__subtitle">Напишите нам</p>
+							<p class="contacts-feedback__text">Сотрудники компании ИЦ&nbsp;«Крафт» помогут найти&nbsp;ответы</p>
+						</div>
+
+						@@include("source/html/components/contacts-form.html", {"compact": true, "message": "Расскажите о&nbsp;вашем проекте"})
+					</div>
+				</section>
+
+				<img class="service__decor service__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
+				<img class="service__decor service__decor--light" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+				<img class="service__decor service__decor--m-edge" src="assets/img/contacts-m-edge.webp" width="82" height="214" alt="" aria-hidden="true">
+			</main>
+			@@include("source/html/base/footer.html", {"plain": true})
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>
