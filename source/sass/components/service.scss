@@ -1264,6 +1264,15 @@
 				line-height: 4rem;
 			}
 		}
+
+		// узкие телефоны: «15 000 м²» не помещается рядом с мощностью — цифры мельче, зазор меньше
+		@media (max-width: 389.98px) {
+			gap: 3rem;
+
+			dd {
+				font-size: 3.2rem;
+			}
+		}
 	}
 }
 
@@ -1314,7 +1323,8 @@
 		margin-left: 0.3rem;
 	}
 
-	@media (min-width: 1440px) {
+	// сдвиг формы на 46 вправо, как в макете, — только когда справа хватает поля (иначе форма упирается в край экрана)
+	@media (min-width: 1500px) {
 		.contacts-form {
 			position: relative;
 			left: 4.6rem;
