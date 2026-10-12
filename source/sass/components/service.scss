@@ -22,6 +22,23 @@
 		}
 	}
 
+	// десктоп: горизонтальная линия у низа шапки (165 в макете) — соединяет косые линии шапки и первого экрана;
+	// лежит над шапкой, поэтому z-index выше её 10
+	@include vp-desktop {
+		&::after {
+			content: '';
+			position: absolute;
+			top: -2.3rem;
+			right: 0;
+			left: 0;
+			z-index: 11;
+			// линия 165 и начала косых линий первого экрана от неё до низа шапки (svg 1920 по центру)
+			height: 2.3rem;
+			background: url("../assets/svg/grid/service-lines-head.svg") no-repeat 50% 0 / 192rem 2.3rem;
+			pointer-events: none;
+		}
+	}
+
 	// мобильная: белые линии на синем фоне формы
 	@include vp-mobile {
 		&::after {
@@ -35,6 +52,14 @@
 			background: url("../assets/svg/grid/service-lines-m-white.svg") no-repeat 0 0 / 100% 100%;
 			pointer-events: none;
 		}
+	}
+}
+
+// в макете «Услуги» в шапке своих косых линий нет — их продолжают линии первого экрана (svg ниже),
+// поэтому общую сетку шапки на этой странице прячем, иначе линии не стыкуются (шапку саму не меняем)
+.wrapper:has(> main.service) .header::before {
+	@include vp-desktop {
+		content: none;
 	}
 }
 
@@ -552,8 +577,9 @@
 			line-height: 2.4rem;
 		}
 
+		// плашки в мобильном макете на 68 друг от друга: левая — на 245, правая — на 313
 		&__arrows.slider-arrows {
-			gap: 3.8rem;
+			gap: 1.4rem;
 			margin: 0.5rem 0.7rem 0 0;
 		}
 	}
@@ -787,13 +813,30 @@
 		margin-top: 0;
 	}
 
+	// горизонтальная линия на 3 ниже верха блока (2680 в макете) — поверх светлой части и синей панели
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0.3rem;
+		right: 0;
+		left: 0;
+		z-index: 5;
+		height: 0.1rem;
+		background-color: var(--color-double-line);
+		pointer-events: none;
+
+		@include vp-mobile {
+			content: none;
+		}
+	}
+
 	&__panel {
 		position: relative;
 		background-image: linear-gradient(109.09deg, #1b4d9e 7.4%, #0e2a5e 81.5%);
 
 		@include vp-mobile {
 			height: 27.3rem;
-			background: #1554b0 url("../assets/img/service-projects-m-bg.webp") no-repeat 50% 0 / 100% auto;
+			background: #1554b0 url("../assets/img/service-projects-m-bg.webp") no-repeat 0 0 / 100% 100%;
 		}
 	}
 
@@ -1028,6 +1071,8 @@
 	}
 
 	&__head {
+		position: relative;
+		isolation: isolate;
 		grid-area: head;
 		max-width: 74.6rem;
 		margin-bottom: 4.5rem;
@@ -1122,16 +1167,16 @@
 
 	&__num {
 		position: absolute;
-		top: -16rem;
+		top: 3.3rem;
 		left: -1.2rem;
-		z-index: -2;
+		z-index: -1;
 		width: 24.4rem;
 		max-width: none;
 		height: 33.7rem;
 		pointer-events: none;
 
 		@include vp-mobile {
-			top: -17.9rem;
+			top: -2.9rem;
 			left: -2.4rem;
 			width: 14.6rem;
 			height: 20.2rem;

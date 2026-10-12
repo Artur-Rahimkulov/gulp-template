@@ -1,6 +1,8 @@
 <!-- Слайд «Реализованные проекты по услуге». Параметры: num, title, customer, img, text, power, powerUnit, area, href -->
 <article class="swiper-slide service-project">
   <div class="service-project__head">
+    <!-- крупный номер проекта за заголовком: привязан к заголовку, а не к фото, — на мобильной заголовок переносится по-разному -->
+    <img class="service-project__num" src="assets/img/number-@@num.webp" width="244" height="337" alt="" aria-hidden="true">
     <h3 class="service-project__title"><a href="@@href">@@title</a></h3>
     <dl class="service-project__customer">
       <dt>Заказчик</dt>
@@ -8,7 +10,6 @@
     </dl>
   </div>
   <div class="service-project__photo">
-    <img class="service-project__num" src="assets/img/number-@@num.webp" width="244" height="337" alt="" aria-hidden="true">
     <img class="service-project__img" src="assets/img/@@img.webp" width="334" height="251" alt="" loading="lazy">
   </div>
   <div class="service-project__info">
