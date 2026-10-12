@@ -3,6 +3,21 @@
 .contacts {
 	position: relative;
 	overflow-x: clip;
+
+	// мобильная: белые косая и горизонтальная линии над формой (из макета)
+	@include vp-mobile {
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: calc(50% - 19.5rem);
+			z-index: 3;
+			width: 39rem;
+			height: 82rem;
+			background: url("../assets/svg/grid/contacts-lines-m.svg") no-repeat 0 0 / 100% 100%;
+			pointer-events: none;
+		}
+	}
 }
 
 // синяя плашка у подвала (подвал без своих плашек) и полоска у левого края на мобильной

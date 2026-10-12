@@ -3,6 +3,39 @@
 .service {
 	position: relative;
 	overflow-x: clip;
+
+	// контуры-параллелограммы из макета (белые 10 %) на синих блоках проектов и формы
+	&::before {
+		content: '';
+		position: absolute;
+		top: 220.7rem;
+		left: calc(50% - 126.1rem);
+		z-index: 4;
+		width: 99.07rem;
+		height: 128.55rem;
+		background: url("../assets/svg/grid/service-projects-lines.svg") no-repeat 0 0 / 100% 100%;
+		pointer-events: none;
+
+		@include vp-mobile {
+			top: 113.4rem;
+			left: calc(50% - 63.8rem);
+		}
+	}
+
+	// мобильная: белые линии на синем фоне формы
+	@include vp-mobile {
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: calc(50% - 19.5rem);
+			z-index: 3;
+			width: 39rem;
+			height: 280rem;
+			background: url("../assets/svg/grid/service-lines-m-white.svg") no-repeat 0 0 / 100% 100%;
+			pointer-events: none;
+		}
+	}
 }
 
 // косые и горизонтальные линии из макета поверх полос, но под фото и текстом (svg от верха main = 188 в макете)
@@ -17,7 +50,10 @@
 	pointer-events: none;
 
 	@include vp-mobile {
-		display: none;
+		left: calc(50% - 19.5rem);
+		width: 39rem;
+		height: 232rem;
+		background-image: url("../assets/svg/grid/service-lines-m.svg");
 	}
 }
 
@@ -340,6 +376,13 @@
 // ---------------------------------
 .service-about {
 	position: relative;
+
+	> .container {
+		@include vp-mobile {
+			padding-left: 1.7rem;
+		}
+	}
+
 	min-height: 113.8rem;
 	padding-top: 27.5rem;
 
@@ -363,16 +406,6 @@
 			height: 43.8rem;
 		}
 
-		// линия под блоком
-		&::after {
-			content: '';
-			position: absolute;
-			top: 60.3rem;
-			left: 0;
-			right: 0;
-			height: 0.1rem;
-			background-color: var(--color-double-line);
-		}
 	}
 
 	&__decor {
@@ -531,6 +564,14 @@
 // ---------------------------------
 .service-check {
 	position: relative;
+
+	// в мобильном макете текстовые блоки на 17 от края
+	.container {
+		@include vp-mobile {
+			padding-left: 1.7rem;
+		}
+	}
+
 	min-height: 27rem;
 	padding-top: 2.5rem;
 
@@ -907,7 +948,8 @@
 	&__body {
 		position: relative;
 		min-width: 0;
-		padding: 10.3rem 4rem 4rem 5.3rem;
+		// светлая часть в макете заходит под синюю на 1 — текст на 742
+		padding: 10.3rem 4rem 4rem 5.2rem;
 		background-color: #e9edf0;
 
 		@include vp-mobile {
@@ -917,17 +959,20 @@
 		}
 	}
 
+	// цифра «01» выходит за слайд влево и вверх, тень фото — вниз: соседние слайды справа обрезаем
 	&__slider {
 		position: relative;
 		z-index: 2;
 		max-width: 91.4rem;
 		margin: 0;
+		overflow: visible;
+		clip-path: inset(-30rem 0 -3rem -5rem);
 	}
 
 	&__arrows {
 		position: absolute;
 		top: 54.8rem;
-		left: 87.3rem;
+		left: 87.2rem;
 		z-index: 3;
 		gap: 2rem;
 
@@ -1086,7 +1131,7 @@
 		pointer-events: none;
 
 		@include vp-mobile {
-			top: -15.6rem;
+			top: -17.9rem;
 			left: -2.4rem;
 			width: 14.6rem;
 			height: 20.2rem;
@@ -1157,7 +1202,7 @@
 
 		@include vp-mobile {
 			gap: 6.4rem;
-			margin-top: 4rem;
+			margin-top: 2rem;
 
 			div:first-child {
 				width: 9.6rem;
@@ -1181,6 +1226,8 @@
 // Форма «Остались вопросы?» на «Услуге»: свой фон, форма компактнее и на 47 правее, чем на «Контактах»
 // ---------------------------------
 .contacts-feedback--service {
+	// в макете форма начинается на 2 выше низа блока проектов
+	margin-top: -0.2rem;
 	min-height: 98rem;
 	padding-top: 12rem;
 	background:
@@ -1204,6 +1251,20 @@
 		}
 	}
 
+	// светлая полоска у левого края на мобильной (заходит на блок проектов)
+	.contacts-feedback__decor--edge-m {
+		display: none;
+
+		@include vp-mobile {
+			z-index: 2;
+			top: -4.9rem;
+			left: -4.1rem;
+			display: block;
+			width: 8.2rem;
+			height: 21.4rem;
+		}
+	}
+
 	.contacts-feedback__intro {
 		margin-left: 0.3rem;
 	}
@@ -1217,6 +1278,7 @@
 	}
 
 	@include vp-mobile {
+		margin-top: 0;
 		min-height: 140.8rem;
 		padding: 5.2rem 0 6rem;
 		background: #0f4aa0 url("../assets/img/contacts-blue-m.webp") 50% 0 / 100% 100% no-repeat;
@@ -1226,11 +1288,7 @@
 		}
 
 		.contacts-feedback__decor--edge {
-			top: -4.9rem;
-			left: -4.1rem;
-			display: block;
-			width: 8.2rem;
-			height: 21.4rem;
+			display: none;
 		}
 	}
 }
@@ -1238,6 +1296,7 @@
 // компактная форма: контактное лицо и телефон слева, e-mail и документы справа, поле сообщения выше
 .contacts-form--compact {
 	padding-top: 7.3rem;
+	padding-bottom: 5.6rem;
 
 	.contacts-form__grid {
 		grid-template-rows: 5.6rem auto;
@@ -1247,6 +1306,7 @@
 		row-gap: 4.4rem;
 
 		@include vp-mobile {
+			margin-top: -2.6rem;
 			grid-template-rows: none;
 			grid-template-areas:
 				'name'
@@ -1277,6 +1337,10 @@
 
 	.contacts-form__message {
 		margin-top: 2.2rem;
+
+		@include vp-mobile {
+			margin-top: 4rem;
+		}
 	}
 
 	.contacts-form__textarea {
@@ -1285,7 +1349,7 @@
 
 		@include vp-mobile {
 			height: 13.6rem;
-			padding: 2rem;
+			padding: 1.9rem;
 		}
 	}
 
@@ -1297,7 +1361,8 @@
 		}
 	}
 
+	// мобильная: от рамки до полей 42 сверху и 23 по бокам, снизу 64
 	@include vp-mobile {
-		padding: 4.2rem 2.4rem 4.2rem;
+		padding: 4.1rem 2.3rem 6.3rem;
 	}
 }
