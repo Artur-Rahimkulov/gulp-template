@@ -1,0 +1,16 @@
+<!-- Карточка услуги в каталоге «Услуги»: синяя плашка с иллюстрацией (одна картинка, своя для мобильной),
+     название, описание (только у широкой) и стрелка. Вся карточка — ссылка.
+     Параметры: size (wide | small), img (имя картинки: services-@@img.webp и -m.webp), title, text, href -->
+<a class="service-tile service-tile--@@size" href="@@href">
+  <picture class="service-tile__bg" aria-hidden="true">
+    <source media="(max-width: 899.98px)" srcset="assets/img/services-@@img-m.webp">
+    <img src="assets/img/services-@@img.webp" @@if (context.size === 'wide') {width="666"}@@if (context.size !== 'wide') {width="435"} height="329" alt="" loading="lazy">
+  </picture>
+  <span class="service-tile__body">
+    <span class="service-tile__title">@@title</span>
+    @@if (context.text) {
+    <span class="service-tile__text">@@text</span>
+    }
+  </span>
+  <span class="service-tile__arrow" aria-hidden="true"></span>
+</a>

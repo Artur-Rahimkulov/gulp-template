@@ -330,18 +330,14 @@
 		object-fit: contain;
 		pointer-events: none;
 
+		// уже 1440 картинка не помещается целиком справа от текста: прижата к правому краю колонки,
+		// масштабируется с шириной экрана и стоит по верху, как на 1920
 		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
 			left: auto;
-			right: -6rem;
-			width: 50rem;
+			right: var(--container-padding);
+			// ширина — всё место справа от текстовой колонки (640): 300 на 1000, 560 с 1300
+			width: clamp(30rem, calc(100vw - 70rem), 56rem);
 			height: auto;
-		}
-
-		@include vp-narrow {
-			top: auto;
-			bottom: -4rem;
-			width: 38rem;
-			opacity: 0.9;
 		}
 
 		@include vp-mobile {
@@ -958,6 +954,12 @@
 		font-weight: 600;
 		color: var(--color-white);
 
+		// 1200–1439: панель уже — заголовок уменьшается вместе с экраном, чтобы «Реализованные» помещалось
+		@media (min-width: 1200px) and (max-width: 1439.98px) {
+			font-size: 2.4vw;
+			line-height: 1.16;
+		}
+
 		@include vp-narrow {
 			font-size: 2.6rem;
 			line-height: 3.2rem;
@@ -1219,6 +1221,19 @@
 		display: flex;
 		gap: 12.7rem;
 		margin: 3rem 0 0;
+
+		// 1200–1439: колонка текста уже — цифры мельче и ближе, чтобы «15 000 м²» не обрезалось
+		@media (min-width: 1200px) and (max-width: 1439.98px) {
+			gap: 4rem;
+
+			div:first-child {
+				width: auto;
+			}
+
+			dd {
+				font-size: 4.2rem;
+			}
+		}
 
 		div:first-child {
 			width: 13.8rem;

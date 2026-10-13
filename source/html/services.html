@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include("source/html/base/head.html", { "title": "Услуги" })
+	<body>
+		<div class="wrapper">
+			@@include("source/html/base/header.html", {"active": "services"})
+			<main class="services">
+				<!-- декор первого экрана и стыка с подвалом, координаты — от центра экрана -->
+				<div class="services__decor" aria-hidden="true">
+					<img class="services__decor-img services__decor-img--top-ghost" src="assets/img/ghost-e.webp" width="209" height="226" alt="">
+					<img class="services__decor-img services__decor-img--top-figure" src="assets/img/slab-ghost.webp" width="407" height="507" alt="">
+					<img class="services__decor-img services__decor-img--hero-ghost" src="assets/img/ghost-a.webp" width="407" height="517" alt="">
+					<img class="services__decor-img services__decor-img--hero-slab" src="assets/img/slab-white.webp" width="497" height="439" alt="">
+					<img class="services__decor-img services__decor-img--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="">
+					<img class="services__decor-img services__decor-img--edge" src="assets/img/services-edge.webp" width="168" height="796" alt="">
+					<img class="services__decor-img services__decor-img--slab-blue" src="assets/img/slab-blue.webp" width="496" height="474" alt="">
+					<img class="services__decor-img services__decor-img--m-edge" src="assets/img/projects-m-edge.webp" width="57" height="288" alt="">
+					<img class="services__decor-img services__decor-img--m-tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="">
+				</div>
+
+				<!-- data-tabs: чипы-переключатели [data-tab-target] и разделы [data-tab-panel]; пустой target — «Все» -->
+				<div class="services__tabs" data-tabs>
+					<div class="container services__head">
+						<div class="services__heading">
+							<nav class="services__breadcrumbs" aria-label="Хлебные крошки">
+								<ol class="breadcrumbs__list">
+									<li><a class="breadcrumbs__link" href="/">Главная</a></li>
+									<li aria-current="page">Услуги</li>
+								</ol>
+							</nav>
+							<h1 class="title-h1 services__title">Услуги</h1>
+						</div>
+						<p class="services__lead">Комплексные инженерные решения для промышленных и&nbsp;гражданских объектов. Полный цикл работ от&nbsp;проектирования до&nbsp;ввода в&nbsp;эксплуатацию</p>
+						<div class="services__filters" role="tablist" aria-label="Разделы услуг">
+							<button class="tag-chip" type="button" role="tab" data-tab-target="">Все</button>
+							<button class="tag-chip is-active" type="button" role="tab" data-tab-target="electric">Электрика и&nbsp;освещение</button>
+							<button class="tag-chip" type="button" role="tab" data-tab-target="lep">Линии электропередачи (ЛЭП)</button>
+							<button class="tag-chip" type="button" role="tab" data-tab-target="tp">Трансформаторные подстанции и&nbsp;распределительные устройства</button>
+							<button class="tag-chip" type="button" role="tab" data-tab-target="fire">Пожарная безопасность и&nbsp;слаботочные системы</button>
+							<button class="tag-chip" type="button" role="tab" data-tab-target="auto">Автоматизация</button>
+							<button class="tag-chip" type="button" role="tab" data-tab-target="extra">Дополнительные инженерные услуги</button>
+						</div>
+					</div>
+
+					<div class="container services__list">
+						<section class="services__section" id="electric" role="tabpanel" data-tab-panel="electric">
+							<h2 class="services__section-title">Электрика и&nbsp;освещение</h2>
+							<div class="services__grid services__grid--wide">
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "es", "title": "Электроснабжение (ЭС)", "text": "Проектирование и&nbsp;монтаж систем электроснабжения любой сложности:<br> от&nbsp;точки ввода на&nbsp;объект<br> до&nbsp;распределительных щитов.<br> Выполняем полный цикл", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "en", "title": "Наружное освещение (ЭН)", "text": "Предлагаем комплексные решения по&nbsp;проектированию и&nbsp;монтажу систем наружного электроосвещения: от&nbsp;городских улиц и&nbsp;пешеходных зон до&nbsp;архитектурной подсветки зданий и&nbsp;объектов", "href": "service.html"})
+							</div>
+							<div class="services__grid">
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "eg", "title": "Электроснабжение газового оборудования (ЭГ)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "em", "title": "Электромонтаж силового оборудования (ЭМ)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "eo", "title": "Внутреннее электроосвещение (ЭО)", "href": "service.html"})
+							</div>
+						</section>
+
+						<section class="services__section" id="lep" role="tabpanel" data-tab-panel="lep">
+							<h2 class="services__section-title">Линии электропередачи (ЛЭП)</h2>
+							<div class="services__grid services__grid--wide">
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "vl", "title": "Воздушные линии (ВЛ,&nbsp;ВЛЗ,&nbsp;ВЛИ)", "text": "Строительство воздушных линий электропередачи напряжением 0,4–10&nbsp;кВ", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "kl", "title": "Кабельные линии (КЛ)", "text": "Предлагаем комплексные решения по&nbsp;проектированию и&nbsp;монтажу систем наружного электроосвещения: от&nbsp;городских улиц и&nbsp;пешеходных зон до&nbsp;архитектурной подсветки зданий и&nbsp;объектов", "href": "service.html"})
+							</div>
+						</section>
+
+						<section class="services__section" id="tp" role="tabpanel" data-tab-panel="tp">
+							<h2 class="services__section-title">Трансформаторные подстанции<br> и&nbsp;распределительные устройства</h2>
+							<div class="services__grid services__grid--wide">
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "bktp", "title": "Блочные комплектные трансформаторные подстанции (БКТП)", "text": "Строительство воздушных линий электропередачи напряжением 0,4–10&nbsp;кВ", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "ktpn", "title": "Комплектные трансформаторные подстанции наружной установки (КТПН)", "text": "Проектирование, монтаж и&nbsp;подключение КТПН мощностью до&nbsp;2&nbsp;500&nbsp;кВА", "href": "service.html"})
+							</div>
+							<div class="services__grid">
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "mast", "title": "Мачтовые подстанции (ТП&nbsp;на&nbsp;опоре&nbsp;ВЛ)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "oru", "title": "Открытые распределительные устройства (ОРУ)", "href": "service.html"})
+							</div>
+						</section>
+
+						<section class="services__section" id="fire" role="tabpanel" data-tab-panel="fire">
+							<h2 class="services__section-title">Пожарная безопасность и&nbsp;слаботочные системы</h2>
+							<div class="services__grid services__grid--wide">
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "aps", "title": "Автоматическая пожарная сигнализация (АПС)", "text": "Внедрение адресных и&nbsp;неадресных систем пожарной сигнализации.", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "soue", "title": "Система оповещения и&nbsp;управления эвакуацией (СОУЭ)", "text": "Оснащение объектов речевыми, световыми (табло «Выход») и&nbsp;звуковыми оповещателями, громкоговорителями по&nbsp;заданному алгоритму.", "href": "service.html"})
+							</div>
+							<div class="services__grid">
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "aupt", "title": "Автоматические установки пожаротушения (АУПТ)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "spdv", "title": "Система противодымной защиты вентиляции (СПДВ)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "ss", "title": "Системы связи (СС)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "sks", "title": "Структурированная кабельная система (СКС)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "skud", "title": "Система контроля и&nbsp;управления доступом (СКУД)", "href": "service.html"})
+							</div>
+						</section>
+
+						<section class="services__section" id="auto" role="tabpanel" data-tab-panel="auto">
+							<h2 class="services__section-title">Автоматизация</h2>
+							<div class="services__grid services__grid--wide">
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "asutp", "title": "Автоматизация технологических процессов (АСУТП)", "text": "Разработка и&nbsp;сборка шкафов управления на&nbsp;базе промышленных контроллеров (ПЛК) Siemens, ОВЕН, Schneider Electric, Delta", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "asud", "title": "Автоматизированная система диспетчерского управления (АСУД)", "text": "Оснащение объектов речевыми, световыми (табло «Выход») и&nbsp;звуковыми оповещателями, громкоговорителями.", "href": "service.html"})
+							</div>
+							<div class="services__grid">
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "ak", "title": "Автоматика и&nbsp;контроллеры (АК)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "smart", "title": "Комплексные системы управления зданием (Умный&nbsp;дом)", "href": "service.html"})
+							</div>
+						</section>
+
+						<section class="services__section" id="extra" role="tabpanel" data-tab-panel="extra">
+							<h2 class="services__section-title">Дополнительные инженерные услуги</h2>
+							<div class="services__grid services__grid--wide">
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "repair1", "title": "Восстановление сложных инженерных коммуникаций", "text": "Диагностика, реконструкция и&nbsp;ремонт повреждённых инженерных сетей", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "repair2", "title": "Восстановление сложных инженерных коммуникаций", "text": "Диагностика, реконструкция и&nbsp;ремонт повреждённых инженерных сетей", "href": "service.html"})
+							</div>
+							<div class="services__grid">
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "design", "title": "Проектирование (ПД,&nbsp;РД, рабочие чертежи)", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "check", "title": "Проверка проектной документации и&nbsp;сметный расчёт", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "agree", "title": "Согласование с&nbsp;органами местного самоуправления", "href": "service.html"})
+								@@include("source/html/components/service-tile.html", {"size": "small", "img": "permit", "title": "Получение разрешений от&nbsp;сетевой организации", "href": "service.html"})
+							</div>
+						</section>
+					</div>
+				</div>
+
+				<!-- «Нужна консультация по выбору услуг?» -->
+				<section class="services-consult">
+					<div class="container services-consult__inner">
+						<div class="services-consult__intro">
+							<h2 class="services-consult__title">Нужна консультация<br> по&nbsp;выбору услуг?</h2>
+							<p class="services-consult__text">Наши специалисты помогут подобрать оптимальное решение для&nbsp;вашего проекта и&nbsp;рассчитают стоимость работ</p>
+						</div>
+						<form class="contacts-form services-consult__form" action="#" method="post" novalidate>
+							<div class="services-consult__fields">
+								<label class="contacts-form__field" data-form-group>
+									<input class="contacts-form__input" type="text" name="name" placeholder=" " required data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя">
+									<span class="contacts-form__label">Контактное лицо</span>
+								</label>
+								<label class="contacts-form__field" data-form-group>
+									<input class="contacts-form__input" type="tel" name="phone" placeholder=" " required data-type="phone" autocomplete="tel" data-required-message="Заполните поле" data-error-message="Некорректный телефон">
+									<span class="contacts-form__label">Телефон</span>
+								</label>
+							</div>
+							<div class="contacts-form__bottom services-consult__bottom">
+								@@include("source/html/ui/button.html", {"type": "submit", "name": "Получить консультацию", "class": "btn--lg services-consult__btn"})
+								<label class="contacts-form__consent" data-form-group-checkbox>
+									<input class="contacts-form__checkbox" type="checkbox" name="consent" required>
+									<span class="contacts-form__box" aria-hidden="true"></span>
+									<span class="contacts-form__consent-text">Нажимая на&nbsp;кнопку «Отправить» Вы&nbsp;выражаете своё <a href="/policy/">согласие</a> на&nbsp;обработку Ваших персональных данных в&nbsp;соответствии с&nbsp;Федеральным законом от&nbsp;27&nbsp;июля 2006&nbsp;г. №&nbsp;152-ФЗ «О&nbsp;персональных данных» и&nbsp;<a href="/policy/">Политикой конфиденциальности компании</a></span>
+								</label>
+							</div>
+						</form>
+					</div>
+				</section>
+			</main>
+			@@include("source/html/base/footer.html")
+		</div>
+		@@include("source/html/base/scripts.html")
+	</body>
+</html>
