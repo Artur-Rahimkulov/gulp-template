@@ -1174,16 +1174,17 @@
 		top: 3.3rem;
 		left: -1.2rem;
 		z-index: -1;
-		width: 24.4rem;
+		// номер из макета (Gotham Pro 300, 10 %) в svg; высота — по числу
+		width: 21.8rem;
 		max-width: none;
-		height: 33.7rem;
+		height: auto;
 		pointer-events: none;
 
 		@include vp-mobile {
 			top: -2.9rem;
 			left: -2.4rem;
-			width: 14.6rem;
-			height: 20.2rem;
+			width: 13.1rem;
+			height: auto;
 		}
 	}
 

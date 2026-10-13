@@ -26,12 +26,12 @@
 						<!-- Плашки услуг: на десктопе разложены по иллюстрации, на мобильной видна одна и листается стрелками -->
 						<div class="home-hero__tags" data-hero-tags>
 							<ul class="home-hero__tags-list">
-								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение", "href": "services.html"})</li>
-								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Наружное <br>сообщение", "href": "services.html", "class": "tag-link--tall"})</li>
-								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение <br>внутри помещения", "href": "services.html", "class": "tag-link--tall"})</li>
-								<li class="home-hero__tag is-active" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроподстанция", "href": "services.html"})</li>
-								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Автоматическая <br>пожарная сигнализация", "href": "services.html", "class": "tag-link--tall"})</li>
-								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "СКУД", "href": "services.html"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение", "href": "service.html"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Наружное <br>освещение", "href": "service.html", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение <br>внутри помещения", "href": "service.html", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag is-active" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Электроподстанция", "href": "service.html"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "Автоматическая <br>пожарная сигнализация", "href": "service.html", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag" data-hero-tag>@@include("source/html/ui/tag-link.html", {"name": "СКУД", "href": "service.html"})</li>
 							</ul>
 							<div class="slider-arrows slider-arrows--skew home-hero__arrows">
 								<button class="slider-arrow slider-arrow--skew" type="button" aria-label="Предыдущая услуга" data-hero-tags-prev>←</button>
@@ -66,7 +66,7 @@
 
 						<div class="swiper home-services__slider" data-slider data-slider-align-last data-slider-per-view="3" data-slider-gap="55" data-slider-gap-mobile="49">
 							<div class="swiper-wrapper">
-								@@include("source/html/components/card-service-dark.html", {"title": "Электроснабжение (ЭС)", "text": "Проектирование и&nbsp;монтаж систем любой сложности: от&nbsp;ввода до распределительных щитов. Расчёт нагрузок, подбор кабелей и защитной аппаратуры, схемы АВР."})
+								@@include("source/html/components/card-service-dark.html", {"title": "Электроснабжение (ЭС)", "text": "Проектирование и&nbsp;монтаж систем любой сложности: от&nbsp;ввода до&nbsp;распределительных щитов. Расчёт нагрузок, подбор кабелей и&nbsp;защитной аппаратуры, схемы АВР."})
 								@@include("source/html/components/card-service-dark.html", {"title": "Наружное освещение (ЭН)", "text": "Городские улицы, архитектурная подсветка, пешеходные зоны. Светотехнический расчёт, энергоэффективные решения."})
 								@@include("source/html/components/card-service-dark.html", {"title": "Блочные КТП&nbsp;(БКТП)", "text": "Изготовление, доставка и&nbsp;монтаж подстанций 0,4/6/10 кВ. Полный цикл: ввод, секционирование, учёт, компенсация реактивной мощности, РЗА."})
 								@@include("source/html/components/card-service-dark.html", {"title": "Пожарная сигнализация (АПС)", "text": "Тестовый контент: проектирование и&nbsp;монтаж систем пожарной сигнализации и&nbsp;оповещения, пусконаладка и&nbsp;обслуживание."})
@@ -153,7 +153,8 @@
 
 					<div class="home-projects__main">
 						<img class="home-projects__ghost" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
-						<img class="home-projects__number" src="assets/img/project-number.webp" width="244" height="337" alt="" aria-hidden="true">
+						<!-- номер текущего проекта: data-slider-number — картинка меняется при листании (number-01.svg, number-02.svg…) -->
+						<img class="home-projects__number" src="assets/svg/number/number-01.svg" width="218" height="273" alt="" aria-hidden="true" data-slider-number>
 						<div class="swiper home-projects__slider" data-slider data-slider-per-view="1" data-slider-gap="0" data-slider-gap-mobile="0">
 							<div class="swiper-wrapper">
 								<article class="swiper-slide project-slide">
@@ -234,7 +235,7 @@
 
 					<div class="home-why__list">
 						@@include("source/html/components/card-why.html", {"num": "01", "numWidth": "90", "numHeight": "54", "icon": "why-icon-1", "iconWidth": "57", "iconHeight": "47", "title": "Полный цикл", "text": "от&nbsp;расчёта<br> до&nbsp;пусконаладки<br> «под&nbsp;ключ»"})
-						@@include("source/html/components/card-why.html", {"num": "02", "numWidth": "90", "numHeight": "47", "icon": "why-icon-2", "iconWidth": "48", "iconHeight": "49", "title": "Собственное производство", "text": "бетонные и&nbsp;гипсовые<br> изделия для стройнужд"})
+						@@include("source/html/components/card-why.html", {"num": "02", "numWidth": "90", "numHeight": "47", "icon": "why-icon-2", "iconWidth": "48", "iconHeight": "49", "title": "Собственное производство", "text": "бетонные и&nbsp;гипсовые<br> изделия для&nbsp;стройнужд"})
 						@@include("source/html/components/card-why.html", {"num": "03", "numWidth": "94", "numHeight": "49", "icon": "why-icon-3", "iconWidth": "45", "iconHeight": "46", "title": "Сертифицированная команда", "text": "допуски СРО,<br> опытные инженеры"})
 						@@include("source/html/components/card-why.html", {"num": "04", "numWidth": "94", "numHeight": "49", "icon": "why-icon-4", "iconWidth": "48", "iconHeight": "53", "title": "Гарантия 100% обязательств", "text": "строгое соблюдение<br> сроков и&nbsp;качества"})
 						@@include("source/html/components/card-why.html", {"num": "05", "numWidth": "90", "numHeight": "48", "icon": "why-icon-5", "iconWidth": "56", "iconHeight": "53", "title": "Круглосуточная техподдержка", "text": "24/7 для&nbsp;ваших<br> объектов"})

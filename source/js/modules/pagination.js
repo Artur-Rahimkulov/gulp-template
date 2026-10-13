@@ -144,7 +144,7 @@ export const pagination = () => {
       if (!existing) {
         const p = document.createElement('p')
         p.className = 'not-found'
-        p.textContent = 'Ничего не найдено'
+        p.textContent = 'Ничего не найдено'
         list.appendChild(p)
       }
     } else {

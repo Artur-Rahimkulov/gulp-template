@@ -9,6 +9,7 @@ import { Navigation } from 'swiper/modules'
 //   data-slider-gap — зазор между слайдами в px (по умолчанию 30)
 //   data-slider-gap-mobile — зазор на мобильной (по умолчанию 12)
 //   data-slider-mobile-off — на мобильной слайдер выключен, раскладку задаёт CSS
+//   [data-slider-number] (картинка в обёртке) — крупный номер текущего слайда: assets/svg/number/number-01.svg и т. д.
 //   data-slider-align-last — на мобильной последний слайд встаёт к левому краю, как остальные (а не прижимается вправо)
 export const sliders = () => {
   document.querySelectorAll('[data-slider]').forEach((slider) => {
@@ -45,6 +46,12 @@ export const sliders = () => {
       on: {
         init: updateOffset,
         resize: updateOffset,
+        slideChange: (swiper) => {
+          const number = wrapper.querySelector('[data-slider-number]')
+          if (number) {
+            number.src = `assets/svg/number/number-${String(swiper.activeIndex + 1).padStart(2, '0')}.svg`
+          }
+        },
       },
       breakpoints: {
         // параметры брейкпоинтов Swiper не наследуются от меньших — в каждом задаём всё
