@@ -9,6 +9,7 @@ import { Navigation } from 'swiper/modules'
 //   data-slider-gap — зазор между слайдами в px (по умолчанию 30)
 //   data-slider-gap-mobile — зазор на мобильной (по умолчанию 12)
 //   data-slider-mobile-off — на мобильной слайдер выключен, раскладку задаёт CSS
+//   data-slider-align-last — на мобильной последний слайд встаёт к левому краю, как остальные (а не прижимается вправо)
 export const sliders = () => {
   document.querySelectorAll('[data-slider]').forEach((slider) => {
     const wrapper = slider.closest('[data-slider-wrapper]') || slider.parentElement
@@ -18,6 +19,19 @@ export const sliders = () => {
     const gapMobile = slider.dataset.sliderGapMobile !== undefined ? Number(slider.dataset.sliderGapMobile) : 12
     const mobileOff = slider.hasAttribute('data-slider-mobile-off')
     const view = (max) => (auto ? 'auto' : Math.min(perView, max))
+    const alignLast = slider.hasAttribute('data-slider-align-last')
+    const mobile = window.matchMedia('(max-width: 899.98px)')
+
+    // отступ после последнего слайда = ширина ленты − ширина слайда: тогда последний доходит до левого края
+    const updateOffset = (swiper) => {
+      if (!alignLast) return
+      const last = swiper.slides[swiper.slides.length - 1]
+      const offset = mobile.matches && last ? Math.max(0, swiper.width - last.offsetWidth) : 0
+      if (swiper.params.slidesOffsetAfter !== offset) {
+        swiper.params.slidesOffsetAfter = offset
+        swiper.update()
+      }
+    }
 
     new Swiper(slider, {
       modules: [Navigation],
@@ -27,6 +41,10 @@ export const sliders = () => {
       navigation: {
         prevEl: wrapper.querySelector('[data-slider-prev]'),
         nextEl: wrapper.querySelector('[data-slider-next]'),
+      },
+      on: {
+        init: updateOffset,
+        resize: updateOffset,
       },
       breakpoints: {
         // параметры брейкпоинтов Swiper не наследуются от меньших — в каждом задаём всё

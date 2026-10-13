@@ -57,7 +57,9 @@
 
 // в макете «Услуги» в шапке своих косых линий нет — их продолжают линии первого экрана (svg ниже),
 // поэтому общую сетку шапки на этой странице прячем, иначе линии не стыкуются (шапку саму не меняем)
-.wrapper:has(> main.service) .header::before {
+// своя линия у «Услуги» — на 165 (как в макете), общая линия по низу шапки здесь не нужна
+.wrapper:has(> main.service) .header::before,
+.wrapper:has(> main.service) .header::after {
 	@include vp-desktop {
 		content: none;
 	}

@@ -21,6 +21,18 @@
 		pointer-events: none;
 	}
 
+	// десктоп: горизонтальная линия по низу шапки — косые линии сетки упираются в неё
+	&::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 0.1rem;
+		background-color: var(--color-double-line);
+		pointer-events: none;
+	}
+
 	// в мобильных макетах шапка цвета страницы и без косой сетки — сетка начинается под ней, с полосы крошек
 	@include vp-mobile {
 		position: sticky;
@@ -29,7 +41,8 @@
 		background-color: var(--color-bg-page);
 		transition: box-shadow var(--default-transition);
 
-		&::before {
+		&::before,
+		&::after {
 			content: none;
 		}
 
