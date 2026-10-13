@@ -10,7 +10,7 @@
 						<div class="container">
 							<nav aria-label="Хлебные крошки">
 								<ol class="breadcrumbs__list">
-									<li><a class="breadcrumbs__link" href="/media/">Медиа</a></li>
+									<li><a class="breadcrumbs__link" href="media.html">Медиа</a></li>
 									<li aria-current="page">Название новости</li>
 								</ol>
 							</nav>
@@ -32,7 +32,8 @@
 				</article>
 				<div class="double-line"></div>
 
-				<section class="article-gallery" data-slider-wrapper aria-label="Галерея">
+				<section class="article-gallery" data-slider-wrapper>
+					<h2 class="visually-hidden">Галерея</h2>
 					<img class="article-gallery__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
 					<img class="article-gallery__slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
 					<div class="container">
@@ -55,9 +56,9 @@
 					<div class="container">
 						<h2 class="title-h2 related__title">Другие новости</h2>
 						<div class="cards-grid">
-							@@include("source/html/components/card-news.html", {"img": "vremena", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-							@@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
-							@@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "/media/news/"})
+							@@include("source/html/components/card-news.html", {"img": "vremena", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "media-detail.html"})
+							@@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "media-detail.html"})
+							@@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести никакого смысла, лишь показать наличие самого текста или&nbsp;продемонстрировать типографику в&nbsp;деле…", "href": "media-detail.html"})
 						</div>
 					</div>
 				</section>

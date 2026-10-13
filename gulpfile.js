@@ -18,7 +18,8 @@ const refresh = (done) => {
 
 const syncServer = () => {
   server.init({
-    server: 'build/',
+    // .html можно не писать: /sitemap откроет sitemap.html
+    server: { baseDir: 'build/', serveStaticOptions: { extensions: ['html'] } },
     index: 'index.html',
     notify: false,
     open: true,

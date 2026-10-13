@@ -9,13 +9,13 @@
     <img class="header__decor header__decor--slab" src="assets/img/slab-blue.webp" width="372" height="372" alt="" aria-hidden="true">
     <img class="header__decor header__decor--tiles-2" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
 
-    <a class="header__logo" href="/" aria-label="Инженерный центр Крафт — на главную">
+    <a class="header__logo" href="index.html" aria-label="Инженерный центр Крафт — на главную">
       <img src="assets/img/logo.webp" width="226" height="42" alt="Инженерный центр Крафт">
     </a>
 
     <div class="header__menu bg-grid" id="header-menu" data-header-menu>
       <div class="header__menu-top">
-        <a class="header__logo" href="/" aria-label="Инженерный центр Крафт — на главную">
+        <a class="header__logo" href="index.html" aria-label="Инженерный центр Крафт — на главную">
           <img src="assets/img/logo.webp" width="150" height="28" alt="Инженерный центр Крафт">
         </a>
         <button class="header__toggle" type="button" aria-label="Закрыть меню" data-header-close>
@@ -25,13 +25,13 @@
 
       <nav class="header__nav" aria-label="Основное меню">
         <ul class="header__list">
-          <li style="--tracking: -0.0143rem"><a class="header__link @@if (context.active === 'main') {is-active}" href="/">Главная</a></li>
-          <li style="--tracking: -0.0165rem; --gap: 4.03rem"><a class="header__link @@if (context.active === 'services') {is-active}" href="/services/">Услуги</a></li>
-          <li style="--tracking: -0.0429rem; --gap: 4.46rem"><a class="header__link @@if (context.active === 'projects') {is-active}" href="/projects/">Проекты</a></li>
-          <li style="--tracking: -0.0572rem; --gap: 4.54rem"><a class="header__link @@if (context.active === 'career') {is-active}" href="/career/">Карьера</a></li>
-          <li style="--tracking: -0.0396rem; --gap: 4.46rem"><a class="header__link @@if (context.active === 'about') {is-active}" href="/about/">О компании</a></li>
-          <li style="--tracking: -0.0803rem; --gap: 4.57rem"><a class="header__link @@if (context.active === 'media') {is-active}" href="/media/">Медиа</a></li>
-          <li style="--tracking: -0.0253rem; --gap: 4.89rem"><a class="header__link @@if (context.active === 'contacts') {is-active}" href="/contacts/">Контакты</a></li>
+          <li style="--tracking: -0.0143rem"><a class="header__link @@if (context.active === 'main') {is-active}" href="index.html">Главная</a></li>
+          <li style="--tracking: -0.0165rem; --gap: 4.03rem"><a class="header__link @@if (context.active === 'services') {is-active}" href="services.html">Услуги</a></li>
+          <li style="--tracking: -0.0429rem; --gap: 4.46rem"><a class="header__link @@if (context.active === 'projects') {is-active}" href="projects.html">Проекты</a></li>
+          <li style="--tracking: -0.0572rem; --gap: 4.54rem"><a class="header__link @@if (context.active === 'career') {is-active}" href="career.html">Карьера</a></li>
+          <li style="--tracking: -0.0396rem; --gap: 4.46rem"><a class="header__link @@if (context.active === 'about') {is-active}" href="about.html">О компании</a></li>
+          <li style="--tracking: -0.0803rem; --gap: 4.57rem"><a class="header__link @@if (context.active === 'media') {is-active}" href="media.html">Медиа</a></li>
+          <li style="--tracking: -0.0253rem; --gap: 4.89rem"><a class="header__link @@if (context.active === 'contacts') {is-active}" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
 
@@ -43,7 +43,7 @@
         <p class="header__address">450100, ул. Маршала Жукова, д.&nbsp;3/1, 1&#8209;й этаж</p>
         @@include("source/html/ui/button.html", {
           "tag": "a",
-          "href": "/contacts/",
+          "href": "contacts.html",
           "class": "btn--md header__btn",
           "name": "Обсудить проект"
         })

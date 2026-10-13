@@ -146,7 +146,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Медиа детальная: текст новости (`.rich-text.article__text`) + фото, галерея на Swiper, «Другие новости» | `html/media-detail.html` | `components/article.scss`, `js/modules/sliders.js` |
 | Страница «Медиа»: полоса с фильтрами (`.breadcrumbs--filters`), сетка новостей, «Показать ещё» | `html/media.html` | `components/media-list.scss`, `js/modules/pagination.js` |
 | Страница 404 | `html/404.html` | `components/not-found.scss` |
-| Главная: первый экран под прозрачной шапкой, услуги на синей полосе, «Надёжный партнёр», цифры и партнёры, проекты, «Почему выбирают», новости | `html/main.html` | `components/home.scss` |
+| Главная: первый экран под прозрачной шапкой, услуги на синей полосе, «Надёжный партнёр», цифры и партнёры, проекты, «Почему выбирают», новости | `html/index.html` | `components/home.scss` |
 | Шапка поверх первого экрана (`{"overlay": true}`), подвал главной (`{"home": true}`) | `html/base/header.html`, `footer.html` | `.header--overlay`, `.footer--home` |
 | Плашка-ссылка на услугу со стрелкой (`tag-link--tall` — в две строки) | `html/ui/tag-link.html` | `ui/tag-link.scss`, на мобильной листание — `js/modules/hero-tags.js` |
 | Скруглённая синяя стрелка 37×37 (неактивная — 20 %) | `@@include("…/slider-arrows.html", {"round": true})`, `.round-arrow` | `ui/round-arrow.scss` |
@@ -154,7 +154,7 @@ Montserrat — Regular, Medium, SemiBold (`source/fonts`, кириллица + �
 | Карточка услуги на синей полосе | `html/components/card-service-dark.html` | `components/cards-home.scss` |
 | Скошенная карточка «Почему выбирают» (номер и иконка — картинки) | `html/components/card-why.html` | `components/cards-home.scss` |
 | Карточка новости с ярлыком «/01» | `html/components/card-news-tab.html` | `components/cards-home.scss` |
-| Слайд проекта на главной | `.project-slide` в `html/main.html` | `components/cards-home.scss` |
+| Слайд проекта на главной | `.project-slide` в `html/index.html` | `components/cards-home.scss` |
 | О компании: первый экран с фото и карточкой «15 лет», руководитель на синей полосе, история по годам (слайдер + шкала), «Наши ценности», лицензии (на мобильной — слайдер) | `html/about.html` | `components/about.scss`, `js/modules/about.js` |
 | Слайд истории (год, заголовок и текст из админки, фото) | `html/components/history-slide.html` | `components/about.scss` |
 | Шкала времени: год — переключатель слайда, линия с точками до текущего года | `ol.about-timeline[data-history-tabs]` | `components/about.scss`, `js/modules/about.js` |

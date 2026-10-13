@@ -150,7 +150,7 @@
           @@include("source/html/components/card-service.html", {
             "title": "Инженерные изыскания",
             "text": "Полный комплекс работ по&nbsp;проектированию, монтажу и&nbsp;пусконаладке",
-            "href": "/services/"
+            "href": "services.html"
           })
           @@include("source/html/components/card-news.html", {
             "img": "vremena",
@@ -158,7 +158,7 @@
             "title": "Название новости",
             "date": "10.04.2025",
             "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…",
-            "href": "/media/"
+            "href": "media.html"
           })
           @@include("source/html/components/card-value.html", {
             "number": "01.",
@@ -206,7 +206,7 @@
           @@include("source/html/ui/input-phone.html", {"placeholder": "Телефон*", "required": "true", "name": "phone"})
           @@include("source/html/ui/input-email.html", {"placeholder": "Email*", "required": "true"})
           @@include("source/html/ui/checkbox.html", {
-            "label": "Нажимая на&nbsp;кнопку «Отправить» я&nbsp;принимаю условия <a href=\"#\" target=\"_blank\">Политики конфиденциальности</a>",
+            "label": "Нажимая на&nbsp;кнопку «Отправить» я&nbsp;принимаю условия <a href=\"policy.html\" target=\"_blank\" rel=\"noopener noreferrer\">Политики конфиденциальности</a>",
             "required": "true"
           })
           @@include("source/html/ui/button.html", {"type": "submit", "name": "Отправить", "class": "btn--lg"})
@@ -224,9 +224,9 @@
         </div>
         <!-- data-list-items — список карточек, заменяется ответом сервера -->
         <div class="cards-grid" style="margin-top: var(--space-title)" data-list-items>
-          @@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
-          @@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "СМИ&nbsp;о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
-          @@include("source/html/components/card-news.html", {"img": "worker", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "/media/"})
+          @@include("source/html/components/card-news.html", {"img": "tau", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "media.html"})
+          @@include("source/html/components/card-news.html", {"img": "newyort", "rubric": "СМИ&nbsp;о&nbsp;нас", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "media.html"})
+          @@include("source/html/components/card-news.html", {"img": "worker", "rubric": "Новости", "title": "Название новости", "date": "10.04.2025", "text": "Это&nbsp;тестовый контент, который не&nbsp;должен нести смысла…", "href": "media.html"})
         </div>
         <!-- data-show-more-button скрывается, если не придёт в ответе -->
         <div style="margin-top: var(--space-more); text-align: center">
