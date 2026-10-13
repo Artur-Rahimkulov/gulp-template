@@ -543,9 +543,10 @@
 			font-weight: 600;
 		}
 
+		// единица измерения — по базовой линии цифр (по низу), а не по центру строки
 		dd {
 			display: flex;
-			align-items: flex-end;
+			align-items: baseline;
 			height: 7.2rem;
 			margin: 1rem 0 0;
 			font-size: 5.2rem;
@@ -571,7 +572,6 @@
 			}
 
 			dd {
-				align-items: flex-start;
 				height: 4rem;
 				margin-top: 0;
 				font-size: 4rem;
