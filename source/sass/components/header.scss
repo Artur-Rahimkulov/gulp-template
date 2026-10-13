@@ -90,9 +90,11 @@
 		height: 6.6rem;
 	}
 
+	// на 1920 выходит за колонку на 154, как в макете; уже — не дальше чем в 20 от правого края экрана
+	// (поле справа от колонки — половина разницы экрана и колонки 1480)
 	&--tiles-2 {
 		top: 10.8rem;
-		right: calc(var(--container-padding) - 19.4rem);
+		right: max(calc(var(--container-padding) - 19.4rem), calc(2rem - max(0rem, (100vw - 148rem) / 2)));
 		width: 14rem;
 		height: 5.2rem;
 	}
