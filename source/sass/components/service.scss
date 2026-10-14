@@ -84,50 +84,6 @@
 	}
 }
 
-// плашки у подвала
-.service__decor {
-	position: absolute;
-	z-index: 3;
-	max-width: none;
-	object-fit: contain;
-	pointer-events: none;
-
-	&--slab {
-		top: calc(100% - 16.1rem);
-		left: calc(50% + 82.8rem);
-		width: 49.6rem;
-		height: 47.4rem;
-	}
-
-	&--light {
-		top: calc(100% - 15.6rem);
-		left: calc(50% - 134rem);
-		width: 49.7rem;
-		height: 43.9rem;
-	}
-
-	&--m-edge {
-		display: none;
-	}
-
-	@media (max-width: 1899.98px) {
-		&--slab,
-		&--light {
-			display: none;
-		}
-	}
-
-	@include vp-mobile {
-		&--m-edge {
-			top: calc(100% - 7.3rem);
-			left: -4rem;
-			display: block;
-			width: 8.2rem;
-			height: 21.4rem;
-		}
-	}
-}
-
 // ---------------------------------
 // Первый экран
 // ---------------------------------
@@ -1320,6 +1276,19 @@
 
 		@media (max-width: 1899.98px) {
 			display: none;
+		}
+	}
+
+	// плитки: справа у верхнего края блока, слева — у текста
+	@include vp-desktop {
+		.contacts-feedback__decor--tiles-top {
+			top: 0.1rem;
+			left: calc(50% + 58.8rem);
+		}
+
+		.contacts-feedback__decor--tiles-left {
+			top: 37.3rem;
+			left: calc(50% - 94.5rem);
 		}
 	}
 

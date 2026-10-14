@@ -209,7 +209,14 @@
 					</div>
 				</section>
 			</main>
-			@@include("source/html/base/footer.html", {"about": true})
+			<!-- декор на стыке с подвалом — свой у каждой страницы -->
+			<div class="footer-decor" aria-hidden="true">
+				<img class="footer-decor__img footer-decor__img--about-back" src="assets/img/slab-blue.webp" width="620" height="660" alt="">
+				<img class="footer-decor__img footer-decor__img--about-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="">
+				<img class="footer-decor__img footer-decor__img--about-light" src="assets/img/slab-white.webp" width="497" height="439" alt="">
+				<img class="footer-decor__img footer-decor__img--about-ghost" src="assets/img/ghost-c.webp" width="215" height="274" alt="">
+			</div>
+			@@include("source/html/base/footer.html")
 		</div>
 		@@include("source/html/base/scripts.html")
 	</body>

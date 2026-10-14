@@ -53,6 +53,15 @@
 		object-fit: cover;
 	}
 
+	// тень края под светлой плашкой
+	&--hero-edge {
+		z-index: 2;
+		top: 30.2rem;
+		left: calc(50% - 96rem);
+		width: 15.9rem;
+		height: 44.6rem;
+	}
+
 	&--hero-slab {
 		z-index: 2;
 		top: 29.9rem;
@@ -80,10 +89,19 @@
 
 	&--slab-blue {
 		z-index: 2;
-		top: 74rem;
-		left: calc(50% + 79.2rem);
-		width: 47.6rem;
-		height: 56.3rem;
+		top: 59.9rem;
+		left: calc(50% + 79.9rem);
+		width: 62rem;
+		height: 66rem;
+	}
+
+	// плашка-призрак справа от карточек первого раздела
+	&--ghost-right {
+		top: 60.3rem;
+		left: calc(50% + 48.7rem);
+		width: 44.5rem;
+		height: 55.4rem;
+		object-fit: cover;
 	}
 
 	&--m-edge,
@@ -93,9 +111,11 @@
 
 	// плашки у краёв заходят на контент, когда полей мало
 	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
+		&--hero-edge,
 		&--hero-slab,
 		&--edge,
-		&--slab-blue {
+		&--slab-blue,
+		&--ghost-right {
 			display: none;
 		}
 	}
@@ -554,38 +574,7 @@
 	color: var(--color-white);
 	background: #0d4fb4 url("../assets/img/services-consult.webp") no-repeat 50% 0 / 192rem 59rem;
 
-	// синяя плашка и полоска у правого края — заходят на подвал
-	&::before,
-	&::after {
-		content: '';
-		position: absolute;
-		z-index: 2;
-		left: calc(50% + 79.4rem);
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-		pointer-events: none;
-	}
-
-	&::before {
-		top: 26.9rem;
-		width: 16.8rem;
-		height: 79.6rem;
-		background-image: url("../assets/img/services-edge.webp");
-	}
-
-	&::after {
-		top: 44.8rem;
-		width: 47.6rem;
-		height: 56.3rem;
-		background-image: url("../assets/img/slab-blue.webp");
-	}
-
-	@media (max-width: 1599.98px) {
-		&::before,
-		&::after {
-			content: none;
-		}
-	}
+	// синяя плашка у правого края, заходящая на подвал, — в .footer-decor перед подвалом (components/footer.scss)
 
 	@include vp-mobile {
 		margin-top: 3.6rem;
@@ -593,6 +582,30 @@
 		padding: 5.2rem 0 6rem;
 		background-position: 30% 0;
 		background-size: cover;
+	}
+}
+
+// плитки: справа заходит на верх блока, слева — у формы
+.services-consult__tiles {
+	position: absolute;
+	z-index: 1;
+	width: 16.8rem;
+	height: 8.8rem;
+	max-width: none;
+	pointer-events: none;
+
+	&--top {
+		top: -1.3rem;
+		left: calc(50% + 60.9rem);
+	}
+
+	&--left {
+		top: 34.1rem;
+		left: calc(50% - 77.8rem);
+	}
+
+	@media (max-width: 1599.98px) {
+		display: none;
 	}
 }
 

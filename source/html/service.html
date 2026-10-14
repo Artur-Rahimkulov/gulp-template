@@ -130,6 +130,7 @@
 				<!-- Форма «Остались вопросы?» -->
 				<section class="contacts-feedback contacts-feedback--service" id="service-feedback">
 					<img class="contacts-feedback__decor contacts-feedback__decor--cables-m" src="assets/img/contacts-cables-m.webp" width="375" height="591" alt="" aria-hidden="true">
+					<img class="contacts-feedback__decor contacts-feedback__decor--tiles-top" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
 					<img class="contacts-feedback__decor contacts-feedback__decor--tiles-left" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
 					<img class="contacts-feedback__decor contacts-feedback__decor--edge" src="assets/img/edge-shadow.webp" width="170" height="806" alt="" aria-hidden="true">
 					<img class="contacts-feedback__decor contacts-feedback__decor--edge-m" src="assets/img/contacts-m-edge.webp" width="82" height="214" alt="" aria-hidden="true">
@@ -145,11 +146,14 @@
 					</div>
 				</section>
 
-				<img class="service__decor service__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
-				<img class="service__decor service__decor--light" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
-				<img class="service__decor service__decor--m-edge" src="assets/img/contacts-m-edge.webp" width="82" height="214" alt="" aria-hidden="true">
 			</main>
-			@@include("source/html/base/footer.html", {"plain": true})
+			<!-- декор на стыке с подвалом — свой у каждой страницы -->
+			<div class="footer-decor" aria-hidden="true">
+				<img class="footer-decor__img footer-decor__img--service-light" src="assets/img/slab-white.webp" width="497" height="439" alt="">
+				<img class="footer-decor__img footer-decor__img--service-blue" src="assets/img/slab-blue.webp" width="496" height="474" alt="">
+				<img class="footer-decor__img footer-decor__img--service-edge-m" src="assets/img/contacts-m-edge.webp" width="82" height="214" alt="">
+			</div>
+			@@include("source/html/base/footer.html")
 		</div>
 		@@include("source/html/base/scripts.html")
 	</body>

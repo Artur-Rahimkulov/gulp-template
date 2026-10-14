@@ -20,39 +20,6 @@
 	}
 }
 
-// синяя плашка у подвала (подвал без своих плашек) и полоска у левого края на мобильной
-.contacts__decor {
-	position: absolute;
-	z-index: 3;
-	max-width: none;
-	pointer-events: none;
-
-	&--slab {
-		top: calc(100% - 13.4rem);
-		left: calc(50% + 68.5rem);
-		width: 62rem;
-		height: 66rem;
-		object-fit: contain;
-
-		// плашка лежит в поле за контейнером — уже 1900 ей не хватает места
-		@media (max-width: 1899.98px) {
-			display: none;
-		}
-	}
-
-	&--m-edge {
-		display: none;
-
-		@include vp-mobile {
-			top: calc(100% - 8rem);
-			left: -3.5rem;
-			display: block;
-			width: 8.2rem;
-			height: 21.4rem;
-		}
-	}
-}
-
 // ---------------------------------
 // Первый экран: шапка лежит поверх фото офиса
 // ---------------------------------

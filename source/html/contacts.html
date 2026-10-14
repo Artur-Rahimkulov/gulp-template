@@ -61,12 +61,13 @@
 					</picture>
 					<div class="contacts-map__canvas" data-contacts-map-canvas role="application" aria-label="Карта: ИЦ&nbsp;Крафт, Уфа, ул.&nbsp;Маршала Жукова, д.&nbsp;3/1, 1-й этаж"></div>
 				</div>
-
-				<!-- плашки на стыке с подвалом -->
-				<img class="contacts__decor contacts__decor--slab" src="assets/img/slab-blue.webp" width="620" height="660" alt="" aria-hidden="true">
-				<img class="contacts__decor contacts__decor--m-edge" src="assets/img/contacts-m-edge.webp" width="82" height="214" alt="" aria-hidden="true">
 			</main>
-			@@include("source/html/base/footer.html", {"plain": true})
+			<!-- декор на стыке с подвалом — свой у каждой страницы -->
+			<div class="footer-decor" aria-hidden="true">
+				<img class="footer-decor__img footer-decor__img--contacts-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="">
+				<img class="footer-decor__img footer-decor__img--contacts-edge-m" src="assets/img/contacts-m-edge.webp" width="82" height="214" alt="">
+			</div>
+			@@include("source/html/base/footer.html")
 		</div>
 		@@include("source/html/base/scripts.html")
 	</body>
