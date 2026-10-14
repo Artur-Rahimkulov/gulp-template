@@ -78,31 +78,8 @@
 		height: 6.6rem;
 	}
 
-	// синяя плашка и полоска у правого края первого раздела
-	&--edge {
-		top: 56.1rem;
-		left: calc(50% + 79.2rem);
-		width: 16.8rem;
-		height: 79.6rem;
-		object-fit: cover;
-	}
 
-	&--slab-blue {
-		z-index: 2;
-		top: 59.9rem;
-		left: calc(50% + 79.9rem);
-		width: 62rem;
-		height: 66rem;
-	}
 
-	// плашка-призрак справа от карточек первого раздела
-	&--ghost-right {
-		top: 60.3rem;
-		left: calc(50% + 48.7rem);
-		width: 44.5rem;
-		height: 55.4rem;
-		object-fit: cover;
-	}
 
 	&--m-edge,
 	&--m-tiles {
@@ -112,10 +89,7 @@
 	// плашки у краёв заходят на контент, когда полей мало
 	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
 		&--hero-edge,
-		&--hero-slab,
-		&--edge,
-		&--slab-blue,
-		&--ghost-right {
+		&--hero-slab {
 			display: none;
 		}
 	}
@@ -278,6 +252,9 @@
 }
 
 .services__section {
+	position: relative;
+	// свой слой: декор раздела (z-index: -1) лежит под карточками, но над сеткой страницы
+	isolation: isolate;
 	// снизу место под тень последнего ряда
 	padding-bottom: 4.8rem;
 
@@ -289,6 +266,186 @@
 		&,
 		&:has(> .services__grid--wide:last-child) {
 			padding-bottom: 2.4rem;
+		}
+	}
+}
+
+// Декор разделов: призраки, синие и светлые плашки у краёв — как в макете, где все разделы идут подряд.
+// Привязан к своему разделу (top — от заголовка раздела), поэтому в «Все» стоит как в макете, а при одном
+// разделе уходит под «Нужна консультация». Лежит под карточками
+.services__section-decor {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+}
+
+.services__section-decor-img {
+	position: absolute;
+	max-width: none;
+	object-fit: contain;
+
+	&--ghost {
+		object-fit: cover;
+	}
+
+	&--electric-blue-edge {
+		top: 30.1rem;
+		left: calc(50% + 79.2rem);
+		width: 16.8rem;
+		height: 79.6rem;
+	}
+
+	&--electric-blue {
+		top: 33.9rem;
+		left: calc(50% + 79.9rem);
+		width: 62rem;
+		height: 66rem;
+	}
+
+	&--electric-ghost-right {
+		top: 34.3rem;
+		left: calc(50% + 48.7rem);
+		width: 44.5rem;
+		height: 55.4rem;
+	}
+
+	&--lep-ghost-left {
+		top: -8.6rem;
+		left: calc(50% - 91.5rem);
+		width: 21.5rem;
+		height: 26.9rem;
+	}
+
+	&--lep-ghost-mid {
+		top: -8.6rem;
+		left: calc(50% + 22.9rem);
+		width: 41rem;
+		height: 50.5rem;
+	}
+
+	&--lep-ghost-right {
+		top: 41.9rem;
+		left: calc(50% + 55.3rem);
+		width: 40.7rem;
+		height: 50.7rem;
+	}
+
+	&--tp-ghost-left {
+		top: 30.9rem;
+		left: calc(50% - 91.5rem);
+		width: 21.5rem;
+		height: 26.8rem;
+	}
+
+	&--tp-ghost-mid {
+		top: 30.9rem;
+		left: calc(50% + 22.1rem);
+		width: 42.6rem;
+		height: 53.1rem;
+	}
+
+	&--tp-light-edge {
+		top: 90.1rem;
+		left: calc(50% - 97.3rem);
+		width: 15.9rem;
+		height: 44.6rem;
+	}
+
+	&--tp-light {
+		top: 89.8rem;
+		left: calc(50% - 132.6rem);
+		width: 47.3rem;
+		height: 41.7rem;
+	}
+
+	&--fire-ghost-left {
+		top: 27.5rem;
+		left: calc(50% - 91.5rem);
+		width: 21.5rem;
+		height: 26.9rem;
+	}
+
+	&--fire-blue-edge {
+		top: 30.9rem;
+		left: calc(50% + 79.7rem);
+		width: 16.8rem;
+		height: 79.6rem;
+	}
+
+	&--fire-blue {
+		top: 34.7rem;
+		left: calc(50% + 80.4rem);
+		width: 62rem;
+		height: 66rem;
+	}
+
+	&--fire-ghost-mid {
+		top: 38.3rem;
+		left: calc(50% + 23.7rem);
+		width: 41rem;
+		height: 50.5rem;
+	}
+
+	&--auto-ghost-left {
+		top: -6.4rem;
+		left: calc(50% - 91.5rem);
+		width: 21.5rem;
+		height: 26.8rem;
+	}
+
+	&--auto-ghost-mid {
+		top: -2.6rem;
+		left: calc(50% + 24rem);
+		width: 40.4rem;
+		height: 50.4rem;
+	}
+
+	&--auto-light-edge {
+		top: 42.8rem;
+		left: calc(50% - 97.2rem);
+		width: 15.9rem;
+		height: 44.6rem;
+	}
+
+	&--auto-light {
+		top: 42.5rem;
+		left: calc(50% - 132.5rem);
+		width: 47.3rem;
+		height: 41.7rem;
+	}
+
+	&--extra-blue-edge {
+		top: -11.8rem;
+		left: calc(50% + 82.6rem);
+		width: 16.8rem;
+		height: 79.6rem;
+	}
+
+	&--extra-blue {
+		top: -7.9rem;
+		left: calc(50% + 79.7rem);
+		width: 62rem;
+		height: 66rem;
+	}
+
+	&--extra-ghost-left {
+		top: -5.4rem;
+		left: calc(50% - 91.5rem);
+		width: 21.5rem;
+		height: 26.9rem;
+	}
+
+	// плашки у краёв заходят на карточки, когда полей мало
+	@media (max-width: 1599.98px) {
+		&--slab {
+			display: none;
+		}
+	}
+
+	@media (max-width: 1199.98px) {
+		&--ghost {
+			display: none;
 		}
 	}
 }
