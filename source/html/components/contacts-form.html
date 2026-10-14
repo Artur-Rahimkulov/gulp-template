@@ -1,7 +1,8 @@
-<!-- Форма «Остались вопросы?» («Контакты», «Услуга»): поля с подписью, которая поднимается при вводе,
-     прикрепление нескольких документов (js/modules/contacts-files.js), сообщение и согласие.
-     Параметры: compact: true — без компании и ИНН («Услуга»); message — подсказка в поле сообщения -->
-<form class="contacts-form @@if (context.compact) {contacts-form--compact}" action="#" method="post" enctype="multipart/form-data" novalidate>
+<!-- Форма «Остались вопросы?» («Контакты», «Услуга»): контактное лицо, e-mail, телефон с подписью, которая поднимается
+     при вводе, сообщение и согласие.
+     Параметры: compact: true — раскладка «Услуги» с прикреплением документов (js/modules/contacts-files.js);
+     message — подсказка в поле сообщения -->
+<form class="contacts-form @@if (context.compact) {contacts-form--compact}" action="#" method="post" @@if (context.compact) {enctype="multipart/form-data"} novalidate>
   <div class="contacts-form__grid">
     <label class="contacts-form__field contacts-form__field--name" data-form-group>
       <input class="contacts-form__input" type="text" name="name" placeholder=" " required data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя">
@@ -15,17 +16,8 @@
       <input class="contacts-form__input" type="tel" name="phone" placeholder=" " required data-type="phone" autocomplete="tel" data-required-message="Заполните поле" data-error-message="Некорректный телефон">
       <span class="contacts-form__label">Телефон</span>
     </label>
-    @@if (!context.compact) {
-    <label class="contacts-form__field contacts-form__field--company" data-form-group>
-      <input class="contacts-form__input" type="text" name="company" placeholder=" " autocomplete="organization">
-      <span class="contacts-form__label">Название компании</span>
-    </label>
-    <label class="contacts-form__field contacts-form__field--inn" data-form-group>
-      <input class="contacts-form__input" type="text" name="inn" placeholder=" " inputmode="numeric" maxlength="12">
-      <span class="contacts-form__label">ИНН</span>
-    </label>
-    }
 
+    @@if (context.compact) {
     <!-- документы: data-files — выбор, data-files-list — список прикреплённых (крестик убирает файл) -->
     <div class="contacts-form__files" data-files>
       <label class="contacts-form__attach">
@@ -35,6 +27,7 @@
       </label>
       <ul class="contacts-form__file-list" data-files-list></ul>
     </div>
+    }
   </div>
 
   <label class="contacts-form__message" data-form-group>
@@ -46,7 +39,7 @@
     <label class="contacts-form__consent" data-form-group-checkbox>
       <input class="contacts-form__checkbox" type="checkbox" name="consent" required>
       <span class="contacts-form__box" aria-hidden="true"></span>
-      <span class="contacts-form__consent-text">Нажимая на&nbsp;кнопку «Отправить» Вы&nbsp;выражаете своё <a href="policy.html" target="_blank" rel="noopener noreferrer">согласие</a> на&nbsp;обработку Ваших персональных данных в&nbsp;соответствии с&nbsp;Федеральным законом от&nbsp;27&nbsp;июля 2006&nbsp;г. №&nbsp;152-ФЗ «О&nbsp;персональных данных» и&nbsp;<a href="policy.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности компании</a></span>
+      <span class="contacts-form__consent-text">Нажимая на&nbsp;кнопку «Отправить» Вы&nbsp;выражаете своё <a href="policy.html" target="_blank" rel="noopener noreferrer">согласие</a> на&nbsp;обработку Ваших персональных данных в&nbsp;соответствии с&nbsp;Федеральным законом от&nbsp;27&nbsp;июля 2006&nbsp;г.<br class="contacts-form__consent-br"> №&nbsp;152-ФЗ «О&nbsp;персональных данных» и&nbsp;<a href="policy.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности компании</a></span>
     </label>
   </div>
 </form>

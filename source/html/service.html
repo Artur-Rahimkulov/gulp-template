@@ -79,23 +79,27 @@
 					</div>
 				</section>
 
-				<!-- Комплекс работ в рамках услуги: карточки других услуг -->
-				<section class="service-works">
+				<!-- Комплекс работ в рамках услуги: карточки других услуг; на десктопе сетка из трёх, на мобильной — слайдер по одной (js/modules/service.js) -->
+				<section class="service-works" data-service-works>
 					<img class="service-works__decor service-works__decor--ghost-left" src="assets/img/ghost-d.webp" width="209" height="266" alt="" aria-hidden="true">
 					<img class="service-works__decor service-works__decor--ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
+					<span class="service-works__decor service-works__decor--ghost-m" aria-hidden="true"><img src="assets/img/service-ghost.webp" width="380" height="507" alt=""></span>
 					<div class="container">
 						<h2 class="service-works__title">Комплекс работ в&nbsp;рамках услуги</h2>
-						<ul class="service-works__list">
-							<li>
-								@@include("source/html/components/service-card.html", {"title": "Электроснабжение газового оборудования (ЭГ)", "bg": "service-card-bg", "img": "service-card-gas", "imgWidth": "231", "imgHeight": "223", "mod": "gas", "href": "service.html"})
-							</li>
-							<li>
-								@@include("source/html/components/service-card.html", {"title": "Электромонтаж силового оборудования (ЭМ)", "bg": "service-card-motor", "href": "service.html"})
-							</li>
-							<li>
-								@@include("source/html/components/service-card.html", {"title": "Внутреннее электроосвещение (ЭО)", "bg": "service-card-bg", "img": "service-card-light", "imgWidth": "342", "imgHeight": "231", "mod": "light", "href": "service.html"})
-							</li>
-						</ul>
+						<div class="swiper service-works__slider">
+							<ul class="swiper-wrapper service-works__list">
+								<li class="swiper-slide">
+									@@include("source/html/components/service-card.html", {"title": "Электроснабжение газового оборудования (ЭГ)", "bg": "service-card-bg", "img": "service-card-gas", "imgWidth": "231", "imgHeight": "223", "mod": "gas", "href": "service.html"})
+								</li>
+								<li class="swiper-slide">
+									@@include("source/html/components/service-card.html", {"title": "Электромонтаж силового оборудования (ЭМ)", "bg": "service-card-motor", "href": "service.html"})
+								</li>
+								<li class="swiper-slide">
+									@@include("source/html/components/service-card.html", {"title": "Внутреннее электроосвещение (ЭО)", "bg": "service-card-bg", "img": "service-card-light", "imgWidth": "342", "imgHeight": "231", "mod": "light", "href": "service.html"})
+								</li>
+							</ul>
+						</div>
+						@@include("source/html/ui/slider-arrows.html", {"skew": true, "class": "service-works__arrows"})
 					</div>
 				</section>
 

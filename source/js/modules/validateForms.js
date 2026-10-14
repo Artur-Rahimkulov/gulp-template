@@ -40,6 +40,9 @@ export const validateForms = () => {
       const fields = form.querySelectorAll("input, textarea");
 
       fields.forEach(field => {
+        // поле, которого нет на странице (display: none, например согласие «Карьеры» на мобильной), не проверяем
+        if (field.type !== "hidden" && !field.getClientRects().length) return;
+
         const value = field.value.trim();
         const isRequired = field.hasAttribute("required");
         const dataType = field.dataset.type;

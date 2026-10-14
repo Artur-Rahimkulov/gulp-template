@@ -15,8 +15,11 @@
       <input class="vacancy-form__input" type="email" name="email" placeholder="Почта*" aria-label="Почта" required data-type="email" autocomplete="email" data-required-message="Заполните поле" data-error-message="Некорректный email">
     </div>
   </div>
-  <div class="rich-text vacancy-form__consent">
-    <p>Нажимая на&nbsp;кнопку «Отправить заявку» я&nbsp;принимаю условия <a href="policy.html" target="_blank" rel="noopener noreferrer">Политики конфиденциальности</a></p>
-  </div>
-  @@include("source/html/ui/button.html", {"type": "submit", "name": "Отправить", "class": "btn--lg vacancy-form__btn"})
+  <!-- согласие: на десктопе — чекбокс, на мобильной в макете его нет (скрытое поле не проверяется, js/modules/validateForms.js) -->
+  <label class="vacancy-form__consent" data-form-group-checkbox>
+    <input class="vacancy-form__checkbox" type="checkbox" name="consent" required>
+    <span class="vacancy-form__box" aria-hidden="true"></span>
+    <span class="vacancy-form__consent-text">Нажимая на&nbsp;кнопку «Отправить заявку»<br> я&nbsp;принимаю условия <a href="policy.html" target="_blank" rel="noopener noreferrer">Политики конфиденциальности</a></span>
+  </label>
+  @@include("source/html/ui/button.html", {"type": "submit", "name": "Отправить заявку", "class": "btn--lg vacancy-form__btn"})
 </form>

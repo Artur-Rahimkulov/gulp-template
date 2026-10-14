@@ -579,9 +579,14 @@
 		background-color: #e9eef1;
 	}
 
-	// в мобильном макете блока нет
+	// мобильная: светлый фон от верха блока, заголовок на 40, слайдер по одной карточке, стрелки на 18 под ней
 	@include vp-mobile {
-		display: none;
+		min-height: 0;
+		padding: 4rem 0 6rem;
+
+		&::before {
+			top: 0;
+		}
 	}
 
 	&__decor {
@@ -603,6 +608,42 @@
 			width: 40.7rem;
 			height: 50.7rem;
 		}
+
+		// кусок призрака у нижнего края — только на мобильной
+		&--ghost-m {
+			display: none;
+		}
+
+		@include vp-mobile {
+			&--ghost-left {
+				display: none;
+			}
+
+			&--ghost-right {
+				top: 0;
+				left: calc(50% - 5.8rem);
+				width: 25.5rem;
+				height: 31.8rem;
+			}
+
+			&--ghost-m {
+				bottom: 0;
+				left: 0.1rem;
+				display: block;
+				width: 17.1rem;
+				height: 6rem;
+				overflow: hidden;
+
+				img {
+					position: absolute;
+					top: 0.03rem;
+					left: -2.46rem;
+					width: 26.1rem;
+					max-width: none;
+					height: 34.6rem;
+				}
+			}
+		}
 	}
 
 	.container {
@@ -616,18 +657,61 @@
 		line-height: 3.4rem;
 		font-weight: 600;
 		color: var(--color-text);
+
+		@include vp-mobile {
+			margin-left: 0.1rem;
+			font-size: 2rem;
+			line-height: 3rem;
+		}
+	}
+
+	&__slider {
+		margin-top: 3.1rem;
+
+		// на десктопе слайдера нет — тени карточек не обрезаем
+		@include vp-desktop {
+			overflow: visible;
+		}
+
+		// карточка 356 на 18 от края; снизу место под тень, стрелки — сразу под ним
+		@include vp-mobile {
+			margin: 2rem 0 0 0.2rem;
+			padding-bottom: 1.8rem;
+		}
 	}
 
 	&__list {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 4.7rem;
-		margin: 3.1rem 0 0;
+		margin: 0;
 		padding: 0;
 		list-style: none;
 
+		@include vp-desktop {
+			&.swiper-wrapper {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 4.7rem;
+			}
+
+			.swiper-slide {
+				width: auto;
+			}
+		}
+
 		@include vp-narrow {
-			gap: 2.4rem;
+			&.swiper-wrapper {
+				gap: 2.4rem;
+			}
+		}
+	}
+
+	&__arrows.slider-arrows {
+		display: none;
+
+		@include vp-mobile {
+			display: flex;
+			justify-content: flex-end;
+			gap: 1.3rem;
+			margin-right: 0.7rem;
 		}
 	}
 }
@@ -638,6 +722,11 @@
 	display: block;
 	height: 37.7rem;
 	color: var(--color-white);
+
+	// мобильная: плашка 356×329 без места под тень (его даёт слайдер)
+	@include vp-mobile {
+		height: 32.9rem;
+	}
 	isolation: isolate;
 	// иллюстрации не выходят за синюю плашку по бокам
 	clip-path: inset(0 0 -2rem 0);
@@ -664,6 +753,11 @@
 		background-repeat: no-repeat;
 		background-position: 50% 0;
 		background-size: cover;
+
+		// в мобильном макете фон прижат к левому краю
+		@include vp-mobile {
+			background-position: 0 0;
+		}
 	}
 
 	&__img {
@@ -678,6 +772,10 @@
 		left: calc(50% - 10.95rem);
 		width: 23.1rem;
 		height: 22.3rem;
+
+		@include vp-mobile {
+			left: 7.1rem;
+		}
 	}
 
 	&--light &__img {
@@ -696,13 +794,20 @@
 		left: 3.1rem;
 		max-width: min(27.4rem, calc(100% - 13rem));
 
+		font-size: 1.8rem;
+		line-height: 2.4rem;
+		font-weight: 600;
+
 		@include vp-narrow {
 			font-size: 1.5rem;
 			line-height: 2rem;
 		}
-		font-size: 1.8rem;
-		line-height: 2.4rem;
-		font-weight: 600;
+
+		@include vp-mobile {
+			left: 2rem;
+			max-width: 27.4rem;
+			font-size: 1.6rem;
+		}
 	}
 
 	// белая скошенная плашка со стрелкой
@@ -712,6 +817,10 @@
 		position: absolute;
 		top: 25.9rem;
 		right: 3rem;
+
+		@include vp-mobile {
+			right: 2rem;
+		}
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1369,8 +1478,11 @@
 		}
 	}
 
+	// на десктопе под «Прикрепить документ» линии нет
 	.contacts-form__attach {
-		border-bottom: none;
+		@include vp-desktop {
+			border-bottom: none;
+		}
 	}
 
 	.contacts-form__file-list {

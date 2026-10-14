@@ -571,25 +571,115 @@
 		}
 	}
 
+	// согласие: чекбокс 27 и текст в две строки (до и после «Отправить заявку») на 28 ниже последней линии,
+	// кнопка — на 85 ниже верха согласия
 	&__consent {
-		margin: 5.1rem 0 2.4rem;
+		position: relative;
+		display: block;
+		min-height: 2.7rem;
+		margin: 2.8rem 0 3.7rem;
+		padding-left: 3.2rem;
+		cursor: pointer;
+
+		.error-message {
+			margin-top: 0.4rem;
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+			color: #ffb4b4;
+		}
+
+		// на мобильной чекбокса нет — только текст на 49 ниже линии, кнопка на 20 ниже
+		@include vp-mobile {
+			margin: 4.9rem 0 2rem;
+			padding-left: 0;
+			cursor: default;
+		}
+	}
+
+	&__checkbox {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+
+	&__box {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2.7rem;
+		height: 2.7rem;
+		background-color: #082454;
+		border: 0.1rem solid #3c5b91;
+		transition: border-color var(--default-transition), background-color var(--default-transition);
+
+		// галочка
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0.5rem;
+			left: 0.9rem;
+			width: 0.7rem;
+			height: 1.2rem;
+			border: solid var(--color-white);
+			border-width: 0 0.2rem 0.2rem 0;
+			opacity: 0;
+			transform: rotate(45deg);
+			transition: opacity var(--default-transition);
+		}
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+
+	&__consent:hover &__box {
+		border-color: #6fb0ff;
+	}
+
+	&__checkbox:focus-visible + &__box {
+		outline: 0.2rem solid #6fb0ff;
+		outline-offset: 0.2rem;
+	}
+
+	&__checkbox:checked + &__box {
+		background-color: #0953c1;
+		border-color: #6fb0ff;
+
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	&__consent.has-danger &__box {
+		border-color: #ffb4b4;
+	}
+
+	&__consent-text {
+		display: block;
+		max-width: 33.8rem;
 		font-size: 1.2rem;
-		line-height: 1.9rem;
+		line-height: 1.6rem;
+		font-weight: 500;
 		color: rgba(255, 255, 255, 0.7);
 
 		a {
 			color: inherit;
-			text-decoration: underline;
-			text-underline-offset: 0.2rem;
 			transition: color var(--default-transition);
 
 			@include hover-focus {
 				color: var(--color-white);
+				text-decoration: underline;
 			}
 		}
 
 		@include vp-mobile {
-			margin: 4.9rem 0 2rem;
+			max-width: none;
+			line-height: 1.9rem;
 		}
 	}
 
