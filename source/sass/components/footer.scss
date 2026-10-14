@@ -26,6 +26,10 @@
 }
 
 .footer-decor__img {
+	// синяя плашка у правого края: шире 1920 прижата к краю экрана (как в макете), уже — стоит на месте
+	// относительно контента и уходит за край, а не наезжает на текст
+	--slab-right: max(calc(100% - 30rem), calc(50% + 66rem));
+
 	position: absolute;
 	max-width: none;
 	// как в макете: картинка вписана в рамку слоя без искажения пропорций
@@ -34,7 +38,7 @@
 	// синяя плашка у правого края (большинство страниц)
 	&--blue {
 		top: -33.8rem;
-		right: -32rem;
+		left: var(--slab-right);
 		width: 62rem;
 		height: 66rem;
 	}
@@ -42,7 +46,7 @@
 	// «Карьера»: та же плашка выше
 	&--blue-high {
 		top: -50.3rem;
-		right: -32rem;
+		left: var(--slab-right);
 		width: 62rem;
 		height: 66rem;
 	}
@@ -50,7 +54,7 @@
 	// главная: синяя плашка меньше и ниже
 	&--home-blue {
 		top: -14.7rem;
-		right: -27.2rem;
+		left: max(calc(100% - 20.4rem), calc(50% + 75.6rem));
 		width: 47.6rem;
 		height: 56.3rem;
 	}
@@ -69,7 +73,7 @@
 	// слева светлая плашка и призрак
 	&--about-back {
 		top: -33.8rem;
-		right: -32rem;
+		left: var(--slab-right);
 		width: 62rem;
 		height: 66rem;
 		clip-path: inset(33.8rem 0 0);
@@ -180,44 +184,27 @@
 		display: none;
 	}
 
-	// плашки лежат в полях за контейнером; уже 1900px полей не хватает и они подходят к тексту вплотную
-	@media (max-width: 1899.98px) {
+	// при сужении экрана плашки стоят на месте относительно контента и уходят за край раньше, чем коснутся текста
+	// (проверено по всем страницам от 1920 до 900), поэтому по ширине не скрываются
+
+	// на мобильной — только светлые плашки главной и «О компании» и полоски у левого края
+	@include vp-mobile {
 		&--blue,
 		&--blue-high,
 		&--home-blue,
 		&--about-back,
 		&--about-blue,
-		&--about-light,
 		&--about-ghost,
-		&--service-light,
-		&--service-blue,
-		&--contacts-blue {
-			display: none;
-		}
-	}
-
-	// у «Услуг» поля шире — плашки помещаются до 1600
-	@media (max-width: 1599.98px) {
 		&--services-light,
 		&--services-light-edge,
 		&--services-blue-edge,
-		&--services-blue {
-			display: none;
-		}
-	}
-
-	// на узком десктопе светлая плашка «Проектов» заходит на текст
-	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
-		&--projects-light {
-			display: none;
-		}
-	}
-
-	// на мобильной — только светлые плашки главной и «О компании» и полоски у левого края
-	@include vp-mobile {
+		&--services-blue,
 		&--projects-light,
 		&--projects-ghost-left,
-		&--projects-ghost-right {
+		&--projects-ghost-right,
+		&--service-light,
+		&--service-blue,
+		&--contacts-blue {
 			display: none;
 		}
 
