@@ -60,6 +60,16 @@
 		left: calc(50% - 96rem);
 		width: 15.9rem;
 		height: 44.6rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 0;
+		}
+
+		// на контент наезжает плашка, от которой эта тень, — скрываем вместе с ней
+		@media (min-width: $vp-desktop) and (max-width: 1499.98px) {
+			display: none;
+		}
 	}
 
 	&--hero-slab {
@@ -68,6 +78,16 @@
 		left: calc(50% - 131.3rem);
 		width: 49.7rem;
 		height: 43.9rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -35.3rem;
+		}
+
+		// на контент наезжает уже 1500px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1499.98px) {
+			display: none;
+		}
 	}
 
 	&--tiles {
@@ -87,13 +107,6 @@
 	}
 
 	// плашки у краёв заходят на контент, когда полей мало
-	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
-		&--hero-edge,
-		&--hero-slab {
-			display: none;
-		}
-	}
-
 	@include vp-mobile {
 		display: none;
 
@@ -246,8 +259,14 @@
 	@include vp-mobile {
 		gap: 4.8rem;
 		margin-top: 4.9rem;
-		// карточки 328 от 30
-		padding: 0 3.2rem 0 3rem;
+	}
+}
+
+// раздел — на всю ширину экрана (от его краёв отсчитывается декор), содержимое — в контейнере
+.services__section-inner {
+	// мобильная: карточки 328 от 30
+	@include vp-mobile {
+		padding: 0 calc(var(--container-padding) + 3.2rem) 0 calc(var(--container-padding) + 3rem);
 	}
 }
 
@@ -258,13 +277,13 @@
 	// снизу место под тень последнего ряда
 	padding-bottom: 4.8rem;
 
-	&:has(> .services__grid--wide:last-child) {
+	&:has(> .services__section-inner > .services__grid--wide:last-child) {
 		padding-bottom: 6.6rem;
 	}
 
 	@include vp-mobile {
 		&,
-		&:has(> .services__grid--wide:last-child) {
+		&:has(> .services__section-inner > .services__grid--wide:last-child) {
 			padding-bottom: 2.4rem;
 		}
 	}
@@ -294,6 +313,12 @@
 		left: calc(50% + 79.2rem);
 		width: 16.8rem;
 		height: 79.6rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: 0;
+		}
 	}
 
 	&--electric-blue {
@@ -301,6 +326,12 @@
 		left: calc(50% + 79.9rem);
 		width: 62rem;
 		height: 66rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -45.9rem;
+		}
 	}
 
 	&--electric-ghost-right {
@@ -308,6 +339,12 @@
 		left: calc(50% + 48.7rem);
 		width: 44.5rem;
 		height: 55.4rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: 2.8rem;
+		}
 	}
 
 	&--lep-ghost-left {
@@ -315,6 +352,11 @@
 		left: calc(50% - 91.5rem);
 		width: 21.5rem;
 		height: 26.9rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 4.5rem;
+		}
 	}
 
 	&--lep-ghost-mid {
@@ -329,6 +371,17 @@
 		left: calc(50% + 55.3rem);
 		width: 40.7rem;
 		height: 50.7rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: 0;
+		}
+
+		// на контент наезжает уже 990px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 989.98px) {
+			display: none;
+		}
 	}
 
 	&--tp-ghost-left {
@@ -336,6 +389,11 @@
 		left: calc(50% - 91.5rem);
 		width: 21.5rem;
 		height: 26.8rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 4.5rem;
+		}
 	}
 
 	&--tp-ghost-mid {
@@ -350,6 +408,16 @@
 		left: calc(50% - 97.3rem);
 		width: 15.9rem;
 		height: 44.6rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -1.3rem;
+		}
+
+		// на контент наезжает плашка, от которой эта тень, — скрываем вместе с ней
+		@media (min-width: $vp-desktop) and (max-width: 1579.98px) {
+			display: none;
+		}
 	}
 
 	&--tp-light {
@@ -357,6 +425,16 @@
 		left: calc(50% - 132.6rem);
 		width: 47.3rem;
 		height: 41.7rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -36.6rem;
+		}
+
+		// на контент наезжает уже 1580px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1579.98px) {
+			display: none;
+		}
 	}
 
 	&--fire-ghost-left {
@@ -364,6 +442,11 @@
 		left: calc(50% - 91.5rem);
 		width: 21.5rem;
 		height: 26.9rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 4.5rem;
+		}
 	}
 
 	&--fire-blue-edge {
@@ -371,6 +454,12 @@
 		left: calc(50% + 79.7rem);
 		width: 16.8rem;
 		height: 79.6rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -0.5rem;
+		}
 	}
 
 	&--fire-blue {
@@ -378,6 +467,12 @@
 		left: calc(50% + 80.4rem);
 		width: 62rem;
 		height: 66rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -46.4rem;
+		}
 	}
 
 	&--fire-ghost-mid {
@@ -392,6 +487,11 @@
 		left: calc(50% - 91.5rem);
 		width: 21.5rem;
 		height: 26.8rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 4.5rem;
+		}
 	}
 
 	&--auto-ghost-mid {
@@ -406,6 +506,11 @@
 		left: calc(50% - 97.2rem);
 		width: 15.9rem;
 		height: 44.6rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -1.2rem;
+		}
 	}
 
 	&--auto-light {
@@ -413,6 +518,11 @@
 		left: calc(50% - 132.5rem);
 		width: 47.3rem;
 		height: 41.7rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -36.5rem;
+		}
 	}
 
 	&--extra-blue-edge {
@@ -420,6 +530,12 @@
 		left: calc(50% + 82.6rem);
 		width: 16.8rem;
 		height: 79.6rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -3.4rem;
+		}
 	}
 
 	&--extra-blue {
@@ -427,6 +543,12 @@
 		left: calc(50% + 79.7rem);
 		width: 62rem;
 		height: 66rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -45.7rem;
+		}
 	}
 
 	&--extra-ghost-left {
@@ -434,19 +556,16 @@
 		left: calc(50% - 91.5rem);
 		width: 21.5rem;
 		height: 26.9rem;
-	}
 
-	// плашки у краёв заходят на карточки, когда полей мало
-	@media (max-width: 1599.98px) {
-		&--slab {
-			display: none;
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 4.5rem;
 		}
 	}
 
-	@media (max-width: 1199.98px) {
-		&--ghost {
-			display: none;
-		}
+	// в мобильном макете декора разделов нет
+	@include vp-mobile {
+		display: none;
 	}
 }
 

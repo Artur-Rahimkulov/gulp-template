@@ -73,6 +73,17 @@
 	width: 49.6rem;
 	max-width: none;
 	pointer-events: none;
+
+	// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+	@include vp-desktop {
+		left: auto;
+		right: -26.2rem;
+	}
+
+	// на контент наезжает уже 1200px — скрываем
+	@media (min-width: $vp-desktop) and (max-width: 1199.98px) {
+		display: none;
+	}
 }
 
 // Галерея новости
@@ -109,6 +120,12 @@
 	width: 40.7rem;
 	max-width: none;
 	pointer-events: none;
+
+	// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+	@include vp-desktop {
+		left: auto;
+		right: -4.7rem;
+	}
 }
 
 .article-gallery__slab {
@@ -119,6 +136,11 @@
 	width: 49.7rem;
 	max-width: none;
 	pointer-events: none;
+
+	// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+	@include vp-desktop {
+		left: -23.7rem;
+	}
 }
 
 .article__slab,
@@ -130,12 +152,6 @@
 }
 
 // уже 1440 плашка-призрак заходит на дату карточки «Другие новости»
-.article-gallery__ghost {
-	@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
-		display: none;
-	}
-}
-
 // «Другие новости»
 // над плашкой-призраком галереи: призрак заходит в секцию, но остаётся под карточками
 .related {

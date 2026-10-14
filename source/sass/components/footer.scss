@@ -67,6 +67,16 @@
 		width: 49.7rem;
 		height: 43.9rem;
 		clip-path: inset(24.5rem 0 0);
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -31.1rem;
+		}
+
+		// на контент наезжает уже 1780px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1779.98px) {
+			display: none;
+		}
 	}
 
 	// «О компании»: две синих плашки у правого края — задняя внутри подвала (обрезана по его верху) и передняя,
@@ -84,6 +94,17 @@
 		left: calc(50% + 65rem);
 		width: 47.6rem;
 		height: 56.3rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -16.6rem;
+		}
+
+		// на контент наезжает уже 1680px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1679.98px) {
+			display: none;
+		}
 	}
 
 	&--about-light {
@@ -91,6 +112,11 @@
 		left: calc(50% - 134.6rem);
 		width: 49.7rem;
 		height: 43.9rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -38.6rem;
+		}
 	}
 
 	&--about-ghost {
@@ -98,6 +124,11 @@
 		left: calc(50% - 85.7rem);
 		width: 20.2rem;
 		height: 25.8rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 10.3rem;
+		}
 	}
 
 	// «Услуги»: слева светлая плашка с тенью края, справа синяя с тенью края
@@ -106,6 +137,16 @@
 		left: calc(50% - 132.5rem);
 		width: 47.3rem;
 		height: 41.7rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -36.5rem;
+		}
+
+		// на контент наезжает уже 950px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 949.98px) {
+			display: none;
+		}
 	}
 
 	&--services-light-edge {
@@ -113,6 +154,16 @@
 		left: calc(50% - 97.2rem);
 		width: 15.9rem;
 		height: 44.6rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -1.2rem;
+		}
+
+		// на контент наезжает уже 950px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 949.98px) {
+			display: none;
+		}
 	}
 
 	&--services-blue-edge {
@@ -120,6 +171,17 @@
 		left: calc(50% + 79.7rem);
 		width: 16.8rem;
 		height: 79.6rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -0.5rem;
+		}
+
+		// на контент наезжает плашка, от которой эта тень, — скрываем вместе с ней
+		@media (min-width: $vp-desktop) and (max-width: 1479.98px) {
+			display: none;
+		}
 	}
 
 	&--services-blue {
@@ -127,6 +189,17 @@
 		left: calc(50% + 79.4rem);
 		width: 47.6rem;
 		height: 56.3rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -31rem;
+		}
+
+		// на контент наезжает уже 1480px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1479.98px) {
+			display: none;
+		}
 	}
 
 	// «Проекты»: светлая плашка слева и призраки; правый — ниже, чем в макете (311),
@@ -136,6 +209,11 @@
 		left: calc(50% - 132.6rem);
 		width: 47.3rem;
 		height: 41.7rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -36.6rem;
+		}
 	}
 
 	&--projects-ghost-left {
@@ -145,6 +223,11 @@
 		height: 29.9rem;
 		object-fit: cover;
 		object-position: 50% 100%;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: 9.9rem;
+		}
 	}
 
 	&--projects-ghost-right {
@@ -161,6 +244,16 @@
 		left: calc(50% - 134rem);
 		width: 49.7rem;
 		height: 43.9rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -38rem;
+		}
+
+		// на контент наезжает уже 950px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 949.98px) {
+			display: none;
+		}
 	}
 
 	&--service-blue {
@@ -168,6 +261,17 @@
 		left: calc(50% + 82.8rem);
 		width: 49.6rem;
 		height: 47.4rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -36.4rem;
+		}
+
+		// на контент наезжает уже 1430px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1429.98px) {
+			display: none;
+		}
 	}
 
 	// «Контакты»: синяя плашка справа, на 7 заходит на карту
@@ -176,6 +280,17 @@
 		left: calc(50% + 68.5rem);
 		width: 62rem;
 		height: 66rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -34.5rem;
+		}
+
+		// на контент наезжает уже 1530px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1529.98px) {
+			display: none;
+		}
 	}
 
 	// полоски у левого края — только на мобильной

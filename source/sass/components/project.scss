@@ -55,6 +55,12 @@
 	@include vp-mobile {
 		display: none;
 	}
+
+	// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+	@include vp-desktop {
+		left: auto;
+		right: -21.8rem;
+	}
 }
 
 // «О проекте»: текст + цифры
@@ -119,6 +125,12 @@
 
 		@include vp-mobile {
 			display: none;
+		}
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: 1.3rem;
 		}
 	}
 
@@ -250,6 +262,16 @@
 		width: 49.7rem;
 		max-width: none;
 		pointer-events: none;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -30.7rem;
+		}
+
+		// на контент наезжает уже 1800px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1799.98px) {
+			display: none;
+		}
 	}
 
 	&__tiles,
@@ -330,6 +352,11 @@
 
 		@include vp-mobile {
 			display: none;
+		}
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -17rem;
 		}
 	}
 

@@ -40,6 +40,17 @@
 	width: 49.6rem;
 	max-width: none;
 	pointer-events: none;
+
+	// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+	@include vp-desktop {
+		left: auto;
+		right: -23.4rem;
+	}
+
+	// на контент наезжает уже 910px — скрываем
+	@media (min-width: $vp-desktop) and (max-width: 909.98px) {
+		display: none;
+	}
 }
 
 // Плашка-призрак у левого края
@@ -51,6 +62,11 @@
 	width: 40.7rem;
 	max-width: none;
 	pointer-events: none;
+
+	// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+	@include vp-desktop {
+		left: -17rem;
+	}
 }
 
 .media-list__slab,

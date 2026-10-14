@@ -41,22 +41,24 @@
 						</div>
 					</div>
 
-					<div class="container services__list">
+					<div class="services__list">
 						<section class="services__section" id="electric" role="tabpanel" data-tab-panel="electric">
 							<div class="services__section-decor" aria-hidden="true">
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--electric-blue-edge" src="assets/img/services-edge.webp" width="168" height="796" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--electric-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--electric-ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" loading="lazy">
 							</div>
-							<h2 class="services__section-title">Электрика и&nbsp;освещение</h2>
-							<div class="services__grid services__grid--wide">
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "es", "title": "Электроснабжение (ЭС)", "text": "Проектирование и&nbsp;монтаж систем электроснабжения любой сложности:<br> от&nbsp;точки ввода на&nbsp;объект<br> до&nbsp;распределительных щитов.<br> Выполняем полный цикл", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "en", "title": "Наружное освещение (ЭН)", "text": "Предлагаем комплексные решения по&nbsp;проектированию и&nbsp;монтажу систем наружного электроосвещения: от&nbsp;городских улиц и&nbsp;пешеходных зон до&nbsp;архитектурной подсветки зданий и&nbsp;объектов", "href": "service.html"})
-							</div>
-							<div class="services__grid">
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "eg", "title": "Электроснабжение газового оборудования (ЭГ)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "em", "title": "Электромонтаж силового оборудования (ЭМ)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "eo", "title": "Внутреннее электроосвещение (ЭО)", "href": "service.html"})
+							<div class="container services__section-inner">
+								<h2 class="services__section-title">Электрика и&nbsp;освещение</h2>
+								<div class="services__grid services__grid--wide">
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "es", "title": "Электроснабжение (ЭС)", "text": "Проектирование и&nbsp;монтаж систем электроснабжения любой сложности:<br> от&nbsp;точки ввода на&nbsp;объект<br> до&nbsp;распределительных щитов.<br> Выполняем полный цикл", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "en", "title": "Наружное освещение (ЭН)", "text": "Предлагаем комплексные решения по&nbsp;проектированию и&nbsp;монтажу систем наружного электроосвещения: от&nbsp;городских улиц и&nbsp;пешеходных зон до&nbsp;архитектурной подсветки зданий и&nbsp;объектов", "href": "service.html"})
+								</div>
+								<div class="services__grid">
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "eg", "title": "Электроснабжение газового оборудования (ЭГ)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "em", "title": "Электромонтаж силового оборудования (ЭМ)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "eo", "title": "Внутреннее электроосвещение (ЭО)", "href": "service.html"})
+								</div>
 							</div>
 						</section>
 
@@ -66,10 +68,12 @@
 								<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--lep-ghost-mid" src="assets/img/ghost-b.webp" width="404" height="497" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--lep-ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" loading="lazy">
 							</div>
-							<h2 class="services__section-title">Линии электропередачи (ЛЭП)</h2>
-							<div class="services__grid services__grid--wide">
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "vl", "title": "Воздушные линии (ВЛ,&nbsp;ВЛЗ,&nbsp;ВЛИ)", "text": "Строительство воздушных линий электропередачи напряжением 0,4–10&nbsp;кВ", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "kl", "title": "Кабельные линии (КЛ)", "text": "Предлагаем комплексные решения по&nbsp;проектированию и&nbsp;монтажу систем наружного электроосвещения: от&nbsp;городских улиц и&nbsp;пешеходных зон до&nbsp;архитектурной подсветки зданий и&nbsp;объектов", "href": "service.html"})
+							<div class="container services__section-inner">
+								<h2 class="services__section-title">Линии электропередачи (ЛЭП)</h2>
+								<div class="services__grid services__grid--wide">
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "vl", "title": "Воздушные линии (ВЛ,&nbsp;ВЛЗ,&nbsp;ВЛИ)", "text": "Строительство воздушных линий электропередачи напряжением 0,4–10&nbsp;кВ", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "kl", "title": "Кабельные линии (КЛ)", "text": "Предлагаем комплексные решения по&nbsp;проектированию и&nbsp;монтажу систем наружного электроосвещения: от&nbsp;городских улиц и&nbsp;пешеходных зон до&nbsp;архитектурной подсветки зданий и&nbsp;объектов", "href": "service.html"})
+								</div>
 							</div>
 						</section>
 
@@ -80,14 +84,16 @@
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--tp-light-edge" src="assets/img/projects-edge.webp" width="159" height="446" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--tp-light" src="assets/img/slab-white.webp" width="497" height="439" alt="" loading="lazy">
 							</div>
-							<h2 class="services__section-title">Трансформаторные подстанции<br> и&nbsp;распределительные устройства</h2>
-							<div class="services__grid services__grid--wide">
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "bktp", "title": "Блочные комплектные трансформаторные подстанции (БКТП)", "text": "Строительство воздушных линий электропередачи напряжением 0,4–10&nbsp;кВ", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "ktpn", "title": "Комплектные трансформаторные подстанции наружной установки (КТПН)", "text": "Проектирование, монтаж и&nbsp;подключение КТПН мощностью до&nbsp;2&nbsp;500&nbsp;кВА", "href": "service.html"})
-							</div>
-							<div class="services__grid">
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "mast", "title": "Мачтовые подстанции (ТП&nbsp;на&nbsp;опоре&nbsp;ВЛ)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "oru", "title": "Открытые распределительные устройства (ОРУ)", "href": "service.html"})
+							<div class="container services__section-inner">
+								<h2 class="services__section-title">Трансформаторные подстанции<br> и&nbsp;распределительные устройства</h2>
+								<div class="services__grid services__grid--wide">
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "bktp", "title": "Блочные комплектные трансформаторные подстанции (БКТП)", "text": "Строительство воздушных линий электропередачи напряжением 0,4–10&nbsp;кВ", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "ktpn", "title": "Комплектные трансформаторные подстанции наружной установки (КТПН)", "text": "Проектирование, монтаж и&nbsp;подключение КТПН мощностью до&nbsp;2&nbsp;500&nbsp;кВА", "href": "service.html"})
+								</div>
+								<div class="services__grid">
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "mast", "title": "Мачтовые подстанции (ТП&nbsp;на&nbsp;опоре&nbsp;ВЛ)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "oru", "title": "Открытые распределительные устройства (ОРУ)", "href": "service.html"})
+								</div>
 							</div>
 						</section>
 
@@ -98,17 +104,19 @@
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--fire-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--fire-ghost-mid" src="assets/img/ghost-b.webp" width="404" height="497" alt="" loading="lazy">
 							</div>
-							<h2 class="services__section-title">Пожарная безопасность и&nbsp;слаботочные системы</h2>
-							<div class="services__grid services__grid--wide">
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "aps", "title": "Автоматическая пожарная сигнализация (АПС)", "text": "Внедрение адресных и&nbsp;неадресных систем пожарной сигнализации.", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "soue", "title": "Система оповещения и&nbsp;управления эвакуацией (СОУЭ)", "text": "Оснащение объектов речевыми, световыми (табло «Выход») и&nbsp;звуковыми оповещателями, громкоговорителями по&nbsp;заданному алгоритму.", "href": "service.html"})
-							</div>
-							<div class="services__grid">
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "aupt", "title": "Автоматические установки пожаротушения (АУПТ)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "spdv", "title": "Система противодымной защиты вентиляции (СПДВ)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "ss", "title": "Системы связи (СС)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "sks", "title": "Структурированная кабельная система (СКС)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "skud", "title": "Система контроля и&nbsp;управления доступом (СКУД)", "href": "service.html"})
+							<div class="container services__section-inner">
+								<h2 class="services__section-title">Пожарная безопасность и&nbsp;слаботочные системы</h2>
+								<div class="services__grid services__grid--wide">
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "aps", "title": "Автоматическая пожарная сигнализация (АПС)", "text": "Внедрение адресных и&nbsp;неадресных систем пожарной сигнализации.", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "soue", "title": "Система оповещения и&nbsp;управления эвакуацией (СОУЭ)", "text": "Оснащение объектов речевыми, световыми (табло «Выход») и&nbsp;звуковыми оповещателями, громкоговорителями по&nbsp;заданному алгоритму.", "href": "service.html"})
+								</div>
+								<div class="services__grid">
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "aupt", "title": "Автоматические установки пожаротушения (АУПТ)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "spdv", "title": "Система противодымной защиты вентиляции (СПДВ)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "ss", "title": "Системы связи (СС)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "sks", "title": "Структурированная кабельная система (СКС)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "skud", "title": "Система контроля и&nbsp;управления доступом (СКУД)", "href": "service.html"})
+								</div>
 							</div>
 						</section>
 
@@ -119,14 +127,16 @@
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--auto-light-edge" src="assets/img/projects-edge.webp" width="159" height="446" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--auto-light" src="assets/img/slab-white.webp" width="497" height="439" alt="" loading="lazy">
 							</div>
-							<h2 class="services__section-title">Автоматизация</h2>
-							<div class="services__grid services__grid--wide">
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "asutp", "title": "Автоматизация технологических процессов (АСУТП)", "text": "Разработка и&nbsp;сборка шкафов управления на&nbsp;базе промышленных контроллеров (ПЛК) Siemens, ОВЕН, Schneider Electric, Delta", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "asud", "title": "Автоматизированная система диспетчерского управления (АСУД)", "text": "Оснащение объектов речевыми, световыми (табло «Выход») и&nbsp;звуковыми оповещателями, громкоговорителями.", "href": "service.html"})
-							</div>
-							<div class="services__grid">
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "ak", "title": "Автоматика и&nbsp;контроллеры (АК)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "smart", "title": "Комплексные системы управления зданием (Умный&nbsp;дом)", "href": "service.html"})
+							<div class="container services__section-inner">
+								<h2 class="services__section-title">Автоматизация</h2>
+								<div class="services__grid services__grid--wide">
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "asutp", "title": "Автоматизация технологических процессов (АСУТП)", "text": "Разработка и&nbsp;сборка шкафов управления на&nbsp;базе промышленных контроллеров (ПЛК) Siemens, ОВЕН, Schneider Electric, Delta", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "asud", "title": "Автоматизированная система диспетчерского управления (АСУД)", "text": "Оснащение объектов речевыми, световыми (табло «Выход») и&nbsp;звуковыми оповещателями, громкоговорителями.", "href": "service.html"})
+								</div>
+								<div class="services__grid">
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "ak", "title": "Автоматика и&nbsp;контроллеры (АК)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "smart", "title": "Комплексные системы управления зданием (Умный&nbsp;дом)", "href": "service.html"})
+								</div>
 							</div>
 						</section>
 
@@ -136,16 +146,18 @@
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--extra-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--extra-ghost-left" src="assets/img/ghost-c.webp" width="215" height="274" alt="" loading="lazy">
 							</div>
-							<h2 class="services__section-title">Дополнительные инженерные услуги</h2>
-							<div class="services__grid services__grid--wide">
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "repair1", "title": "Восстановление сложных инженерных коммуникаций", "text": "Диагностика, реконструкция и&nbsp;ремонт повреждённых инженерных сетей", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "wide", "img": "repair2", "title": "Восстановление сложных инженерных коммуникаций", "text": "Диагностика, реконструкция и&nbsp;ремонт повреждённых инженерных сетей", "href": "service.html"})
-							</div>
-							<div class="services__grid">
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "design", "title": "Проектирование (ПД,&nbsp;РД, рабочие чертежи)", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "check", "title": "Проверка проектной документации и&nbsp;сметный расчёт", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "agree", "title": "Согласование с&nbsp;органами местного самоуправления", "href": "service.html"})
-								@@include("source/html/components/service-tile.html", {"size": "small", "img": "permit", "title": "Получение разрешений от&nbsp;сетевой организации", "href": "service.html"})
+							<div class="container services__section-inner">
+								<h2 class="services__section-title">Дополнительные инженерные услуги</h2>
+								<div class="services__grid services__grid--wide">
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "repair1", "title": "Восстановление сложных инженерных коммуникаций", "text": "Диагностика, реконструкция и&nbsp;ремонт повреждённых инженерных сетей", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "wide", "img": "repair2", "title": "Восстановление сложных инженерных коммуникаций", "text": "Диагностика, реконструкция и&nbsp;ремонт повреждённых инженерных сетей", "href": "service.html"})
+								</div>
+								<div class="services__grid">
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "design", "title": "Проектирование (ПД,&nbsp;РД, рабочие чертежи)", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "check", "title": "Проверка проектной документации и&nbsp;сметный расчёт", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "agree", "title": "Согласование с&nbsp;органами местного самоуправления", "href": "service.html"})
+									@@include("source/html/components/service-tile.html", {"size": "small", "img": "permit", "title": "Получение разрешений от&nbsp;сетевой организации", "href": "service.html"})
+								</div>
 							</div>
 						</section>
 					</div>

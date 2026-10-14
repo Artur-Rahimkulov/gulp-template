@@ -774,6 +774,11 @@
 			left: calc(50% - 89.5rem);
 			width: 20.2rem;
 			height: 25.8rem;
+
+			// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: 6.5rem;
+			}
 		}
 
 		&--ghost-right {
@@ -798,6 +803,17 @@
 			left: calc(50% + 78.8rem);
 			width: 49.6rem;
 			height: 47.4rem;
+
+			// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: auto;
+				right: -32.4rem;
+			}
+
+			// на контент наезжает уже 1550px — скрываем
+			@media (min-width: $vp-desktop) and (max-width: 1549.98px) {
+				display: none;
+			}
 		}
 
 		@include vp-mobile {
@@ -1388,6 +1404,16 @@
 			left: calc(50% - 130.5rem);
 			width: 49.7rem;
 			height: 43.9rem;
+
+			// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: -34.5rem;
+			}
+
+			// на контент наезжает уже 1700px — скрываем
+			@media (min-width: $vp-desktop) and (max-width: 1699.98px) {
+				display: none;
+			}
 		}
 
 		&--tiles {
@@ -1582,6 +1608,12 @@
 			left: calc(50% + 51.4rem);
 			width: 39.5rem;
 			height: 50.4rem;
+
+			// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: auto;
+				right: 5.1rem;
+			}
 		}
 
 		@include vp-mobile {

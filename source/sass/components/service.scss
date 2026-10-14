@@ -142,6 +142,16 @@
 			width: 49.7rem;
 			height: 43.9rem;
 			object-fit: contain;
+
+			// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: -40.1rem;
+			}
+
+			// на контент наезжает уже 1600px — скрываем
+			@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
+				display: none;
+			}
 		}
 
 		&--header-tiles,
@@ -151,7 +161,6 @@
 		}
 
 		@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
-			&--slab,
 			&--edge {
 				display: none;
 			}
@@ -405,6 +414,17 @@
 			left: calc(50% + 55rem);
 			width: 40.7rem;
 			height: 50.7rem;
+
+			// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: auto;
+				right: 0.3rem;
+			}
+
+			// на контент наезжает уже 1560px — скрываем
+			@media (min-width: $vp-desktop) and (max-width: 1559.98px) {
+				display: none;
+			}
 		}
 
 		&--edge {
@@ -413,6 +433,12 @@
 			left: calc(50% + 83.4rem);
 			width: 17rem;
 			height: 80.6rem;
+
+			// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: auto;
+				right: -4.4rem;
+			}
 		}
 
 		&--slab {
@@ -422,6 +448,12 @@
 			width: 49.6rem;
 			height: 47.4rem;
 			object-fit: contain;
+
+			// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: auto;
+				right: -37rem;
+			}
 		}
 
 		&--ghost-b {
@@ -435,7 +467,7 @@
 			display: none;
 		}
 
-		@media (max-width: 1899.98px) {
+		@include vp-mobile {
 			&--edge,
 			&--slab {
 				display: none;
@@ -607,6 +639,17 @@
 			left: calc(50% + 55rem);
 			width: 40.7rem;
 			height: 50.7rem;
+
+			// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: auto;
+				right: 0.3rem;
+			}
+
+			// на контент наезжает уже 1550px — скрываем
+			@media (min-width: $vp-desktop) and (max-width: 1549.98px) {
+				display: none;
+			}
 		}
 
 		// кусок призрака у нижнего края — только на мобильной
@@ -1383,7 +1426,14 @@
 		width: 17rem;
 		height: 80.6rem;
 
-		@media (max-width: 1899.98px) {
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -3.8rem;
+		}
+
+		// на контент наезжает уже 1760px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1759.98px) {
 			display: none;
 		}
 	}

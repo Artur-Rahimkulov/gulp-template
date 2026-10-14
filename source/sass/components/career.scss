@@ -438,6 +438,17 @@
 		left: calc(50% + 74.4rem);
 		z-index: 2;
 		width: 49.6rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -28rem;
+		}
+
+		// на контент наезжает уже 1730px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1729.98px) {
+			display: none;
+		}
 	}
 
 	&--ghost {
@@ -445,6 +456,12 @@
 		left: calc(50% + 54rem);
 		z-index: 0;
 		width: 40.7rem;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: 1.3rem;
+		}
 	}
 
 	&--white {
@@ -452,6 +469,16 @@
 		left: calc(50% - 124.6rem);
 		z-index: 2;
 		width: 49.7rem;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -28.6rem;
+		}
+
+		// на контент наезжает уже 1050px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1049.98px) {
+			display: none;
+		}
 	}
 
 	// плитка на верхней границе полосы

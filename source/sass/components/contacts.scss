@@ -432,6 +432,11 @@
 			height: 49.6rem;
 			object-fit: cover;
 			object-position: 50% 0;
+
+			// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+			@include vp-desktop {
+				left: -51.7rem;
+			}
 		}
 
 		&--tiles-top {
@@ -458,11 +463,6 @@
 		@media (min-width: $vp-desktop) and (max-width: 1439.98px) {
 			&--cables {
 				opacity: 0.4;
-			}
-
-			&--slab,
-			&--tiles-left {
-				display: none;
 			}
 		}
 

@@ -70,6 +70,16 @@
 		width: 47.3rem;
 		height: 41.7rem;
 		object-fit: contain;
+
+		// у левого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: -35.3rem;
+		}
+
+		// на контент наезжает уже 1650px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1649.98px) {
+			display: none;
+		}
 	}
 
 	// полоска у левого края экрана
@@ -92,6 +102,17 @@
 		width: 49.6rem;
 		height: 47.4rem;
 		object-fit: contain;
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: -23.6rem;
+		}
+
+		// на контент наезжает уже 1860px — скрываем
+		@media (min-width: $vp-desktop) and (max-width: 1859.98px) {
+			display: none;
+		}
 	}
 
 	&--m-edge,
@@ -102,9 +123,7 @@
 
 	// на узком десктопе плашки у краёв заходят на текст
 	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
-		&--hero-slab,
-		&--edge,
-		&--slab-blue {
+		&--edge {
 			display: none;
 		}
 	}

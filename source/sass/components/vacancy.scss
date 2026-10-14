@@ -61,6 +61,17 @@
 	@include vp-mobile {
 		display: none;
 	}
+
+	// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+	@include vp-desktop {
+		left: auto;
+		right: -23.4rem;
+	}
+
+	// на контент наезжает уже 1310px — скрываем
+	@media (min-width: $vp-desktop) and (max-width: 1309.98px) {
+		display: none;
+	}
 }
 
 // Описание вакансии: обязанности, условия, отклик
@@ -247,6 +258,12 @@
 
 		@include vp-mobile {
 			display: none;
+		}
+
+		// у правого края экрана, как в макете 1920: при сужении двигается вместе с краем
+		@include vp-desktop {
+			left: auto;
+			right: 1.3rem;
 		}
 	}
 
