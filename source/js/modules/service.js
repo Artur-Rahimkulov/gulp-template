@@ -21,5 +21,9 @@ const initSlider = (block, options = {}) => {
 
 export const service = () => {
   document.querySelectorAll('[data-service-gallery]').forEach((block) => initSlider(block))
-  document.querySelectorAll('[data-service-projects]').forEach((block) => initSlider(block, { autoHeight: true }))
+  document.querySelectorAll('[data-service-projects]').forEach((block) => initSlider(block, {
+    autoHeight: true,
+    // слайдер обрезан на 50 левее себя (там цифра «01») — промежуток больше, чтобы край предыдущего слайда туда не попадал
+    spaceBetween: 60,
+  }))
 }

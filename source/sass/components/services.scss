@@ -659,6 +659,11 @@
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
 		row-gap: 1rem;
+
+		// текст ошибки (2rem под линией) не должен наезжать на подпись следующего поля
+		.contacts-form__field.has-danger {
+			margin-bottom: 1.6rem;
+		}
 	}
 }
 
