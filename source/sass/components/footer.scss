@@ -477,6 +477,10 @@
 	}
 }
 
+.footer__dash {
+	color: var(--color-text);
+}
+
 .footer__dev {
 	color: var(--color-link);
 	transition: color var(--default-transition);
