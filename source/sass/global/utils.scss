@@ -35,6 +35,12 @@
   }
 }
 
+// Атрибут hidden должен скрывать и элементы с собственным display (.btn и т.п.)
+[hidden] {
+  /* stylelint-disable-next-line */
+  display: none !important;
+}
+
 .no-transition {
   /* stylelint-disable-next-line */
   transition: none !important;

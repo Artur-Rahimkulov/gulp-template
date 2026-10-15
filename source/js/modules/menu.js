@@ -1,5 +1,9 @@
 const BODY_LOCK_CLASS = 'is-menu-open';
 
+// Должен совпадать с CSS (vp-1024 в breakpoints.scss): дробная ширина
+// вьюпорта (1024.6px при масштабе) тоже считается планшетной
+const desktopMedia = window.matchMedia('(min-width: 1025px)');
+
 // Мобильное меню: бургер, аккордеоны разделов, блокировка скролла
 const initMobileMenu = () => {
   const menu = document.querySelector('[data-mobile-menu]');
@@ -85,7 +89,7 @@ const initMobileMenu = () => {
 
   // при переходе на десктоп меню должно закрываться
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024 && menu.classList.contains('is-open')) {
+    if (desktopMedia.matches && menu.classList.contains('is-open')) {
       close();
     }
   });
@@ -122,7 +126,7 @@ const initDropdowns = () => {
     // поэтому меню работает и без js. Здесь только синхронизируем
     // aria-expanded для скринридеров.
     dropdown.addEventListener('mouseenter', () => {
-      if (window.innerWidth > 1024) {
+      if (desktopMedia.matches) {
         trigger.setAttribute('aria-expanded', 'true');
       }
     });
@@ -134,7 +138,7 @@ const initDropdowns = () => {
 
     trigger.addEventListener('click', (evt) => {
       // на планшетах и мобильных вместо дропдаунов работает бургер-меню
-      if (window.innerWidth <= 1024) {
+      if (!desktopMedia.matches) {
         return;
       }
 

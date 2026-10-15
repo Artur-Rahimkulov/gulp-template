@@ -17,60 +17,62 @@ $vp-1920:                           1920px;
 // Desktop first
 // ---------------------------------
 
-// Универсальный миксин: @include vp(1280) { ... } (число трактуется как px)
+// Универсальный миксин: @include vp(1280) { ... } (число трактуется как px).
+// +0.98px: при масштабе страницы ширина вьюпорта бывает дробной (1024.6px) —
+// без запаса она проваливается между max-width: 1024px и min-width: 1025px.
 @mixin vp($width) {
   $bp: if(unitless($width), $width * 1px, $width);
 
-  @media (max-width: $bp) {
+  @media (max-width: $bp + 0.98px) {
     @content;
   }
 }
 
 @mixin vp-1440 {
-  @media (max-width: $vp-1440) {
+  @include vp($vp-1440) {
     @content;
   }
 }
 
 @mixin vp-1280 {
-  @media (max-width: $vp-1280) {
+  @include vp($vp-1280) {
     @content;
   }
 }
 
 @mixin vp-1140 {
-  @media (max-width: $vp-1140) {
+  @include vp($vp-1140) {
     @content;
   }
 }
 
 @mixin vp-1024 {
-  @media (max-width: $vp-1024) {
+  @include vp($vp-1024) {
     @content;
   }
 }
 
 @mixin vp-992 {
-  @media (max-width: $vp-992) {
+  @include vp($vp-992) {
     @content;
   }
 }
 
 // Историческое имя; медиа-запрос — 768px
 @mixin vp-756 {
-  @media (max-width: $vp-768) {
+  @include vp($vp-768) {
     @content;
   }
 }
 
 @mixin vp-575 {
-  @media (max-width: $vp-575) {
+  @include vp($vp-575) {
     @content;
   }
 }
 
 @mixin vp-360 {
-  @media (max-width: $vp-650) {
+  @include vp($vp-650) {
     @content;
   }
 }

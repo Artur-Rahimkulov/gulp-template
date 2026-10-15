@@ -15,7 +15,7 @@ export const filters = () => {
   // Выезжающая панель фильтра на планшетах и мобильных
   // ------------------------------------------------------------------
   if (panel) {
-    const media = window.matchMedia('(max-width: 1024px)');
+    const media = window.matchMedia('(max-width: 1024.98px)');
 
     const close = () => {
       panel.classList.remove(OPEN_CLASS);

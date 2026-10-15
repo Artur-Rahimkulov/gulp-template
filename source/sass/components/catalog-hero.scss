@@ -120,11 +120,12 @@
       line-height: 36px;
     }
 
+    // Поля равны резиновому padding секции, иначе ряд вылезает за край экрана
     &__tags {
       flex-wrap: nowrap;
-      margin-right: -40px;
-      margin-left: -40px;
-      padding: 4px 40px;
+      margin-right: calc(-1 * clamp(16px, 3.2vw, 40px));
+      margin-left: calc(-1 * clamp(16px, 3.2vw, 40px));
+      padding: 4px clamp(16px, 3.2vw, 40px);
       overflow-x: auto;
       overscroll-behavior-x: contain;
       -webkit-overflow-scrolling: touch;
@@ -171,6 +172,10 @@
 
     &__tags {
       margin-top: 60px;
+      margin-right: -42px;
+      margin-left: -42px;
+      padding-right: 42px;
+      padding-left: 42px;
     }
   }
 

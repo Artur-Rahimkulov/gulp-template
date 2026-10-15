@@ -129,8 +129,9 @@
   &__nav {
     display: flex;
     justify-content: space-between;
-    gap: 80px;
-
+    // Минимальный отступ: на 1920 space-between сам даёт ~80px по макету,
+    // а на узком десктопе сжимаются отступы, а не колонки с текстом
+    gap: 20px;
 
     @include vp-1024 {
       flex-wrap: wrap;
@@ -222,8 +223,17 @@
     transition: color var(--default-transition);
     word-wrap: break-word;
 
+    // Ширины колонок равны ширине текста в макете — без nowrap субпиксельный
+    // рендеринг переносит самые длинные пункты на вторую строку
+    white-space: nowrap;
+
     @include hover-focus {
       color: var(--color-cerulean);
+    }
+
+    // Ниже 1180 колонки сжимаются — переносы снова разрешены
+    @include vp(1180) {
+      white-space: normal;
     }
   }
 

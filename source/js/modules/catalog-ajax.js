@@ -116,12 +116,11 @@ export const createCatalogLoader = (wrapper) => {
 
       const currentShowMore = wrapper.querySelector('[data-show-more-button]');
       const newShowMore = doc.querySelector('[data-show-more-button]');
+      // Кнопку не удаляем, а прячем: после сброса фильтра страниц снова
+      // больше одной, и она должна вернуться
       if (currentShowMore) {
-        if (newShowMore) {
-          currentShowMore.dataset.href = newShowMore.dataset.href || '';
-        } else {
-          currentShowMore.remove();
-        }
+        currentShowMore.dataset.href = newShowMore?.dataset.href || '';
+        currentShowMore.hidden = !newShowMore;
       }
 
       wrapper.querySelectorAll('[data-results-count]').forEach((el) => {
