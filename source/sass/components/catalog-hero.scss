@@ -6,7 +6,7 @@
   // Резиновые боковые поля, чтобы секция не прилипала к краям ниже 1440
   padding: 60px clamp(16px, 3.2vw, 40px) 0;
 
-  // Баннер: фото с полупрозрачной подложкой, заголовок прижат к низу слева
+  // Баннер: фото (светлая подложка слева уже в картинке из макета), заголовок прижат к низу слева
   // ---------------------------------
   &__banner {
     position: relative;
@@ -28,16 +28,6 @@
     height: 100%;
 
     object-fit: cover;
-  }
-
-  // Светлая подложка слева, чтобы заголовок читался на фото
-  &__banner::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-
-    background-image: var(--banner-overlay);
   }
 
   &__banner-content {
@@ -245,10 +235,6 @@
       padding: 0;
       border-radius: 0;
       overflow: visible;
-    }
-
-    &__banner::before {
-      content: none;
     }
 
     &__banner-img {

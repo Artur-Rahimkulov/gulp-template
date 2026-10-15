@@ -382,12 +382,18 @@
       }
     }
 
+    // На планшете телефоны — второстепенным цветом (макет «Планшет, 1024»)
+    &__contacts--tablet .header__phone {
+      color: var(--color-pale-sky);
+    }
+
     &__search {
       order: 2;
 
       width: auto;
       flex: 0 1 375px;
       min-width: 240px;
+      padding-left: 14px;
     }
   }
 
