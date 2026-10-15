@@ -347,7 +347,7 @@
     }
 
     &__btn {
-      min-width: 175px;
+      min-width: 173px;
     }
 
     &__bottom {
@@ -361,21 +361,39 @@
       display: flex;
       flex-wrap: wrap;
       flex-grow: 1;
+      flex-shrink: 0;
       row-gap: 8px;
+    }
+
+    &__divider {
+      height: 24px;
+    }
+
+    // Соцсети 24px через разделитель, как продолжение ряда контактов
+    &__socials--tablet {
+      margin-left: 0;
+      padding-left: 12px;
+
+      border-left: 1px solid var(--color-pattens-blue);
+
+      .header__social svg {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     &__search {
       order: 2;
 
       width: auto;
-      flex: 1 1 200px;
+      flex: 0 1 375px;
       min-width: 240px;
     }
   }
 
-  // Ниже 1007 нижний ряд (контакты + соцсети + поиск) не помещается и соцсети
+  // Ниже 940 нижний ряд (контакты + соцсети + поиск) не помещается и соцсети
   // переносятся на новую строку — прячем их, контакты остаются
-  @include vp(1007) {
+  @include vp(940) {
     &__socials--tablet {
       display: none;
     }
@@ -402,14 +420,20 @@
       min-width: 0;
     }
 
+    // Высота ряда по макету — 20px (подчёркивание ссылки не добавляет высоту)
     &__contacts--tablet {
       order: 2;
       flex: 1 1 100%;
       justify-content: center;
+      height: 20px;
     }
 
     &__socials--tablet {
       display: none;
+    }
+
+    &__divider {
+      height: 20px;
     }
 
     &__btn {

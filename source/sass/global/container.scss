@@ -12,6 +12,11 @@
     padding: 0 42px;
   }
 
+  // Макет «Планшет, 756» — поля 40px
+  @include vp-756 {
+    padding: 0 40px;
+  }
+
   @include vp-360 {
     padding: 0 16px;
   }

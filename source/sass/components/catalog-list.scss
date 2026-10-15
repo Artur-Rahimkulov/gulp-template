@@ -99,6 +99,17 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    // На 1024 фильтр сворачивается в кнопку и список занимает всю ширину —
+    // по макету «Планшет, 1024» снова 3 колонки (~300px)
+    @include vp-1024 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    // Уже ~286px карточке тесно — 2 колонки, как на макете 756
+    @include vp(980) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     @include vp-575 {
       gap: 8px;
       margin-right: -16px;

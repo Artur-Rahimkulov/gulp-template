@@ -120,9 +120,13 @@
       line-height: 36px;
     }
 
-    // Поля равны резиновому padding секции, иначе ряд вылезает за край экрана
+    // Поля равны резиновому padding секции, иначе ряд вылезает за край экрана.
+    // Вертикальный padding 4px (под outline кнопок) гасим отрицательными
+    // отступами, чтобы он не сдвигал вёрстку относительно макета.
     &__tags {
       flex-wrap: nowrap;
+      margin-top: 36px;
+      margin-bottom: -4px;
       margin-right: calc(-1 * clamp(16px, 3.2vw, 40px));
       margin-left: calc(-1 * clamp(16px, 3.2vw, 40px));
       padding: 4px clamp(16px, 3.2vw, 40px);
@@ -171,7 +175,7 @@
     }
 
     &__tags {
-      margin-top: 60px;
+      margin-top: 56px;
       margin-right: -42px;
       margin-left: -42px;
       padding-right: 42px;
@@ -228,7 +232,7 @@
     }
 
     &__tags {
-      margin-top: 40px;
+      margin-top: 36px;
       margin-right: -16px;
       margin-left: -16px;
       padding: 4px 16px;
@@ -267,7 +271,7 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 0 4px;
     padding-left: 2px;
 
     @include vp-360 {
