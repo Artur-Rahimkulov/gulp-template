@@ -21,11 +21,51 @@
 		pointer-events: none;
 	}
 
+	// декор первых пяти проектов (призраки и горизонтальные линии слотов) — общим слоем страницы, там же,
+	// где он стоит в «Все»: при переключении фильтра меняются только проекты, фон остаётся. Слой шириной макета 1920
+	// по центру, обрезается низом main. Проекты дальше пятого (из «Показать ещё») — со своим декором (.project-row__decor)
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: calc(50% - 96rem);
+		z-index: 1;
+		width: 192rem;
+		background:
+			url("../assets/svg/grid/projects-even.svg") no-repeat 0 60.3rem / 192rem 42.7rem,
+			url("../assets/img/slab-ghost-white.webp") no-repeat 151.3rem 60.3rem / 40.7rem 50.7rem,
+			url("../assets/img/ghost-d.webp") no-repeat 20.7rem 60.3rem / 20.9rem 26.6rem,
+			url("../assets/svg/grid/projects-odd.svg") no-repeat 0 103rem / 192rem 50.5rem,
+			url("../assets/img/ghost-b.webp") no-repeat 122.6rem 103rem / 41rem 50.5rem,
+			url("../assets/img/ghost-c.webp") no-repeat 4.5rem 102.5rem / 21.5rem 27.4rem,
+			url("../assets/svg/grid/projects-even.svg") no-repeat 0 153.5rem / 192rem 42.7rem,
+			url("../assets/img/slab-ghost-white.webp") no-repeat 151.3rem 153.5rem / 40.7rem 50.7rem,
+			url("../assets/img/ghost-d.webp") no-repeat 20.7rem 153.5rem / 20.9rem 26.6rem,
+			url("../assets/svg/grid/projects-odd.svg") no-repeat 0 196.2rem / 192rem 50.5rem,
+			url("../assets/img/ghost-b.webp") no-repeat 122.6rem 196.2rem / 41rem 50.5rem,
+			url("../assets/img/ghost-c.webp") no-repeat 4.5rem 195.7rem / 21.5rem 27.4rem;
+		pointer-events: none;
+	}
+
+	// синяя плашка у первых проектов (до 1426 в макете) целиком над синей плашкой подвала —
+	// при коротком списке после фильтра страница не короче этого
+	@media (min-width: 1600px) {
+		min-height: 138.5rem;
+	}
+
+	@include vp-narrow {
+		&::after {
+			content: none;
+		}
+	}
+
 	@include vp-mobile {
 		padding-bottom: 6rem;
 		background: none;
 
-		&::before {
+		&::before,
+		&::after {
 			content: none;
 		}
 	}
@@ -359,7 +399,8 @@
 		}
 	}
 
-	&:nth-child(1 of :not([hidden])) &__decor {
+	// у первых пяти проектов декор — общим слоем страницы (.projects::after), свой — только у подгруженных дальше
+	&:nth-child(-n + 5 of :not([hidden])) &__decor {
 		display: none;
 	}
 
