@@ -733,12 +733,14 @@
 
 	// синяя плашка у правого края, заходящая на подвал, — в .footer-decor перед подвалом (components/footer.scss)
 
+	// на мобильной кабель 1086×334 (центр со сдвигом −417 от середины экрана) поверх синего фона 390×813
 	@include vp-mobile {
 		margin-top: 3.6rem;
 		min-height: 0;
-		padding: 5.2rem 0 6rem;
-		background-position: 30% 0;
-		background-size: cover;
+		padding: 5rem 0;
+		background:
+			url("../assets/img/services-consult.webp") no-repeat calc(50% + 12.6rem) 0 / 108.6rem 33.4rem,
+			#0b3b7d url("../assets/img/services-consult-m.webp") no-repeat 50% 0 / 100% 81.3rem;
 	}
 }
 
@@ -764,6 +766,17 @@
 	@media (max-width: 1599.98px) {
 		display: none;
 	}
+
+	// на мобильной — только левая, под текстом у кабеля (128×67)
+	@include vp-mobile {
+		&--left {
+			top: 26.6rem;
+			left: calc(50% - 18.9rem);
+			display: block;
+			width: 12.8rem;
+			height: 6.7rem;
+		}
+	}
 }
 
 .services-consult__inner {
@@ -779,9 +792,10 @@
 		row-gap: 4rem;
 	}
 
+	// форма — с 336px от верха блока, под кабелем
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
-		row-gap: 3rem;
+		row-gap: 14.8rem;
 	}
 }
 
@@ -792,7 +806,7 @@
 	font-weight: 600;
 
 	@include vp-mobile {
-		margin-bottom: 1.6rem;
+		margin-bottom: 2rem;
 		font-size: 2.4rem;
 		line-height: 1.2;
 	}
@@ -815,9 +829,10 @@
 	min-height: 26.4rem;
 	padding: 3.3rem 3.5rem 2rem 6.9rem;
 
+	// на мобильной 359×427, содержимое шириной 310
 	@include vp-mobile {
 		min-height: 0;
-		padding: 1.4rem 2rem 4rem;
+		padding: 1.5rem 2.4rem 4.1rem 2.3rem;
 	}
 }
 
@@ -828,7 +843,7 @@
 
 	@include vp-mobile {
 		grid-template-columns: minmax(0, 1fr);
-		row-gap: 1rem;
+		row-gap: 2.6rem;
 
 		// текст ошибки (2rem под линией) не должен наезжать на подпись следующего поля
 		.contacts-form__field.has-danger {
@@ -856,12 +871,24 @@
 		gap: 4rem;
 	}
 
+	// кнопка 214×55, согласие — текст 270 с отступом 46 от чекбокса
 	@include vp-mobile {
 		gap: 3rem;
-		margin-top: 3.6rem;
+		margin-top: 2rem;
 
+		.services-consult__btn {
+			--btn-width: 21.4rem;
+			--btn-height: 5.5rem;
+
+			padding: 0 0.6rem;
+			white-space: nowrap;
+		}
+
+		// в макете текст согласия на 6px шире колонки формы
 		.contacts-form__consent {
 			max-width: none;
+			margin-right: -0.6rem;
+			padding-left: 4.6rem;
 		}
 
 		.contacts-form__consent-text {
