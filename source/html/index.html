@@ -9,6 +9,7 @@
 				<!-- Первый экран: заголовок и плашки услуг поверх иллюстрации -->
 				<section class="home-hero bg-grid">
 					<div class="double-line home-hero__line"></div>
+					<img class="home-hero__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
 					<img class="home-hero__photo" src="assets/img/home-hero.webp" width="1525" height="928" alt="" aria-hidden="true">
 					<span class="home-lines home-lines--hero" aria-hidden="true"></span>
 					<img class="home-hero__decor home-hero__decor--tiles" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
@@ -268,11 +269,7 @@
 					</div>
 				</section>
 			</main>
-			<!-- декор на стыке с подвалом — свой у каждой страницы -->
-			<div class="footer-decor" aria-hidden="true">
-				<img class="footer-decor__img footer-decor__img--home-light" src="assets/img/slab-white.webp" width="497" height="439" alt="">
-				<img class="footer-decor__img footer-decor__img--home-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="">
-			</div>
+			@@include("source/html/base/footer-decor.html")
 			@@include("source/html/base/footer.html")
 		</div>
 		@@include("source/html/base/scripts.html")

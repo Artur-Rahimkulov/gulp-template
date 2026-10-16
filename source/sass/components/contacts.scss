@@ -951,6 +951,8 @@
 // ---------------------------------
 .contacts-map {
 	position: relative;
+	// выше декоративных плашек секций и стыка с подвалом (.footer-decor — z-index 3): плашки не ложатся на карту
+	z-index: 4;
 	height: 72.6rem;
 	overflow: hidden;
 	background-color: #adc5e4;

@@ -54,6 +54,22 @@
 		}
 	}
 
+	// фоновая фигура под шапкой: лежит под иллюстрацией и видна сквозь её прозрачный верх (в макете 421×525 от x 967, y −15)
+	&__ghost {
+		position: absolute;
+		top: -1.5rem;
+		left: calc(50% + 0.7rem);
+		width: 42.1rem;
+		max-width: none;
+		height: 52.5rem;
+		object-fit: contain;
+		pointer-events: none;
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+
 	&__photo {
 		position: absolute;
 		top: 0;
