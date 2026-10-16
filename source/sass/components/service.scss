@@ -930,8 +930,9 @@
 			height: 50.7rem;
 		}
 
+		// плашка и плитка у верха блока — выше горизонтальной линии (::after, z-index 5), линия уходит под них
 		&--slab {
-			z-index: 3;
+			z-index: 6;
 			top: -4.7rem;
 			left: -37.8rem;
 			width: 49.7rem;
@@ -940,7 +941,7 @@
 		}
 
 		&--tiles {
-			z-index: 3;
+			z-index: 6;
 			top: -4.7rem;
 			left: 63.6rem;
 			width: 16.8rem;
@@ -1379,9 +1380,12 @@
 	margin-top: -0.2rem;
 	min-height: 98rem;
 	padding-top: 12rem;
+	// форма растёт (прикреплённые файлы, ошибки) — ниже картинки фон продолжается цветами её нижнего края, без шва
 	background:
 		url("../assets/svg/grid/service-feedback-lines.svg") calc(50% + 55.8rem) -17.8rem / 207.7rem 95.9rem no-repeat,
-		#0f4aa8 url("../assets/img/service-feedback-bg.webp") 50% 0 / 192rem 98.4rem no-repeat;
+		url("../assets/img/service-feedback-bg.webp") 50% 0 / 192rem 98.4rem no-repeat,
+		linear-gradient(90deg, #002d68 0%, #002763 20%, #001e5a 50%, #002660 80%, #00306e 100%) 50% 98.3rem / 192rem 100% no-repeat,
+		#002d68;
 
 	&::before,
 	&::after {
