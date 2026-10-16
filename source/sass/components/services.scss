@@ -238,6 +238,9 @@
 // ---------------------------------
 // между видимыми разделами 68 (скрытые табом не занимают места)
 .services__list {
+	position: relative;
+	// свой слой: общий декор (z-index: -1) — под разделами, но над сеткой страницы
+	isolation: isolate;
 	display: flex;
 	flex-direction: column;
 	gap: 6.8rem;
@@ -278,6 +281,13 @@
 	inset: 0;
 	z-index: -1;
 	pointer-events: none;
+}
+
+// при одной вкладке декор разделов скрыт и показан общий набор списка (как у первого раздела) —
+// фон одинаковый на любой вкладке; в «Все» наоборот
+.services__tabs.is-filtered .services__section > .services__section-decor,
+.services__tabs:not(.is-filtered) .services__list-decor {
+	display: none;
 }
 
 .services__section-decor-img {

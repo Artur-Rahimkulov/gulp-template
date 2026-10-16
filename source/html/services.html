@@ -3,7 +3,7 @@
 	@@include("source/html/base/head.html", { "title": "Услуги" })
 	<body>
 		<div class="wrapper">
-			@@include("source/html/base/header.html", {"active": "services"})
+			@@include("source/html/base/header.html", {"active": "services", "plain": true})
 			<main class="services">
 				<!-- декор первого экрана и стыка с подвалом, координаты — от центра экрана -->
 				<div class="services__decor" aria-hidden="true">
@@ -42,11 +42,18 @@
 					</div>
 
 					<div class="container services__list">
+						<!-- при выбранной вкладке декор разделов скрыт, вместо него этот общий набор (как у первого раздела) —
+						     фон не меняется при переключении вкладок -->
+						<div class="services__section-decor services__list-decor" aria-hidden="true">
+							<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--electric-ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" loading="lazy">
+							<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--electric-blue-edge" src="assets/img/services-edge.webp" width="168" height="796" alt="" loading="lazy">
+							<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--electric-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="" loading="lazy">
+						</div>
 						<section class="services__section" id="electric" role="tabpanel" data-tab-panel="electric">
 							<div class="services__section-decor" aria-hidden="true">
+								<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--electric-ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--electric-blue-edge" src="assets/img/services-edge.webp" width="168" height="796" alt="" loading="lazy">
 								<img class="services__section-decor-img services__section-decor-img--slab services__section-decor-img--electric-blue" src="assets/img/slab-blue.webp" width="620" height="660" alt="" loading="lazy">
-								<img class="services__section-decor-img services__section-decor-img--ghost services__section-decor-img--electric-ghost-right" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" loading="lazy">
 							</div>
 							<h2 class="services__section-title">Электрика и&nbsp;освещение</h2>
 							<div class="services__grid services__grid--wide">

@@ -16,6 +16,8 @@ export const tabs = () => {
       panels.forEach((panel) => {
         panel.hidden = Boolean(id) && panel.dataset.tabPanel !== id
       })
+      // выбрана одна вкладка (не «Все») — по классу страница может держать общий фон, не зависящий от раздела
+      root.classList.toggle('is-filtered', Boolean(id))
       if (updateUrl) {
         history.replaceState(null, '', id ? `#${id}` : location.pathname + location.search)
       }
