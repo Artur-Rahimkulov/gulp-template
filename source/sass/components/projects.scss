@@ -9,38 +9,16 @@
 	// двойная линия под первым экраном
 	background: url("../assets/svg/grid/projects-head.svg") no-repeat 50% 0 / 192rem 38.9rem;
 
-	// фон страницы — как в макете 1920 и не зависит от фильтра: косые и горизонтальные линии
-	// (projects-lines.svg собран из линий макета, от верха main) и плашки-призраки пяти проектов макета.
-	// Лежит поверх светлых полос, под фото и текстом; обрезается низом main. Слой: x — calc(50% + (x − 960 + w/2)px)
+	// косая сетка одна на всю страницу — продолжение сетки первого экрана, линии без разрывов идут
+	// через все проекты и полосы (поверх полос, под фото и текстом). Плитка 3936×1773: за её высоту линия
+	// смещается ровно на шаг 656, поэтому по вертикали она повторяется без шва
 	&::before {
 		content: '';
 		position: absolute;
 		inset: 0;
 		z-index: 1;
-		background:
-			url("../assets/svg/grid/projects-lines.svg") no-repeat 50% 0 / 192rem 275.5rem,
-			url("../assets/img/slab-ghost-white.webp") no-repeat calc(50% + 70.95rem) 60.3rem / 44.5rem 55.4rem,
-			url("../assets/img/ghost-d.webp") no-repeat calc(50% - 62.15rem) 60.3rem / 20.9rem 26.6rem,
-			url("../assets/img/ghost-b.webp") no-repeat calc(50% + 47.1rem) 107.7rem / 41rem 50.5rem,
-			url("../assets/img/ghost-c.webp") no-repeat calc(50% - 80.75rem) 107.7rem / 21.5rem 26.9rem,
-			url("../assets/img/slab-ghost-white.webp") no-repeat calc(50% + 75.65rem) 158.2rem / 40.7rem 50.7rem,
-			url("../assets/img/ghost-d.webp") no-repeat calc(50% - 64.85rem) 158.2rem / 20.9rem 26.6rem,
-			url("../assets/img/ghost-c.webp") no-repeat calc(50% + 39.4rem) 200.9rem / 35.6rem 44.4rem,
-			url("../assets/img/ghost-c.webp") no-repeat calc(50% - 80.75rem) 200.9rem / 21.5rem 26.8rem;
+		background: url("../assets/svg/grid/projects-grid.svg") repeat-y 50% 0 / 393.6rem 177.34rem;
 		pointer-events: none;
-	}
-
-	// синяя плашка у первых проектов (до 1426 в макете) целиком над синей плашкой подвала —
-	// при коротком списке после фильтра страница не короче этого
-	@media (min-width: 1600px) {
-		min-height: 138.5rem;
-	}
-
-	// узкий десктоп: раскладка проектов другая — вместо линий макета регулярная косая сетка без призраков
-	@include vp-narrow {
-		&::before {
-			background: url("../assets/svg/grid/projects-grid.svg") repeat-y 50% 0 / 393.6rem 177.34rem;
-		}
 	}
 
 	@include vp-mobile {
@@ -86,9 +64,7 @@
 		height: 51.7rem;
 	}
 
-	// белая плашка и полоска у левого края — выше линий фона (::before страницы, z-index 1), как в макете
 	&--hero-slab {
-		z-index: 2;
 		top: 18.9rem;
 		left: calc(50% - 131.3rem);
 		width: 47.3rem;
@@ -98,7 +74,6 @@
 
 	// полоска у левого края экрана
 	&--edge {
-		z-index: 2;
 		top: 19.2rem;
 		left: 0;
 		width: 15.9rem;
@@ -384,21 +359,8 @@
 		}
 	}
 
-	// у первых пяти проектов фон и призраки — общим слоем страницы (не меняются при фильтре),
-	// свой декор — только у подгруженных дальше
-	&:nth-child(-n + 5 of :not([hidden])) &__decor {
+	&:nth-child(1 of :not([hidden])) &__decor {
 		display: none;
-	}
-
-	// второй и пятый — как в макете: фото на 110 и 66 ниже верха (остальные чётные и нечётные — 63 и 80)
-	@media (min-width: $vp-wide) {
-		&:nth-child(2 of :not([hidden])) {
-			padding-top: 11rem;
-		}
-
-		&:nth-child(5 of :not([hidden])) {
-			padding-top: 6.6rem;
-		}
 	}
 
 	&:nth-child(even of :not([hidden])) &__decor {
@@ -480,6 +442,23 @@
 			object-fit: cover;
 		}
 
+		// при наведении на проект на фото проявляется плашка-призрак
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			// плашка из макета (синяя #003B89) по высоте фото от левого верхнего угла, как синее тонирование
+			background: url("../assets/img/project-hover-ghost.webp") no-repeat 0 0 / auto 100%;
+			opacity: 0;
+			transition: opacity var(--default-transition);
+			pointer-events: none;
+		}
+
+		@media (hover: hover) {
+			.project-row:hover &::after {
+				opacity: 0.3;
+			}
+		}
 
 		@include vp-narrow {
 			height: auto;
