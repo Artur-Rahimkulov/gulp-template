@@ -170,9 +170,10 @@
 
 			position: absolute;
 			top: -4.6rem;
-			right: calc(var(--container-padding) - 0.5rem);
-			width: 107.1rem;
-			height: 75.3rem;
+			// в макете слой выходит за правый край контента на 137px; на узких экранах — не дальше 20px от края окна
+			right: max(calc(var(--container-padding) - 17.7rem), calc(2rem - (100vw - 100%) / 2));
+			width: 131.2rem;
+			height: 70.2rem;
 			transform: scale(var(--tags-scale));
 			transform-origin: 100% 0;
 		}
@@ -194,8 +195,8 @@
 		}
 	}
 
-	// на десктопе плашки разложены по иллюстрации: слой 1071×753 прижат к правому краю контента
-	// (в макете 1920 — от x 594, y 202); на экранах уже 1800 слой уменьшается, чтобы не наезжать на заголовок
+	// на десктопе плашки разложены по иллюстрации: слой 1312×702 (в макете 1920 — от x 525, y 202);
+	// на экранах уже 1800 слой уменьшается, чтобы не наезжать на заголовок
 	&__tag {
 		position: absolute;
 
@@ -205,19 +206,19 @@
 
 		&:nth-child(1) {
 			top: 0;
-			left: 59.9rem;
+			left: 59.4rem;
 			width: 37.1rem;
 		}
 
 		&:nth-child(2) {
-			top: 12.4rem;
-			left: 76.1rem;
+			top: 11.5rem;
+			left: 100.2rem;
 			width: 31rem;
 		}
 
 		&:nth-child(3) {
-			top: 26.9rem;
-			left: 43.9rem;
+			top: 25.4rem;
+			left: 59.1rem;
 			width: 44.3rem;
 
 			.tag-link {
@@ -226,21 +227,33 @@
 		}
 
 		&:nth-child(4) {
-			top: 43.1rem;
-			left: 54.6rem;
+			top: 39rem;
+			left: 74.3rem;
 			width: 42rem;
 		}
 
 		&:nth-child(5) {
-			top: 55.2rem;
-			left: 7.5rem;
+			top: 50.7rem;
+			left: 14.8rem;
 			width: 44.3rem;
 		}
 
 		&:nth-child(6) {
-			top: 69.7rem;
+			top: 64.6rem;
 			left: 0;
 			width: 23.3rem;
+		}
+
+		// на узком десктопе слой уменьшен и сдвигается под левую колонку — две нижние плашки уходят правее текста и кнопки
+		&:nth-child(5),
+		&:nth-child(6) {
+			@media (min-width: $vp-desktop) and (max-width: 1399.98px) {
+				left: 40rem;
+			}
+
+			@media (min-width: $vp-desktop) and (max-width: 1199.98px) {
+				left: 71rem;
+			}
 		}
 
 		// на мобильной видна одна плашка, остальные листаются стрелками
@@ -693,7 +706,7 @@
 	&__reputation {
 		margin: 3rem 0 0;
 		font-size: 1.7rem;
-		line-height: 2.8rem;
+		line-height: 3rem;
 		font-weight: 600;
 		color: var(--color-text);
 
@@ -701,7 +714,7 @@
 			margin: 0;
 		}
 
-		// крупная цифра не раздвигает строку: в макете шаг строк 28px
+		// крупная цифра не раздвигает строку: в макете шаг строк 30px
 		b {
 			font-size: 2.7rem;
 			line-height: 0;
@@ -1051,7 +1064,7 @@
 		padding: 17.6rem 2rem 0 max(var(--container-padding), calc(100% - 43rem));
 
 		@include vp-mobile {
-			padding: 11.9rem 1.5rem 0;
+			padding: 4.2rem 1.6rem 0;
 		}
 	}
 
@@ -1103,8 +1116,12 @@
 	.btn#{&}__btn {
 		margin: 9.7rem 0 0 0.2rem;
 
+		// на мобильной кнопка 220×61
 		@include vp-mobile {
-			display: none;
+			--btn-width: 22rem;
+			--btn-height: 6.1rem;
+
+			margin: 2.1rem 0 0;
 		}
 	}
 
