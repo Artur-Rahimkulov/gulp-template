@@ -73,8 +73,9 @@
 
 	padding: var(--space-section) 0;
 
+	// на мобильной от кнопки «Откликнуться» до линии — 104
 	@include vp-mobile {
-		padding: var(--space-section-top) 0 9.8rem;
+		padding: var(--space-section-top) 0 10.4rem;
 	}
 
 	&__content {
@@ -135,9 +136,10 @@
 	.btn#{&}__btn {
 		margin-top: 3rem;
 
+		// на мобильной — обычная 200×55
 		@include vp-mobile {
-			--btn-width: 22rem;
-			--btn-height: 6.1rem;
+			--btn-width: 20rem;
+			--btn-height: 5.5rem;
 
 			margin-top: 2.4rem;
 		}
