@@ -3,7 +3,7 @@
 	@@include("source/html/base/head.html", { "title": "Проекты" })
 	<body>
 		<div class="wrapper">
-			@@include("source/html/base/header.html", {"active": "projects"})
+			@@include("source/html/base/header.html", {"active": "projects", "plain": true, "noLine": true})
 			<main class="projects" data-pagination-wrapper>
 				<!-- декор шапки; декор низа — в .footer-decor перед подвалом; фон и декор каждого проекта — внутри project-row -->
 				<div class="projects__decor" aria-hidden="true">

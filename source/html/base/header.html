@@ -2,8 +2,9 @@
      у пунктов меню разрядка (--tracking) и отступ слева (--gap) свои, как в макете шапки 1920
      значения: main, services, projects, career, about, media, contacts
      {"overlay": true} — прозрачная шапка поверх первого экрана (главная)
-     {"plain": true} — шапка цвета страницы, сквозь неё видны фоновые фигуры первого экрана; без большой синей плашки («Услуги») -->
-<header class="header bg-grid @@if (context.overlay) {header--overlay} @@if (context.plain) {header--plain}" data-header>
+     {"plain": true} — шапка цвета страницы, сквозь неё видны фоновые фигуры первого экрана; без большой синей плашки («Услуги», «Проекты»)
+     {"noLine": true} — без горизонтальной линии по низу шапки («Проекты») -->
+<header class="header bg-grid @@if (context.overlay) {header--overlay} @@if (context.plain) {header--plain} @@if (context.noLine) {header--no-line}" data-header>
   <div class="container header__inner">
     <img class="header__decor header__decor--tiles" src="assets/img/tiles-small.webp" width="180" height="66" alt="" aria-hidden="true">
     <span class="header__decor header__decor--flat" aria-hidden="true"></span>

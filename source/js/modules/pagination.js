@@ -150,6 +150,10 @@ export const pagination = () => {
     } else {
       existing?.remove()
     }
+
+    // пустой список — «Показать ещё» не нужна (кнопку могли пересоздать после загрузки — ищем заново)
+    const moreBtn = wrapper.querySelector('[data-show-more-button]')
+    if (moreBtn) moreBtn.hidden = items === 0
   }
 
   // инициализация фильтров из квери параметров
