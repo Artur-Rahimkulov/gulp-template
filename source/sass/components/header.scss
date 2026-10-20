@@ -78,6 +78,11 @@
 			display: none;
 		}
 	}
+
+	// «Услуга»: в макете этой страницы нет большой синей плашки справа
+	&--no-slab .header__decor--slab {
+		display: none;
+	}
 }
 
 .header__inner {
