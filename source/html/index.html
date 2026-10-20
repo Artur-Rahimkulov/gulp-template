@@ -156,7 +156,8 @@
 						<img class="home-projects__ghost" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
 						<!-- номер текущего проекта: data-slider-number — картинка меняется при листании (number-01.svg, number-02.svg…) -->
 						<img class="home-projects__number" src="assets/svg/number/number-01.svg" width="218" height="273" alt="" aria-hidden="true" data-slider-number>
-						<div class="swiper home-projects__slider" data-slider data-slider-per-view="1" data-slider-gap="0" data-slider-gap-mobile="0">
+						<!-- зазор между слайдами: при дробной ширине слайдера у края не выглядывает фото следующего проекта -->
+						<div class="swiper home-projects__slider" data-slider data-slider-per-view="1" data-slider-gap="60" data-slider-gap-mobile="32">
 							<div class="swiper-wrapper">
 								<article class="swiper-slide project-slide">
 									<h3 class="project-slide__title">Модернизация систем электроснабжения<br> торгового центра</h3>

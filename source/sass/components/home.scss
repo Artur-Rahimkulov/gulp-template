@@ -1358,6 +1358,8 @@
 	// пять карточек внахлёст по центру; на мобильной — лента с прокруткой
 	&__list {
 		position: relative;
+		// выше двойной линии (.double-line z-index 1): линия идёт под карточками
+		z-index: 2;
 		display: flex;
 		justify-content: center;
 		margin-top: 7.1rem;
