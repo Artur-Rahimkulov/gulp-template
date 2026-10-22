@@ -5,12 +5,13 @@
 	position: relative;
 	overflow-x: clip;
 
-	// косая сетка из макета — продолжение сетки шапки, без швов на любую высоту (как на «Проектах»)
+	// линии фона из макета «Услуг» (вкладка «Все»): svg 1920 по координатам слоёв Figma от верха main (188)
+	// до «Нужна консультация» — своя раскладка, а не регулярная сетка «Проектов»
 	&::before {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: url("../assets/svg/grid/projects-grid.svg") repeat-y 50% 0 / 393.6rem 177.34rem;
+		background: url("../assets/svg/grid/services-lines.svg") no-repeat 50% 0 / 192rem 608.5rem;
 		pointer-events: none;
 
 		@include vp-mobile {
@@ -734,6 +735,9 @@
 // ---------------------------------
 .services-consult {
 	position: relative;
+	// выше декора разделов: на короткой вкладке (2 услуги) плашки раздела доходят до блока и не должны ложиться на него;
+	// плашки подвала (.footer-decor, z-index 3) по-прежнему поверх
+	z-index: 1;
 	// в макете блок на 117 ниже последнего ряда карточек (48 из них — нижний отступ раздела)
 	margin-top: 6.9rem;
 	min-height: 59rem;
@@ -905,5 +909,12 @@
 			font-size: 1.2rem;
 			line-height: 1.8rem;
 		}
+	}
+}
+
+// в мобильном макете «Услуг» у верха подвала нет светлой плашки (общий .footer-decor, components/footer.scss)
+@include vp-mobile {
+	.services ~ .footer-decor .footer-decor__img--home-light {
+		display: none;
 	}
 }

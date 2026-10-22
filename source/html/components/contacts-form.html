@@ -1,7 +1,7 @@
 <!-- Форма «Остались вопросы?» («Контакты», «Услуга»): контактное лицо, e-mail, телефон с подписью, которая поднимается
      при вводе, сообщение и согласие.
      Параметры: compact: true — раскладка «Услуги» с прикреплением документов (js/modules/contacts-files.js);
-     message — подсказка в поле сообщения -->
+     message — подсказка в поле сообщения; phoneOptional: true — телефон необязателен (ТЗ «Контактов») -->
 <form class="contacts-form @@if (context.compact) {contacts-form--compact}" action="#" method="post" @@if (context.compact) {enctype="multipart/form-data"} novalidate>
   <div class="contacts-form__grid">
     <label class="contacts-form__field contacts-form__field--name" data-form-group>
@@ -13,7 +13,7 @@
       <span class="contacts-form__label">e-mail</span>
     </label>
     <label class="contacts-form__field contacts-form__field--phone" data-form-group>
-      <input class="contacts-form__input" type="tel" name="phone" placeholder=" " required data-type="phone" autocomplete="tel" data-required-message="Заполните поле" data-error-message="Некорректный телефон">
+      <input class="contacts-form__input" type="tel" name="phone" placeholder=" " @@if (!context.phoneOptional) {required} data-type="phone" autocomplete="tel" data-required-message="Заполните поле" data-error-message="Некорректный телефон">
       <span class="contacts-form__label">Телефон</span>
     </label>
 

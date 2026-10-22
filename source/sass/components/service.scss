@@ -128,9 +128,10 @@
 			height: 51.7rem;
 		}
 
+		// тень светлой плашки: на 1920 у левого края экрана, стоит от центра вместе с плашкой (как на «Проектах»)
 		&--edge {
 			top: 36.2rem;
-			left: 0;
+			left: calc(50% - 95.2rem);
 			width: 15.9rem;
 			height: 44.6rem;
 		}
@@ -1384,6 +1385,10 @@
 	background:
 		url("../assets/svg/grid/service-feedback-lines.svg") calc(50% + 55.8rem) -17.8rem / 207.7rem 95.9rem no-repeat,
 		url("../assets/img/service-feedback-bg.webp") 50% 0 / 192rem 98.4rem no-repeat,
+		// шире 1920: поля по бокам картинки — её крайние столбцы, растянутые до края экрана (без шва);
+		// уже 1920 полоски по 1px у краёв закрыты самой картинкой
+		url("../assets/img/service-feedback-bg-left.webp") 0 0 / max(1px, calc(50% - 95.9rem)) 98.4rem no-repeat,
+		url("../assets/img/service-feedback-bg-right.webp") 100% 0 / max(1px, calc(50% - 95.9rem)) 98.4rem no-repeat,
 		linear-gradient(90deg, #002d68 0%, #002763 20%, #001e5a 50%, #002660 80%, #00306e 100%) 50% 98.3rem / 192rem 100% no-repeat,
 		#002d68;
 
@@ -1392,10 +1397,12 @@
 		content: none;
 	}
 
+	// тень синей плашки подвала (.footer-decor__img--home-blue): на 72 правее её левого края — по той же формуле,
+	// чтобы шире 1920 (плашка прижата к краю экрана) тень не оставалась отдельно
 	.contacts-feedback__decor--edge {
 		z-index: 2;
 		top: 59.6rem;
-		left: calc(50% + 82.8rem);
+		left: max(calc(100% - 13.2rem), calc(50% + 82.8rem));
 		width: 17rem;
 		height: 80.6rem;
 

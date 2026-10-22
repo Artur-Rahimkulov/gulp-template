@@ -44,12 +44,12 @@
 
 					<div class="container contacts-feedback__inner">
 						<div class="contacts-feedback__intro">
-							<h2 class="contacts-feedback__title">Остались вопросы?</h2>
+							<h2 class="contacts-feedback__title">Оставить заявку</h2>
 							<p class="contacts-feedback__subtitle">Напишите нам</p>
 							<p class="contacts-feedback__text">Сотрудники компании ИЦ&nbsp;«Крафт» помогут найти&nbsp;ответы</p>
 						</div>
 
-						@@include("source/html/components/contacts-form.html")
+						@@include("source/html/components/contacts-form.html", {"phoneOptional": true, "message": "Расскажите о&nbsp;вашем проекте"})
 					</div>
 				</section>
 
