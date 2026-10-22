@@ -951,9 +951,8 @@
 // ---------------------------------
 .contacts-map {
 	position: relative;
-	// выше декоративных плашек секций и стыка с подвалом (.footer-decor — z-index 3): плашки не ложатся на карту
-	z-index: 4;
-	height: 72.6rem;
+	--contacts-map-height: 72.6rem;
+	height: var(--contacts-map-height);
 	overflow: hidden;
 	background-color: #adc5e4;
 
@@ -994,6 +993,19 @@
 		[class*="ground-pane"] {
 			filter: grayscale(1) brightness(0.72) contrast(1.35) sepia(1) hue-rotate(184deg) saturate(1.5) brightness(1.08);
 		}
+
+		// «Как добраться», «Доехать на такси», «Создать свою карту» и логотип «Яндекс Карты» — наверх карты.
+		// Панель копирайтов API нулевой высоты прижата к низу карты, поэтому сдвиг — на высоту карты
+		[class$="-map-copyrights-promo"],
+		[class*="-copyright_providers"] {
+			top: calc(1.6rem - var(--contacts-map-height)) !important;
+			bottom: auto !important;
+		}
+
+		// логотип — левее кнопок масштаба (zoomControlPosition в contacts-map.js: right 16)
+		[class*="-copyright_providers"] {
+			right: 56px !important;
+		}
 	}
 
 	&.is-ready &__canvas {
@@ -1005,7 +1017,7 @@
 	}
 
 	@include vp-mobile {
-		height: 51.4rem;
+		--contacts-map-height: 51.4rem;
 		margin-bottom: 0;
 
 		&::after {
