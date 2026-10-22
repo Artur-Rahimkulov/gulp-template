@@ -151,10 +151,21 @@
 			display: none;
 		}
 
-		@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
-			&--slab,
+		// уже 1920 (до мобильной) плашка и её тень «резиновые»: размеры и сдвиг за левый край — доля ширины экрана
+		// от макета 1920 (497×439, −408 за краем; тень 159×446 у края), поэтому видны всегда в той же пропорции
+		@media (min-width: $vp-desktop) and (max-width: 1919.98px) {
+			// под текстом первого экрана: на узком экране край плашки доходит до левого поля контента
+			&--slab {
+				z-index: 0;
+				left: -21.25vw;
+				width: 25.89vw;
+				height: 22.86vw;
+			}
+
 			&--edge {
-				display: none;
+				left: 0;
+				width: 8.28vw;
+				height: 23.23vw;
 			}
 		}
 
@@ -1406,8 +1417,11 @@
 		width: 17rem;
 		height: 80.6rem;
 
-		@media (max-width: 1899.98px) {
-			display: none;
+		// уже 1920 — «резиново» вместе с плашкой подвала (ниже): на 72/1920 правее её левого края
+		@media (min-width: $vp-desktop) and (max-width: 1919.98px) {
+			left: calc(100% - 6.45vw);
+			width: 8.85vw;
+			height: 41.98vw;
 		}
 	}
 
@@ -1541,5 +1555,15 @@
 	// мобильная: от рамки до полей 42 сверху и 23 по бокам, снизу 64
 	@include vp-mobile {
 		padding: 4.1rem 2.3rem 6.3rem;
+	}
+}
+
+// синяя плашка подвала на «Услуге» уже 1920 — «резиновая», как её тень в «Остались вопросы?»: из-за края экрана
+// видна та же доля, что в макете 1920 (196 из 476). Общий подвал (components/footer.scss) не меняется
+@media (min-width: $vp-desktop) and (max-width: 1919.98px) {
+	.service ~ .footer-decor .footer-decor__img--home-blue {
+		left: calc(100% - 10.2vw);
+		width: 24.79vw;
+		height: 29.32vw;
 	}
 }

@@ -1,0 +1,18 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Pixel-perfect: Услуга</title>
+<style>
+body{font:14px/1.5 system-ui,sans-serif;margin:24px;color:#1b1f2a;background:#fff}
+h1{font-size:20px} table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #d7dbe3;padding:8px;vertical-align:top;text-align:left}
+th{background:#f3f5f8} .st{padding:2px 8px;border-radius:4px;font-size:12px}
+.st-check{background:#fff4d6} .st-ok{background:#d6f5df} .st-confirmed{background:#ffd6d6} .st-shared{background:#dbeafe}
+</style></head><body>
+<h1>Pixel-perfect: «Услуга» (Figma 4028:1168 — 1920, 4028:1452 — 390)</h1>
+<p>Только фиксация, без правок вёрстки. Замеры — headless Chrome по копии сборки без lazy-load, сопоставление с узлами Figma через match.py. Горизонтальный сдвиг −9 px на десктопе в этом замере — артефакт (см. «Услуги»), по X не учитывается. Статусы: confirmed — подтверждено; check — требует перепроверки; ok — в допуске.</p>
+<table><thead><tr><th>#</th><th>Страница</th><th>Разрешение</th><th>Блок</th><th>Проблема с замерами</th><th>Статус</th></tr></thead>
+<tbody><tr><td>1</td><td>Услуга</td><td>1920</td><td>Футер, «Адрес»/ссылки/e-mail</td><td>Замер по Y в норме (dy ≈ 0). Во время аудита «Услуги» футер там был +5…+6 — проверить, это свойство страницы «Услуги».</td><td><span class='st st-check'>check</span></td></tr>
+<tr><td>2</td><td>Услуга</td><td>390</td><td>Футер, список ссылок</td><td>Все ссылки «О компании»…«Услуги» dy +6.8 (dx −1), однородно — похоже на реальное смещение футера на мобильной.</td><td><span class='st st-check'>check</span></td></tr>
+<tr><td>3</td><td>Услуга</td><td>390</td><td>Кнопка hero (service-hero__btn)</td><td>Hero-кнопка (fy 335) dy −48 — смещена вверх относительно макета; ссылки на замер надёжные (кнопка одна, без пары-дублёра).</td><td><span class='st st-check'>check</span></td></tr>
+<tr><td>4</td><td>Услуга</td><td>390</td><td>Кнопка блока проектов</td><td>Кнопка (4028:1624) dy +32.9 — ниже макета. Одна пара, не дублируется.</td><td><span class='st st-check'>check</span></td></tr>
+<tr><td>5</td><td>Услуга</td><td>390</td><td>Форма контактов (метки)</td><td>Метки «e-mail», «Телефон» dy +3.3…+7.3, «Прикрепить документ» dy +7.3. Кнопка формы dy −112 и широкие dw — сопоставление ненадёжно, не учитывать.</td><td><span class='st st-check'>check</span></td></tr>
+<tr><td>6</td><td>Услуга</td><td>390</td><td>Заголовок и текст hero</td><td>Заголовок dy +1.2, абзац −0.7 — в пределах допуска.</td><td><span class='st st-ok'>ok</span></td></tr></tbody></table>
+</body></html>
