@@ -3,7 +3,8 @@
 // Привязки — по смыслу, от макета 1920:
 // — внутри колонки контента (1400) — к ближайшему её краю, размер прежний;
 // — плашки у края экрана не заходят в колонку контента (min/max): на узком экране не ложатся на текст;
-// — у края экрана / в боковом поле — доля ширины экрана: сдвиг от центра и размеры в vw (1920 = 100vw);
+// — у края экрана / в боковом поле — доля ширины экрана (1920 = 100vw): левые — в vw от левого края, правые —
+//   от правого (100% − …vw), чтобы край не «гулял» на ширину полосы прокрутки;
 // — на углу блока (синие панели, колонки) — к самому блоку, это в стилях блока.
 // От 1920 и шире — прежние координаты из стилей страниц (значения на 1920 совпадают).
 // ---------------------------------
@@ -18,13 +19,13 @@
 	}
 
 	.home-services__decor.home-services__decor--tiles-left {
-		left: min(calc(50% - 45.05vw), calc(max(var(--container-padding), 50% - 70rem) - 8.75vw));
+		left: min(4.56vw, calc(max(var(--container-padding), 50% - 70rem) - 8.75vw));
 		width: 8.75vw;
 		height: 4.58vw;
 	}
 
 	.home-stats__decor.home-stats__decor--slab {
-		left: max(calc(50% + 39.84vw), min(100% - var(--container-padding), 50% + 70rem));
+		left: max(calc(100% - 9.77vw), min(100% - var(--container-padding), 50% + 70rem));
 		width: 25.83vw;
 		height: 24.69vw;
 	}
@@ -34,47 +35,47 @@
 	}
 
 	.home-stats__decor.home-stats__decor--ghost-bottom {
-		left: calc(50% - 51.72vw);
+		left: -2.11vw;
 		width: 19.01vw;
 		height: 23.7vw;
 	}
 
 	.home-projects__decor.home-projects__decor--slab {
-		left: min(calc(50% - 71.25vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
+		left: min(-21.64vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 		width: 25.89vw;
 		height: 22.86vw;
 	}
 
 	.home-why__decor.home-why__decor--ghost {
-		left: calc(50% - 50vw);
+		left: -0.39vw;
 		width: 19.01vw;
 		height: 23.7vw;
 	}
 
 	.home-why__decor.home-why__decor--tiles {
-		left: calc(50% + 33.07vw);
+		left: calc(100% - 16.54vw);
 		width: 8.75vw;
 		height: 4.58vw;
 	}
 
 	.home-news__decor.home-news__decor--slab {
-		left: min(calc(50% - 66.2vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
+		left: min(-16.59vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 		width: 25.89vw;
 		height: 22.86vw;
 	}
 
 	.home-news__decor.home-news__decor--tiles {
-		left: calc(max(var(--container-padding), 50% - 70rem) + -1.2rem);
+		left: calc(max(var(--container-padding), 50% - 70rem) - 1.2rem);
 	}
 
 	.footer-decor__img.footer-decor__img--home-light {
-		left: min(calc(50% - 66.2vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
+		left: min(-16.59vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 		width: 25.89vw;
 		height: 22.86vw;
 	}
 
 	.footer-decor__img.footer-decor__img--home-blue {
-		left: calc(50% + 39.38vw);
+		left: calc(100% - 10.23vw);
 		width: 24.79vw;
 		height: 29.32vw;
 	}
@@ -85,7 +86,7 @@
 	}
 
 	.about-hero__decor.about-hero__decor--slab {
-		left: calc(max(var(--container-padding), 50% - 70rem) + -6.3rem);
+		left: calc(max(var(--container-padding), 50% - 70rem) - 6.3rem);
 	}
 
 	.about-leader__decor.about-leader__decor--tiles {
@@ -93,13 +94,13 @@
 	}
 
 	.about-leader__decor.about-leader__decor--tiles-bottom {
-		left: calc(50% - 47.81vw);
+		left: 1.8vw;
 		width: 8.75vw;
 		height: 4.58vw;
 	}
 
 	.about-history__decor.about-history__decor--ghost-left {
-		left: calc(50% - 46.62vw);
+		left: 2.99vw;
 		width: 10.52vw;
 		height: 13.44vw;
 	}
@@ -109,13 +110,13 @@
 	}
 
 	.about-history__decor.about-history__decor--slab {
-		left: calc(50% + 41.04vw);
+		left: calc(100% - 8.57vw);
 		width: 25.83vw;
 		height: 24.69vw;
 	}
 
 	.about-values__decor.about-values__decor--slab {
-		left: min(calc(50% - 67.97vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
+		left: min(-18.36vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 		width: 25.89vw;
 		height: 22.86vw;
 	}
@@ -125,7 +126,7 @@
 	}
 
 	.about-values__decor.about-values__decor--tiles-bottom {
-		left: calc(50% + 35.21vw);
+		left: calc(100% - 14.4vw);
 		width: 8.75vw;
 		height: 4.58vw;
 	}
@@ -135,7 +136,7 @@
 	}
 
 	.about-docs__decor.about-docs__decor--ghost-right {
-		left: calc(50% + 26.77vw);
+		left: calc(100% - 22.84vw);
 		width: 20.57vw;
 		height: 26.25vw;
 	}
@@ -155,11 +156,11 @@
 	}
 
 	.service-about__decor.service-about__decor--ghost-left {
-		left: calc(max(var(--container-padding), 50% - 70rem) + -2.7rem);
+		left: calc(max(var(--container-padding), 50% - 70rem) - 2.7rem);
 	}
 
 	.service-about__decor.service-about__decor--ghost-right {
-		left: calc(50% + 28.65vw);
+		left: calc(100% - 20.96vw);
 		width: 21.2vw;
 		height: 26.41vw;
 	}
@@ -169,11 +170,11 @@
 	}
 
 	.service-works__decor.service-works__decor--ghost-left {
-		left: calc(max(var(--container-padding), 50% - 70rem) + -2.7rem);
+		left: calc(max(var(--container-padding), 50% - 70rem) - 2.7rem);
 	}
 
 	.service-works__decor.service-works__decor--ghost-right {
-		left: calc(50% + 28.65vw);
+		left: calc(100% - 20.96vw);
 		width: 21.2vw;
 		height: 26.41vw;
 	}
@@ -189,13 +190,13 @@
 
 	// Проект
 	.project-hero__slab {
-		left: max(calc(50% + 35.52vw), min(100% - var(--container-padding), 50% + 70rem));
+		left: max(calc(100% - 14.09vw), min(100% - var(--container-padding), 50% + 70rem));
 		width: 25.83vw;
 		height: 24.69vw;
 	}
 
 	.project-about__ghost {
-		left: calc(50% + 28.12vw);
+		left: calc(100% - 21.49vw);
 		width: 21.2vw;
 		height: 26.41vw;
 	}
@@ -205,79 +206,79 @@
 	}
 
 	.project-gallery__slab {
-		left: min(calc(50% - 65.99vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
+		left: min(-16.38vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 		width: 25.89vw;
 		height: 22.86vw;
 	}
 
 	.project-section__ghost {
-		left: calc(50% - 58.85vw);
+		left: -9.24vw;
 		width: 21.2vw;
 		height: 26.41vw;
 	}
 
 	// Карьера
 	.career-decor.career-decor--slab {
-		left: calc(50% + 38.75vw);
+		left: calc(100% - 10.86vw);
 		width: 25.83vw;
 		height: 24.69vw;
 	}
 
 	.career-decor.career-decor--ghost {
-		left: calc(50% + 28.12vw);
+		left: calc(100% - 21.49vw);
 		width: 21.2vw;
 		height: 26.41vw;
 	}
 
 	.career-decor.career-decor--tiles.career-decor--tiles-life {
-		left: calc(max(var(--container-padding), 50% - 70rem) + -1.1rem);
+		left: calc(max(var(--container-padding), 50% - 70rem) - 1.1rem);
 	}
 
 	.career-decor.career-decor--white {
-		left: calc(50% - 64.9vw);
+		left: -15.29vw;
 		width: 25.89vw;
 		height: 22.86vw;
 	}
 
 	.career-decor.career-decor--tiles.career-decor--tiles-vacancies {
-		left: calc(max(var(--container-padding), 50% - 70rem) + -1.3rem);
+		left: calc(max(var(--container-padding), 50% - 70rem) - 1.3rem);
 	}
 
 	// Вакансия
 	.vacancy-hero__slab {
-		left: max(calc(50% + 36.35vw), min(100% - var(--container-padding), 50% + 70rem));
+		left: max(calc(100% - 13.26vw), min(100% - var(--container-padding), 50% + 70rem));
 		width: 25.83vw;
 		height: 24.69vw;
 	}
 
 	.other-vacancies__ghost {
-		left: calc(50% + 28.12vw);
+		left: calc(100% - 21.49vw);
 		width: 21.2vw;
 		height: 26.41vw;
 	}
 
 	// Медиа
 	.media-list__slab {
-		left: calc(50% + 36.35vw);
+		left: calc(100% - 13.26vw);
 		width: 25.83vw;
 		height: 24.69vw;
 	}
 
 	.media-list__ghost {
-		left: calc(50% - 58.85vw);
+		left: -9.24vw;
 		width: 21.2vw;
 		height: 26.41vw;
 	}
 
 	// Статья
 	.article__slab {
-		left: max(calc(50% + 37.81vw), min(100% - var(--container-padding), 50% + 70rem));
+		left: max(calc(100% - 11.8vw), min(100% - var(--container-padding), 50% + 70rem));
 		width: 25.83vw;
 		height: 24.69vw;
 	}
 
 	.article-gallery__slab {
-		left: min(calc(50% - 62.34vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
+		left: min(-12.73vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 		width: 25.89vw;
 		height: 22.86vw;
 	}
@@ -293,14 +294,14 @@
 
 	// Политика
 	.text-page__ghost {
-		left: calc(50% + 28.12vw);
+		left: calc(100% - 21.49vw);
 		width: 21.2vw;
 		height: 26.41vw;
 	}
 
 	// 404
 	.not-found__slab {
-		left: calc(50% + 30.57vw);
+		left: calc(100% - 19.04vw);
 		width: 32.29vw;
 		height: 30.86vw;
 	}
@@ -309,14 +310,14 @@
 	.services__decor-img.services__decor-img--hero-edge {
 		display: block;
 		// тень идёт за плашкой: на 18.39vw правее её левого края (как на 1920) — сдвигается вместе с ней
-		left: min(calc(50% - 50vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw + 18.39vw));
+		left: min(-0.39vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw + 18.39vw));
 		width: 8.28vw;
 		height: 23.23vw;
 	}
 
 	.services__decor-img.services__decor-img--hero-slab {
 		display: block;
-		left: min(calc(50% - 68.39vw), calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
+		left: min(-18.78vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 		width: 25.89vw;
 		height: 22.86vw;
 	}
@@ -328,21 +329,21 @@
 
 	.services-consult__tiles.services-consult__tiles--left {
 		display: block;
-		left: min(calc(50% - 40.52vw), calc(max(var(--container-padding), 50% - 70rem) - 8.75vw));
+		left: min(9.09vw, calc(max(var(--container-padding), 50% - 70rem) - 8.75vw));
 		width: 8.75vw;
 		height: 4.58vw;
 	}
 
 	.service-about__decor.service-about__decor--edge {
 		display: block;
-		left: max(calc(50% + 43.44vw), min(100% - var(--container-padding), 50% + 70rem));
+		left: max(calc(100% - 6.17vw), min(100% - var(--container-padding), 50% + 70rem));
 		width: 8.85vw;
 		height: 41.98vw;
 	}
 
 	.service-about__decor.service-about__decor--slab {
 		display: block;
-		left: max(calc(50% + 43.44vw), min(100% - var(--container-padding), 50% + 70rem));
+		left: max(calc(100% - 6.17vw), min(100% - var(--container-padding), 50% + 70rem));
 		width: 25.83vw;
 		height: 24.69vw;
 	}
@@ -356,49 +357,49 @@
 
 	.service .contacts-feedback__decor.contacts-feedback__decor--tiles-left {
 		display: block;
-		left: calc(50% - 49.22vw);
+		left: 0.39vw;
 		width: 8.75vw;
 		height: 4.58vw;
 	}
 
 	.contacts .contacts-feedback__decor.contacts-feedback__decor--tiles-left {
 		display: block;
-		left: calc(50% - 47.81vw);
+		left: 1.8vw;
 		width: 8.75vw;
 		height: 4.58vw;
 	}
 
 	.contacts .contacts-feedback__decor.contacts-feedback__decor--slab {
 		display: block;
-		left: min(calc(50% - 76.93vw), calc(max(var(--container-padding), 50% - 70rem) - 31.77vw));
+		left: min(-27.32vw, calc(max(var(--container-padding), 50% - 70rem) - 31.77vw));
 		width: 31.77vw;
 		height: 25.83vw;
 	}
 
 	.projects__decor-img.projects__decor-img--edge {
 		display: block;
-		left: calc(50% - 49.58vw);
+		left: 0.03vw;
 		width: 8.28vw;
 		height: 23.23vw;
 	}
 
 	.projects__decor-img.projects__decor-img--hero-slab {
 		display: block;
-		left: calc(50% - 68.39vw);
+		left: -18.78vw;
 		width: 24.64vw;
 		height: 21.72vw;
 	}
 
 	.projects__decor-img.projects__decor-img--slab-blue {
 		display: block;
-		left: max(calc(50% + 36.46vw), min(100% - var(--container-padding), 50% + 70rem));
+		left: max(calc(100% - 13.15vw), min(100% - var(--container-padding), 50% + 70rem));
 		width: 25.83vw;
 		height: 24.69vw;
 	}
 
 	.article-gallery__ghost {
 		display: block;
-		left: calc(50% + 31.25vw);
+		left: calc(100% - 18.36vw);
 		width: 21.2vw;
 		height: 26.41vw;
 	}

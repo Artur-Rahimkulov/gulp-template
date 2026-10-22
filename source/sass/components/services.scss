@@ -911,10 +911,3 @@
 		}
 	}
 }
-
-// в мобильном макете «Услуг» у верха подвала нет светлой плашки (общий .footer-decor, components/footer.scss)
-@include vp-mobile {
-	.services ~ .footer-decor .footer-decor__img--home-light {
-		display: none;
-	}
-}
