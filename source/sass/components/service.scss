@@ -155,15 +155,16 @@
 		// от макета 1920 (497×439, −408 за краем; тень 159×446 у края), поэтому видны всегда в той же пропорции
 		@media (min-width: $vp-desktop) and (max-width: 1919.98px) {
 			// под текстом первого экрана: на узком экране край плашки доходит до левого поля контента
+			// но не заходит в колонку контента — тень (ниже) идёт за плашкой на тот же сдвиг
 			&--slab {
 				z-index: 0;
-				left: -21.25vw;
+				left: min(-21.25vw, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw));
 				width: 25.89vw;
 				height: 22.86vw;
 			}
 
 			&--edge {
-				left: 0;
+				left: min(0px, calc(max(var(--container-padding), 50% - 70rem) - 25.89vw + 21.25vw));
 				width: 8.28vw;
 				height: 23.23vw;
 			}
@@ -952,10 +953,11 @@
 			object-fit: contain;
 		}
 
+		// привязана к правому верхнему углу синей панели (ширина панели резиновая): угол — на 47 от левого края плитки
 		&--tiles {
 			z-index: 6;
 			top: -4.7rem;
-			left: 63.6rem;
+			left: calc(100% - 4.7rem);
 			width: 16.8rem;
 			height: 8.8rem;
 			object-fit: contain;
@@ -974,7 +976,12 @@
 		}
 
 		@media (max-width: 1599.98px) {
-			&--slab,
+			&--slab {
+				display: none;
+			}
+		}
+
+		@include vp-mobile {
 			&--tiles {
 				display: none;
 			}

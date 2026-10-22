@@ -1007,9 +1007,10 @@
 			height: 43.9rem;
 		}
 
+		// на углу синей колонки (её ширина — max(50% − 27rem, 34rem), см. grid ниже): угол на 84 от левого края плитки
 		&--tiles {
 			top: -4.4rem;
-			left: calc(50% - 35.4rem);
+			left: calc(max(50% - 27rem, 34rem) - 8.4rem);
 			width: 16.8rem;
 			height: 8.8rem;
 		}
