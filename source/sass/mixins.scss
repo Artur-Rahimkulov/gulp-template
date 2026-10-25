@@ -66,3 +66,17 @@
 	background-position: calc(50% + #{$offset}) 0;
 	background-size: 393.6rem 100%;
 }
+
+// Подложка цвета страницы под полупрозрачной тенью плашки: маска — сама тень, сложенная $layers раз
+// (покрытие 1 − (1 − a)^n), поэтому линии страницы под плотной частью тени скрыты целиком,
+// а к прозрачному краю тени проявляются плавно, без резкого обреза
+@mixin shadow-underlay($image, $layers: 8) {
+	$mask: ();
+
+	@for $i from 1 through $layers {
+		$mask: append($mask, url($image) no-repeat 0 0 / 100% 100%, comma);
+	}
+
+	background-color: var(--color-bg-page);
+	mask: $mask;
+}

@@ -104,6 +104,12 @@
 		height: 51.7rem;
 	}
 
+	// плашка и тень выше косой сетки страницы (.projects::before, z-index 1) — линии не идут поверх них
+	&--hero-slab,
+	&--edge {
+		z-index: 2;
+	}
+
 	&--hero-slab {
 		top: 18.9rem;
 		left: -35.3rem;
@@ -118,6 +124,11 @@
 		left: 0;
 		width: 15.9rem;
 		height: 44.6rem;
+	}
+
+	// подложка цвета страницы с маской по прозрачности тени: сетка не просвечивает сквозь тень
+	&--edge-under {
+		@include shadow-underlay("../assets/img/projects-edge.webp");
 	}
 
 	// у подвала: от низа main

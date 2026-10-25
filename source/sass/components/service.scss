@@ -136,6 +136,11 @@
 			height: 44.6rem;
 		}
 
+		// подложка цвета страницы с маской по прозрачности тени: линии страницы не просвечивают сквозь тень
+		&--edge-under {
+			@include shadow-underlay("../assets/img/projects-edge.webp");
+		}
+
 		&--slab {
 			z-index: 3;
 			top: 36.2rem;
