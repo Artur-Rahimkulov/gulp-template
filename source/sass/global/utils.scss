@@ -52,3 +52,31 @@
 	white-space: nowrap;
 	border: 0;
 }
+
+// Подгрузка «Показать ещё» (js/modules/pagination.js): список плавно растёт, новые карточки проявляются снизу по очереди
+[data-list-items].is-growing {
+	overflow: clip;
+	overflow-clip-margin: 4rem; // тени карточек не обрезаются
+	transition: height 0.5s ease;
+}
+
+.is-appearing {
+	animation: list-item-appear 0.5s ease var(--appear-delay, 0ms) both;
+}
+
+@keyframes list-item-appear {
+	from {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+[data-show-more-button].is-loading {
+	opacity: 0.5;
+	pointer-events: none;
+}

@@ -12,7 +12,7 @@ export const pagination = () => {
   // ------------------------
 
   const load = async (url, append = false) => {
-    setLoading(true)
+    setLoading(true, append)
 
     try {
       const response = await fetch(url)
@@ -27,11 +27,12 @@ export const pagination = () => {
 
       if (!newList) return
 
+      const prevHeight = list.offsetHeight
+      let added = []
+
       if (append) {
-        list.insertAdjacentHTML(
-            'beforeend',
-            Array.from(newList.children).map(el => el.outerHTML).join('')
-        )
+        added = Array.from(newList.children).map(el => document.importNode(el, true))
+        list.append(...added)
       } else {
         list.innerHTML = newList.innerHTML
       }
@@ -66,13 +67,53 @@ export const pagination = () => {
         handleEmpty()
       }
 
+      if (append) animateAppend(prevHeight, added)
+
       history.pushState(null, '', url)
 
     } catch (err) {
       console.error('AJAX error:', err)
     } finally {
-      setLoading(false)
+      setLoading(false, append)
     }
+  }
+
+  // ------------------------
+  // плавное появление подгруженных карточек: список растёт по высоте, карточки проявляются снизу по очереди
+  // ------------------------
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+  const animateAppend = (prevHeight, added) => {
+    const visible = added.filter(el => !el.hidden)
+    if (!visible.length || reducedMotion.matches) return
+
+    visible.forEach((el, index) => {
+      el.style.setProperty('--appear-delay', `${Math.min(index, 8) * 70}ms`)
+      el.classList.add('is-appearing')
+      el.addEventListener('animationend', () => {
+        el.classList.remove('is-appearing')
+        el.style.removeProperty('--appear-delay')
+      }, { once: true })
+    })
+
+    const nextHeight = list.offsetHeight
+    if (nextHeight <= prevHeight) return
+
+    list.classList.add('is-growing')
+    list.style.height = `${prevHeight}px`
+    void list.offsetHeight // фиксируем стартовую высоту перед переходом
+    list.style.height = `${nextHeight}px`
+
+    const done = (e) => {
+      if (e && (e.target !== list || e.propertyName !== 'height')) return
+      list.removeEventListener('transitionend', done)
+      clearTimeout(fallback)
+      list.classList.remove('is-growing')
+      list.style.height = ''
+    }
+    const fallback = setTimeout(done, 800)
+    list.addEventListener('transitionend', done)
   }
 
   // ------------------------
@@ -127,7 +168,13 @@ export const pagination = () => {
   // состояние загрузки
   // ------------------------
 
-  const setLoading = (state) => {
+  // «Показать ещё» гасит только кнопку, остальная загрузка — весь блок
+  const setLoading = (state, append = false) => {
+    if (append) {
+      wrapper.querySelectorAll('[data-show-more-button]').forEach(btn => btn.classList.toggle('is-loading', state))
+      return
+    }
+
     wrapper.style.opacity = state ? '0.5' : ''
     wrapper.style.pointerEvents = state ? 'none' : ''
   }
