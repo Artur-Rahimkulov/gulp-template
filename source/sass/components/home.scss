@@ -249,6 +249,67 @@
 			width: 100%;
 		}
 
+		// плашка с открытым кружком — поверх соседних плашек
+		&.is-video-shown {
+			z-index: 1;
+		}
+	}
+
+	// видео в кружке над плашкой при наведении: в макете кружок 211px с полупрозрачной белой рамкой, плашка лежит на его правом нижнем крае
+	&__tag-video {
+		position: absolute;
+		top: -14rem;
+		left: -17rem;
+		width: 21.1rem;
+		height: 21.1rem;
+		padding: 0.8rem;
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 0.5);
+		box-shadow: 0 1.6rem 3.2rem rgba(20, 40, 90, 0.18);
+		backdrop-filter: blur(0.8rem);
+		opacity: 0;
+		visibility: hidden;
+		transform: scale(0.5);
+		transform-origin: 85% 75%;
+		pointer-events: none;
+		transition:
+			opacity 0.3s ease,
+			transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+			visibility 0s linear 0.45s;
+
+		video {
+			display: block;
+			width: 100%;
+			max-width: none;
+			height: 100%;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.is-video-shown > & {
+			opacity: 1;
+			visibility: visible;
+			transform: scale(1);
+			transition:
+				opacity 0.3s ease,
+				transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+				visibility 0s;
+		}
+
+		// верхняя плашка у самой шапки — кружок слева от неё, иначе уходит под шапку
+		.home-hero__tag:first-child > & {
+			top: -6rem;
+			left: -19rem;
+			transform-origin: 100% 50%;
+		}
+
+		@include vp-mobile {
+			display: none;
+		}
+	}
+
+	&__tag {
+
 		&:nth-child(1) {
 			top: 0;
 			left: 59.4rem;
