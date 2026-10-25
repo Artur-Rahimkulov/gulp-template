@@ -17,6 +17,7 @@
 	border: none;
 	outline: none;
 	cursor: pointer;
+	transition: color var(--default-transition), opacity var(--default-transition);
 
 	// белая плашка со скосом и тенью
 	&::before {

@@ -845,6 +845,7 @@
 		width: 5.4rem;
 		height: 4rem;
 		color: var(--color-brand);
+		transition: color var(--default-transition);
 
 		&::before {
 			box-shadow: 0 1rem 1.8rem 0 rgba(20, 40, 90, 0.18);

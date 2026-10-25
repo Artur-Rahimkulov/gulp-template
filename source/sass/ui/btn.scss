@@ -2,14 +2,85 @@
 // заливка 75° (из дизайн-кода Figma), рамка 1px — градиент от тёмного к белому (через border-box),
 // скругление 2px, тень, по краям фаски 6px — горизонтальные градиенты.
 // Размеры: 200×55 в карточке (`.btn`), 240×66 (`--lg`), 220×61 (`--md`), 305×55 (`--wide`).
+// Цвета градиентов кнопки зарегистрированы как <color>: тогда смена состояния (hover, active)
+// идёт плавно за общее время --default-transition, а не скачком
+@property --btn-f1 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #0953c1;
+}
+
+@property --btn-f2 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #6692d1;
+}
+
+@property --btn-l1 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #628fd0;
+}
+
+@property --btn-l2 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #4d81cc;
+}
+
+@property --btn-l3 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #3571c8;
+}
+
+@property --btn-l4 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #1e61c4;
+}
+
+@property --btn-l5 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #135ac2;
+}
+
+@property --btn-r1 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #6692d1;
+}
+
+@property --btn-r2 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #6c98d5;
+}
+
+@property --btn-r3 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #7ba4de;
+}
+
+@property --btn-r4 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #89b0e8;
+}
+
+@property --btn-r5 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #97bcf0;
+}
+
 .btn {
 	--btn-width: 20rem;
 	--btn-height: 5.5rem;
 	--btn-angle: 74.99deg;
-	--btn-fill: linear-gradient(var(--btn-angle), #0953c1 60.42%, #6692d1 93.74%);
 	--btn-stroke: linear-gradient(64deg, #1750a2 45%, #ffffff 96%);
-	--btn-edge-left: linear-gradient(90deg, #628fd0 0.05rem, #4d81cc 0.15rem, #3571c8 0.25rem, #1e61c4 0.35rem, #135ac2 0.45rem);
-	--btn-edge-right: linear-gradient(90deg, #6692d1 0.15rem, #6c98d5 0.25rem, #7ba4de 0.35rem, #89b0e8 0.45rem, #97bcf0 0.55rem);
 
 	position: relative;
 	display: inline-flex;
@@ -34,7 +105,7 @@
 
 	// заливка внутри рамки, градиент рамки — под ней на всю кнопку
 	background:
-		var(--btn-fill) padding-box,
+		linear-gradient(var(--btn-angle), var(--btn-f1) 60.42%, var(--btn-f2) 93.74%) padding-box,
 		var(--btn-stroke) border-box;
 	border: 0.1rem solid transparent;
 	border-radius: 0.2rem;
@@ -45,7 +116,19 @@
 
 	transition:
 		filter var(--default-transition),
-		transform var(--default-transition);
+		transform var(--default-transition),
+		--btn-f1 var(--default-transition),
+		--btn-f2 var(--default-transition),
+		--btn-l1 var(--default-transition),
+		--btn-l2 var(--default-transition),
+		--btn-l3 var(--default-transition),
+		--btn-l4 var(--default-transition),
+		--btn-l5 var(--default-transition),
+		--btn-r1 var(--default-transition),
+		--btn-r2 var(--default-transition),
+		--btn-r3 var(--default-transition),
+		--btn-r4 var(--default-transition),
+		--btn-r5 var(--default-transition);
 
 	// фаски по краям внутри рамки
 	&::before,
@@ -61,12 +144,12 @@
 
 	&::before {
 		left: 0;
-		background-image: var(--btn-edge-left);
+		background-image: linear-gradient(90deg, var(--btn-l1) 0.05rem, var(--btn-l2) 0.15rem, var(--btn-l3) 0.25rem, var(--btn-l4) 0.35rem, var(--btn-l5) 0.45rem);
 	}
 
 	&::after {
 		right: 0;
-		background-image: var(--btn-edge-right);
+		background-image: linear-gradient(90deg, var(--btn-r1) 0.15rem, var(--btn-r2) 0.25rem, var(--btn-r3) 0.35rem, var(--btn-r4) 0.45rem, var(--btn-r5) 0.55rem);
 	}
 
 	&--lg {
@@ -102,9 +185,18 @@
 
 	// hover — состояние Hover из макета
 	@include hover {
-		--btn-fill: linear-gradient(var(--btn-angle), #192f7c 60.42%, #0852c0 93.74%);
-		--btn-edge-left: linear-gradient(90deg, #638dcd 0.05rem, #4f74b7 0.15rem, #39579f 0.25rem, #233b87 0.35rem, #192f7c 0.45rem);
-		--btn-edge-right: linear-gradient(90deg, #0950bc 0.15rem, #1b5ec3 0.25rem, #447dd2 0.35rem, #6d9ce1 0.45rem, #93b9f0 0.55rem);
+		--btn-f1: #192f7c;
+		--btn-f2: #0852c0;
+		--btn-l1: #638dcd;
+		--btn-l2: #4f74b7;
+		--btn-l3: #39579f;
+		--btn-l4: #233b87;
+		--btn-l5: #192f7c;
+		--btn-r1: #0950bc;
+		--btn-r2: #1b5ec3;
+		--btn-r3: #447dd2;
+		--btn-r4: #6d9ce1;
+		--btn-r5: #93b9f0;
 	}
 
 	// focus — видимая рамка цвета ссылок только при навигации с клавиатуры
@@ -115,23 +207,40 @@
 
 	// active — как hover и вдавливается, тень короче (в макете не отрисовано)
 	@include active {
-		--btn-fill: linear-gradient(var(--btn-angle), #192f7c 60.42%, #0852c0 93.74%);
-		--btn-edge-left: linear-gradient(90deg, #638dcd 0.05rem, #4f74b7 0.15rem, #39579f 0.25rem, #233b87 0.35rem, #192f7c 0.45rem);
-		--btn-edge-right: linear-gradient(90deg, #0950bc 0.15rem, #1b5ec3 0.25rem, #447dd2 0.35rem, #6d9ce1 0.45rem, #93b9f0 0.55rem);
+		--btn-f1: #192f7c;
+		--btn-f2: #0852c0;
+		--btn-l1: #638dcd;
+		--btn-l2: #4f74b7;
+		--btn-l3: #39579f;
+		--btn-l4: #233b87;
+		--btn-l5: #192f7c;
+		--btn-r1: #0950bc;
+		--btn-r2: #1b5ec3;
+		--btn-r3: #447dd2;
+		--btn-r4: #6d9ce1;
+		--btn-r5: #93b9f0;
 
 		filter: drop-shadow(0.1rem 0.1rem 0.1rem #8d8d8d);
 		transform: translateY(0.1rem);
-		transition-duration: 0.1s;
 	}
 
 	// disabled — состояние Disable из макета
 	&:disabled,
 	&.is-disabled,
 	&[aria-disabled='true'] {
-		--btn-fill: linear-gradient(var(--btn-angle), #3b4150 60.42%, #8d8d8d 93.74%);
+		--btn-f1: #3b4150;
+		--btn-f2: #8d8d8d;
 		--btn-stroke: linear-gradient(64deg, #3b4150 45%, #ffffff 96%);
-		--btn-edge-left: linear-gradient(90deg, #7d7d81 0.05rem, #6b6d73 0.15rem, #575a64 0.25rem, #434855 0.35rem, #3a404f 0.45rem);
-		--btn-edge-right: linear-gradient(90deg, #8d8d8d 0, #a0a0a0 100%);
+		--btn-l1: #7d7d81;
+		--btn-l2: #6b6d73;
+		--btn-l3: #575a64;
+		--btn-l4: #434855;
+		--btn-l5: #3a404f;
+		--btn-r1: #8d8d8d;
+		--btn-r2: #919191;
+		--btn-r3: #969696;
+		--btn-r4: #9b9b9b;
+		--btn-r5: #a0a0a0;
 
 		transform: none;
 		cursor: not-allowed;

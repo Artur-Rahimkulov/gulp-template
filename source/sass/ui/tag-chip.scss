@@ -1,3 +1,16 @@
+// цвета градиента наведения — <color>, чтобы градиент проявлялся плавно, а не скачком
+@property --chip-g1 {
+	syntax: '<color>';
+	inherits: false;
+	initial-value: transparent;
+}
+
+@property --chip-g2 {
+	syntax: '<color>';
+	inherits: false;
+	initial-value: transparent;
+}
+
 // Маленький чип фильтра («Проекты»): 28px, скругление 1px, подпись 11px капсом.
 // Активный — серо-голубой с белой подписью, при наведении — синий градиент.
 .tag-chip {
@@ -19,6 +32,7 @@
 	color: #1c5193;
 
 	background-color: #e1e6ec;
+	background-image: linear-gradient(90deg, var(--chip-g1) 0%, var(--chip-g2) 100%);
 	border: none;
 	border-radius: 0.1rem;
 	outline: none;
@@ -26,11 +40,17 @@
 	// без синей подсветки при нажатии на телефоне
 	-webkit-tap-highlight-color: transparent;
 	user-select: none;
-	transition: color var(--default-transition), background-color var(--default-transition);
+	transition:
+		color var(--default-transition),
+		background-color var(--default-transition),
+		--chip-g1 var(--default-transition),
+		--chip-g2 var(--default-transition);
 
 	@include hover {
+		--chip-g1: #0a55c1;
+		--chip-g2: #6a9be4;
+
 		color: var(--color-white);
-		background-image: linear-gradient(90deg, #0a55c1 0%, #6a9be4 100%);
 	}
 
 	@include focus {
@@ -40,8 +60,10 @@
 
 	&.is-active {
 		color: var(--color-white);
+		--chip-g1: transparent;
+		--chip-g2: transparent;
+
 		background-color: #b5c5df;
-		background-image: none;
 		cursor: default;
 	}
 }
