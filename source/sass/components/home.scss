@@ -80,10 +80,39 @@
 		object-fit: cover;
 		pointer-events: none;
 
+		// на десктопе вместо картинки видео
+		@include vp-desktop {
+			display: none;
+		}
+
 		@include vp-mobile {
 			left: calc(50% - 64rem);
 			width: 115.1rem;
 			height: 70.1rem;
+		}
+	}
+
+	// видео вместо картинки (только десктоп): на всю ширину первого экрана, по центру
+	&__video {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 108rem;
+		overflow: hidden;
+		pointer-events: none;
+
+		video {
+			display: block;
+			width: 100%;
+			max-width: none;
+			height: 100%;
+			object-fit: cover;
+			object-position: 50% 50%;
+		}
+
+		@include vp-mobile {
+			display: none;
 		}
 	}
 
