@@ -1003,13 +1003,33 @@
 		}
 	}
 
-	// на мобильной стрелка «вперёд» стоит в ряду, а не поверх логотипов
+	// все логотипы влезают (.is-fit ставит sliders.js): стрелок нет, логотипы разложены по всей ширине
+	&__row.is-fit {
+		.home-partners__arrow {
+			display: none;
+		}
+
+		.swiper-wrapper {
+			justify-content: space-between;
+		}
+
+		.swiper-slide:last-child {
+			margin-right: 0 !important;
+		}
+	}
+
+	// стрелки-плашки со скосом стоят в ряду по краям
 	&__arrow {
 		position: relative;
 		z-index: 2;
+		flex-shrink: 0;
 
-		@include vp-mobile {
-			--arrow-size: 2.6rem;
+		&--prev::after {
+			transform: scaleX(-1);
+		}
+
+		&.swiper-button-lock {
+			display: none;
 		}
 	}
 }

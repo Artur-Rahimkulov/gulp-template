@@ -11,6 +11,7 @@ import { Navigation } from 'swiper/modules'
 //   data-slider-mobile-off — на мобильной слайдер выключен, раскладку задаёт CSS
 //   [data-slider-number] (картинка в обёртке) — крупный номер текущего слайда: assets/svg/number/number-01.svg и т. д.
 //   data-slider-align-last — на мобильной последний слайд встаёт к левому краю, как остальные (а не прижимается вправо)
+//   data-slider-fit — если все слайды влезают в ширину обёртки без стрелок, обёртка получает .is-fit (стрелки прячет CSS)
 export const sliders = () => {
   document.querySelectorAll('[data-slider]').forEach((slider) => {
     const wrapper = slider.closest('[data-slider-wrapper]') || slider.parentElement
@@ -21,7 +22,20 @@ export const sliders = () => {
     const mobileOff = slider.hasAttribute('data-slider-mobile-off')
     const view = (max) => (auto ? 'auto' : Math.min(perView, max))
     const alignLast = slider.hasAttribute('data-slider-align-last')
+    const fit = slider.hasAttribute('data-slider-fit')
     const mobile = window.matchMedia('(max-width: 899.98px)')
+
+    // сравниваем ширину всех слайдов с зазорами и ширину обёртки целиком (вместе с местом под стрелки)
+    const updateFit = (swiper) => {
+      if (!fit) return
+      const space = Number(swiper.params.spaceBetween) || 0
+      const content = swiper.slides.reduce((sum, slide) => sum + slide.offsetWidth, 0) + space * (swiper.slides.length - 1)
+      const fits = content <= wrapper.clientWidth
+      if (wrapper.classList.contains('is-fit') !== fits) {
+        wrapper.classList.toggle('is-fit', fits)
+        swiper.update()
+      }
+    }
 
     // отступ после последнего слайда = ширина ленты − ширина слайда: тогда последний доходит до левого края
     const updateOffset = (swiper) => {
@@ -44,8 +58,15 @@ export const sliders = () => {
         nextEl: wrapper.querySelector('[data-slider-next]'),
       },
       on: {
-        init: updateOffset,
-        resize: updateOffset,
+        init: (swiper) => {
+          updateOffset(swiper)
+          updateFit(swiper)
+        },
+        resize: (swiper) => {
+          updateOffset(swiper)
+          updateFit(swiper)
+        },
+        breakpoint: (swiper) => requestAnimationFrame(() => updateFit(swiper)),
         slideChange: (swiper) => {
           const number = wrapper.querySelector('[data-slider-number]')
           if (number) {
