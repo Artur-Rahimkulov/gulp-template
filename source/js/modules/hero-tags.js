@@ -59,6 +59,8 @@ const revealAfterVideo = (root) => {
   video.addEventListener('timeupdate', check)
   video.addEventListener('ended', reveal, { once: true })
   video.addEventListener('error', reveal, { once: true })
+  // при нескольких <source> ошибка приходит на последний источник, а не на video
+  video.querySelector('source:last-of-type')?.addEventListener('error', reveal, { once: true })
   desktop.addEventListener('change', reveal, { once: true })
 
   // видео так и не пошло — плашки не прячем

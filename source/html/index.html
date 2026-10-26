@@ -13,7 +13,11 @@
 					<img class="home-hero__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
 					<!-- На десктопе вместо картинки видео: проигрывается один раз, без элементов управления -->
 					<div class="home-hero__video" aria-hidden="true">
-						<video data-hero-video src="assets/video/home-hero.mp4" poster="assets/video/home-hero-poster.jpg" width="1280" height="720" muted autoplay playsinline preload="auto" disablepictureinpicture></video>
+						<!-- AV1 легче на треть при том же качестве; браузеры без AV1 берут H.264 -->
+						<video data-hero-video poster="assets/video/home-hero-poster.jpg" width="1280" height="720" muted autoplay playsinline preload="auto" disablepictureinpicture>
+							<source src="assets/video/home-hero-av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+							<source src="assets/video/home-hero.mp4" type="video/mp4">
+						</video>
 					</div>
 					<!-- картинка нужна только на мобильной (на десктопе видео); lazy — скрытую не скачивает десктоп -->
 					<img class="home-hero__photo" src="assets/img/home-hero.webp" width="1525" height="928" alt="" aria-hidden="true" loading="lazy">
