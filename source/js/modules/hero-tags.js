@@ -74,6 +74,15 @@ const initTagVideo = (tag) => {
   const link = tag.querySelector('a')
   if (!video || !link) return
 
+  // превью кружка ставим только на десктопе — на мобильной кружков нет, картинки не нужны
+  const setPoster = () => {
+    if (!desktop.matches || !video.dataset.poster) return
+    video.poster = video.dataset.poster
+    delete video.dataset.poster
+  }
+  setPoster()
+  desktop.addEventListener('change', setPoster)
+
   let hideTimer
 
   const show = () => {

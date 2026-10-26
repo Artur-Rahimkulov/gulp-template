@@ -13,10 +13,11 @@
 					<img class="home-hero__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
 					<!-- На десктопе вместо картинки видео: проигрывается один раз, без элементов управления -->
 					<div class="home-hero__video" aria-hidden="true">
-						<!-- AV1 легче на треть при том же качестве; браузеры без AV1 берут H.264 -->
-						<video data-hero-video poster="assets/video/home-hero-poster.jpg" width="1280" height="720" muted autoplay playsinline preload="auto" disablepictureinpicture>
-							<source src="assets/video/home-hero-av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
-							<source src="assets/video/home-hero.mp4" type="video/mp4">
+						<!-- AV1 легче на треть при том же качестве; браузеры без AV1 берут H.264.
+						     media — на мобильной ни один источник не подходит, и видео не скачивается; превью — фоном в CSS только для десктопа -->
+						<video data-hero-video width="1280" height="720" muted autoplay playsinline preload="auto" disablepictureinpicture>
+							<source src="assets/video/home-hero-av1.mp4" type='video/mp4; codecs="av01.0.05M.08"' media="(min-width: 900px)">
+							<source src="assets/video/home-hero.mp4" type="video/mp4" media="(min-width: 900px)">
 						</video>
 					</div>
 					<!-- картинка нужна только на мобильной (на десктопе видео); lazy — скрытую не скачивает десктоп -->
@@ -37,12 +38,12 @@
 						<!-- Плашки услуг: на десктопе разложены по иллюстрации, при наведении над плашкой появляется видео в кружке; на мобильной видна одна и листается стрелками -->
 						<div class="home-hero__tags" data-hero-tags>
 							<ul class="home-hero__tags-list">
-								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-power.mp4" poster="assets/video/hero-tag-power.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение", "href": "service.html"})</li>
-								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-lighting.mp4" poster="assets/video/hero-tag-lighting.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Наружное <br>освещение", "href": "service.html", "class": "tag-link--tall"})</li>
-								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-indoor.mp4" poster="assets/video/hero-tag-indoor.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение <br>внутри помещения", "href": "service.html", "class": "tag-link--tall"})</li>
-								<li class="home-hero__tag is-active" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-substation.mp4" poster="assets/video/hero-tag-substation.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Электроподстанция", "href": "service.html"})</li>
-								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-fire.mp4" poster="assets/video/hero-tag-fire.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Автоматическая <br>пожарная сигнализация", "href": "service.html", "class": "tag-link--tall"})</li>
-								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-access.mp4" poster="assets/video/hero-tag-access.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "СКУД", "href": "service.html"})</li>
+								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-power.mp4" data-poster="assets/video/hero-tag-power.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение", "href": "service.html"})</li>
+								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-lighting.mp4" data-poster="assets/video/hero-tag-lighting.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Наружное <br>освещение", "href": "service.html", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-indoor.mp4" data-poster="assets/video/hero-tag-indoor.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Электроснабжение <br>внутри помещения", "href": "service.html", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag is-active" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-substation.mp4" data-poster="assets/video/hero-tag-substation.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Электроподстанция", "href": "service.html"})</li>
+								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-fire.mp4" data-poster="assets/video/hero-tag-fire.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "Автоматическая <br>пожарная сигнализация", "href": "service.html", "class": "tag-link--tall"})</li>
+								<li class="home-hero__tag" data-hero-tag><div class="home-hero__tag-video" aria-hidden="true"><video src="assets/video/hero-tag-access.mp4" data-poster="assets/video/hero-tag-access.jpg" width="480" height="480" muted loop playsinline preload="none" disablepictureinpicture></video></div>@@include("source/html/ui/tag-link.html", {"name": "СКУД", "href": "service.html"})</li>
 							</ul>
 							<div class="slider-arrows slider-arrows--skew home-hero__arrows">
 								<button class="slider-arrow slider-arrow--skew" type="button" aria-label="Предыдущая услуга" data-hero-tags-prev>←</button>

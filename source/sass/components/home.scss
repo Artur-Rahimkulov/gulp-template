@@ -102,6 +102,11 @@
 		overflow: hidden;
 		pointer-events: none;
 
+		// превью (первый кадр) фоном только для десктопа, а не poster: на мобильной картинка не скачивается
+		@include vp-desktop {
+			background: url("../assets/video/home-hero-poster.jpg") no-repeat 50% 50% / cover;
+		}
+
 		video {
 			display: block;
 			width: 100%;
@@ -1732,11 +1737,13 @@
 		background-image: url("../assets/svg/grid/home-stats.svg");
 	}
 
-	// в макете слой начинается на 24 выше секции
+	// в макете слой начинается на 24 выше секции — этот кусок срезаем, чтобы линия не торчала на сером фоне проектов
 	&--why {
-		top: -2.4rem;
-		height: 94.1rem;
+		top: 0;
+		height: 91.7rem;
 		background-image: url("../assets/svg/grid/home-why.svg");
+		background-position: 0 -2.4rem;
+		background-size: 100% 94.1rem;
 	}
 
 	// мобильная 390: свои линии из мобильного макета, svg 390 по центру экрана
@@ -1766,6 +1773,8 @@
 			top: 0;
 			height: 50.5rem;
 			background-image: url("../assets/svg/grid/home-m-why.svg");
+			background-position: 0 0;
+			background-size: 100% 100%;
 		}
 	}
 }
