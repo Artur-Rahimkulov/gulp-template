@@ -15,7 +15,8 @@
 					<div class="home-hero__video" aria-hidden="true">
 						<video data-hero-video src="assets/video/home-hero.mp4" poster="assets/video/home-hero-poster.jpg" width="1280" height="720" muted autoplay playsinline preload="auto" disablepictureinpicture></video>
 					</div>
-					<img class="home-hero__photo" src="assets/img/home-hero.webp" width="1525" height="928" alt="" aria-hidden="true">
+					<!-- картинка нужна только на мобильной (на десктопе видео); lazy — скрытую не скачивает десктоп -->
+					<img class="home-hero__photo" src="assets/img/home-hero.webp" width="1525" height="928" alt="" aria-hidden="true" loading="lazy">
 					<span class="home-lines home-lines--hero" aria-hidden="true"></span>
 					<img class="home-hero__decor home-hero__decor--tiles" src="assets/img/tiles-small.webp" width="140" height="52" alt="" aria-hidden="true">
 					<img class="home-hero__decor home-hero__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
@@ -53,20 +54,20 @@
 						<span class="home-services__grid"></span>
 					</div>
 					<span class="home-lines home-lines--services-navy" aria-hidden="true"></span>
-					<img class="home-services__worker home-services__worker--top" src="assets/img/home-worker-top.webp" width="1920" height="825" alt="" aria-hidden="true">
-					<img class="home-services__worker home-services__worker--bottom" src="assets/img/home-worker-bottom.webp" width="1920" height="951" alt="" aria-hidden="true">
+					<img class="home-services__worker home-services__worker--top" src="assets/img/home-worker-top.webp" width="1920" height="825" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-services__worker home-services__worker--bottom" src="assets/img/home-worker-bottom.webp" width="1920" height="951" alt="" aria-hidden="true" loading="lazy">
 					<span class="home-lines home-lines--services-white" aria-hidden="true"></span>
-					<img class="home-services__decor home-services__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
+					<img class="home-services__decor home-services__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true" loading="lazy">
 					<div class="home-services__decor home-services__decor--slab-top" aria-hidden="true">
-						<img src="assets/img/slab-white.webp" width="497" height="439" alt="">
+						<img src="assets/img/slab-white.webp" width="497" height="439" alt="" loading="lazy">
 					</div>
-					<img class="home-services__decor home-services__decor--slab-card" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
-					<img class="home-services__decor home-services__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
-					<img class="home-services__decor home-services__decor--tiles-left" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="home-services__decor home-services__decor--slab-card" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-services__decor home-services__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-services__decor home-services__decor--tiles-left" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true" loading="lazy">
 
 					<div class="container home-services__inner">
 						<div class="home-services__cable" aria-hidden="true">
-							<img src="assets/img/home-cable.webp" width="785" height="361" alt="">
+							<img src="assets/img/home-cable.webp" width="785" height="361" alt="" loading="lazy">
 						</div>
 						<h2 class="home-services__title">Услуги</h2>
 
@@ -83,8 +84,8 @@
 
 						<!-- «Надёжный партнёр»: на мобильной без подписи и абзаца -->
 						<article class="home-about">
-							<span class="home-about__ghost home-about__ghost--top" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt=""></span>
-							<span class="home-about__ghost" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt=""></span>
+							<span class="home-about__ghost home-about__ghost--top" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt="" loading="lazy"></span>
+							<span class="home-about__ghost" aria-hidden="true"><img src="assets/img/slab-ghost.webp" width="407" height="507" alt="" loading="lazy"></span>
 							<p class="home-about__label">Инженерный центр «Крафт»</p>
 							<!-- Текст из админки: заголовок и описание (на мобильной описание скрыто), ниже — абзац о репутации -->
 							<div class="rich-text home-about__text">
@@ -103,9 +104,9 @@
 				<section class="home-stats bg-grid">
 					<span class="home-lines home-lines--stats" aria-hidden="true"></span>
 					<div class="double-line home-stats__line"></div>
-					<img class="home-stats__decor home-stats__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
-					<img class="home-stats__decor home-stats__decor--ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
-					<img class="home-stats__decor home-stats__decor--ghost-bottom" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
+					<img class="home-stats__decor home-stats__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-stats__decor home-stats__decor--ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-stats__decor home-stats__decor--ghost-bottom" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true" loading="lazy">
 
 					<div class="container">
 						<div class="home-stats__list">
@@ -127,11 +128,11 @@
 							<button class="slider-arrow slider-arrow--skew home-partners__arrow home-partners__arrow--prev" type="button" aria-label="Назад" data-slider-prev>←</button>
 							<div class="swiper home-partners__slider" data-slider data-slider-fit data-slider-per-view="auto" data-slider-gap="106" data-slider-gap-mobile="40">
 								<ul class="swiper-wrapper home-partners__list">
-									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-sber.webp" width="169" height="53" alt="Сбер"></li>
-									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-sibur.webp" width="156" height="38" alt="Сибур"></li>
-									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-gazprom.webp" width="134" height="75" alt="Газпром"></li>
-									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-4.webp" width="197" height="61" alt="Партнёр"></li>
-									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-5.webp" width="175" height="46" alt="Партнёр"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-sber.webp" width="169" height="53" alt="Сбер" loading="lazy"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-sibur.webp" width="156" height="38" alt="Сибур" loading="lazy"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-gazprom.webp" width="134" height="75" alt="Газпром" loading="lazy"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-4.webp" width="197" height="61" alt="Партнёр" loading="lazy"></li>
+									<li class="swiper-slide home-partners__item"><img src="assets/img/partner-5.webp" width="175" height="46" alt="Партнёр" loading="lazy"></li>
 								</ul>
 							</div>
 							<button class="slider-arrow slider-arrow--skew home-partners__arrow home-partners__arrow--next" type="button" aria-label="Вперёд" data-slider-next>→</button>
@@ -141,13 +142,13 @@
 
 				<!-- Реализованные проекты: синяя панель + слайдер проектов -->
 				<section class="home-projects" data-slider-wrapper>
-					<img class="home-projects__decor home-projects__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
-					<img class="home-projects__decor home-projects__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="home-projects__decor home-projects__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-projects__decor home-projects__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true" loading="lazy">
 
 					<div class="home-projects__aside">
-						<img class="home-projects__cabinet" src="assets/img/home-cabinet.webp" width="493" height="673" alt="" aria-hidden="true">
-						<img class="home-projects__outline" src="assets/svg/outline-shapes.svg" width="990" height="1305" alt="" aria-hidden="true">
-						<img class="home-projects__outline home-projects__outline--sm" src="assets/svg/outline-shapes-sm.svg" width="544" height="930" alt="" aria-hidden="true">
+						<img class="home-projects__cabinet" src="assets/img/home-cabinet.webp" width="493" height="673" alt="" aria-hidden="true" loading="lazy">
+						<img class="home-projects__outline" src="assets/svg/outline-shapes.svg" width="990" height="1305" alt="" aria-hidden="true" loading="lazy">
+						<img class="home-projects__outline home-projects__outline--sm" src="assets/svg/outline-shapes-sm.svg" width="544" height="930" alt="" aria-hidden="true" loading="lazy">
 						<div class="home-projects__aside-inner">
 							<div class="rich-text home-projects__text">
 							  <h2>Реализованные проекты</h2>
@@ -158,9 +159,9 @@
 					</div>
 
 					<div class="home-projects__main">
-						<img class="home-projects__ghost" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true">
+						<img class="home-projects__ghost" src="assets/img/slab-ghost-white.webp" width="407" height="507" alt="" aria-hidden="true" loading="lazy">
 						<!-- номер текущего проекта: data-slider-number — картинка меняется при листании (number-01.svg, number-02.svg…) -->
-						<img class="home-projects__number" src="assets/svg/number/number-01.svg" width="218" height="273" alt="" aria-hidden="true" data-slider-number>
+						<img class="home-projects__number" src="assets/svg/number/number-01.svg" width="218" height="273" alt="" aria-hidden="true" data-slider-number loading="lazy">
 						<!-- зазор между слайдами: при дробной ширине слайдера у края не выглядывает фото следующего проекта -->
 						<div class="swiper home-projects__slider" data-slider data-slider-per-view="1" data-slider-gap="60" data-slider-gap-mobile="32">
 							<div class="swiper-wrapper">
@@ -227,10 +228,10 @@
 				<!-- Почему выбирают ИЦ «Крафт» -->
 				<section class="home-why bg-grid">
 					<span class="home-lines home-lines--why" aria-hidden="true"></span>
-					<img class="home-why__decor home-why__decor--shadow" src="assets/img/slab-blue-shadow.webp" width="730" height="379" alt="" aria-hidden="true">
-					<img class="home-why__decor home-why__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
-					<img class="home-why__decor home-why__decor--ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
-					<img class="home-why__decor home-why__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="home-why__decor home-why__decor--shadow" src="assets/img/slab-blue-shadow.webp" width="730" height="379" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-why__decor home-why__decor--slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-why__decor home-why__decor--ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-why__decor home-why__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true" loading="lazy">
 					<div class="double-line home-why__line"></div>
 
 					<div class="container home-why__head">
@@ -252,10 +253,10 @@
 				<!-- Новости -->
 				<section class="home-news" data-slider-wrapper>
 					<div class="home-news__bg" aria-hidden="true">
-						<img class="home-news__outline" src="assets/svg/outline-shapes.svg" width="990" height="1305" alt="">
+						<img class="home-news__outline" src="assets/svg/outline-shapes.svg" width="990" height="1305" alt="" loading="lazy">
 					</div>
-					<img class="home-news__decor home-news__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true">
-					<img class="home-news__decor home-news__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true">
+					<img class="home-news__decor home-news__decor--slab" src="assets/img/slab-white.webp" width="497" height="439" alt="" aria-hidden="true" loading="lazy">
+					<img class="home-news__decor home-news__decor--tiles" src="assets/img/tiles-small.webp" width="168" height="88" alt="" aria-hidden="true" loading="lazy">
 
 					<div class="container">
 						<div class="home-news__head">
