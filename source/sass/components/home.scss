@@ -253,6 +253,25 @@
 		&.is-video-shown {
 			z-index: 1;
 		}
+
+		// появление за секунду до конца видео (hero-tags.js): плашки всплывают по очереди, последняя заканчивает к концу ролика
+		@include vp-desktop {
+			transition:
+				opacity 0.5s ease var(--tag-delay, 0s),
+				transform 0.5s ease var(--tag-delay, 0s);
+
+			@for $i from 1 through 6 {
+				&:nth-child(#{$i}) {
+					--tag-delay: #{($i - 1) * 0.1}s;
+				}
+			}
+
+			.is-tags-waiting & {
+				opacity: 0;
+				transform: translateY(2rem);
+				pointer-events: none;
+			}
+		}
 	}
 
 	// видео в кружке над плашкой при наведении: в макете кружок 211px с полупрозрачной белой рамкой, плашка лежит на его правом нижнем крае

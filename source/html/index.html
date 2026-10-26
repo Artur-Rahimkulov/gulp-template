@@ -7,12 +7,13 @@
 			<main class="home">
 
 				<!-- Первый экран: заголовок и плашки услуг поверх иллюстрации -->
-				<section class="home-hero bg-grid">
+				<!-- is-tags-waiting: плашки скрыты до конца видео, снимает hero-tags.js -->
+				<section class="home-hero bg-grid is-tags-waiting">
 					<div class="double-line home-hero__line"></div>
 					<img class="home-hero__ghost" src="assets/img/slab-ghost.webp" width="407" height="507" alt="" aria-hidden="true">
 					<!-- На десктопе вместо картинки видео: проигрывается один раз, без элементов управления -->
 					<div class="home-hero__video" aria-hidden="true">
-						<video src="assets/video/home-hero.mp4" poster="assets/video/home-hero-poster.jpg" width="1280" height="720" muted autoplay playsinline preload="auto" disablepictureinpicture></video>
+						<video data-hero-video src="assets/video/home-hero.mp4" poster="assets/video/home-hero-poster.jpg" width="1280" height="720" muted autoplay playsinline preload="auto" disablepictureinpicture></video>
 					</div>
 					<img class="home-hero__photo" src="assets/img/home-hero.webp" width="1525" height="928" alt="" aria-hidden="true">
 					<span class="home-lines home-lines--hero" aria-hidden="true"></span>

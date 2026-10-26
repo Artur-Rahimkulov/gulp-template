@@ -7,6 +7,7 @@ export const heroTags = () => {
 
   const tags = [...root.querySelectorAll('[data-hero-tag]')]
   tags.forEach(initTagVideo)
+  revealAfterVideo(root)
   if (tags.length < 2) return
 
   let current = Math.max(tags.findIndex((tag) => tag.classList.contains('is-active')), 0)
@@ -22,6 +23,49 @@ export const heroTags = () => {
 }
 
 const desktop = window.matchMedia('(min-width: 900px)')
+
+// На десктопе плашки плавно появляются за секунду до конца видео первого экрана.
+// Пока ждём — у секции .is-tags-waiting (стоит в разметке, чтобы плашки не мелькнули при загрузке);
+// на мобильной, без видео или если оно не играет (ошибка, автоплей запрещён) — показываем сразу
+const REVEAL_BEFORE_END = 1
+
+const revealAfterVideo = (root) => {
+  const hero = root.closest('.home-hero')
+  if (!hero) return
+
+  const video = hero.querySelector('[data-hero-video]')
+  let timer
+  let stalled
+
+  const reveal = () => {
+    hero.classList.remove('is-tags-waiting')
+    clearTimeout(timer)
+    clearTimeout(stalled)
+    video?.removeEventListener('timeupdate', check)
+  }
+
+  // timeupdate приходит раз в ~250 мс — последний отрезок досчитываем таймером
+  const check = () => {
+    if (!video.duration || timer) return
+    const left = video.duration - video.currentTime - REVEAL_BEFORE_END
+    if (left <= 0.5) timer = setTimeout(reveal, Math.max(left, 0) * 1000)
+  }
+
+  if (!video || video.ended || !desktop.matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveal()
+    return
+  }
+
+  video.addEventListener('timeupdate', check)
+  video.addEventListener('ended', reveal, { once: true })
+  video.addEventListener('error', reveal, { once: true })
+  desktop.addEventListener('change', reveal, { once: true })
+
+  // видео так и не пошло — плашки не прячем
+  stalled = setTimeout(() => {
+    if (video.paused && video.currentTime === 0) reveal()
+  }, 3000)
+}
 
 const initTagVideo = (tag) => {
   const video = tag.querySelector('video')
