@@ -372,6 +372,22 @@
 	}
 }
 
+// Полоса над «Похожими проектами»: косая сетка со своим сдвигом между двумя двойными линиями, только десктоп
+.project-band {
+	@include grid-lines;
+
+	display: none;
+	height: 6.4rem;
+	background-position: -6.4rem 0;
+	border-bottom: 0.1rem solid var(--color-double-line);
+	box-shadow: 0 0.2rem 0 0 var(--color-double-line);
+	margin-bottom: 0.3rem;
+
+	@include vp-desktop {
+		display: block;
+	}
+}
+
 // Карточка отзыва
 .review {
 	display: flex;
