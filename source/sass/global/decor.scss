@@ -45,3 +45,30 @@
 		grid-template-columns: minmax(0, 1fr);
 	}
 }
+
+// Пустой список после фильтра (js/modules/pagination.js): просто текст на всю ширину сетки
+.list-empty {
+	grid-column: 1 / -1;
+	position: relative;
+	z-index: 2;
+}
+
+.list-empty__title {
+	margin: 0 0 1.2rem;
+	font-size: 2.8rem;
+	line-height: 3.4rem;
+	font-weight: 500;
+	color: var(--color-text);
+
+	@include vp-mobile {
+		font-size: 2.2rem;
+		line-height: 2.8rem;
+	}
+}
+
+.list-empty__text {
+	margin: 0;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	color: var(--color-text-muted);
+}

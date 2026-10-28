@@ -184,19 +184,24 @@ export const pagination = () => {
   // ------------------------
 
   const handleEmpty = () => {
-    const items = Array.from(list.children).filter(el => !el.hidden && !el.classList.contains('not-found')).length
-    const existing = list.querySelector('.not-found')
+    const items = Array.from(list.children).filter(el => !el.hidden && !el.classList.contains('list-empty')).length
+    const existing = list.querySelector('.list-empty')
 
     if (items === 0) {
       if (!existing) {
-        const p = document.createElement('p')
-        p.className = 'not-found'
-        p.textContent = 'Ничего не найдено'
-        list.appendChild(p)
+        const empty = document.createElement('div')
+        empty.className = 'list-empty'
+        empty.innerHTML = `
+          <p class="list-empty__title">Ничего не найдено</p>
+          <p class="list-empty__text">По выбранному фильтру пока ничего нет. Попробуйте другую категорию.</p>`
+        list.appendChild(empty)
       }
     } else {
       existing?.remove()
     }
+
+    // пустой список — странице без проектов не нужен декор слотов (см. .projects.is-empty)
+    wrapper.classList.toggle('is-empty', items === 0)
 
     // пустой список — «Показать ещё» не нужна (кнопку могли пересоздать после загрузки — ищем заново)
     const moreBtn = wrapper.querySelector('[data-show-more-button]')
