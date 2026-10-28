@@ -1,8 +1,9 @@
 <!-- Форма «Остались вопросы?» («Контакты», «Услуга»): контактное лицо, e-mail, телефон с подписью, которая поднимается
      при вводе, сообщение и согласие.
      Параметры: compact: true — раскладка «Услуги» с прикреплением документов (js/modules/contacts-files.js);
+     files: true — прикрепление документов в обычной раскладке («Контакты»);
      message — подсказка в поле сообщения; phoneOptional: true — телефон необязателен (ТЗ «Контактов») -->
-<form class="contacts-form @@if (context.compact) {contacts-form--compact}" action="#" method="post" @@if (context.compact) {enctype="multipart/form-data"} novalidate>
+<form class="contacts-form @@if (context.compact) {contacts-form--compact}@@if (context.files) { contacts-form--files}" action="#" method="post" @@if (context.compact || context.files) {enctype="multipart/form-data"} novalidate>
   <div class="contacts-form__grid">
     <label class="contacts-form__field contacts-form__field--name" data-form-group>
       <input class="contacts-form__input" type="text" name="name" placeholder=" " required data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя">
@@ -17,7 +18,7 @@
       <span class="contacts-form__label">Телефон</span>
     </label>
 
-    @@if (context.compact) {
+    @@if (context.compact || context.files) {
     <!-- документы: data-files — выбор, data-files-list — список прикреплённых (крестик убирает файл) -->
     <div class="contacts-form__files" data-files>
       <label class="contacts-form__attach">

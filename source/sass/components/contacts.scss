@@ -1031,3 +1031,35 @@
 		}
 	}
 }
+
+// «Контакты»: документы в пустой ячейке под e-mail, линия «Прикрепить» на уровне линии телефона
+.contacts-form--files {
+	.contacts-form__grid {
+		grid-template-rows: 5.6rem auto;
+		grid-template-areas:
+			'name email'
+			'phone files';
+
+		@include vp-mobile {
+			grid-template-rows: none;
+			grid-template-areas:
+				'name'
+				'email'
+				'phone'
+				'files';
+		}
+	}
+
+	.contacts-form__files {
+		min-height: 0;
+		margin-top: 1.1rem;
+
+		@include vp-mobile {
+			margin-top: 2.6rem;
+		}
+	}
+
+	.contacts-form__file-list {
+		margin-top: 1.6rem;
+	}
+}
