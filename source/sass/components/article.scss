@@ -115,7 +115,9 @@
 	position: absolute;
 	top: 52.1rem;
 	left: calc(50% - 119.7rem);
-	z-index: 2;
+	// выше «Других новостей» (z-index 2): плашка заходит в секцию, и её сетка не должна ложиться поверх.
+	// Правый край плашки — по краю контента, карточки она не закрывает
+	z-index: 3;
 	width: 49.7rem;
 	max-width: none;
 	pointer-events: none;

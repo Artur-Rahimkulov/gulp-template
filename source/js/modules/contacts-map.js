@@ -47,18 +47,23 @@ const init = (ymaps, container) => {
       zoomControlSize: 'small',
     })
 
-    // «Как добраться» API открывает через window.open, и в части браузеров новая вкладка остаётся пустой —
-    // перехватываем клик и открываем маршрут до точки обычной ссылкой
+    // «Как добраться» API открывает через window.open уже на нажатии (mousedown/pointerdown/touchstart),
+    // и новая вкладка остаётся пустой. Гасим все события указателя на кнопке до того, как их увидит API
+    // (window, фаза захвата), а по клику открываем маршрут до точки обычной ссылкой
     const route = document.createElement('a')
     route.href = `https://yandex.ru/maps/?rtext=~${point.join(',')}&rtt=auto`
     route.target = '_blank'
     route.rel = 'noopener noreferrer'
-    canvas.addEventListener('click', (evt) => {
-      if (!evt.target.closest('[class$="-gotoymaps"]')) return
-      evt.preventDefault()
-      evt.stopPropagation()
-      route.click()
-    }, true)
+    const isGoto = (evt) => evt.target instanceof Element && canvas.contains(evt.target) &&evt.target.closest('[class*="gotoymaps"]')
+    const swallow = (evt) => {
+      if (!isGoto(evt)) return
+      evt.stopImmediatePropagation()
+      // preventDefault на touch отменил бы click на телефоне
+      if (!evt.type.startsWith('touch')) evt.preventDefault()
+      if (evt.type === 'click') route.click()
+    }
+    ;['pointerdown', 'pointerup', 'mousedown', 'mouseup', 'touchstart', 'touchend', 'click']
+      .forEach((type) => window.addEventListener(type, swallow, { capture: true, passive: false }))
 
     // колесо мыши прокручивает страницу, а не масштаб; на телефоне карта двигается двумя пальцами
     map.behaviors.disable('scrollZoom')
