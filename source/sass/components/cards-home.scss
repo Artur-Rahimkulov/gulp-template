@@ -295,14 +295,18 @@
 	&__content {
 		position: absolute;
 		top: 23.5rem;
+		bottom: 8.5rem;
 		left: 1.5rem;
 		width: 30rem;
 		color: var(--color-text);
+		overflow: hidden;
 
 		@include vp-mobile {
 			top: 15.2rem;
+			bottom: auto;
 			left: 1.6rem;
 			width: 19.8rem;
+			overflow: visible;
 		}
 	}
 
@@ -327,6 +331,18 @@
 		font-size: 1.2rem;
 		line-height: 2rem;
 		font-weight: 400;
+
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		p {
+			margin: 0;
+			display: inline;
+		}
 
 		@include vp-mobile {
 			display: none;

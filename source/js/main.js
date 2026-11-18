@@ -13,6 +13,7 @@ import { projectRows } from './modules/project-rows.js';
 import { tabs } from './modules/tabs.js';
 import { modal } from './modules/modal.js';
 import { cookie } from './modules/cookie.js';
+import { newsCards } from './modules/news-cards.js';
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
 // в load следует добавить скрипты, не участвующие в работе первого экрана
@@ -26,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	tabs();
 	modal();
 	cookie();
+	newsCards();
 	// ---------------------------------
 
 	window.addEventListener('load', () => {
