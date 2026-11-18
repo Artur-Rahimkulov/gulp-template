@@ -583,8 +583,11 @@
 	}
 
 	&__title {
-		display: flex;
-		align-items: center;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		min-height: 2.8rem;
 		font-size: 1.8rem;
 		line-height: 2.4rem;
@@ -608,10 +611,11 @@
 
 	&--small &__title {
 		min-height: 0;
+		-webkit-line-clamp: 3;
 
 		@include vp-narrow {
-			font-size: 1.5rem;
-			line-height: 2rem;
+			font-size: 1.4rem;
+			line-height: 1.8rem;
 		}
 	}
 
@@ -716,15 +720,19 @@
 		}
 
 		&--small &__body {
-			top: 15rem;
-			bottom: auto;
+			top: auto;
+			bottom: 1.5rem;
+			left: 1.2rem;
+			right: 1.2rem;
 			width: auto;
-			max-width: calc(100% - 2rem);
+			max-width: none;
 		}
 
 		&--small &__title {
-			font-size: 1.2rem;
-			line-height: 1.6rem;
+			font-size: 1.15rem;
+			line-height: 1.45rem;
+			-webkit-line-clamp: 3;
+			word-break: break-word;
 		}
 
 		&__arrow {

@@ -7,7 +7,7 @@
     <img src="assets/img/services-@@img.webp" @@if (context.size === 'wide') {width="666"}@@if (context.size !== 'wide') {width="435"} height="329" alt="" loading="lazy">
   </picture>
   <span class="service-tile__body">
-    <span class="service-tile__title">@@title</span>
+    <span class="service-tile__title" title="@@title">@@title</span>
     @@if (context.text) {
     <span class="service-tile__text">@@text</span>
     }
