@@ -1103,8 +1103,8 @@
 		background-color: #e9edf0;
 
 		@include vp-mobile {
-			min-height: 62.3rem;
-			padding: 4.9rem 3.9rem 6rem 4.1rem;
+			min-height: 0;
+			padding: 4.9rem 1.6rem 2.4rem;
 			background-color: #eaeef1;
 		}
 	}
@@ -1139,9 +1139,10 @@
 		}
 
 		@include vp-mobile {
-			top: 54.1rem;
-			left: auto;
-			right: 4rem;
+			position: static;
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 2rem;
 			gap: 1.4rem;
 
 			.round-arrow {
