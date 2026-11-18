@@ -70,10 +70,7 @@
 		}
 
 		&--home-light {
-			top: -8rem;
-			left: calc(50% - 24.4rem);
-			width: 13.9rem;
-			height: 12.3rem;
+			display: none;
 		}
 	}
 }
@@ -152,11 +149,7 @@
 
 	@include vp-mobile {
 		&--1 {
-			top: -6rem;
-			left: 2.4rem;
-			width: 15rem;
-			height: 84.4rem;
-			background-color: rgba(218, 223, 231, 0.3);
+			display: none;
 		}
 
 		&--2 {
