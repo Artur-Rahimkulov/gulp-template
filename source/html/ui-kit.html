@@ -234,6 +234,19 @@
         </div>
       </section>
 
+      <!-- Модальные окна и Cookie (CMS Bitrix) -->
+      <section class="kit__section">
+        <h2 class="title-h2 kit__title">Модальные окна и&nbsp;Cookie (интеграция с&nbsp;Bitrix)</h2>
+        <p class="caption kit__subtitle">
+          Модальные окна статуса отправки форм и&nbsp;плашка согласия Cookie. Для тестирования используйте кнопки ниже или методы в консоли: <code>window.openModal('modal-success')</code>, <code>window.openModal('modal-error')</code>, <code>window.resetCookieConsent()</code>.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.6rem; align-items: center; margin-top: 2rem;">
+          <button class="btn" type="button" data-modal-open="modal-success">Модалка Успеха</button>
+          <button class="btn" type="button" data-modal-open="modal-error">Модалка Ошибки</button>
+          <button class="btn-secondary" type="button" onclick="window.resetCookieConsent && window.resetCookieConsent()">Сбросить Cookie</button>
+        </div>
+      </section>
+
     </div>
   </main>
   @@include("source/html/base/footer-decor.html")

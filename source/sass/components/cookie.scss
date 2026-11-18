@@ -1,0 +1,116 @@
+// ==========================================================================
+// Плашка Cookie
+// Десктоп 1920 (601px, фиксирована в правом нижнем углу),
+// мобильная 390 (328px, центрирована снизу с отступами)
+// ==========================================================================
+
+.cookie {
+	position: fixed;
+	bottom: 3rem;
+	right: 3rem;
+	z-index: 999;
+	width: 60.1rem;
+	max-width: calc(100% - 6rem);
+	background-color: var(--color-bg-shape);
+	box-shadow: 0 0.4rem 0.4rem 0 rgba(18, 92, 203, 0.1);
+	padding: 2rem;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(2rem);
+	pointer-events: none;
+	transition:
+		opacity var(--default-transition),
+		visibility var(--default-transition),
+		transform var(--default-transition);
+
+	&.is-active,
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	&.is-hidden {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(2rem);
+		pointer-events: none;
+	}
+
+	@include vp-mobile {
+		bottom: 1.6rem;
+		left: 1.6rem;
+		right: 1.6rem;
+		width: auto;
+		max-width: 35.8rem;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: flex-start;
+		width: 100%;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+	}
+
+	&__title {
+		margin: 0;
+		font-family: var(--font-family);
+		font-weight: 600;
+		font-size: 2.1rem;
+		line-height: 2.6rem;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			font-size: 1.8rem;
+			line-height: 2.3rem;
+		}
+	}
+
+	&__text {
+		margin: 0;
+		font-family: var(--font-family);
+		font-weight: 500;
+		font-size: 1.4rem;
+		line-height: 1.8rem;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			font-size: 1.2rem;
+			line-height: 1.2;
+		}
+	}
+
+	&__link {
+		color: var(--color-brand);
+		font-family: var(--font-family);
+		font-weight: 500;
+		text-decoration: underline;
+		text-underline-position: from-font;
+		transition: color var(--default-transition);
+
+		@include hover {
+			color: var(--color-link);
+		}
+	}
+
+	&__btn {
+		// Десктоп: 200×55 (по умолчанию .btn)
+		// Мобильная: 220×61 (соответствует .btn--md)
+		@include vp-mobile {
+			--btn-width: 22rem;
+			--btn-height: 6.1rem;
+		}
+	}
+}

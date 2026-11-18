@@ -166,6 +166,42 @@ export const validateForms = () => {
 
       if (!isValid) {
         e.preventDefault();
+        return;
+      }
+
+      // =========================
+      // BITRIX / AJAX HOOK
+      // =========================
+      // Окружение для передачи бекендеру 1C-Bitrix.
+      // Если форма отправляется через AJAX (наличие data-ajax, либо отсутствие реального action):
+      const action = form.getAttribute("action");
+      const isAjaxForm = form.hasAttribute("data-ajax") || !action || action === "#" || action === "";
+
+      if (isAjaxForm) {
+        e.preventDefault();
+
+        // Пользовательское событие: бекендер может перехватить и вызвать fetch / BX.ajax
+        const submitEvent = new CustomEvent("form:submit-ajax", {
+          cancelable: true,
+          detail: { form, formData: new FormData(form) }
+        });
+        const allowed = document.dispatchEvent(submitEvent);
+
+        if (allowed) {
+          // Демонстрационный режим верстки:
+          // Если на форме указан data-simulate-error — открывается ошибка,
+          // иначе — модальное окно успешной отправки
+          if (form.hasAttribute("data-simulate-error")) {
+            if (typeof window.openModal === "function") {
+              window.openModal("modal-error");
+            }
+          } else {
+            if (typeof window.openModal === "function") {
+              window.openModal("modal-success");
+            }
+            form.reset();
+          }
+        }
       }
     });
   });

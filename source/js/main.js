@@ -11,6 +11,8 @@ import { contactsMap } from './modules/contacts-map.js';
 import { service } from './modules/service.js';
 import { projectRows } from './modules/project-rows.js';
 import { tabs } from './modules/tabs.js';
+import { modal } from './modules/modal.js';
+import { cookie } from './modules/cookie.js';
 
 // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
 // в load следует добавить скрипты, не участвующие в работе первого экрана
@@ -22,6 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	inputPhone();
 	projectRows();
 	tabs();
+	modal();
+	cookie();
 	// ---------------------------------
 
 	window.addEventListener('load', () => {

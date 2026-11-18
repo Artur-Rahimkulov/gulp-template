@@ -1,0 +1,247 @@
+// ==========================================================================
+// Модальные окна (состояния отправки форм: Успех и Ошибка)
+// Десктоп 1920 (карточка 511px), мобильная 390 (карточка 328px)
+// ==========================================================================
+
+body.is-modal-open {
+	overflow: hidden;
+	touch-action: none;
+}
+
+.modal {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition:
+		opacity var(--default-transition),
+		visibility var(--default-transition);
+
+	&.is-active,
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+
+		.modal__dialog {
+			transform: scale(1);
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		inset: 0;
+		background-color: var(--color-overlay);
+		cursor: pointer;
+	}
+
+	&__dialog {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		width: 51.1rem;
+		max-width: 100%;
+		min-height: 31.2rem;
+		background-color: var(--color-card);
+		border-radius: 0.2rem;
+		box-shadow: 0 1.8rem 3.6rem 0 rgba(20, 40, 90, 0.15);
+		overflow: hidden;
+		transform: scale(0.95);
+		transition: transform var(--default-transition);
+
+		@include vp-mobile {
+			width: 32.8rem;
+			min-height: 20.8rem;
+			border-radius: 0.2rem;
+		}
+	}
+
+	// Декоративная фигура на фоне
+	&__decor {
+		position: absolute;
+		top: -0.2rem;
+		right: 5rem;
+		width: 27.7rem;
+		height: 31.6rem;
+		pointer-events: none;
+		user-select: none;
+		z-index: 0;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: right top;
+		}
+
+		@include vp-mobile {
+			right: 3rem;
+			width: 18.1rem;
+			height: 100%;
+			top: 0;
+		}
+	}
+
+	// Кнопка закрытия
+	&__close {
+		position: absolute;
+		top: 3.3rem;
+		right: 3.5rem;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.7rem;
+		height: 3.7rem;
+		padding: 0;
+		margin: 0;
+		background-color: rgba(0, 83, 184, 0.2);
+		border: 0.1rem solid rgba(0, 129, 215, 0.02);
+		border-radius: 1rem;
+		cursor: pointer;
+		outline: none;
+		transition:
+			background-color var(--default-transition),
+			border-color var(--default-transition),
+			transform var(--default-transition);
+
+		img {
+			width: 1.6rem;
+			height: 1.6rem;
+			display: block;
+			pointer-events: none;
+		}
+
+		@include hover {
+			background-color: rgba(0, 83, 184, 0.35);
+			border-color: rgba(0, 129, 215, 0.35);
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+
+		@include vp-mobile {
+			top: 2rem;
+			right: 2rem;
+			width: 3rem;
+			height: 3rem;
+			border-radius: 1rem;
+
+			img {
+				width: 1.4rem;
+				height: 1.4rem;
+			}
+		}
+	}
+
+	// Содержимое модалки
+	&__content {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 7rem 3.5rem 5rem 3.5rem;
+
+		@include vp-mobile {
+			padding: 2rem;
+		}
+	}
+
+	&__head {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+
+		@include vp-mobile {
+			gap: 1rem;
+			padding-right: 3.5rem; // чтобы заголовок не наезжал на крестик
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		width: 6rem;
+		height: 6rem;
+
+		img {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+		@include vp-mobile {
+			width: 4rem;
+			height: 4rem;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-family: var(--font-family);
+		font-weight: 600;
+		font-size: 5.2rem;
+		line-height: 6.5rem;
+		word-break: break-word;
+
+		&--error {
+			color: #f00000;
+		}
+
+		&--success {
+			color: #192f7c;
+			line-height: 5.8rem;
+		}
+
+		@include vp-mobile {
+			font-size: 3rem;
+			line-height: 3.4rem;
+		}
+	}
+
+	&__text {
+		margin: 2rem 0 0;
+		max-width: 44.1rem;
+		font-family: var(--font-family);
+		font-weight: 400;
+		font-size: 2.4rem;
+		line-height: 1.3;
+		color: var(--color-text);
+
+		@include vp-mobile {
+			margin-top: 1.8rem;
+			max-width: 100%;
+			font-size: 1.6rem;
+			line-height: 1.35;
+		}
+	}
+
+	// Модификатор для успеха (чуть выше карточка: 33.4rem против 31.2rem)
+	&--success {
+		.modal__dialog {
+			min-height: 33.4rem;
+
+			@include vp-mobile {
+				min-height: 20.8rem;
+			}
+		}
+
+		.modal__decor {
+			width: 30.7rem;
+			height: 35rem;
+
+			@include vp-mobile {
+				width: 18.3rem;
+				height: 100%;
+			}
+		}
+	}
+}

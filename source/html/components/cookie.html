@@ -1,0 +1,17 @@
+<!-- Плашка уведомления о файлах Cookie -->
+<aside class="cookie" id="cookie-banner" data-cookie aria-label="Уведомление об использовании cookie">
+  <div class="cookie__inner">
+    <div class="cookie__content">
+      <h3 class="cookie__title">Этот сайт использует cookie</h3>
+      <p class="cookie__text">
+        Мы&nbsp;применяем файлы cookie для&nbsp;корректной работы сайта и&nbsp;анализа посещаемости. Обязательные файлы cookie обеспечивают работу сайта и&nbsp;не&nbsp;могут быть отключены. Аналитические файлы cookie помогают нам улучшать сайт и&nbsp;подключаются только при&nbsp;вашем согласии. Оставаясь на&nbsp;нашем сайте, вы&nbsp;соглашаетесь с&nbsp;<a class="cookie__link" href="policy.html" target="_blank" rel="noopener noreferrer">Политикой пользовательских данных</a>.
+      </p>
+    </div>
+    @@include("source/html/ui/button.html", {
+      "type": "button",
+      "name": "ПРИНЯТЬ ВСЁ",
+      "class": "cookie__btn",
+      "dataAttrString": "data-cookie-accept"
+    })
+  </div>
+</aside>
