@@ -38,6 +38,14 @@
 .breadcrumbs__list {
 	display: flex;
 	flex-wrap: wrap;
+	word-break: normal;
+	overflow-wrap: normal;
+	hyphens: manual;
+
+	li {
+		word-break: normal;
+		overflow-wrap: normal;
+	}
 
 	// на мобильной крошки в одну строку, длинное название обрезается многоточием
 	@include vp-mobile {

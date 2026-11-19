@@ -242,6 +242,16 @@
 	}
 
 	&__breadcrumbs {
+		width: 100%;
+		max-width: 100%;
+
+		// на десктопе крошки не должны зажиматься колонкой текста (61.5rem),
+		// так как правая иллюстрация от них далеко внизу
+		@include vp-desktop {
+			width: max-content;
+			max-width: calc(100vw - var(--container-padding) * 2);
+		}
+
 		.breadcrumbs__list {
 			color: var(--color-text-muted);
 		}

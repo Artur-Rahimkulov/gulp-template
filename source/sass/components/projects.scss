@@ -259,6 +259,14 @@
 }
 
 .projects__breadcrumbs {
+	width: 100%;
+	max-width: 100%;
+
+	@include vp-desktop {
+		width: max-content;
+		max-width: calc(100vw - var(--container-padding) * 2);
+	}
+
 	.breadcrumbs__link {
 		color: var(--color-link);
 	}
