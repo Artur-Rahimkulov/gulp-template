@@ -782,14 +782,15 @@
 		right: 0;
 		z-index: -1;
 		height: 32.9rem;
-		background-repeat: no-repeat;
-		background-position: 50% 0;
-		background-size: cover;
+		overflow: hidden;
+		background: linear-gradient(180deg, #0049a1 0%, #004f9e 50%, #003c96 100%);
+	}
 
-		// в мобильном макете фон прижат к левому краю
-		@include vp-mobile {
-			background-position: 0 0;
-		}
+	&__decor {
+		display: block;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
 	}
 
 	&__img {
@@ -807,6 +808,17 @@
 
 		@include vp-mobile {
 			left: 7.1rem;
+		}
+	}
+
+	&--motor &__img {
+		top: 1.2rem;
+		left: calc(50% - 9.65rem);
+		width: 19.3rem;
+		height: 23.6rem;
+
+		@include vp-mobile {
+			left: 8.1rem;
 		}
 	}
 
