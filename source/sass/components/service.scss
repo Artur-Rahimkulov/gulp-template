@@ -12,7 +12,6 @@
 		left: calc(50% - 126.1rem);
 		z-index: 4;
 		width: 99.07rem;
-		height: 128.55rem;
 		background: url("../assets/svg/grid/service-projects-lines.svg") no-repeat 0 0 / 100% 100%;
 		pointer-events: none;
 
@@ -159,6 +158,7 @@
 		// уже 1920 (до мобильной) плашка и её тень «резиновые»: размеры и сдвиг за левый край — доля ширины экрана
 		// от макета 1920 (497×439, −408 за краем; тень 159×446 у края), поэтому видны всегда в той же пропорции
 		@media (min-width: $vp-desktop) and (max-width: 1919.98px) {
+
 			// под текстом первого экрана: на узком экране край плашки доходит до левого поля контента
 			// но не заходит в колонку контента — тень (ниже) идёт за плашкой на тот же сдвиг
 			&--slab {
@@ -176,6 +176,7 @@
 		}
 
 		@include vp-mobile {
+
 			&--ghost-top,
 			&--edge,
 			&--slab {
@@ -257,7 +258,7 @@
 		}
 
 		.breadcrumbs__link,
-		li + li::before {
+		li+li::before {
 			color: var(--color-link);
 		}
 
@@ -384,7 +385,7 @@
 .service-about {
 	position: relative;
 
-	> .container {
+	>.container {
 		@include vp-mobile {
 			padding-left: 1.7rem;
 		}
@@ -464,6 +465,7 @@
 		}
 
 		@media (max-width: 1899.98px) {
+
 			&--edge,
 			&--slab {
 				display: none;
@@ -471,6 +473,7 @@
 		}
 
 		@include vp-mobile {
+
 			&--ghost-left,
 			&--ghost-b {
 				display: none;
@@ -755,6 +758,7 @@
 	@include vp-mobile {
 		height: 32.9rem;
 	}
+
 	isolation: isolate;
 	// иллюстрации не выходят за синюю плашку по бокам
 	clip-path: inset(0 0 -2rem 0);
@@ -849,6 +853,7 @@
 		@include vp-mobile {
 			right: 2rem;
 		}
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1004,6 +1009,7 @@
 		}
 
 		@include vp-mobile {
+
 			&--vignette,
 			&--illustration,
 			&--ghost {
@@ -1585,7 +1591,7 @@
 // синяя плашка подвала на «Услуге» уже 1920 — «резиновая», как её тень в «Остались вопросы?»: из-за края экрана
 // видна та же доля, что в макете 1920 (196 из 476). Общий подвал (components/footer.scss) не меняется
 @media (min-width: $vp-desktop) and (max-width: 1919.98px) {
-	.service ~ .footer-decor .footer-decor__img--home-blue {
+	.service~.footer-decor .footer-decor__img--home-blue {
 		left: calc(100% - 10.2vw);
 		width: 24.79vw;
 		height: 29.32vw;
