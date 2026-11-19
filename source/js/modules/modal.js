@@ -57,22 +57,24 @@ export const modal = () => {
     let modalElement = target ? (typeof target === 'string' ? document.getElementById(target) || document.querySelector(`[data-modal="${target}"]`) : target) : activeModal;
 
     if (!modalElement && !target) {
-      modalElement = document.querySelector('.modal.is-active, .modal.is-open');
+      modalElement = document.querySelector('.modal.is-active, .modal.is-open, .modal.active');
     }
 
     if (!modalElement) return;
 
-    modalElement.classList.remove('is-active', 'is-open');
+    modalElement.classList.remove('is-active', 'is-open', 'active');
     modalElement.setAttribute('aria-hidden', 'true');
 
     if (activeModal === modalElement) {
       activeModal = null;
     }
 
-    const hasOtherModals = document.querySelector('.modal.is-active, .modal.is-open');
+    const hasOtherModals = document.querySelector('.modal.is-active, .modal.is-open, .modal.active');
     if (!hasOtherModals && restoreScroll) {
       document.body.classList.remove('is-modal-open');
       document.body.style.paddingRight = '';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
 
     document.dispatchEvent(new CustomEvent('modal:close', {
@@ -151,19 +153,25 @@ export const modal = () => {
       e.preventDefault();
       const parentModal = closeTrigger.closest('.modal');
       closeModal(parentModal || activeModal);
+      return;
+    }
+
+    // Закрытие при клике по оверлею (если кликнули прямо на .modal)
+    if (e.target.classList && e.target.classList.contains('modal')) {
+      closeModal(e.target);
     }
   });
 
   // Закрытие по клавише Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && (activeModal || document.querySelector('.modal.is-active'))) {
-      closeModal(activeModal);
+    if (e.key === 'Escape' && (activeModal || document.querySelector('.modal.is-active, .modal.is-open, .modal.active'))) {
+      closeModal(activeModal || document.querySelector('.modal.is-active, .modal.is-open, .modal.active'));
     }
   });
 
   // Автоматическая проверка при загрузке страницы:
-  // 1. Bitrix срендерил модалку уже с классом is-active или атрибутом data-auto-open
-  const autoModal = document.querySelector('.modal[data-auto-open], .modal.is-active, .modal.is-open');
+  // 1. Bitrix срендерил модалку уже с классом is-active/active или атрибутом data-auto-open
+  const autoModal = document.querySelector('.modal[data-auto-open], .modal.is-active, .modal.is-open, .modal.active');
   if (autoModal) {
     openModal(autoModal);
   }

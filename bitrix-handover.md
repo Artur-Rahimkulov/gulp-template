@@ -1,41 +1,219 @@
-# Руководство по интеграции модальных окон и Cookie в CMS 1C-Bitrix
+# Руководство по интеграции модальных окон и форм в CMS 1C-Bitrix
 
-Данный документ описывает окружение, структуру компонентов и способы подключения модальных окон статуса отправки форм (Успех/Ошибка) и плашки Cookie для backend-разработчика 1C-Bitrix.
-
----
-
-## 1. Структура файлов и ассетов
-
-### Разметка (HTML):
-- `source/html/components/modal-success.html` — модальное окно успешной отправки заявки («Ваша заявка отправлена»).
-- `source/html/components/modal-error.html` — модальное окно ошибки («При отправке сообщения произошла ошибка…»).
-- `source/html/components/modal-recaptcha.html` — модальное окно ошибки reCAPTCHA («Не пройдена проверка reCAPTCHA. Повторите отправку формы.»).
-- `source/html/components/modals.html` — единый контейнер, включающий окна.
-- `source/html/components/cookie.html` — плашка согласия с использованием файлов Cookie («Этот сайт использует cookie»).
-- `source/html/base/scripts.html` — партиал скриптов перед `</body>`, куда подключены `cookie.html` и `modals.html`.
-
-### Стили (SCSS):
-- `source/sass/components/modal.scss` — стили модальных окон (десктоп 511px / мобильная 328px, анимация, блокировка скролла, позиционирование).
-- `source/sass/components/cookie.scss` — стили плашки cookie (десктоп 601px в правом нижнем углу / мобильная 328px снизу).
-- Подключены в общий `source/sass/style.scss`.
-
-### Скрипты (JS):
-- `source/js/modules/modal.js` — модуль управления модалками, экспорт методов в `window`, обработка клавиатуры (Escape), оверлея, авто-открытие при загрузке.
-- `source/js/modules/cookie.js` — модуль баннера cookie, запись в `localStorage` и `document.cookie` (`cookie_accepted=true`).
-- `source/js/modules/validateForms.js` — валидация форм и передача управления в AJAX/Bitrix события.
-- Подключены в `source/js/main.js`.
-
-### Графика и иконки:
-- `source/assets/svg/modal-close.svg` — иконка крестика закрытия (16×16px).
-- `source/assets/svg/modal-error-icon.svg` — иконка ошибки (круг 60×60px, `#F00000`, восклицательный знак).
-- `source/assets/svg/modal-success-icon.svg` — иконка успеха (круг 60×60px, `#192F7C`, галочка).
-- `source/assets/img/modal-decor.png` — декоративная фоновая фигура карточки модального окна.
+Данный документ описывает интеграцию модальных окон статуса отправки форм (Успех, Ошибка, reCAPTCHA) и плашки Cookie для backend-разработчика 1C-Bitrix.
 
 ---
 
-## 2. Размещение в структуре шаблона Битрикс
+## 1. Формат интеграции в шаблоне компонента формы Bitrix
 
-Рекомендуется разместить модальные окна и плашку Cookie в файле подвала шаблона сайта (`local/templates/[ваш_шаблон]/footer.php`) непосредственно перед вызовом скриптов или закрывающим тегом `</body>`:
+В шаблоне компонента формы (например, веб-формы `bitrix:form.result.new` или формы обратной связи) интеграция выполняется через проверку `$arResult["isFormNote"]` и `$arResult['isFormErrors']`:
+
+```php
+<?php if ($arResult["isFormNote"] == "Y"): ?>
+    <?php if ($arResult['isFormErrors'] == 'Y'): ?>
+        <script>
+            (function () {
+                var btn = document.querySelector('[data-section-form] button[type="submit"]');
+                if(btn) btn.classList.remove('is-lock-button');
+
+                var modal = document.querySelector('div[data-modal="modal-error"]');
+                if (modal) modal.classList.add('active');
+            })();
+        </script>
+    <?php else: ?>
+        <script>
+            (function () {
+                var btn = document.querySelector('[data-section-form] button[type="submit"]');
+                if(btn) btn.classList.remove('is-lock-button');
+
+                // Очистка полей
+                var formWrapper = document.querySelector('[data-section-form]');
+                if (formWrapper) {
+                    var nameInput = formWrapper.querySelector('input[data-type="name"]');
+                    if (nameInput) nameInput.value = '';
+                    var phoneInput = formWrapper.querySelector('input[data-type="phone"]');
+                    if (phoneInput) phoneInput.value = '';
+                    var checkbox = formWrapper.querySelector('.footer__form-checkbox .checkbox-input');
+                    if (checkbox) checkbox.checked = false;
+                }
+
+                // Надежная разблокировка скролла
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+
+                var modal = document.querySelector('div[data-modal="modal-success"]');
+                if (modal) modal.classList.add('active');
+            })();
+        </script>
+    <?php endif; ?>
+<?php endif; ?>
+```
+
+---
+
+## 2. Обработка ошибки проверки reCAPTCHA
+
+Если в форме используется проверка Google reCAPTCHA / капчи Bitrix и она завершилась неудачей, используйте модальное окно с селектором `div[data-modal="modal-recaptcha"]`:
+
+```php
+<?php if ($arResult['isRecaptchaError'] == 'Y' || (isset($arResult['FORM_ERRORS']['recaptcha']))): ?>
+    <script>
+        (function () {
+            var btn = document.querySelector('[data-section-form] button[type="submit"]');
+            if (btn) btn.classList.remove('is-lock-button');
+
+            var modal = document.querySelector('div[data-modal="modal-recaptcha"]');
+            if (modal) modal.classList.add('active');
+        })();
+    </script>
+<?php endif; ?>
+```
+
+---
+
+## 3. Селекторы и разметка модальных окон
+
+Все модальные окна находятся в разметке (`source/html/components/modals.html`) и снабжены соответствующими селекторами `data-modal`:
+
+### 3.1. Успешная отправка (`modal-success.html`)
+- **Селектор:** `div[data-modal="modal-success"]` (или `id="modal-success"`)
+- **Класс показа:** `.active` (также поддерживаются `.is-active`, `.is-open`)
+- **Разметка карточки:**
+  ```html
+  <div class="modal" id="modal-success" data-modal="modal-success" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__decor" aria-hidden="true"></div>
+      <button class="modal__close" type="button" aria-label="Закрыть окно" data-modal-close>
+        <svg class="modal__close-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="modal__icon modal__icon--success" aria-hidden="true">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <circle cx="30" cy="30" r="30" fill="#192F7C"/>
+          <path d="M20 30.5L26.5 37L40 23.5" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="modal__title">Ваша заявка отправлена</p>
+      <p class="modal__text">В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами для&nbsp;уточнения деталей.</p>
+      <button class="btn btn--primary modal__btn" type="button" data-modal-close>Закрыть</button>
+    </div>
+  </div>
+  ```
+
+### 3.2. Ошибка отправки (`modal-error.html`)
+- **Селектор:** `div[data-modal="modal-error"]` (или `id="modal-error"`)
+- **Класс показа:** `.active` (также `.is-active`, `.is-open`)
+- **Разметка карточки:**
+  ```html
+  <div class="modal" id="modal-error" data-modal="modal-error" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__decor" aria-hidden="true"></div>
+      <button class="modal__close" type="button" aria-label="Закрыть окно" data-modal-close>
+        <svg class="modal__close-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="modal__icon modal__icon--error" aria-hidden="true">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <circle cx="30" cy="30" r="30" fill="#F00000"/>
+          <path d="M30 18V34M30 42H30.02" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="modal__title">Ошибка отправки</p>
+      <div class="rich-text modal__text">
+        <p>При отправке сообщения произошла ошибка. Пожалуйста, попробуйте позже или свяжитесь с&nbsp;нами по&nbsp;телефону.</p>
+      </div>
+      <button class="btn btn--primary modal__btn" type="button" data-modal-close>Закрыть</button>
+    </div>
+  </div>
+  ```
+
+### 3.3. Ошибка проверки reCAPTCHA (`modal-recaptcha.html`)
+- **Селектор:** `div[data-modal="modal-recaptcha"]` (или `id="modal-recaptcha"`)
+- **Класс показа:** `.active` (также `.is-active`, `.is-open`)
+- **Разметка карточки:**
+  ```html
+  <div class="modal" id="modal-recaptcha" data-modal="modal-recaptcha" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__decor" aria-hidden="true"></div>
+      <button class="modal__close" type="button" aria-label="Закрыть окно" data-modal-close>
+        <svg class="modal__close-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="modal__icon modal__icon--error" aria-hidden="true">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <circle cx="30" cy="30" r="30" fill="#F00000"/>
+          <path d="M30 18V34M30 42H30.02" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="modal__title">Ошибка проверки</p>
+      <div class="rich-text modal__text">
+        <p>Не пройдена проверка reCAPTCHA. Повторите отправку формы.</p>
+      </div>
+      <button class="btn btn--primary modal__btn" type="button" data-modal-close>Закрыть</button>
+    </div>
+  </div>
+  ```
+
+---
+
+## 4. Разметка формы и атрибуты полей (`[data-section-form]`)
+
+Для корректной работы серверного скрипта оберните форму компонента или саму форму в атрибут `data-section-form`:
+
+```html
+<div data-section-form>
+  <form class="contacts-form" action="..." method="post">
+    <!-- Поле Имя -->
+    <input class="contacts-form__input" type="text" name="name" data-type="name" required>
+
+    <!-- Поле Телефон -->
+    <input class="contacts-form__input" type="tel" name="phone" data-type="phone" required>
+
+    <!-- Чекбокс согласия -->
+    <label class="contacts-form__consent footer__form-checkbox">
+      <input class="contacts-form__checkbox checkbox-input" type="checkbox" name="consent" required>
+      <span class="contacts-form__box"></span>
+      <span class="contacts-form__consent-text">Согласие на обработку...</span>
+    </label>
+
+    <!-- Кнопка отправки -->
+    <button class="btn btn--primary contacts-form__btn" type="submit">Отправить</button>
+  </form>
+</div>
+```
+
+### Назначение атрибутов:
+- `data-section-form` — корневой контейнер формы для поиска кнопки, полей и сброса значений.
+- `input[data-type="name"]` — поле имени/контактного лица.
+- `input[data-type="phone"]` — поле телефона.
+- `.checkbox-input` (или `.footer__form-checkbox .checkbox-input`) — чекбокс согласия на обработку данных.
+- `.is-lock-button` — вспомогательный CSS-класс блокировки кнопки при отправке (удаляется скриптом: `btn.classList.remove('is-lock-button')`).
+
+---
+
+## 5. Поведение и закрытие модальных окон
+
+В файле `source/js/modules/modal.js` и стилях `source/sass/components/modal.scss` реализована полная поддержка класса `.active`:
+1. **Открытие:**
+   Добавление класса `.active` к элементу модалки (`modal.classList.add('active')`) сразу делает модальное окно видимым, запускает плавную анимацию появления и масштабирования окна.
+2. **Закрытие:**
+   При клике на крестик (`[data-modal-close]`), кнопку «Закрыть» внутри карточки, клике по фоновой подложке (оверлею) или нажатии клавиши **Escape** класс `.active` (а также `.is-active`, `.is-open`) автоматически удаляется, восстанавливая скролл страницы.
+3. **Разблокировка скролла:**
+   В коде скрипта предусмотрен сброс:
+   ```javascript
+   document.body.style.overflow = '';
+   document.documentElement.style.overflow = '';
+   ```
+   Фронтенд-модуль дополнительно снимает служебный класс `is-modal-open` и компенсирующий `padding-right`.
+
+---
+
+## 6. Размещение в шаблоне Bitrix (`footer.php`)
+
+Подключите модальные окна в нижней части сайта перед закрывающим тегом `</body>`:
 
 ```php
     <!-- footer.php -->
@@ -44,10 +222,10 @@
     <!-- Cookie-плашка -->
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/local/templates/[ваш_шаблон]/include/cookie.php'); ?>
 
-    <!-- Модальные окна статуса отправки -->
+    <!-- Модальные окна (успех, ошибка, recaptcha) -->
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/local/templates/[ваш_шаблон]/include/modals.php'); ?>
 
-    <!-- Скрипты сайта -->
+    <!-- Основной бандл скриптов -->
     <script src="<?= SITE_TEMPLATE_PATH ?>/js/main.min.js"></script>
   </body>
 </html>
@@ -55,140 +233,14 @@
 
 ---
 
-## 3. JavaScript API для бекендера
+## 7. Файловая структура проекта
 
-Все методы доступны глобально в объекте `window`:
-
-```javascript
-// Открытие модалки по ID или типу
-window.openModal('modal-success'); // или window.BitrixModal.open('modal-success')
-window.openModal('modal-error');   // или window.BitrixModal.open('modal-error')
-
-// Закрытие активной модалки
-window.closeModal();               // или window.BitrixModal.close()
-
-// Динамическое открытие с кастомным текстом (например, текст ошибки от валидатора Битрикса)
-window.showModalSuccess({
-  title: 'Заявка принята',
-  message: 'Мы свяжемся с вами в течение 15 минут.'
-});
-
-window.showModalError({
-  title: 'Ошибка',
-  message: 'Не удалось прикрепить файл. Превышен допустимый размер.'
-});
-
-// Для проверки / сброса Cookie в процессе тестирования
-window.resetCookieConsent();
-```
-
----
-
-## 4. Сценарии интеграции форм
-
-### Вариант А: Отправка формы через AJAX (рекомендуемый)
-
-Форма перехватывается скриптом `validateForms.js`. При успешной клиентской валидации инициируется событие `form:submit-ajax`:
-
-```javascript
-document.addEventListener('form:submit-ajax', function (event) {
-  const form = event.detail.form;
-  const formData = event.detail.formData;
-
-  // Отправка в компонент Битрикса или контроллер
-  fetch('/local/ajax/feedback.php', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.status === 'success') {
-      window.showModalSuccess(data.message || 'Ваша заявка отправлена');
-      form.reset();
-    } else {
-      window.showModalError(data.error || 'Произошла ошибка при отправке');
-    }
-  })
-  .catch(error => {
-    window.showModalError('Ошибка сети или сервера. Попробуйте позже.');
-  });
-});
-```
-
-Если вы используете `BX.ajax` или `BX.ajax.runComponentAction`:
-
-```javascript
-BX.ajax.runComponentAction('custom:feedback', 'sendForm', {
-  mode: 'class',
-  data: new FormData(form)
-}).then(function (response) {
-  if (response.data.success) {
-    window.openModal('modal-success');
-    form.reset();
-  }
-}, function (response) {
-  const firstError = response.errors[0]?.message || 'При отправке произошла ошибка.';
-  window.showModalError(firstError);
-});
-```
-
----
-
-### Вариант Б: Классическая отправка с перезагрузкой страницы (POST-Redirect-GET)
-
-Если форма отправляется стандартным методом POST компонента `bitrix:form.result.new` или `main.feedback`:
-
-1. **Через URL-параметр Битрикса**:
-   При успешной отправке Битрикс обычно добавляет параметр `?formresult=addok` в URL.
-   Скрипт `modal.js` **автоматически распознает этот параметр при загрузке страницы** и сразу откроет `modal-success`.
-   Если передать `?formresult=error` или `?modal=error`, откроется `modal-error`.
-
-2. **Через атрибут в DOM**:
-   Если Битрикс срендерил модалку с классом `is-active` или атрибутом `data-auto-open`:
-   ```html
-   <div class="modal modal--success is-active" id="modal-success" data-modal="success">...</div>
-   ```
-   Модальное окно автоматически активируется при загрузке страницы.
-
-3. **Через инлайн-скрипт в шаблоне компонента**:
-   ```php
-   <?php if ($arResult["isFormNote"] == "Y"): ?>
-     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-         window.openModal('modal-success');
-       });
-     </script>
-   <?php elseif (!empty($arResult["FORM_ERRORS"])): ?>
-     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-         window.showModalError(<?= CUtil::PhpToJSObject(implode(' ', $arResult["FORM_ERRORS"])) ?>);
-       });
-     </script>
-   <?php endif; ?>
-   ```
-
----
-
-## 5. Интеграция плашки Cookie в PHP
-
-Модуль `cookie.js` при нажатии пользователем кнопки **«ПРИНЯТЬ ВСЁ»** устанавливает:
-1. Ключ в `localStorage`: `cookie_accepted = 'true'`.
-2. Cookie в браузере: `document.cookie = "cookie_accepted=true; path=/; max-age=31536000; SameSite=Lax"`.
-
-Бекендер в PHP может проверить, дал ли пользователь согласие:
-```php
-$isCookieAccepted = isset($_COOKIE['cookie_accepted']) && $_COOKIE['cookie_accepted'] === 'true';
-
-if (!$isCookieAccepted) {
-  // Например, не подключаем внешние счетчики Яндекс.Метрики / Google Analytics до согласия
-}
-```
-
----
-
-## 6. Тестирование
-
-На странице `ui-kit.html` добавлен интерактивный блок:
-1. Кнопка **«Модалка Успеха»** — открывает модальное окно успешной отправки заявки.
-2. Кнопка **«Модалка Ошибки»** — открывает модальное окно ошибки.
-3. Кнопка **«Сбросить Cookie»** — очищает запись в localStorage и куку, повторно вызывая появление плашки Cookie.
+| Файл | Описание |
+|---|---|
+| `source/html/components/modal-success.html` | Модалка успеха (`data-modal="modal-success"`) |
+| `source/html/components/modal-error.html` | Модалка ошибки (`data-modal="modal-error"`) |
+| `source/html/components/modal-recaptcha.html` | Модалка ошибки reCAPTCHA (`data-modal="modal-recaptcha"`) |
+| `source/html/components/modals.html` | Общий контейнер включения всех модалок |
+| `source/html/components/cookie.html` | Баннер Cookie |
+| `source/sass/components/modal.scss` | Стили модальных окон (поддерживает `.active`, `.is-active`, `.is-open`) |
+| `source/js/modules/modal.js` | Логика работы, закрытие по крестику/Escape/оверлею, сброс классов |

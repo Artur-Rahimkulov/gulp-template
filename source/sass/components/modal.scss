@@ -25,7 +25,8 @@ body.is-modal-open {
 		visibility var(--default-transition);
 
 	&.is-active,
-	&.is-open {
+	&.is-open,
+	&.active {
 		opacity: 1;
 		visibility: visible;
 		pointer-events: auto;
