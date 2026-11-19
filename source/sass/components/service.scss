@@ -822,7 +822,7 @@
 
 	&__title {
 		position: absolute;
-		top: 25.1rem;
+		bottom: 7.8rem;
 		left: 3.1rem;
 		max-width: min(27.4rem, calc(100% - 13rem));
 
@@ -836,9 +836,11 @@
 		}
 
 		@include vp-mobile {
+			bottom: 3rem;
 			left: 2rem;
-			max-width: 27.4rem;
+			max-width: calc(100% - 9.5rem);
 			font-size: 1.6rem;
+			line-height: 2rem;
 		}
 	}
 
