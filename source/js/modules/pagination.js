@@ -202,10 +202,12 @@ export const pagination = () => {
 
     // пустой список — странице без проектов не нужен декор слотов (см. .projects.is-empty)
     wrapper.classList.toggle('is-empty', items === 0)
+    wrapper.dataset.visibleItems = items
 
     // пустой список — «Показать ещё» не нужна (кнопку могли пересоздать после загрузки — ищем заново)
     const moreBtn = wrapper.querySelector('[data-show-more-button]')
     if (moreBtn) moreBtn.hidden = items === 0
+    wrapper.classList.toggle('has-no-more', !moreBtn || moreBtn.hidden)
   }
 
   // инициализация фильтров из квери параметров
@@ -268,4 +270,5 @@ export const pagination = () => {
   })
 
   initFiltersFromUrl()
+  handleEmpty()
 }

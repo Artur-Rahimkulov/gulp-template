@@ -53,6 +53,17 @@
 	// поэтому и высота — от ширины экрана: 1385 на 1920, без скачка на промежуточных брейкпоинтах
 	@include vp-desktop {
 		min-height: min(138.5rem, calc(91.1rem + 24.69vw));
+
+		// если проектов 1-2, сбрасываем min-height, чтобы не растягивать пустоту до подвала,
+		// и скрываем синюю плашку, так как она накладывается на подвал
+		&[data-visible-items='1'],
+		&[data-visible-items='2'] {
+			min-height: 0;
+
+			.projects__decor-img--slab-blue {
+				display: none !important;
+			}
+		}
 	}
 
 	// ничего не найдено: нет проектов — нет и их декора (линий и призраков слотов, синей плашки), страница по содержимому
@@ -329,6 +340,10 @@
 	// нижний отступ нечётного 124 → -12, чётного 63 → +49, единственного (первого) 50 → +62
 	margin-top: -1.2rem;
 
+	&:empty {
+		display: none;
+	}
+
 	@include vp-desktop {
 		.projects__items:has(> .project-row:nth-child(even of .project-row:not([hidden])):nth-last-child(1 of .project-row:not([hidden]))) + & {
 			margin-top: 4.9rem;
@@ -341,6 +356,48 @@
 
 	@include vp-mobile {
 		margin-top: 3rem;
+	}
+}
+
+// При 1 или 2 проектах:
+// Конец контента (последнего проекта или кнопки «Показать еще», если она есть)
+// совпадает с началом (верхним краем) серой плашки футера (.footer-decor__img--home-light).
+// Верхний край плашки футера находится на 24.5rem выше верхнего края подвала (стыка main и footer).
+// Следовательно:
+// - если есть кнопка: низ кнопки должен отстоять от низа .projects ровно на 24.5rem;
+// - если кнопки нет: низ последнего проекта должен отстоять от низа .projects ровно на 24.5rem.
+@include vp-desktop {
+	// С кнопкой «Показать ещё»:
+	// Высота кнопки 5.5rem. Чтобы её низ находился ровно на 24.5rem от низа .projects,
+	// отступ под кнопкой до низа .projects = 24.5rem.
+	.projects[data-visible-items='1']:not(.has-no-more),
+	.projects[data-visible-items='2']:not(.has-no-more) {
+		padding-bottom: 24.5rem;
+	}
+
+	// Без кнопки «Показать ещё»:
+	// Кнопка отсутствует или скрыта.
+	.projects[data-visible-items='1'].has-no-more,
+	.projects[data-visible-items='2'].has-no-more {
+		.projects__more {
+			display: none;
+		}
+	}
+
+	// 1 проект без кнопки:
+	// Первый проект имеет padding-bottom: 5rem.
+	// Чтобы его низ (конец контента проекта) приходился ровно на начало плашки футера (24.5rem до низа .projects),
+	// задаем padding-bottom у .projects: 24.5rem - 5rem = 19.5rem.
+	.projects[data-visible-items='1'].has-no-more {
+		padding-bottom: 19.5rem;
+	}
+
+	// 2 проекта без кнопки:
+	// Второй проект имеет padding: 6.3rem 0 (padding-bottom: 6.3rem).
+	// Чтобы его низ приходился ровно на начало плашки футера (24.5rem до низа .projects),
+	// задаем padding-bottom у .projects: 24.5rem - 6.3rem = 18.2rem.
+	.projects[data-visible-items='2'].has-no-more {
+		padding-bottom: 18.2rem;
 	}
 }
 
