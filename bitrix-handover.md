@@ -9,7 +9,8 @@
 ### Разметка (HTML):
 - `source/html/components/modal-success.html` — модальное окно успешной отправки заявки («Ваша заявка отправлена»).
 - `source/html/components/modal-error.html` — модальное окно ошибки («При отправке сообщения произошла ошибка…»).
-- `source/html/components/modals.html` — единый контейнер, включающий оба окна.
+- `source/html/components/modal-recaptcha.html` — модальное окно ошибки reCAPTCHA («Не пройдена проверка reCAPTCHA. Повторите отправку формы.»).
+- `source/html/components/modals.html` — единый контейнер, включающий окна.
 - `source/html/components/cookie.html` — плашка согласия с использованием файлов Cookie («Этот сайт использует cookie»).
 - `source/html/base/scripts.html` — партиал скриптов перед `</body>`, куда подключены `cookie.html` и `modals.html`.
 

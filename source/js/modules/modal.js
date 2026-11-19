@@ -168,10 +168,12 @@ export const modal = () => {
     openModal(autoModal);
   }
 
-  // 2. Bitrix редирект с GET-параметром (стандартный ?formresult=addok или ?modal=success/?modal=error)
+  // 2. Bitrix редирект с GET-параметром (стандартный ?formresult=addok или ?modal=success/?modal=error/?modal=recaptcha)
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('formresult') === 'addok' || urlParams.get('modal') === 'success') {
     openModal('modal-success');
+  } else if (urlParams.get('modal') === 'recaptcha' || urlParams.get('formresult') === 'recaptcha') {
+    openModal('modal-recaptcha');
   } else if (urlParams.get('formresult') === 'error' || urlParams.get('modal') === 'error') {
     openModal('modal-error');
   }
