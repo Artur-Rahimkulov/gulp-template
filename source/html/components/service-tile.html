@@ -1,7 +1,8 @@
 <!-- Карточка услуги в каталоге «Услуги»: синяя плашка (фон на CSS + HTML + SVG),
      иллюстрация (отдельная прозрачная картинка PNG/WebP), название, описание (только у широкой) и стрелка. Вся карточка — ссылка.
-     Параметры: size (wide | small), img (имя картинки: services-@@img.webp и -m.webp), title, text, href -->
-<a class="service-tile service-tile--@@size" href="@@href">
+     Параметры: size (wide | small), img (имя картинки: services-@@img.webp и -m.webp), title, text, href.
+     Место картинки в малой карточке — по имени в карте $service-tile-small-art (sass/components/services.scss) -->
+<a class="service-tile service-tile--@@size service-tile--art-@@img" href="@@href">
   <span class="service-tile__bg" aria-hidden="true">
     <svg class="service-tile__decor" @@if (context.size==='wide' ) {viewBox="0 0 666 329" }@@if (context.size !=='wide'
       ) {viewBox="0 0 435 329" } fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
