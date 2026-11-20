@@ -1,6 +1,6 @@
 <!-- Карточка услуги «Комплекс работ»: синяя плашка как у малой карточки каталога «Услуги» (фон на CSS + SVG),
      иллюстрация (прозрачная PNG/WebP), название и стрелка. Вся карточка — ссылка.
-     Параметры: title, href, img (имя картинки services-@@img.webp; место — по карте $service-tile-small-art в sass/components/services.scss) -->
+     Параметры: title, href, img (имя картинки: services-@@img.webp и -m.webp, как в каталоге; место — по карте $service-tile-small-art в sass/components/services.scss) -->
 <a class="service-card service-card--art-@@img" href="@@href">
   <span class="service-card__bg" aria-hidden="true">
     <svg class="service-card__decor" viewBox="0 0 435 329" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -8,9 +8,10 @@
       <path d="M173 54H435V329H72L173 54Z" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
     </svg>
   </span>
-  <span class="service-card__pic" aria-hidden="true">
+  <picture class="service-card__pic" aria-hidden="true">
+    <source media="(max-width: 899.98px)" srcset="assets/img/services-@@img-m.webp">
     <img class="service-card__img" src="assets/img/services-@@img.webp" alt="" loading="lazy">
-  </span>
+  </picture>
   <span class="service-card__title">@@title</span>
   <span class="service-card__arrow" aria-hidden="true"></span>
 </a>
