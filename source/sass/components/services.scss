@@ -89,6 +89,7 @@
 
 	// плашки у краёв заходят на контент, когда полей мало
 	@media (min-width: $vp-desktop) and (max-width: 1599.98px) {
+
 		&--hero-edge,
 		&--hero-slab {
 			display: none;
@@ -174,7 +175,7 @@
 		color: var(--color-link);
 	}
 
-	li + li::before {
+	li+li::before {
 		margin: 0 0.4rem 0 0.3rem;
 		color: var(--color-link);
 	}
@@ -276,6 +277,7 @@
 	}
 
 	@include vp-mobile {
+
 		&,
 		&:has(> .services__grid--wide:last-child) {
 			padding-bottom: 2.4rem;
@@ -306,7 +308,7 @@
 	}
 }
 
-.services__tabs.is-filtered .services__section > .services__section-decor,
+.services__tabs.is-filtered .services__section>.services__section-decor,
 .services__tabs:not(.is-filtered) .services__list-decor {
 	display: none;
 }
@@ -545,24 +547,8 @@
 	overflow: hidden;
 	background: linear-gradient(180deg, #0049a1 0%, #004f9e 50%, #003c96 100%);
 
-	// тень под карточкой (из макета, картинкой)
-	&::before {
-		content: '';
-		position: absolute;
-		top: 8.4rem;
-		left: 0;
-		z-index: -2;
-		width: 100%;
-		height: 29.3rem;
-		background: url("../assets/img/services-shadow.webp") no-repeat 0 0 / 100% 100%;
-		pointer-events: none;
-	}
+	//todo тень под карточкой drop-shadow
 
-	&--wide::before {
-		top: 6.9rem;
-		height: 31.4rem;
-		background-image: url("../assets/img/services-shadow-wide.webp");
-	}
 
 	&__bg {
 		position: absolute;

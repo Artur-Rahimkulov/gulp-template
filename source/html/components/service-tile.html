@@ -3,18 +3,21 @@
      Параметры: size (wide | small), img (имя картинки: services-@@img.webp и -m.webp), title, text, href -->
 <a class="service-tile service-tile--@@size" href="@@href">
   <span class="service-tile__bg" aria-hidden="true">
-    <svg class="service-tile__decor" @@if (context.size === 'wide') {viewBox="0 0 666 329"}@@if (context.size !== 'wide') {viewBox="0 0 435 329"} fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <svg class="service-tile__decor" @@if (context.size==='wide' ) {viewBox="0 0 666 329" }@@if (context.size !=='wide'
+      ) {viewBox="0 0 435 329" } fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 54H173" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
       @@if (context.size === 'wide') {
-      <path d="M173 54H666V329H72L173 54Z" fill="rgba(0, 20, 60, 0.05)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+      <path d="M173 54H666V329H72L173 54Z" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
       }
       @@if (context.size !== 'wide') {
-      <path d="M173 54H435V329H72L173 54Z" fill="rgba(0, 20, 60, 0.05)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+      <path d="M173 54H435V329H72L173 54Z" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
       }
     </svg>
   </span>
   <picture class="service-tile__pic" aria-hidden="true">
     <source media="(max-width: 899.98px)" srcset="assets/img/services-@@img-m.webp">
-    <img class="service-tile__img" src="assets/img/services-@@img.webp" @@if (context.size === 'wide') {width="666"}@@if (context.size !== 'wide') {width="435"} height="329" alt="" loading="lazy">
+    <img class="service-tile__img" src="assets/img/services-@@img.webp" @@if (context.size==='wide' ) {width="666" }@@if
+      (context.size !=='wide' ) {width="435" } height="329" alt="" loading="lazy">
   </picture>
   <span class="service-tile__body">
     <span class="service-tile__title" title="@@title">@@title</span>
