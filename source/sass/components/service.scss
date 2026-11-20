@@ -753,6 +753,7 @@
 	display: block;
 	height: 37.7rem;
 	color: var(--color-white);
+	overflow: hidden;
 
 	// мобильная: плашка 356×329 без места под тень (его даёт слайдер)
 	@include vp-mobile {
@@ -760,8 +761,6 @@
 	}
 
 	isolation: isolate;
-	// иллюстрации не выходят за синюю плашку по бокам
-	clip-path: inset(0 0 -2rem 0);
 
 	// тень под карточкой
 	&::before {
@@ -795,49 +794,52 @@
 
 	&__img {
 		position: absolute;
-		max-width: none;
+		top: 1.2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		max-width: calc(100% - 3rem);
+		max-height: 21.5rem;
+		width: auto;
+		height: auto;
+		object-fit: contain;
 		pointer-events: none;
 		transition: transform var(--default-transition);
 	}
 
 	&--gas &__img {
-		top: 0;
-		left: calc(50% - 10.95rem);
-		width: 23.1rem;
-		height: 22.3rem;
+		max-width: min(23.1rem, calc(100% - 3rem));
+		max-height: 22.3rem;
 
 		@include vp-mobile {
-			left: 7.1rem;
+			top: 1rem;
 		}
 	}
 
 	&--motor &__img {
 		top: 1.2rem;
-		left: calc(50% - 9.2rem);
-		width: 18.4rem;
-		height: 23.4rem;
+		max-width: min(18.4rem, calc(100% - 3rem));
+		max-height: 23.4rem;
 
 		@include vp-mobile {
-			left: 8.1rem;
+			top: 1rem;
 		}
 	}
 
 	&--light &__img {
 		top: 0.8rem;
-		left: 0.9rem;
-		width: min(36rem, calc(100% - 1.8rem));
-		height: auto;
+		max-width: min(36rem, calc(100% - 2rem));
+		max-height: 23rem;
+
+		@include vp-mobile {
+			top: 1rem;
+		}
 	}
-
-	// синяя плашка обрезает выступающие иллюстрации
-
 
 	&__title {
 		position: absolute;
-		top: 25.1rem;
+		bottom: 3.2rem;
 		left: 3.1rem;
-		max-width: min(27.4rem, calc(100% - 13rem));
-
+		max-width: min(27.4rem, calc(100% - 11rem));
 		font-size: 1.8rem;
 		line-height: 2.4rem;
 		font-weight: 600;
@@ -848,9 +850,11 @@
 		}
 
 		@include vp-mobile {
+			bottom: 2.8rem;
 			left: 2rem;
-			max-width: 27.4rem;
+			max-width: calc(100% - 9rem);
 			font-size: 1.6rem;
+			line-height: 2.1rem;
 		}
 	}
 
@@ -889,7 +893,7 @@
 
 	@include hover-focus {
 		.service-card__img {
-			transform: translateY(-0.6rem);
+			transform: translateX(-50%) translateY(-0.6rem);
 		}
 
 		.service-card__arrow {
