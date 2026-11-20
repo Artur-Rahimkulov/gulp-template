@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Страница «Услуга». Координаты декора из макета 1920: left = calc(50% + (x − 960)px), top — от верха секции;
 // на мобильной 390 — от центра 195. Форма «Остались вопросы?» — общая с «Контактами» (components/contacts.scss).
 .service {
@@ -760,10 +762,8 @@
 	}
 
 	isolation: isolate;
-	// иллюстрации не выходят за синюю плашку по бокам
-	clip-path: inset(0 0 -2rem 0);
 
-	// тень под карточкой
+	// тень под карточкой — та же, что у малой карточки каталога «Услуги»
 	&::before {
 		content: '';
 		position: absolute;
@@ -772,9 +772,10 @@
 		right: 0;
 		height: 29.3rem;
 		z-index: -2;
-		background: url("../assets/img/service-card-shadow.webp") no-repeat 0 0 / 100% 100%;
+		background: url("../assets/img/services-shadow.webp") no-repeat 0 0 / 100% 100%;
 	}
 
+	// синяя плашка как у карточек каталога (.service-tile__bg)
 	&__bg {
 		position: absolute;
 		top: 0;
@@ -782,43 +783,59 @@
 		right: 0;
 		z-index: -1;
 		height: 32.9rem;
-		background-repeat: no-repeat;
-		background-position: 50% 0;
-		background-size: cover;
-
-		// в мобильном макете фон прижат к левому краю
-		@include vp-mobile {
-			background-position: 0 0;
-		}
+		overflow: hidden;
+		background:
+			linear-gradient(90deg, rgba(0, 92, 186, 0.1) 0%, rgba(0, 92, 186, 0) 45%),
+			linear-gradient(180deg, #0044a0 0%, #0048a7 30%, #0044a4 75%, #003f9c 100%);
 	}
 
+	&__decor {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	// картинка не выходит за плашку
+	&__pic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 0;
+		height: 32.9rem;
+		overflow: hidden;
+		pointer-events: none;
+	}
+
+	// по умолчанию — вписана в верх плашки над названием
 	&__img {
 		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 24.3rem;
 		max-width: none;
+		object-fit: contain;
+		object-position: center top;
 		pointer-events: none;
 		transition: transform var(--default-transition);
 	}
 
-	&--gas &__img {
-		top: 0;
-		left: calc(50% - 10.95rem);
-		width: 23.1rem;
-		height: 22.3rem;
+	// место по макету, как в каталоге: высота и отступ сверху, по горизонтали — доля свободного места;
+	// на узкой карточке не влезающая по ширине ужимается (contain)
+	@each $name, $art in $service-tile-small-art {
+		$x: nth($art, 1);
+		$y: nth($art, 2);
+		$w: nth($art, 3);
+		$h: nth($art, 4);
 
-		@include vp-mobile {
-			left: 7.1rem;
+		&--art-#{$name} &__img {
+			top: math.div($y, 10) * 1rem;
+			height: math.div($h, 10) * 1rem;
+			object-position: math.div($x, 435 - $w) * 100% top;
 		}
 	}
-
-	&--light &__img {
-		top: 0.8rem;
-		left: 0.9rem;
-		width: min(34.2rem, calc(100% - 1.8rem));
-		height: auto;
-	}
-
-	// синяя плашка обрезает выступающие иллюстрации
-
 
 	&__title {
 		position: absolute;
