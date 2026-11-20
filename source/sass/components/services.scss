@@ -542,6 +542,8 @@
 	height: 32.9rem;
 	color: var(--color-white);
 	text-decoration: none;
+	overflow: hidden;
+	background: linear-gradient(180deg, #0049a1 0%, #004f9e 50%, #003c96 100%);
 
 	// тень под карточкой (из макета, картинкой)
 	&::before {
@@ -567,15 +569,38 @@
 		inset: 0;
 		z-index: -1;
 		overflow: hidden;
+		pointer-events: none;
+	}
 
-		img {
-			display: block;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: 100% 50%;
-			transition: transform 0.6s ease;
-		}
+	&__decor {
+		display: block;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+
+	&__pic {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 0;
+		height: 100%;
+		overflow: hidden;
+		pointer-events: none;
+		display: block;
+	}
+
+	&__img {
+		display: block;
+		width: auto;
+		height: 100%;
+		max-width: none;
+		object-fit: cover;
+		object-position: right center;
+		pointer-events: none;
+		transition: transform 0.6s ease;
+		transform-origin: right center;
 	}
 
 	// широкая: название и описание сверху слева, стрелка под ними
@@ -661,7 +686,7 @@
 	}
 
 	@include hover-focus {
-		.service-tile__bg img {
+		.service-tile__img {
 			transform: scale(1.03);
 		}
 
@@ -699,8 +724,18 @@
 			height: 21.7rem;
 		}
 
-		&__bg img {
-			object-position: 50% 50%;
+		&__pic {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			height: 100%;
+		}
+
+		&__img {
+			width: auto;
+			height: 100%;
+			max-width: none;
+			object-position: right center;
 		}
 
 		&__body {
