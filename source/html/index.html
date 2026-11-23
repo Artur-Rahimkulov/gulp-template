@@ -3,7 +3,7 @@
 	@@include("source/html/base/head.html", { "title": "Главная" })
 	<body>
 		<div class="wrapper">
-			@@include("source/html/base/header.html", {"active": "main", "overlay": true})
+			@@include("source/html/base/header.html", {"active": "main", "overlay": true, "modalProject": true})
 			<main class="home">
 
 				<!-- Первый экран: заголовок и плашки услуг поверх иллюстрации -->
@@ -33,7 +33,7 @@
 							<li>Комплексные инженерные решения</li>
 							<li>Монтажная<br> компания</li>
 						</ul>
-						@@include("source/html/ui/button.html", {"tag": "a", "href": "contacts.html", "name": "Обсудить проект", "class": "home-hero__btn"})
+						@@include("source/html/ui/button.html", {"tag": "a", "href": "contacts.html", "name": "Обсудить проект", "class": "home-hero__btn", "dataAttrString": "data-modal-open='modal-project'"})
 
 						<!-- Плашки услуг: на десктопе разложены по иллюстрации, при наведении над плашкой появляется видео в кружке; на мобильной видна одна и листается стрелками -->
 						<div class="home-hero__tags" data-hero-tags>

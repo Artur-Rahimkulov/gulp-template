@@ -246,3 +246,138 @@ body.is-modal-open {
 		}
 	}
 }
+// ==========================================================================
+// Модалка с формой «Обсудить проект» (components/modal-project.html)
+// Десктоп 942 × 503, мобильная 359 × 731; форма — .contacts-form--files (components/contacts.scss)
+// ==========================================================================
+.modal--form {
+	// высокая форма не влезает в экран — модалка прокручивается, окно по центру, пока помещается
+	align-items: flex-start;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+
+	@include vp-mobile {
+		padding: 1.6rem;
+	}
+
+	.modal__overlay {
+		position: fixed;
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	.modal__dialog {
+		width: 94.2rem;
+		min-height: 0;
+		margin: auto;
+		overflow: visible;
+		background-color: #0b295c;
+		border: 0.1rem solid #0073ff;
+		border-radius: 0;
+		box-shadow: none;
+
+		@include vp-mobile {
+			width: 35.9rem;
+		}
+	}
+
+	// крестик без плашки: 24 на 39 сверху и 41 справа, на мобильной 20 на 19 и 21
+	.modal__close {
+		top: 3.8rem;
+		right: 4rem;
+		width: 2.4rem;
+		height: 2.4rem;
+		background: none;
+		border: none;
+		border-radius: 0;
+		transition: opacity var(--default-transition);
+
+		img {
+			width: 2.4rem;
+			height: 2.4rem;
+		}
+
+		@include hover {
+			background: none;
+			opacity: 0.7;
+		}
+
+		@include focus {
+			outline: 0.2rem solid #6fb0ff;
+			outline-offset: 0.2rem;
+		}
+
+		@include vp-mobile {
+			top: 1.8rem;
+			right: 2rem;
+			width: 2rem;
+			height: 2rem;
+
+			img {
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+	}
+}
+
+// форма в модалке: фон и рамка — у окна; поля 310 через 100, подписи с 63 от верха окна
+.contacts-form--modal {
+	padding: 3.6rem 3.8rem 4rem;
+	background: none;
+	border: none;
+
+	.contacts-form__grid {
+		grid-template-columns: repeat(2, minmax(0, 31rem));
+		column-gap: 10rem;
+		row-gap: 3.2rem;
+	}
+
+	.contacts-form__files {
+		margin-top: 1.3rem;
+	}
+
+	.contacts-form__message {
+		margin-top: 4rem;
+	}
+
+	.contacts-form__textarea {
+		height: 15rem;
+		padding: 2rem;
+	}
+
+	.contacts-form__bottom {
+		margin-top: 3rem;
+	}
+
+	// мобильная: поля в столбец через 39 от линии до подписи, подписи с 70 от верха окна
+	@include vp-mobile {
+		padding: 6.9rem 1.9rem 2.9rem;
+
+		.contacts-form__grid {
+			grid-template-columns: minmax(0, 1fr);
+			row-gap: 1.3rem;
+		}
+
+		.contacts-form__files {
+			margin-top: 2.6rem;
+		}
+
+		.contacts-form__message {
+			margin-top: 3.2rem;
+		}
+
+		.contacts-form__textarea {
+			height: 13.6rem;
+		}
+
+		.contacts-form__bottom {
+			gap: 2rem;
+			margin-top: 2rem;
+		}
+
+		.contacts-form__consent-text {
+			line-height: 1.3;
+			font-weight: 400;
+		}
+	}
+}

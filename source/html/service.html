@@ -3,7 +3,7 @@
 	@@include("source/html/base/head.html", { "title": "Электромонтаж силового оборудования (ЭМ)" })
 	<body>
 		<div class="wrapper">
-			@@include("source/html/base/header.html", {"active": "services", "overlay": true, "noSlab": true})
+			@@include("source/html/base/header.html", {"active": "services", "overlay": true, "noSlab": true, "modalProject": true})
 			<main class="service">
 				<!-- косые и горизонтальные линии страницы из макета (svg 1920 по центру) -->
 				<div class="service__lines" aria-hidden="true"></div>
@@ -31,7 +31,7 @@
 							</nav>
 							<h1 class="service-hero__title">Электромонтаж силового оборудования&nbsp;(ЭМ)</h1>
 							<p class="service-hero__text">Подключение бытового и&nbsp;промышленного силового электрооборудования любой мощности: электродвигателей, насосных групп, компрессоров, станков, технологических линий.</p>
-							@@include("source/html/ui/button.html", {"tag": "a", "href": "#service-feedback", "name": "Обсудить проект", "class": "service-hero__btn"})
+							@@include("source/html/ui/button.html", {"tag": "a", "href": "#service-feedback", "name": "Обсудить проект", "class": "service-hero__btn", "dataAttrString": "data-modal-open='modal-project'"})
 						</div>
 						<img class="service-hero__photo" src="assets/img/service-hero.webp" width="646" height="587" alt="Электромонтаж силового оборудования: шкаф управления и электродвигатель">
 					</div>

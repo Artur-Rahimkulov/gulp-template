@@ -1,0 +1,13 @@
+<!-- Модальное окно «Обсудить проект» (на всех страницах через modals.html; кнопки с открытием — на главной, «Проекте» и «Услуге»): форма «Остались вопросы?» с прикреплением документов (components/contacts-form.html).
+     Открывается кнопками с data-modal-open="modal-project"; валидация, маска телефона и файлы — общие для форм
+     (js/modules/validateForms.js, input-phone.js, contacts-files.js), после отправки — модалка успеха или ошибки -->
+<div class="modal modal--form" id="modal-project" data-modal="modal-project" aria-hidden="true" role="dialog" aria-modal="true"
+  aria-label="Обсудить проект">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__dialog">
+    <button class="modal__close" type="button" aria-label="Закрыть окно" data-modal-close>
+      <img src="assets/svg/modal-cross.svg" width="24" height="24" alt="" aria-hidden="true">
+    </button>
+    @@include("source/html/components/contacts-form.html", {"files": true, "message": "Расскажите о вашем проекте", "class": "contacts-form--modal"})
+  </div>
+</div>

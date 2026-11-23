@@ -3,7 +3,7 @@
 	@@include("source/html/base/head.html", { "title": "Электромонтажные работы производственного комплекса" })
 	<body>
 		<div class="wrapper">
-			@@include("source/html/base/header.html", {"active": "projects"})
+			@@include("source/html/base/header.html", {"active": "projects", "modalProject": true})
 			<main>
 				<div class="breadcrumbs breadcrumbs--title project-hero bg-grid">
 					<img class="project-hero__slab" src="assets/img/slab-blue.webp" width="496" height="474" alt="" aria-hidden="true">
@@ -139,7 +139,7 @@
 						  <h2>Готовы начать свой проект?</h2>
 						  <p>Свяжитесь с&nbsp;нами для&nbsp;обсуждения вашей задачи. Мы&nbsp;подготовим индивидуальное коммерческое предложение с&nbsp;учетом всех ваших требований.</p>
 						</div>
-						@@include("source/html/ui/button.html", {"tag": "a", "href": "contacts.html", "name": "Обсудить проект", "class": "btn--lg project-cta__btn"})
+						@@include("source/html/ui/button.html", {"tag": "a", "href": "contacts.html", "name": "Обсудить проект", "class": "btn--lg project-cta__btn", "dataAttrString": "data-modal-open='modal-project'"})
 					</div>
 				</section>
 			</main>

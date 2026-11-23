@@ -2,8 +2,9 @@
      при вводе, сообщение и согласие.
      Параметры: compact: true — раскладка «Услуги» с прикреплением документов (js/modules/contacts-files.js);
      files: true — прикрепление документов в обычной раскладке («Контакты»);
-     message — подсказка в поле сообщения; phoneOptional: true — телефон необязателен (ТЗ «Контактов») -->
-<form class="contacts-form @@if (context.compact) {contacts-form--compact}@@if (context.files) { contacts-form--files}" action="#" method="post" @@if (context.compact || context.files) {enctype="multipart/form-data"} novalidate>
+     message — подсказка в поле сообщения; phoneOptional: true — телефон необязателен (ТЗ «Контактов»);
+     class — дополнительный класс формы (contacts-form--modal — в модалке «Обсудить проект») -->
+<form class="contacts-form @@if (context.compact) {contacts-form--compact}@@if (context.files) { contacts-form--files}@@if (context.class) { @@class}" action="#" method="post" @@if (context.compact || context.files) {enctype="multipart/form-data"} novalidate>
   <div class="contacts-form__grid">
     <label class="contacts-form__field contacts-form__field--name" data-form-group>
       <input class="contacts-form__input" type="text" name="name" placeholder=" " required data-type="name" autocomplete="name" data-required-message="Заполните поле" data-error-message="Введите корректное имя">
