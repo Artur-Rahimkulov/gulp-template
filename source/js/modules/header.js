@@ -27,16 +27,20 @@ export const header = () => {
     closeButton?.focus()
   }
 
-  const close = () => {
+  const close = (restoreFocus = true) => {
     if (!menu.classList.contains('is-open')) return
     menu.classList.remove('is-open')
     openButton.setAttribute('aria-expanded', 'false')
     document.body.classList.remove('scroll-lock')
-    openButton.focus()
+    if (restoreFocus) openButton.focus()
   }
 
   openButton.addEventListener('click', open)
-  closeButton?.addEventListener('click', close)
+  closeButton?.addEventListener('click', () => close())
+
+  // «Обсудить проект» в меню открывает модалку (js/modules/modal.js) — меню закрываем,
+  // иначе после закрытия модалки под ней остаётся открытое меню; фокус остаётся в модалке
+  document.addEventListener('modal:open', () => close(false))
 
   document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') close()

@@ -3,9 +3,7 @@
      значения: main, services, projects, career, about, media, contacts
      {"overlay": true} — прозрачная шапка поверх первого экрана (главная)
      {"plain": true} — шапка цвета страницы, сквозь неё видны фоновые фигуры первого экрана; без большой синей плашки («Услуги»)
-     {"noSlab": true} — без большой синей плашки справа («Услуга», «Проекты»)
-     {"modalProject": true} — «Обсудить проект» открывает модалку components/modal-project.html (главная, «Проект», «Услуга»),
-     без него — ссылка на «Контакты» -->
+     {"noSlab": true} — без большой синей плашки справа («Услуга», «Проекты») -->
 <header class="header bg-grid @@if (context.overlay) {header--overlay} @@if (context.plain) {header--plain} @@if (context.noSlab) {header--no-slab}" data-header>
   <div class="container header__inner">
     <img class="header__decor header__decor--tiles" src="assets/img/tiles-small.webp" width="180" height="66" alt="" aria-hidden="true">
@@ -45,7 +43,7 @@
         <a class="link header__email" href="mailto:102kraft@gmail.com">102kraft@gmail.com</a>
         <p class="header__label">Адрес:</p>
         <p class="header__address">450100, ул. Маршала Жукова, д.&nbsp;3/1, 1&#8209;й этаж</p>
-        @@if (context.modalProject) {
+        <!-- открывает модалку «Обсудить проект» (components/modal-project.html) на любой странице -->
         @@include("source/html/ui/button.html", {
           "tag": "a",
           "href": "contacts.html",
@@ -53,15 +51,6 @@
           "name": "Обсудить проект",
           "dataAttrString": "data-modal-open='modal-project'"
         })
-        }
-        @@if (!context.modalProject) {
-        @@include("source/html/ui/button.html", {
-          "tag": "a",
-          "href": "contacts.html",
-          "class": "btn--md header__btn",
-          "name": "Обсудить проект"
-        })
-        }
       </div>
     </div>
 
