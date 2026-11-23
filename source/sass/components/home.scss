@@ -1630,13 +1630,7 @@
 		}
 
 		@include vp-mobile {
-			&--slab {
-				top: 40.7rem;
-				left: calc(50% - 24.4rem);
-				width: 13.9rem;
-				height: 12.3rem;
-			}
-
+			&--slab,
 			&--tiles {
 				display: none;
 			}
