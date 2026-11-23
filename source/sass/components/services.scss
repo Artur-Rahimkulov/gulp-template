@@ -641,7 +641,7 @@ $service-tile-small-art: (
 		height: 74%;
 		max-width: none;
 		object-fit: contain;
-		object-position: right top;
+		object-position: center top;
 		pointer-events: none;
 		transition: transform 0.6s ease;
 		transform-origin: center;
@@ -665,8 +665,8 @@ $service-tile-small-art: (
 		}
 	}
 
-	// малая: высота картинки и отступ сверху по макету, по горизонтали — та же доля свободного места,
-	// что в макете; на узкой карточке размер сохраняется, а не влезающая по ширине — ужимается (contain)
+	// малая: высота картинки и отступ сверху по макету, по горизонтали — строго по центру,
+	// на узкой карточке размер сохраняется, а не влезающая по ширине — ужимается (contain)
 	@each $name, $art in $service-tile-small-art {
 		$x: nth($art, 1);
 		$y: nth($art, 2);
@@ -676,7 +676,7 @@ $service-tile-small-art: (
 		&--small#{&}--art-#{$name} &__img {
 			top: math.div($y, 10) * 1rem;
 			height: math.div($h, 10) * 1rem;
-			object-position: math.div($x, 435 - $w) * 100% top;
+			object-position: center top;
 		}
 	}
 

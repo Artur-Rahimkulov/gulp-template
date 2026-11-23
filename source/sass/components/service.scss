@@ -822,7 +822,7 @@
 		transition: transform var(--default-transition);
 	}
 
-	// место по макету, как в каталоге: высота и отступ сверху, по горизонтали — доля свободного места;
+	// место по макету, как в каталоге: высота и отступ сверху, по горизонтали — строго по центру;
 	// на узкой карточке не влезающая по ширине ужимается (contain)
 	@each $name, $art in $service-tile-small-art {
 		$x: nth($art, 1);
@@ -833,7 +833,7 @@
 		&--art-#{$name} &__img {
 			top: math.div($y, 10) * 1rem;
 			height: math.div($h, 10) * 1rem;
-			object-position: math.div($x, 435 - $w) * 100% top;
+			object-position: center top;
 		}
 	}
 
