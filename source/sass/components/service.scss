@@ -330,16 +330,18 @@
 		}
 
 		@include vp-mobile {
-			top: 24.1rem;
-			bottom: auto;
-			// по центру экрана и не шире колонки контента — за края не выходит
-			left: 50%;
+			// в потоке под кнопкой: при переносе текста опускается вместе с ней, а не лежит под кнопкой
+			position: relative;
+			top: auto;
+			left: auto;
 			right: auto;
+			display: block;
 			width: 27.8rem;
-			max-width: calc(100% - var(--container-padding) * 2);
+			// по центру и не шире колонки контента — за края не выходит
+			max-width: 100%;
 			height: auto;
+			margin: 2rem auto 0;
 			opacity: 1;
-			transform: translateX(-50%);
 		}
 	}
 }
