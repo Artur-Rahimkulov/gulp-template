@@ -941,7 +941,8 @@ $service-tile-small-art: (
 	justify-content: space-between;
 	align-items: start;
 
-	@include vp-narrow {
+	// до 1400 форма рядом с заголовком не помещается (поля выходят за края) — уходит под него
+	@media (min-width: $vp-desktop) and (max-width: 1399.98px) {
 		grid-template-columns: minmax(0, 1fr);
 		row-gap: 4rem;
 	}
