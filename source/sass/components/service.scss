@@ -332,11 +332,14 @@
 		@include vp-mobile {
 			top: 24.1rem;
 			bottom: auto;
-			left: calc(50% - 21.4rem);
+			// по центру экрана и не шире колонки контента — за края не выходит
+			left: 50%;
 			right: auto;
 			width: 27.8rem;
-			height: 25.3rem;
+			max-width: calc(100% - var(--container-padding) * 2);
+			height: auto;
 			opacity: 1;
+			transform: translateX(-50%);
 		}
 	}
 }
